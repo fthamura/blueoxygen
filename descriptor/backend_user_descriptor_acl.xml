@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="backend_user_descriptor_acl" method="post" action="../utility/crvd-engine.jsp">
+	<descriptor title="Backend User" name="backend_user_id" type="list" search="yes" edit="yes" help="Backend user" references="yes" >
+		<builder datatype="varchar" datasize="25"/>
+		<references table="backend_user" key="id" value="username" orderby="username" viewall="yes"/>
+	</descriptor>
+
+	<descriptor title="Descriptor" name="descriptor_id" type="list" search="yes" edit="yes" help="put help here" references="yes" >
+		<builder datatype="varchar" datasize="25"/>
+		<references table="descriptor" key="id" value="description" orderby="description" viewall="yes" />
+	</descriptor>
+
+	<descriptor title="Create" name="create_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" help="Create New Descriptor's Content">
+		<builder datatype="varchar" datasize="1"/>
+		<choice title="Yes" name="create_flag" value="1"/>
+		<choice title="No" name="create_flag" value="0"/>
+	</descriptor>
+	
+	<descriptor title="Delete" name="delete_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" help="Delete Descriptor's Content">
+		<builder datatype="varchar" datasize="1"/>
+		<choice title="Yes" name="delete_flag" value="1"/>
+		<choice title="No" name="delete_flag" value="0"/>
+	</descriptor>
+	
+	<descriptor title="Update" name="update_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" help="Update Descriptor's Content">
+		<builder datatype="varchar" datasize="1"/>	
+		<choice title="Yes" name="update_flag" value="1"/>
+		<choice title="No" name="update_flag" value="0"/>
+	</descriptor>
+	
+	<descriptor title="Search" name="search_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" help="Search Descriptor's Content">
+		<builder datatype="varchar" datasize="1"/>
+		<choice title="Yes" name="search_flag" value="1"/>
+		<choice title="No" name="search_flag" value="0"/>
+	</descriptor>
+	<descriptor title="View Workflow Status" name="workflow_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" help="Search Descriptor's Content">
+		<builder datatype="varchar" datasize="1"/>
+		<choice title="Yes" name="workflow_flag" value="1"/>
+		<choice title="No" name="workflow_flag" value="0"/>
+	</descriptor>
+
+</contentmanager>

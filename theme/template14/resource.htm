@@ -1,0 +1,72 @@
+#set($sTitle = "- Resources")
+#parse("$ThemeFolder/include/headDoc.htm")
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr> 
+    <td width="780" height="69" valign="top">
+#parse("$ThemeFolder/include/header.htm")
+	</td>
+  </tr>
+  <tr> 
+    <td valign="top"><table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+        <!--DWLayoutTable-->
+        <tr> 
+          <td width="139" valign="top">
+#parse("$ThemeFolder/include/left_menu.htm")		  
+		  </td>
+          <td width="100%" valign="top"><table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+              <!--DWLayoutTable-->
+              <tr> 
+                <td width="100%" height="183" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="/cimande/theme/$ThemeFolder/images/1X1_000033.gif">
+                    <!--DWLayoutTable-->
+                    <tr> 
+                      <td width="100%" height="183" valign="top"><img src="/cimande/theme/$ThemeFolder/images/main_images.jpg" width="489" height="183"></td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr> 
+                <td height="63" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="/cimande/theme/$ThemeFolder/images/1X1_000033.gif">
+                    <!--DWLayoutTable-->
+                    <tr> 
+                      <td width="89" rowspan="2" valign="top"><img src="/cimande/theme/$ThemeFolder/images/sub_main_images.jpg" width="89" height="63"></td>
+                      <td width="304" rowspan="2" valign="top" class="subimagetext">Ada 
+                        barang baru dari Blueogygen. Klik aja di <br>
+                        www.masuksiniaja.co.id. sebuah handy.</td>
+                      <td width="69" height="45"></td>
+                      <td width="27">&nbsp;</td>
+                    </tr>
+                    <tr> 
+                      <td height="18"></td>
+                      <td valign="top" class="subimagemore">&gt;&gt;</td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td valign="top">	
+#parse("$ThemeFolder/content/resource.htm") 
+				</td>
+              </tr>
+            </table></td>
+          <td width="152" valign="top"><table width="152" height="100%" border="0" cellpadding="0" cellspacing="0">
+              <!--DWLayoutTable-->
+              <tr> 
+                <td width="9">&nbsp;</td>
+                <td width="134" valign="top">
+#set($collectionContext=$pagecollection.getCollectionContext("cross_selling"))					
+#parse("$ThemeFolder/include/right_menu.htm")
+				</td>
+                <td width="9">&nbsp;</td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr> 
+#parse("$ThemeFolder/include/footer.htm")     
+  </tr>
+  <tr> 
+    <td height="20"></td>
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>

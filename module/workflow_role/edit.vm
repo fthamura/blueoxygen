@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Create Workflow's Role</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors ) <li>$error</li>
+#end
+</ul>
+#end
+
+<form method="post" action="update.action">
+  <table bgcolor="gray" border="0" cellpadding="4" cellspacing="1"
+ width="98%">
+    <tbody>
+      <tr bgcolor="#d0dcff">
+        <td colspan="2"><b>Create Workflow's Role</b></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" width="25%">
+        	<font color="red">*</font>
+        	Name
+        	</td>
+        <td><input maxlength="128" name="name" size="25" value="$!name"></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">Description:</td>
+        <td>
+        	<textarea id="description" name="description" style="width: 110%" rows="15" cols="80">
+        	$!description
+        	</textarea>
+         </td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">Parent ID:</td>
+        <td>
+        	<input type="text" name="parentId" value="" maxlength="36" size="36">
+        </td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">Active:</td>
+        <td><input type="radio" name="activeFlag" value="1" #if ($activeFlag == 1) checked #end> Yes<br><input type="radio" name="activeFlag" value=0 #if ($activeFlag == 0) checked #end> No
+        </td>
+      </tr>
+      <tr bgcolor="#d0dcff">
+        <td colspan="2"><input name="Submit" value="Update" type="submit">&nbsp;&nbsp;
+        <input name="Clear" value="Reset" type="reset"> <input type="hidden" name="id" value="$id"></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+</html>

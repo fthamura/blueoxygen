@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="onhand" method="post" action="../utility/crvd-engine.jsp">
+	
+	<descriptor title="Product Id" search="yes" required="yes" edit="yes" name="product_id" type="list">
+		<builder datatype="varchar" datasize="30"/>
+		<references table="product" key="id" value="product_name" orderby="id" viewall="yes"/>
+	</descriptor>
+	
+	<descriptor title="Quantity" search="yes" required="yes" edit="yes" name="qty" type="text" size="5">
+		<builder datatype="float" datasize="5"/>
+	</descriptor>
+	
+	<descriptor title="Warehouse Id" search="yes" required="yes" edit="yes" name="warehouse_id" type="text" size="30">
+		<builder datatype="varchar" datasize="30"/>
+	</descriptor>
+	
+	<descriptor title="Active" name="active_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" >
+		<builder datatype="BOOL" />
+		<choice title="Yes" name="active_flag" value="1"/>
+		<choice title="No" name="active_flag" value="0"/>
+	</descriptor>
+		
+</contentmanager>

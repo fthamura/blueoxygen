@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title>Blueoxygen Workspace- Konfirmasi penghapusan Category</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta name="AUTHOR" content="mee_andto@yahoo.com">
+</head>
+<body>
+
+<div class=errorMessage>
+<form action="delete.action" method="GET">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">     
+	 <tr bgcolor="#d0dcff">
+        <td><strong>Delete Category Confirmation</strong></td></tr>
+      <tr bgcolor="#ffffff">
+        <td align="center">
+<p>Are you sure to Delete  Category <strong>"$category.code"</strong>?<br>
+<font color=red>This Action can't be <strong>Undone!!</strong>
+<input type="hidden" name="id" value="$category.Id">
+<p>
+</td></tr>
+      <tr bgcolor="#d0dcff">
+        <td align="center">
+<input type="submit" value="Delete"><input type="button" value="Cancel" OnClick="javascript:location.href='view.action?id=$category.Id';">
+</td></tr></table>
+</form>
+</div>
+</body>
+</html>

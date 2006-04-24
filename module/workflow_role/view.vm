@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - View Workflow Role Detail</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta name="AUTHOR" content="Umar">
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  <tbody>
+	<tr bgcolor="#d0dcff">
+        <td colspan="7"><b>View Workflow Role</b></td>
+      </tr>
+	<tr bgcolor="#e4e4e4" width="98%">
+	
+	<td id="tableHeader2"><b>Name</b></td>
+	<td id="tableHeader2"><b>Description</b></td>
+	<td id="tableHeader2"><b>Parent ID</b></td>
+	<td id="tableHeader2"><b>Active Flag</b></td>
+	<td id="tableHeader2"><b>Action</b></td>
+	</tr>
+	<tr bgcolor="white">
+      <td>$!role.Name</td>
+      <td>$!role.Description</td>
+      <td>$!role.ParentId</td>
+      <td>#if ($role.LogInformation.ActiveFlag == 1) Yes #else No #end</td>
+	  <td id="tableHeader2" colspan="2"><a href="edit.action?id=$role.Id">Edit</a> &nbsp;
+		<a href="confirmDelete.action?id=$role.Id">Del</a></td>
+	
+	</tr>
+    </tbody>
+</table>
+</body>
+</html>

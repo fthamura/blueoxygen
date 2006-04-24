@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.blueoxygen.cimande.registration.JUGMember"
+        table="jug_member"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.String"
+            length="32"
+            unsaved-value="0"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-JUGMember.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="company"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="company"
+        />
+
+        <property
+            name="companyAddress"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="companyAddress"
+        />
+
+        <property
+            name="companyPhone"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="companyPhone"
+        />
+
+        <property
+            name="email"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="email"
+        />
+
+        <property
+            name="firstName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="firstName"
+        />
+
+        <property
+            name="homeAddress"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="homeAddress"
+        />
+
+        <property
+            name="homePhone"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="homePhone"
+        />
+
+        <property
+            name="lastName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="lastName"
+        />
+
+        <property
+            name="position"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="position"
+        />
+
+        <property
+            name="sex"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="sex"
+        />
+
+        <component
+            name="logInformation"
+            class="org.blueoxygen.cimande.LogInformation"
+        >
+        <property
+            name="createBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="create_by"
+            length="28"
+        />
+
+        <property
+            name="lastUpdateBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="update_by"
+            length="28"
+        />
+
+        <property
+            name="createDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="create_date"
+        />
+
+        <property
+            name="lastUpdateDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="update_date"
+        />
+
+        <property
+            name="activeFlag"
+            type="int"
+            update="true"
+            insert="true"
+            column="active_flag"
+        />
+
+        </component>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-JUGMember.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

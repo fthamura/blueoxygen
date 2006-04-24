@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="ads_banner" method="post" action="../utility/crvd-engine.jsp">
+	<descriptor title="Name" search="yes" edit="yes" name="name" type="text" size="35">
+		<builder datatype="varchar" datasize="35"/>
+	</descriptor>
+	
+	<descriptor title="Display Style" search="yes" edit="yes" name="display_style" type="text" size="20" >
+		<builder datatype="varchar" datasize="20"/>
+	</descriptor>
+	
+	<descriptor title="Status" search="yes" edit="yes" name="status" type="text" size="10" >
+		<builder datatype="varchar" datasize="10"/>
+	</descriptor>
+	
+	<descriptor title="Source" search="yes" edit="yes" name="source" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Thumbnail" search="yes" edit="yes" name="thumbnail" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Image" search="yes" edit="yes" name="image" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Caption" search="yes" edit="yes" name="caption" type="text" size="25" >
+		<builder datatype="varchar" datasize="25"/>
+	</descriptor>
+	
+	<descriptor title="Width" search="yes" edit="yes" name="width" type="text" size="5" >
+		<builder datatype="varchar" datasize="5"/>
+	</descriptor>
+	
+	<descriptor title="Height" search="yes" edit="yes" name="height" type="text" size="5" >
+		<builder datatype="varchar" datasize="5"/>
+	</descriptor>
+	
+	<descriptor title="Alignment" search="yes" edit="yes" name="alignment" type="text" size="10" >
+		<builder datatype="varchar" datasize="10"/>
+	</descriptor>
+	
+	<descriptor title="Artist" search="yes" edit="yes" name="artist" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Alt Text" search="yes" edit="yes" name="alt_text" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Keywords" search="yes" edit="yes" name="keywords" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Created" search="yes" edit="yes" name="created" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Modified" search="yes" edit="yes" name="modified" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+</contentmanager>

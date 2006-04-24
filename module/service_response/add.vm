@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+<head>
+  <title>edit - Add Service</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+ <style type="text/css">@import url("style.css");</style>
+ <link rel="stylesheet" type="text/css" media="all" href="../../jscalendar-1.0/calendar-win2k-cold-2.css" title="win2k-cold-1" />
+</head>
+<body>
+<script language="JavaScript" type="text/javascript" src="../../include/general.js"></script>
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors )
+<li>$error</li>
+ #end  
+</ul>
+#end
+
+<form method="post" action="add.action" name="upload"> 
+<table width="70%" border="0" cellspacing="1" cellpadding="0" class="formOuterBorder">
+  <tr bgcolor="#d0dcff">
+    <td class="formSecHeader" colspan="2"><b>Response Information</b></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td class="dataLabel">Subject:<font color="RED">*</font></td>
+    <td><input type="text" name="serviceResponse.subject" maxlength="20" value="$!serviceResponse.subject" size="30"></td>
+  </tr>
+ 	
+  <tr bgcolor="#ffffff">
+  	<td class="dataLabel">Description:</td>
+    <td><textarea name="serviceResponse.description" style="width: 70%" rows="10" cols="80">$!serviceResponse.description</textarea></td>
+  </tr bgcolor="#ffffff">	
+  		
+  <tr bgcolor="#d0dcff">
+  	<td class="formSecHeader" colspan="2"> <input type="hidden" name="id" value="$id">
+  	<input type="hidden" name="serviceId" value="$service.id">
+	
+	<input type="submit" name="Submit" value="Submit" onClick="doUpload()">
+	<input type="reset" name="Clear">
+</td>
+  </tr>
+  </table>
+</form>
+<form action="#" method="get">
+</form>
+
+<p>&nbsp;</p>
+
+</body>
+</html>

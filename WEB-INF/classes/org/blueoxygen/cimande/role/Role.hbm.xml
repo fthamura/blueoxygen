@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.blueoxygen.cimande.role.Role"
+        table="workflow_role"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.String"
+            length="28"
+            unsaved-value="0"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Role.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="description"
+            length="125"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="name"
+            length="50"
+        />
+
+        <bag
+            name="rolePrivilage"
+            table="role_privilage"
+            lazy="false"
+            inverse="true"
+            cascade="all"
+        >
+
+            <key
+                column="role_id"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.blueoxygen.cimande.role.RolePrivilage"
+            />
+
+      </bag>
+
+        <property
+            name="site_id"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="site_id"
+        />
+
+        <component
+            name="logInformation"
+            class="org.blueoxygen.cimande.LogInformation"
+        >
+        <property
+            name="createBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="create_by"
+            length="28"
+        />
+
+        <property
+            name="lastUpdateBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="update_by"
+            length="28"
+        />
+
+        <property
+            name="createDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="create_date"
+        />
+
+        <property
+            name="lastUpdateDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="update_date"
+        />
+
+        <property
+            name="activeFlag"
+            type="int"
+            update="true"
+            insert="true"
+            column="active_flag"
+        />
+
+        </component>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Role.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

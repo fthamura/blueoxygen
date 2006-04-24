@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - View Template Detail</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta name="AUTHOR" content="Umar">
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  <tbody>
+	<tr bgcolor="#d0dcff">
+        <td colspan="7"><b>View Template</b></td>
+      </tr>
+	<tr bgcolor="#e4e4e4" width="98%">
+	
+	<td id="tableHeader2"><b>Name</b></td>
+	<td id="tableHeader2"><b>Descriptor</b></td>
+	<td id="tableHeader2"><b>Folder</b></td>
+	<td id="tableHeader2"><b>URL XSL Template</b></td>
+	<td id="tableHeader2"><b>Description</b></td>
+	<td id="tableHeader2"><b>Active Flag</b></td>
+	<td id="tableHeader2"><b>Action</b></td>
+	</tr>
+	<tr bgcolor="white">
+      <td><a href="edit.action?id=$template.Id">$!template.Name</a></td>
+      <td><a href="edit.action?id=$template.Id">$!template.templateDescriptor.name</a></td>
+      <td><a href="edit.action?id=$template.Id">$!template.Folder</a></td>
+      <td><a href="edit.action?id=$template.Id">$!template.Url_xsl_template</a></td>
+      <td><a href="edit.action?id=$template.Id">$!template.Description</a></td>
+      <td><a href="edit.action?id=$template.Id">#if ($template.LogInformation.ActiveFlag == 1) Yes #else No #end</a></td>
+	  <td id="tableHeader2" colspan="2"><a href="edit.action?id=$template.Id">Edit</a> &nbsp;
+		<a href="confirmDelete.action?id=$template.Id">Del</a></td>
+	
+	</tr>
+    </tbody>
+</table>
+</body>
+</html>

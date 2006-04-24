@@ -1,0 +1,164 @@
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                <!--DWLayoutTable-->
+                <tr> 
+                  <td height="8" colspan="7" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="/cimande/theme/$ThemeFolder/images/1PIXEL.gif" bgcolor="#666666">
+                      <!--DWLayoutTable-->
+                      <tr> 
+                        <td width="587" height="8"></td>
+                      </tr>
+                    </table></td>
+                </tr>
+                <tr> 
+                  <td height="12" colspan="6" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                      <!--DWLayoutTable-->
+                      <tr> 
+                        <td width="55" height="12"></td>
+                        <td width="52" valign="top" class="sub-title">Solutions</td>
+                        <td width="480"></td>
+                      </tr>
+                    </table></td>
+                  <td width="1"></td>
+                </tr>
+                <tr> 
+                  <td height="3" colspan="7" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="/cimande/theme/$ThemeFolder/images/1PIXEL.gif">
+                      <!--DWLayoutTable-->
+                      <tr> 
+                        <td width="587" height="3"></td>
+                      </tr>
+                    </table></td>
+                </tr>
+                <tr> 
+                  <td height="91" colspan="7" valign="top"><table width="100%" border="0">
+                  <tr>
+#set ($collectionContext=$pagecollection.getCollectionContext("solution_main_page"))
+#set ($collectionDescriptor=$collectionContext.getDescriptorObject())
+#foreach( $collectionKey in $collectionContext.getCollectionMap().keySet() )
+#set ($fieldContext=$collectionContext.getCollectionMap().get($collectionKey).getFieldMap())
+                  	<td width="34%" valign="top">
+                  	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+			  <!--DWLayoutTable-->
+					#set ($imageName = $fieldContext.get("url_image2"))
+  					  <tr> 
+					    <td height="70" valign="top"><div align="right"><a href="/cimande/servlet/AconixContexter?pagename=solution_detail&cid=$fieldContext.get("id")">
+					      <img src="/cimande/descriptor/upload/services/$imageName" width="50" height="70" border="0"></a></div></td>
+					    <td width="2">&nbsp;</td>
+					    <td valign="top"><span class="sub-title">$fieldContext.get("name")
+					      </span><br><a href="/cimande/servlet/AconixContexter?pagename=solution_detail&cid=$fieldContext.get("id")" class="text">$fieldContext.get("abstract")</a></td>
+					  </tr>
+					  <tr>
+					  	<td colspan="2"></td>
+                  		<td valign="top" align="right"><a href="/cimande/servlet/AconixContexter?pagename=solution_detail&cid=$fieldContext.get("id")" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image18','','/theme/$ThemeFolder/images/next_button.gif',1)">
+                  		  <img src="/cimande/theme/$ThemeFolder/images/next_button.gif" name="Image18" width="11" height="15" border="0"></a></td>
+					  </tr>
+					</table>
+                  	</td>
+#end
+                  <tr>
+                  </table>
+				  </td>
+                  </tr>
+                <tr> 
+                  <td height="8" colspan="7" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="/cimande/theme/$ThemeFolder/images/1PIXEL.gif">
+                      <!--DWLayoutTable-->
+                      <tr> 
+                        <td width="587" height="8"></td>
+                      </tr>
+                    </table></td>
+                </tr>
+                <tr> 
+                  <td height="13" colspan="6" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                      <!--DWLayoutTable-->
+                      <tr> 
+                        <td width="54" height="12"></td>
+                        <td width="97" valign="top" class="sub-title"> What's New</td>
+                        <td width="101"></td>
+                        <td width="106" rowspan="2" valign="top" class="sub-title">Press Release</td>
+                        <td width="93"></td>
+                        <td width="85" rowspan="2" valign="top" class="sub-title">Open Job</td>
+                        <td width="62"></td>
+                      </tr>
+                      <tr> 
+                        <td height="1"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table></td>
+                  <td></td>
+                </tr>
+                <tr> 
+                  <td height="3" colspan="7" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="/cimande/theme/$ThemeFolder/images/1PIXEL.gif">
+                      <!--DWLayoutTable-->
+                      <tr> 
+                        <td width="587" height="3"></td>
+                      </tr>
+                    </table></td>
+                </tr>
+                <tr> 
+                  <td height="142" colspan="2" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                      <!--DWLayoutTable-->
+#set ($collectionContext=$pagecollection.getCollectionContext("news_collection"))
+#set ($collectionDescriptor=$collectionContext.getDescriptorObject())
+#foreach( $collectionKey in $collectionContext.getCollectionMap().keySet() )
+#set ($fieldContext=$collectionContext.getCollectionMap().get($collectionKey).getFieldMap())					  
+                      <tr> 
+                        <td width="50" valign="top"><a href="/cimande/servlet/AconixContexter?pagename=news_detail&cid=$fieldContext.get("id")"><img src="/cimande/descriptor/upload/news/$fieldContext.get("url_image1")" width="20" height="20" border="0"></a></td>
+                        <td width="1" height="2"></td>
+                        <td width="150"><a href="/cimande/servlet/AconixContexter?pagename=news_detail&cid=$fieldContext.get("id")" class="text">$fieldContext.get("headline")<br></a></td>
+                      </tr>
+					  <tr> 
+                        <td height="3"></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+#end					  
+                    </table></td>
+                  <td colspan="2" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                      <!--DWLayoutTable-->
+#set ($collectionContext=$pagecollection.getCollectionContext("press_release_front_page"))
+#set ($collectionDescriptor=$collectionContext.getDescriptorObject())
+#foreach( $collectionKey in $collectionContext.getCollectionMap().keySet() )
+#set ($fieldContext=$collectionContext.getCollectionMap().get($collectionKey).getFieldMap())					  
+                      <tr> 
+                        <td width="48" valign="top"><a href="/cimande/servlet/AconixContexter?pagename=press_release_detail&cid=$fieldContext.get("id")"><img src="/cimande/descriptor/upload/press_release/$fieldContext.get("url_image1")" width="20" height="20" border="0"></a></td>
+                        <td width="1" height="2"></td>
+                        <td width="151"><a href="/cimande/servlet/AconixContexter?pagename=press_release_detail&cid=$fieldContext.get("id")" class="text">$fieldContext.get("title")<br></a></td>
+                      </tr>
+					  <tr> 
+                        <td height="3"></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+#end                      
+                    </table></td>
+                  <td colspan="2" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                      <!--DWLayoutTable-->
+#set ($collectionContext=$pagecollection.getCollectionContext("open_job_collection"))
+#set ($collectionDescriptor=$collectionContext.getDescriptorObject())
+#foreach( $collectionKey in $collectionContext.getCollectionMap().keySet() )
+#set ($fieldContext=$collectionContext.getCollectionMap().get($collectionKey).getFieldMap())					  
+                      <tr> 
+                        <td width="50" valign="top"><a href="/cimande/servlet/AconixContexter?pagename=open_job_detail&cid=$fieldContext.get("id")"><img src="/cimande/descriptor/upload/open_job/$fieldContext.get("url_image1")" width="20" height="20" border="0"></a></td>
+                        <td width="2" height="2"></td>
+                        <td width="145"><a href="/cimande/servlet/AconixContexter?pagename=open_job_detail&cid=$fieldContext.get("id")" class="text">$fieldContext.get("title")<br></a></td>
+                      </tr>
+					  <tr> 
+                        <td height="3"></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+#end					  
+                     </table></td>
+                  <td></td>
+                </tr>
+                <tr> 
+                  <td height="21"></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>

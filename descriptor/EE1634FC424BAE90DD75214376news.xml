@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="news" method="post" action="../utility/crvd-engine.jsp">
+	<descriptor title="Display Style" search="yes" edit="yes" name="display_style" type="text" size="20">
+		<builder datatype="varchar" datasize="20"/>
+	</descriptor>
+	
+	<descriptor title="Source" search="yes" edit="yes" name="source" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="File Name" search="yes" edit="yes" name="file_name" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Path" search="yes" edit="yes" name="path" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Headline" search="yes" edit="yes" name="headline" type="text" size="100" >
+		<builder datatype="varchar" datasize="100"/>
+	</descriptor>
+	
+	<descriptor title="Sub Headline" search="yes" edit="yes" name="subheadline" type="text" size="100" >
+		<builder datatype="varchar" datasize="100"/>
+	</descriptor>
+	
+	<descriptor title="Abstract" name="abstract" type="textarea" cols="45" rows="5" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+
+	<descriptor title="Body" name="body" type="textarea" cols="45" rows="5" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+	
+	<descriptor title="Link Text" search="yes" edit="yes" name="linktext" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Byline" search="yes" edit="yes" name="byline" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="CreditLine" search="yes" edit="yes" name="creditline" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Copyright" search="yes" edit="yes" name="copyright" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Editor Notes" name="editor_notes" type="textarea" cols="45" rows="3" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+
+	
+	<descriptor title="Keywords" search="yes" edit="yes" name="keywords" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Transmitted Date Time" search="yes" edit="yes" name="transmitted_date_time" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="News Topic Id" search="yes" edit="yes" name="news_topic_id" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	<descriptor title="Thumbnail Image1" name="url_thumbnail1" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+        <descriptor title="Image1" name="url_image1" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	<descriptor title="Thumbnail Image2" name="url_thumbnail2" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	<descriptor title="Image2" name="url_image2" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+
+	
+</contentmanager>

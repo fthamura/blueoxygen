@@ -1,0 +1,61 @@
+  <table border=0 cellpadding=0 cellspacing=2>
+    <tr> 
+      <td><img border=0 height=50 
+      src="../../images/empty.gif" width=150></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td></td>
+      <td> 
+        <table border=0 cellpadding=0 cellspacing=5 width="512">
+          <tr> 
+            <td colspan=2><img border=0 
+            src="../../images/e-business-suite.gif"></td>
+          </tr>
+          <tr> 
+            <td colspan=2><img border=0 height=5 
+            src="../../images/empty.gif" 
+        width=1></td>
+          </tr>
+          <tr> 
+            <td class=form-label-text>Login Name:</td>
+            <td> 
+              <input name=username size=24>
+               <% if (!sRedirectUri.equals("")) { %>
+		<input type="hidden" name="redirectUri" value="<%=request.getParameter("redirectUri")%>">
+		<%} %>
+            </td>
+          </tr>
+          <tr> 
+            <td class=form-label-text>Password:</td>
+            <td> 
+              <input name=password size=24 
+            type=password>
+            </td>
+          </tr>
+          <tr> 
+            <td></td>
+            <td> 
+              <input name=login type=submit value=Login>
+              <img border=0 height=1 
+            src="../../images/empty.gif" width=15> 
+              <input type=reset value=Reset name="reset">
+            </td>
+          </tr>
+         
+          <tr> 
+            <td></td>
+            <td class=copyright-text>&nbsp;</td>
+          </tr>
+          <tr> 
+            <td></td>
+            <td class=copyright-text>&nbsp;</td>
+          </tr>
+          <tr> 
+            <td colspan="2">Copyright &copy; 2000-2005, <b>BlueOxygen Inspiration Technology</b>. 
+              All Rights Reserved. </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>

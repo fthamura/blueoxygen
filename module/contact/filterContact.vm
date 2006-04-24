@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>Search - Result Contact</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+<form name="filterContact" method="post" action="search.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
+  <tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan=2><b>Contact Search</b></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td width="30%">First Name<font color="RED"> contains &nbsp &nbsp &nbsp &nbsp &nbsp <font color="BLACK">:</td>
+    <td><input type="text" name="firstName" maxlength="20" value="$!firstName" size="30"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Last Name<font color="RED"> contains &nbsp &nbsp &nbsp &nbsp &nbsp <font color="BLACK">:</td>
+    <td><input type="text" name="lastName" maxlength="20" value="$!lastName" size="30"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>E-mail<font color="RED"> contains &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <font color="BLACK">:</td>
+    <td><input type="text" name="email" maxlength="20" value="$!email" size="30"></td>
+  </tr>
+  <tr id="tableHeader1" bgcolor="#d0dcff">
+    <td colspan=2><input type="submit" value="Search">&nbsp;&nbsp;<input type="reset" value="Reset"></td>
+  </tr>
+ 
+</table>
+	
+</body>
+
+</html>

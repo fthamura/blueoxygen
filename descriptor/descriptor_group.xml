@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+<contentmanager name="descriptor_group" method="post" action="../utility/crvd-engine.jsp">
+
+	<descriptor title="Group ID" required="yes" name="group_id" type="text" size="25" maxlength="128" help="Make it unique!" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="128" unique="yes"/>
+	</descriptor>
+
+	<descriptor title="Folder" required="yes" search="yes" edit="yes" name="folder" type="text" size="35" maxlength="128" help="group of your descriptor folder, this will become a folder of you content descriptor. Sample: 'product/item'" >
+		<builder datatype="varchar" datasize="128"/>
+	</descriptor>
+
+	<descriptor title="Description" required="yes" search="yes" edit="yes" name="description" type="text" size="35" maxlength="125" >
+		<builder datatype="varchar" datasize="125"/>
+	</descriptor>
+
+	<descriptor title="Active" name="active_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" help="put help here">
+		<builder datatype="bool" />
+		<choice title="Yes" name="active_flag" value="1"/>
+		<choice title="No" name="active_flag" value="0"/>
+	</descriptor>
+	
+</contentmanager>

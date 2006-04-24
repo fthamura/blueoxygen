@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="news_detail" method="post" action="../utility/crvd-engine.jsp">
+
+	<descriptor title="News id" name="news_id" type="list" search="yes" edit="yes" help="put help here" references="yes" >
+		<builder datatype="varchar" datasize="28"/>
+		<references table="news" key="id" value="headline" orderby="id" />
+	</descriptor>
+	
+	<descriptor title="name" search="yes" required="yes" edit="yes" name="name" type="text" size="30">
+		<builder datatype="varchar" datasize="30"/>
+	</descriptor>
+	
+	<descriptor title="description" search="yes" required="yes" edit="yes" name="description" type="text" size="50">
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+
+        <descriptor title="Image1" name="url_image1" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+        
+        <descriptor title="Image2" name="url_image2" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+
+        <descriptor title="Image3" name="url_image3" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+			
+</contentmanager>

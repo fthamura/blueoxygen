@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Business Partner List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="AUTHOR" content="Alex">
+<link rel="stylesheet" type="text/css" href="../../decorators/tables.css">
+
+</head>
+<body>
+<h3><font size="3">Country List</h3>
+#if ($countries.isEmpty()) No Business Partner available yet
+#else
+
+<table width=100% border="0">
+
+<tr>
+	<td width=60%><font size="3">None</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('countryId').value='';window.opener.document.getElementById('countryName').value='None';window.close();" value="Set"></td>
+</tr>
+#foreach ($country in $countries)
+<tr>
+	<td width=60%><font size="3">$country.name</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('countryId').value='$country.id';window.opener.document.getElementById('countryName').value='$country.name';window.close();" value="Set"></td>
+</tr>
+#end
+</table>
+#end
+</body>
+</html>

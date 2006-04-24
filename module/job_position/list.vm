@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Workspace Management - Job Description List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+
+#if ($jobDescs.isEmpty()) No such data found
+#else Found <strong>$jobDescs.size()</strong> #if ($jobDescs.size()>1) Job Descriptions #else Job Description #end
+
+
+<table border="0" cellspacing="0" cellpadding="5">
+<tr id="tableHeader1">
+	<td>&nbsp;</td>
+	<td>Name</td>
+	<td>Description</td>
+</tr>
+
+#foreach ($jobDesc in $jobDescs)
+	<tr valign="top">
+	<td><strong><a href="view.action?id=$jobDesc.Id">v</a></strong>&nbsp;<strong><a href="edit.action?id=$jobDesc.Id">e</a></strong>&nbsp;<strong><a href="confirmDelete.action?id=$jobDesc.Id">d</a></strong></td>
+	<td>$!jobDesc.Name</td>
+	<td>$!jobDesc.Description</td>
+	</tr>
+#end
+</table>
+
+#end
+
+</body>
+</html>

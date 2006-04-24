@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="client_survey" method="post" action="../utility/crvd-engine.jsp">
+
+	<descriptor title="Company Name" name="company_name" maxlength="128" type="text" size="50" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="128"/>
+	</descriptor>
+	
+	<descriptor title="Contact Person" name="contact_person" maxlength="128" type="text" size="50" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="128"/>
+	</descriptor>
+
+	<descriptor title="Current Date" name="date" maxlength="28" type="text" size="28" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="28"/>
+	</descriptor>
+	
+	<descriptor title="Location" name="location" maxlength="255" type="text" size="45" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	
+	<descriptor title="Your Company" help="What is the name of your company and your current (or intended) URL ?" name="question_1" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+	
+	<descriptor title="Your Primary Contact" help="Who are the primary contact from your organization dan who has final approval on the project? Please list names,titles,email addresses and phone numbers." name="question_2" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+
+	<descriptor title="Your intended launch date" help="What is your your intended launch date for the new site? Are there any outside considerations that might affect the schedule (i.e., PR launch, tradeshow, annual report)" name="question_3" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+	
+	<descriptor title="Your Specific budget" help="Do you have a specific budget range already established for this project? Can this project be divided into phases to accommodate budget and timing constraints?" name="question_4" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+
+	<descriptor title="About E-business" help="What are the question that you usually asks about e-business?" name="question_5" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+	
+	<descriptor title="About client information for your marketing web site" help="What Kind of information client would like to see in your marketing web site?" name="question_6" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+	
+	<descriptor title="Features in your marketing web site" help="What Kind of features would you like to see in your marketing web site" name="question_7" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+
+	<descriptor title="Industry information" help="What industry or information is on the Internet?" name="question_8" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+	
+	<descriptor title="Impact of the e-commerce" help="what are the trends and impact of e-commerce on this industry?" name="question_9" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+
+	<descriptor title="what new strategies are emerging in the industry?" help="(mergers,decentralization,ownwership changes,etc.)" name="question_10" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+	
+	<descriptor title="what major factors affecting the business?" help="(e.g., demographic changes,technological advances, new law and regulations, etc.)" name="question_11" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>	
+	
+	<descriptor title="Do your feel your current site  promotes a favorable user experience? Why or why not?" name="question_12" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+
+	<descriptor title="What specific areas of your current site do your feel are successful? Why are they successful?" name="question_13" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+	
+	<descriptor title="What shortcomings exist with the current site, and what their things would you change on the site today if you could?" name="question_14" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+
+	<descriptor title="Have you conducted usability tests or gatherd user feedback for your current site? if so, how long ago? Please include any reprts or findings." name="question_15" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+	
+	<descriptor title="How important is it to maintain your curent look and eel, logo, and branding?" name="question_16" type="textarea" cols="45" rows="2" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>			
+	
+			
+</contentmanager>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="ads_client" method="post" action="../utility/crvd-engine.jsp">
+	<descriptor title="Code" search="yes" edit="yes" name="code" type="text" size="28" />
+	
+	<descriptor title="Name" search="yes" edit="yes" name="name" type="text" size="25" />
+	
+	<descriptor title="Contact Name" search="yes" edit="yes" name="contact_name" type="text" default="/images" size="25" />
+	
+	<descriptor title="Contact Email" search="yes" edit="yes" name="contact_email" type="text" default="/images" size="25" />
+	
+	<descriptor title="Description" search="yes" edit="yes" name="description" type="textarea" cols="25" rows="5" />
+	
+	<descriptor title="Active" name="active_flag" type="checkbox" search="yes" edit="yes" help="Activate the banner!!">
+		<builder datatype="varchar" datasize="25" criteria="not null" default="test" unique="yes"/>
+		<choice name="active_flag" value="1"></choice >
+	</descriptor>
+</contentmanager>

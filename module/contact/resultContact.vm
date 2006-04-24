@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title>Search - Result Contact</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+<form name="filterContact" method="post" action="search.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
+
+<p>#if ($contacts.isEmpty()) 
+	<tr id="tableHeader2">
+	<td colspan="6">
+	Data Not Found
+#else
+
+ 	<tr id="tableHeader2" bgcolor="#d0dcff">
+	<td colspan="6">
+	Found <strong>$!resultRows</strong> #if ($resultRows > 1) Contact #else Contacts #end</p>
+    <tr id="tableHeader2">
+	<td colspan="6" bgcolor="#ffffff">
+    #if ($currPage > 0) <a href="search.action?firstName=$firstName&currPage=0">&lt;&lt;</a>&nbsp;#end
+	#if ($currPage > 0) <a href="search.action?firstName=$firstName&currPage=$prevPage">&lt;</a>&nbsp;#end
+	[page $page]
+	#if ($currPage < $maxPage) <a href="search.action?firstName=$firstName&currPage=$nextPage">&gt;</a>&nbsp;#end
+	#if ($currPage < $maxPage) <a href="search.action?firstName=$firstName&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+
+</table>
+
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
+
+<tr id="tableHeader1" bgcolor="#d0dcff">
+		<td><b>First Name</b></td>
+		<td><b>Last Name</b></td>
+		<td><b>Address</b></td>
+		<td><b>Mobile</b></td>
+		<td><b>E-mail</b></td>
+</tr>
+
+#foreach ($contact in $contacts)
+
+<tr valign="top" bgcolor="#ffffff">
+	<td><strong><a href="view.action?id=$contact.Id">$!contact.firstName</a></strong>&nbsp;</td>
+	<td>$!contact.lastName</td>
+	<td>$!contact.address</td>
+	<td>$!contact.mobile</td>
+	<td>$!contact.email</td>
+</tr>
+#end
+</table>
+#end
+</body>
+</html>

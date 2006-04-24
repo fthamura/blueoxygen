@@ -1,0 +1,19 @@
+<html>
+<head>
+  <title>Ruang Kerja Warintek - Konfirmasi penghapusan module function</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta name="AUTHOR" content="Alex">
+</head>
+<body>
+
+<div class=errorMessage>
+<form action="deleteModuleFunction.action" method="GET">
+<p>Anda yakin akan menghapus <strong>$moduleFunction.name</strong>?
+<input type="hidden" name="id" value="$moduleFunction.Id">
+<p>
+<input type="submit" value="Delete"><input type="button" value="Cancel" OnClick="javascript:location.href='viewModuleFunction.action?id=$moduleFunction.Id';">
+</form>
+</div>
+</body>
+</html>

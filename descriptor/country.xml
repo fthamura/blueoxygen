@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="country" method="post" action="../utility/crvd-engine.jsp">
+	<descriptor title="Code" name="code" maxlength="2" type="text" size="2" required="yes" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="2" unique="yes"/>
+	</descriptor>
+
+	<descriptor title="Description" name="description" maxlength="255" type="text" size="25" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+
+
+</contentmanager>

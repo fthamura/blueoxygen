@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+<!--
+
+CREATE TABLE descriptor(
+	id 		INT(11) AUTO_INCREMENT PRIMARY KEY,
+	create_by		VARCHAR(15),
+	create_date 	TIMESTAMP,
+	update_by  	VARCHAR(15),
+	update_date	TIMESTAMP,
+	name		VARCHAR(128) NOT NULL,
+	description	VARCHAR(255),
+	url_descriptor	VARCHAR(255),
+	descriptor_flag	BOOL DEFAULT 0,
+	active_flag	BOOL DEFAULT 1
+);
+
+-->
+<contentmanager name="theme" method="post" action="../utility/crvd-engine.jsp">
+	<descriptor title="Name"  required="yes" name="name" type="text" size="25" maxlength="128"  search="yes" edit="yes">
+		<builder datatype="VARCHAR" datasize="128"/>
+	</descriptor>
+	
+	<descriptor title="Description" name="description" type="text" size="35" maxlength="255" search="yes" edit="yes">
+		<builder datatype="VARCHAR" datasize="255"/>
+	</descriptor>
+	
+	<descriptor title="Theme Folder" name="theme_folder" type="text" size="35" maxlength="255" search="yes" edit="yes">
+		<builder datatype="VARCHAR" datasize="255"/>
+	</descriptor>
+	
+	<descriptor title="Active" name="active_flag" required="yes" type="radio" position="multiline" value="1" search="yes" comment="Non-Active means hide" edit="yes" >
+		<builder datatype="BOOL" />
+		<choice title="Yes" name="active_flag" value="1" />
+		<choice title="No" name="active_flag" value="0"/>
+	</descriptor>
+	
+</contentmanager>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+<!--     
+CREATE TABLE backend_user(
+	
+	id 		INT(11) PRIMARY KEY,
+	username	VARCHAR(15) NOT NULL UNIQUE,
+	password	VARCHAR(15) NOT NULL,
+	first_name	VARCHAR(15),
+	last_name	VARCHAR(15),
+	email		VARCHAR(125),
+	address1	VARCHAR(255),
+	address2	VARCHAR(255),
+        city		VARCHAR(15),
+	description	VARCHAR(255),
+	role_id		INT(11) DEFAULT 0
+);
+-->
+<contentmanager name="inter_user" method="post" action="../utility/crvd-engine.jsp">
+	<descriptor title="Login" name="username" maxlength="15" type="text" size="15" required="yes" search="yes" edit="yes">
+	</descriptor>
+	
+	<descriptor title="Password" name="password" maxlength="15" type="password" size="15" required="yes" edit="yes">
+	</descriptor>
+
+	<descriptor title="First Name" name="first_name" maxlength="15" type="text" size="15" required="yes" search="yes" edit="yes">
+	</descriptor>
+
+	<descriptor title="Last Name" name="last_name" maxlength="15" type="text" size="15" search="yes" edit="yes">
+	</descriptor>
+	
+	<descriptor title="Company ID" name="company_id" maxlength="28" type="text" size="28" search="yes" edit="yes">
+	</descriptor>
+	
+	<descriptor title="Email" name="email" maxlength="125" type="text" size="25" search="yes" edit="yes">
+	</descriptor>
+
+	<descriptor title="Address" name="address1" maxlength="255" type="text" size="35" edit="yes">
+	</descriptor>
+
+	<descriptor title="" name="address2" maxlength="255" type="text" size="35" edit="yes">
+	</descriptor>
+
+	<descriptor title="City" name="city" maxlength="15" type="text" size="15" edit="yes">
+	</descriptor>
+
+	<descriptor title="Role" name="role_id" type="list" required="yes" search="yes" edit="yes" references="yes" >
+		<references table="workflow_role" key="id" value="name" orderby="name" viewall="yes" />
+	</descriptor>
+	
+	<descriptor title="Description" name="description" maxlength="255" type="textarea" cols="35" rows="5" edit="yes">
+	</descriptor>
+	
+	<descriptor title="Active" name="active_flag" type="radio" position="multiline" value="1" search="yes" edit="yes">
+		<choice title="Yes" name="active_flag" value="1"/>
+		<choice title="No" name="active_flag" value="0"/>
+	</descriptor>
+</contentmanager>

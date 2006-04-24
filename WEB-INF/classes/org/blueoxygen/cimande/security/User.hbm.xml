@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.blueoxygen.cimande.security.User"
+        table="backend_user"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.String"
+            length="28"
+            unsaved-value="0"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-User.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="username"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="username"
+            length="128"
+        />
+
+        <property
+            name="password"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="password"
+            length="30"
+        />
+
+        <component
+            name="name"
+            class="org.blueoxygen.cimande.security.Name"
+        >
+
+        <property
+            name="first"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="first_name"
+            length="128"
+        />
+
+        <property
+            name="last"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="last_name"
+            length="128"
+        />
+
+        </component>
+
+        <component
+            name="address"
+            class="org.blueoxygen.cimande.security.Address"
+        >
+        <property
+            name="street1"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="address1"
+        />
+
+        <property
+            name="street2"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="address2"
+        />
+
+        <property
+            name="city"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="city"
+            length="128"
+        />
+
+        </component>
+
+        <component
+            name="logInformation"
+            class="org.blueoxygen.cimande.LogInformation"
+        >
+        <property
+            name="createBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="create_by"
+            length="28"
+        />
+
+        <property
+            name="lastUpdateBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="update_by"
+            length="28"
+        />
+
+        <property
+            name="createDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="create_date"
+        />
+
+        <property
+            name="lastUpdateDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="update_date"
+        />
+
+        <property
+            name="activeFlag"
+            type="int"
+            update="true"
+            insert="true"
+            column="active_flag"
+        />
+
+        </component>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-User.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

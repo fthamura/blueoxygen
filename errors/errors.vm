@@ -1,0 +1,22 @@
+#if ($actionErrors && !$actionErrors.isEmpty())
+
+<br/>
+
+<table align="center" width="90%">
+  <tr>
+    <td>
+      <ul class="errorList">
+        <li>
+    	  #foreach ($actionError in $actionErrors)        
+            $actionError
+          #end  
+        </li>
+      </ul>
+    </td>      
+  </tr>
+</table>
+    
+#end
+
+
+

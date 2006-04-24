@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>Workspace Management - Result of Search Module Function</title>
+  	<link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="5"><b>Search Module Function</b></td>
+      </tr>
+
+#if ($moduleFunctions.isEmpty()) 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right">No such data found</td>
+      	</tr>
+#else 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right">
+        	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) moduleFunctions #else moduleFunction
+        	</td>
+      	</tr>
+#end
+<tr bgcolor="#e4e4e4" width="98%">
+	
+	<td><b>Name</b></td>
+	<td><b>Description</b></td>
+	<td><b>Table References</b></td>
+	<td><b>Action</b></td>
+</tr>
+
+#foreach ($moduleFunction in $moduleFunctions)
+	<tr valign="top" bgcolor="white">
+	
+	<td><a href="editModuleFunction.action?id=$moduleFunction.Id">$!moduleFunction.Name</a></td>
+	<td><a href="editModuleFunction.action?id=$moduleFunction.Id">$!moduleFunction.Description</a></td>
+	<td><a href="editModuleFunction.action?id=$moduleFunction.Id">$!moduleFunction.TableReferences</a></td>
+	##<td><a href="editModuleFunction.action?id=$moduleFunction.Id">$!moduleFunction.moduleDescriptor.name</a></td>
+	
+	<td>
+		<a href="editModuleFunction.action?id=$moduleFunction.Id">Edit</a>&nbsp;
+		<a href="confirmDeleteModuleFunction.action?id=$moduleFunction.Id">Del</a>
+	</td>
+	</tr>
+#end
+	<tr bgcolor="#e4e4e4">
+		<td align="right" colspan="5">
+			#if ($currPage > 0) <a href="searchModuleFunction.action?name=$name&description=$description&tableReferences=$tableReferences&currPage=0">&lt;&lt;</a>&nbsp;#end
+			#if ($currPage > 0) <a href="searchModuleFunction.action?name=$name&description=$description&tableReferences=$tableReferences&currPage=$prevPage">&lt;</a>&nbsp;#end
+			[page $page]
+			#if ($currPage < $maxPage) <a href="searchModuleFunction.action?name=$name&description=$description&&tableReferences=$tableReferences&currPage=$nextPage">&gt;</a>&nbsp;#end
+			#if ($currPage < $maxPage) <a href="searchModuleFunction.action?name=$name&description=$description&&tableReferences=$tableReferences&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+		</td>
+     </tr>
+</table>
+
+#end
+
+</body>
+</html>

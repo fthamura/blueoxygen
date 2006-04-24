@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+<head>
+  <title>edit - Add Service</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+ <style type="text/css">@import url("style.css");</style>
+ <link rel="stylesheet" type="text/css" media="all" href="../../jscalendar-1.0/calendar-win2k-cold-2.css" title="win2k-cold-1" />
+<script type="text/javascript" src="../../jscalendar-1.0/calendar.js"></script>
+
+<script type="text/javascript" src="../../jscalendar-1.0/lang/calendar-en.js"></script>
+
+<script type="text/javascript" src="../../jscalendar-1.0/calendar-setup.js"></script>
+</script>
+
+
+</head>
+<body>
+<script language="JavaScript" type="text/javascript" src="../../include/general.js"></script>
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors )
+<li>$error</li>
+ #end
+</ul>
+#end
+
+<form method="post" action="add.action" name="upload"> 
+<table width="90%" border="0" cellspacing="1" cellpadding="0"><tr><th align="left" class="formSecHeader">Service Information</th></tr></table>
+</table>
+<table width="90%" border="0" cellspacing="1" cellpadding="0" class="formOuterBorder">
+  <tr>
+    <td class="formSecHeader" colspan="2"><b>Customer Information</b></td>
+    <td bgcolor="#ffffff">&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+    <td class="formSecHeader" colspan="2"><b>Product Information</b></td>
+  </tr>
+  <tr>
+    <td class="dataLabel">Name:<font color="RED">*</font></td>
+    <td><input type="text" name="name" maxlength="20" value="$!name" size="30"></td>
+	<td>&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+	<td class="dataLabel">Brand:</td>
+    <td><input type="text" name="brand" maxlength="20" value="$!brand" size="30"></td>
+  </tr>
+   <tr>
+  	<td rowspan="4" class="dataLabel">Address:</td>
+    <td rowspan="4"><textarea name="address" value="$!address" size="70"></textarea></td>
+    <td>&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+  	<td class="dataLabel">Product:</td>
+    <td><input type="text" name="product" value="$!product" size="30"></td>
+  </tr>
+  <tr>
+  	<td>&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+  	<td class="dataLabel">Model:</td>
+    <td><input type="text" name="model" value="$!model" size="30"></td>
+    
+  </tr>
+  <tr>
+ 	<td>&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+ 	<td class="dataLabel">S/N:</td>
+    <td><input type="text" name="serialNumber" value="$!serialNumber" size="30"></td>
+  </tr>
+  <tr> 
+    <td>&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+    <td class="dataLabel">Guaranted:</td>
+    <td><input type="text" name="guaranted" value="$!guaranted" size="30"></td>
+  </tr>
+  <tr> 
+  	<td class="dataLabel">Phone:</td>
+    <td><input type="text" name="phone" value="$!phone" size="30"></td>
+    <td>&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+    <td class="dataLabel">Date of Purchase:</td>
+    <td width="30%"><input type="textfield" name="dateOfPurchase" value="$!dateOfPurchase" id="f_date_b" readonly="1">
+    <img src="../../jscalendar-1.0/img.gif" id="f_trigger_b" style="cursor: pointer; border: 1px solid red;" title="Date selector"
+      onmouseover="this.style.background='red';" onmouseout="this.style.background=''" /></td>
+  </tr>  
+</table> 
+  <tr rowspan="3">
+  	<td colspan="8">&nbsp</td>
+  </tr>
+<table width="80%" border="0" cellspacing="1" cellpadding="0" class="formOuterBorder">
+  <tr>
+  	<td class="dataLabel">Guaranted Card:</td>
+    <td><input type="checkbox" name="guarantedCard" value="1"></td>
+    <td class="dataLabel">Mouse Ext.:</td>
+    <td><input type="checkbox" name="mouse" value="1"></td>
+    <td class="dataLabel">Modem Ext.:</td>
+    <td><input type="checkbox" name="modem" value="1"></td>
+    <td class="dataLabel">Bag:</td>
+    <td><input type="checkbox" name="bag" value="1"></td>
+  </tr>
+  <tr>
+  	<td class="dataLabel">RAM:</td>
+    <td><input type="checkbox" name="ram" value="1"></td>
+    <td class="dataLabel">CDROM:</td>
+    <td><input type="checkbox" name="cdrom" value="1"></td>
+    <td class="dataLabel">Cable modem:</td>
+    <td><input type="checkbox" name="cableModem" value="1"></td>
+    <td class="dataLabel">Mouse Pad:</td>
+    <td><input type="checkbox" name="mousePad" value="1"></td>
+  </tr>
+  <tr>
+  	<td class="dataLabel">HDD:</td>
+    <td><input type="checkbox" name="hdd" value="1"></td>
+    <td class="dataLabel">CDROM Cable:</td>
+    <td><input type="checkbox" name="cableCdrom" value="1"></td>
+    <td class="dataLabel">PCMCIA:</td>
+    <td><input type="checkbox" name="pcmcia" value="1"></td>
+    <td class="dataLabel">Video Camera:</td>
+    <td><input type="checkbox" name="videoCamera" value="1"></td>
+  </tr>
+  <tr>
+  	<td class="dataLabel">Monitor:</td>
+    <td><input type="checkbox" name="monitor" value="1"></td>
+    <td class="dataLabel">DVDROM:</td>
+    <td><input type="checkbox" name="dvdrom" value="1"></td>
+    <td class="dataLabel">PCMCIA Cable:</td>
+    <td><input type="checkbox" name="cablePcmcia" value="1"></td>
+    <td class="dataLabel">Scanner:</td>
+    <td><input type="checkbox" name="scanner" value="1"></td>
+  </tr>
+  <tr>
+  	<td class="dataLabel">Cable Power:</td>
+    <td><input type="checkbox" name="cablePower" value="1"></td>
+    <td class="dataLabel">DVDROM Cable:</td>
+    <td><input type="checkbox" name="cableDvdrom" value="1"></td>
+    <td class="dataLabel">Recovery CD:</td>
+    <td><input type="checkbox" name="recoveryCd" value="1"></td>
+    <td class="dataLabel">Adaptor Scanner:</td>
+    <td><input type="checkbox" name="adaptorScanner" value="1"></td>
+  </tr>
+  <tr>
+  	<td class="dataLabel">Adaptor:</td>
+    <td><input type="checkbox" name="adaptor" value="1"></td>
+    <td class="dataLabel">Diskette:</td>
+    <td><input type="checkbox" name="diskette" value="1"></td>
+    <td class="dataLabel">Other CD:</td>
+    <td colspan="3"><input type="checkbox" name="otherCd" value="1"></td>
+  </tr>
+  <tr>
+  	<td class="dataLabel">Adaptor Cable:</td>
+    <td><input type="checkbox" name="cableAdaptor" value="1"></td>
+    <td class="dataLabel">Battery:</td>
+    <td><input type="checkbox" name="battery" value="1"></td>
+    <td class="dataLabel">Floppy Disk Drive:</td>
+    <td colspan="3"><input type="checkbox" name="floppyDiskDrive" value="1"></td>
+  </tr>
+</table>
+
+  <tr rowspan="3">
+  	<td colspan="2">&nbsp</td>
+  </tr>
+
+<table width="50%" border="0" cellspacing="1" cellpadding="0" class="formOuterBorder">
+  
+  <tr>
+    <td class="formSecHeader" colspan="2"><b>Other Information</b></td>
+  </tr>
+  <tr>
+  	<td class="dataLabel" width="20%">Technision:</td>
+    <td><input type="text" name="technision" value="$!technision" size="30"></td>
+  </tr>
+  <tr>
+  	<td class="dataLabel">Date Start:</td>
+    <td width="30%"><input type="textfield" name="dateStart" value="$!dateStart" id="f_date_a" readonly="1">
+    <img src="../../jscalendar-1.0/img.gif" id="f_trigger_a" style="cursor: pointer; border: 1px solid red;" title="Date selector"
+      onmouseover="this.style.background='red';" onmouseout="this.style.background=''" /></td>
+  </tr>
+  <tr>
+  	<td class="dataLabel">Date Finish:</td>
+    <td width="30%"><input type="textfield" name="dateFinish" value="$!dateFinish" id="f_date_c" readonly="1">
+    <img src="../../jscalendar-1.0/img.gif" id="f_trigger_c" style="cursor: pointer; border: 1px solid red;" title="Date selector"
+      onmouseover="this.style.background='red';" onmouseout="this.style.background=''" /></td>
+  </tr>
+  <tr>
+  	<td class="dataLabel">Status:</td>
+    <td><input type="text" name="status" value="$!status" size="30"></td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+  </tr>
+</table>
+<table width="90%" border="0" cellspacing="1" cellpadding="0" class="formOuterBorder">
+  <tr>
+  	<td class="formSecHeader" colspan="4"> <input type="hidden" name="id" value="$id">
+	<input type="submit" name="Submit" value="Submit">
+	<input type="reset" name="Clear">
+	</td>
+  </tr>
+</table>
+</form>
+
+<script type="text/javascript">
+    Calendar.setup({
+        inputField     :    "f_date_a",      // id of the input field
+        ifFormat       :    "%d/%m/%Y",       // format of the input field
+        showsTime      :    true,            // will display a time selector
+        button         :    "f_trigger_a",   // trigger for the calendar (button ID)
+        singleClick    :    false,           // double-click mode
+        step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+    });
+</script>
+<script type="text/javascript">
+    Calendar.setup({
+        inputField     :    "f_date_b",      // id of the input field
+        ifFormat       :    "%d/%m/%Y",       // format of the input field
+        showsTime      :    true,            // will display a time selector
+        button         :    "f_trigger_b",   // trigger for the calendar (button ID)
+        singleClick    :    false,           // double-click mode
+        step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+    });
+</script>
+<script type="text/javascript">
+    Calendar.setup({
+        inputField     :    "f_date_c",      // id of the input field
+        ifFormat       :    "%d/%m/%Y",       // format of the input field
+        showsTime      :    true,            // will display a time selector
+        button         :    "f_trigger_c",   // trigger for the calendar (button ID)
+        singleClick    :    false,           // double-click mode
+        step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+    });
+</script>
+
+</body>
+</html>

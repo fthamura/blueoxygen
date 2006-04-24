@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+<!--
+CREATE TABLE workflow_activity(
+	id 		INT(11) AUTO_INCREMENT PRIMARY KEY,
+	create_by	VARCHAR(15),
+	create_date 	TIMESTAMP,
+	update_by  	VARCHAR(15),
+	update_date	TIMESTAMP,
+	name		VARCHAR(50) NOT NULL, 
+	description	VARCHAR(125),
+	active_flag	BOOL	DEFAULT '1'	
+
+);
+-->
+<contentmanager name="workflow_activity" method="post" action="../utility/crvd-engine.jsp">
+	
+	<descriptor title="Code" name="code" type="text" size="35" maxlength="50" search="yes" edit="yes" required="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	
+	<descriptor title="Description" name="description" maxlength="255" type="text" size="25" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	
+	<descriptor title="Active" name="active_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" help="put help here">
+		<builder datatype="BOOL" />
+		<choice title="Yes" name="active_flag" value="1"/>
+		<choice title="No" name="active_flag" value="0"/>
+	</descriptor>
+
+</contentmanager>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="press_release" method="post" action="../utility/crvd-engine.jsp">
+
+	<descriptor title="Title" search="yes" edit="yes" name="title" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Highlight" name="highlight" type="textarea" cols="45" rows="5" search="no" edit="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	
+	<descriptor title="Detail" name="Detail" type="textarea" cols="45" rows="5" search="no" edit="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	
+	<descriptor title="Press Release Date" search="yes" edit="yes" name="press_release_date" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Press Release Topic Id" search="yes" edit="yes" name="press_release_topic_id" type="text" size="50" >
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Image1" name="url_image1" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+        
+        <descriptor title="Image2" name="url_image2" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+
+        <descriptor title="Image3" name="url_image3" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	
+	<descriptor title="Publish Flag" name="publish_flag" type="radio" position="multiline" value="1" search="yes" edit="yes">
+		<builder datatype="bool" />
+		<choice title="Yes" name="publish_flag" value="1"/>
+		<choice title="No" name="publish_flag" value="0"/>
+	</descriptor>
+	
+	<descriptor title="Active Flag" name="active_flag" type="radio" position="multiline" value="1" search="yes" edit="yes">
+		<builder datatype="bool" />
+		<choice title="Yes" name="active_flag" value="1"/>
+		<choice title="No" name="active_flag" value="0"/>
+	</descriptor>
+			
+</contentmanager>

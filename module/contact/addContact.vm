@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+<head>
+  <title>edit - Add Business Partner</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors )
+<li>$error</li>
+ #end
+</ul>
+#end
+
+<form method="post" action="add.action" name="upload" enctype="multipart/form-data"> 
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+  <tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="4"><b>Contact Information</b></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>First Name:<font color="RED">*</font></td>
+    <td><input type="text" name="firstName" maxlength="20" value="$!firstName" size="30"></td>
+	<td>Last Name:</td>
+    <td><input type="text" name="lastName" maxlength="20" value="$!lastName" size="30"></td>
+  </tr>
+   <tr bgcolor="#ffffff">
+    <td>Office phone:</td>
+    <td><input type="text" name="officePhone" value="$!officePhone" size="30"></td>
+  	<td>Email:</td>
+    <td><input type="text" name="email" value="$!email" size="30"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Mobile:</td>
+    <td><input type="text" name="mobile" value="$!mobile" size="30"></td>
+    <td>Other email:</td>
+    <td><input type="text" name="otherEmail" value="$!otherEmail" size="30"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Home phone:</td>
+    <td><input type="text" name="homePhone" value="$!homePhone" size="30"></td>
+    <td>Assistant:</td>
+    <td><input type="text" name="assistant" value="$!assistant" size="30"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Other phone:</td>
+    <td><input type="text" name="otherPhone" value="$!otherPhone" size="30"></td>
+    <td>Assistant phone:</td>
+    <td><input type="text" name="assistantPhone" value="$!assistantPhone" size="30"></td>
+  </tr>
+  <tr bgcolor="#ffffff"> 
+    <td>Birth Date:</td>
+    <td><input type="text" name="birthDate" value="$!birthDate" size="30"></td>
+  	<td>Fax:</td>
+    <td><input type="text" name="fax" value="$!fax" size="30"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Business Partner</td><td>
+	<input type="textfield" id="businessPartnerName" value="None" size="15" disabled="true" onfocus="this.blur()"/>
+    <input type="hidden" id="businessPartnerId" name="businessPartnerId" value="0"/>
+    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../business_partner/listBusinessPartner.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+  	</td>
+  	<td colspan="2"></td>
+  </tr>
+  
+  <tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="4"><b>Address Information</b></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+  	<td>Address:</td>
+    <td colspan="4"><input type="text" name="address" value="$!address" size="70"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+  	<td>City:</td>
+    <td><input type="text" name="city" value="$!city" size="30"></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+  	<td>Zip Code:</td>
+    <td><input type="text" name="zipCode" maxlength="5" value="$!zipCode" size="30"></td>
+  	<td colspan="2"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+  	<td>Country:</td>
+    <td><input type="text" name="country" value="$!country" size="30"></td>
+    <td colspan="2"></td>
+  </tr>		
+  <tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="4"><b>Description</b></td>
+  </tr>		
+  <tr bgcolor="#ffffff">
+  	<td>Description:</td>
+    <td colspan="4"><textarea name="description" value="$!description" style="width: 100%" rows="15" cols="80"></textarea></td>
+  </tr>	
+  
+  
+
+  <tr bgcolor="#d0dcff">
+  	<td id=tableHeader1 colspan="4"> <input type="hidden" name="id" value="$id">
+	<input type="submit" name="Submit" value="Submit" onClick="doUpload()">
+	<input type="reset" name="Clear">
+	</td>
+  </tr>
+</table>
+</form>
+
+</body>
+</html>

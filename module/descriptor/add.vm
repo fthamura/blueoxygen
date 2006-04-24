@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management -
+Add a new Descriptor</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+ 
+</head>
+<body onload="HTMLArea.replaceAll();">
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors ) <li>$error</li>
+#end
+</ul>
+#end
+
+
+
+<form method="post" action="add.action">
+  <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1"
+ width="98%">
+    <tbody>
+      <tr bgcolor="#d0dcff">
+        <td colspan="3"><b>Create Descriptor</b></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" width="25%">
+        	<font color="red">*</font>
+        	Name
+        	</td>
+        <td width="75%"><input maxlength="128" name="name" size="25" value="$!name"></td>
+        <td align="right" valign="top"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">
+        <font color="red">*</font>
+        Description:
+        </td>
+        <td>
+        	<textarea name="description" style="width: 110%" rows="15" cols="50" maxlength="255">
+        	</textarea>
+         </td>
+        <td align="right" valign="top"><img alt="Description of The Descriptor" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">URL Action:</td>
+        <td> <input name="urlAction" value="$!urlAction" size="55" type="text" maxlength="255"> </td>
+        <td align="right" valign="top"><img alt="URL of the Module. Used by Action Type only" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">Descriptor File:</td>
+        <td> <input name="urlDescriptor" value="$!urlDescriptor" size="35" type="text" maxlength="255"> </td>
+        <td align="right" valign="top"><img alt="Your CDML file, filename only!!" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">Type:</td>
+        <td> 
+        	<input type="radio" name="typeFlag" value="2" checked="checked">WebWork MVC<br>
+        	<input type="radio" name="typeFlag" value="1">Action<br>
+        	<input type="radio" name="typeFlag" value="0">CDML
+        </td>
+        <td align="right" valign="top">
+        	<img alt="Descriptor Type, Choose One!!" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;">
+        </td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">Active:</td>
+        <td><input name="activeFlag" value="1" checked="checked" type="radio">Yes<br><input name="activeFlag" value="0" type="radio">No
+        </td>
+        <td align="right" valign="top"><img alt="Status of Descriptor" src="../../images/help.gif"  style="border: 0px solid ; width: 16px; height: 16px;"></td>
+      </tr>
+      <tr bgcolor="#d0dcff">
+        <td colspan="3"><input name="Submit" value="Save" type="submit">&nbsp;&nbsp;
+        <input name="Clear" value="Reset" type="reset"> </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+</html>

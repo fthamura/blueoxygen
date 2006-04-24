@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Cimande - View Contact</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+<body>
+
+
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+
+<tr bgcolor="#d0dcff">
+	<td colspan=4 id="tableHeader1" width="442">Contact Detail</td>
+</tr>
+<tr bgcolor="#ffffff">
+	  <td id="tableHeader2" colspan="4"><b><a href="edit.action?id=$contact.Id">[Edit]</a><a href="confirmDelete.action?id=$contact.Id">[Delete]</a></b></td>
+</tr>
+
+<tr bgcolor="#ffffff">
+	<td width="20%">First Name :</td>
+	<td width="25%">$!contact.firstName</td>
+	<td width="20%">Last Name :</td>
+	<td width="25%">$!contact.lastName</td>
+</tr>
+<tr bgcolor="#ffffff">
+	<td>Office Phone : </td>
+	<td>$!contact.officePhone</td>
+	<td>E-mail 		 :</td>
+	<td>$!contact.email</td>
+</tr>
+<tr bgcolor="#ffffff">
+	<td>Mobile			 :</td>
+	<td>$!contact.mobile</td>
+	<td>Other E-mail :</td>
+	<td>$!businessPartner.otherEmail</td>
+</tr>
+<tr bgcolor="#ffffff">
+	<td>Home Phone			 :</td>
+	<td>$!contact.homePhone</td>
+	<td>Assistant :</td>
+	<td>$!contact.assistant</td>
+</tr>
+<tr bgcolor="#ffffff">
+	<td>Other Phone			 :</td>
+	<td>$!contact.otherPhone</td>
+	<td>Assistant Phone :</td>
+	<td>$!contact.assistantPhone</td>
+</tr>
+<tr bgcolor="#ffffff">
+	<td>Birth Date			 :</td>
+	<td>$!contact.birthDate</td>
+	<td>Fax :</td>
+	<td>$!contact.fax</td>
+</tr>
+<tr bgcolor="#ffffff">
+	<td>Business Partner	:</td>
+	<td><b><a href="../business_partner/view.action?id=$contact.businessPartner.Id">$!contact.businessPartner.name</a></b></td>
+	<td colspan="2"></td>
+</tr>
+<tr bgcolor="#ffffff">
+	<td>Address :</td>
+	<td>$!contact.address</td>
+	<td colspan="2"></td>
+</tr>
+<tr bgcolor="#ffffff">
+	<td>City			 :</td>
+	<td>$!contact.city</td>
+	<td>Zip Code :</td>
+	<td>$!contact.zipCode</td>
+</tr>
+<tr bgcolor="#ffffff">
+	<td>Country			 :</td>
+	<td>$!contact.country</td>
+	<td colspan="2"></td>
+</tr>
+<tr bgcolor="#ffffff">
+	<td>Description			 :</td>
+	<td>$!contact.description</td>
+	<td colspan="2"></td>
+</tr>
+
+
+</table>
+
+</body>
+</html>

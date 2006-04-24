@@ -1,0 +1,53 @@
+<html>
+<head>
+  <title>edit - Add Business Partner</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+<form name="filterOpportunity" method="post" action="search.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
+
+<p>#if ($opportunities.isEmpty()) Data Not Found
+#else
+
+ 	<tr id="tableHeader2" bgcolor="#d0dcff">
+	<td colspan="6">
+	Found <strong>$!resultRows</strong> #if ($resultRows > 1) Opportunity #else Opportunities #end</p>
+    <tr id="tableHeader2" bgcolor="#ffffff">
+	<td colspan="6">
+    #if ($currPage > 0) <a href="search.action?name=$name&currPage=0">&lt;&lt;</a>&nbsp;#end
+	#if ($currPage > 0) <a href="search.action?name=$name&currPage=$prevPage">&lt;</a>&nbsp;#end
+	[page $page]
+	#if ($currPage < $maxPage) <a href="search.action?name=$name&currPage=$nextPage">&gt;</a>&nbsp;#end
+	#if ($currPage < $maxPage) <a href="search.action?name=$name&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+
+
+
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="100%">
+
+<tr id="tableHeader1" bgcolor="#d0dcff">
+		<td><b>Opportunity Name</b></td>
+		<td><b>Expected Close Date</b></td>
+		<td><b>Sales Stage</b></td>
+		<td><b>Type</b></td>
+</tr>
+
+#foreach ($opportunity in $opportunities)
+
+<tr valign="top" bgcolor="#ffffff">
+	<td><strong><a href="view.action?id=$opportunity.Id">$!opportunity.name</a></strong>&nbsp;</td>
+	<td>$!opportunity.expectedCloseDate</td>
+	<td>$!opportunity.salesStage</td>
+	<td>$!opportunity.type</td>
+</tr>
+#end
+</table>
+#end
+</body>
+</html>

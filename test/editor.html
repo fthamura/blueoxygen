@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Example of HTMLArea 3.0</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- Configure the path to the editor.  We make it relative now, so that the
+    example ZIP file will work anywhere, but please NOTE THAT it's better to
+    have it an absolute path, such as '/htmlarea/'. -->
+<script type="text/javascript">
+  _editor_url = "../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../htmlarea/htmlarea.js"></script>
+
+</head>
+
+<!-- use <body onload="HTMLArea.replaceAll()" if you don't care about
+     customizing the editor.  It's the easiest way! :) -->
+<body onload="HTMLArea.replaceAll()">
+Testing Testing Testing
+<form action="test.jsp" method="post" id="edit" name="edit">
+
+<p />
+<table>
+<tr><td width=100 valign="top">Masukan 1:</td><td>
+<textarea id="ta" name="ta" style="width: 100%; height: 24em" rows="20" cols="80">
+TA1
+</textarea>
+</td></tr>
+<tr><td><p><p><p><p></td></tr>
+<tr><td width=100 valign="top"></td><td><p></td>
+<tr><td width=100 valign="top">Masukan 2:</td><td>
+<textarea id="ta2" name="ta2" style="width: 100%; height: 24em" rows="20" cols="80">
+TA2
+</textarea>
+</td></tr>
+</table>
+<p />
+<textarea name="BodyHTML" id="BodyHTML" cols="74" rows="18" style="width:100%;" wrap="soft" tabindex="13"></textarea>
+
+<input type="submit" name="ok" value="submit" />
+
+
+</form>
+
+</body>
+</html>

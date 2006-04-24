@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+<head>
+  <title>edit - Add Business Partner</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors )
+<li>$error</li>
+ #end
+</ul>
+#end
+
+<form method="post" action="confirm.action" name="upload" > 
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+  <tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="4"><b>Member Information</b></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>First Name:<font color="RED">*</font></td>
+    <td><input type="text" name="jug.firstName" maxlength="20" value="$!jug.firstName" size="30"></td>
+	<td>Last Name:</td>
+    <td><input type="text" name="jug.lastName" maxlength="20" value="$!jug.lastName" size="30"></td>
+  </tr>
+   <tr bgcolor="#ffffff">
+    <td>Company:</td>
+    <td><input type="text" name="jug.company" value="$!jug.company" size="30"></td>   
+   	<td>Email:</td>
+    <td><input type="text" name="jug.email" value="$!jug.email" size="30"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Position:</td>
+    <td><input type="text" name="jug.position" value="$!jug.position" size="30"></td>   
+   	<td>Sex:</td>
+    <td><input type="text" name="jug.sex" value="$!jug.sex" size="30"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+  	<td>Company Address:</td>
+    <td ><input type="text" name="jug.companyAddress" value="$!jug.companyAddress" size="50"></td>
+  	<td>Company Phone:</td>
+    <td ><input type="text" name="jug.companyPhone" value="$!jug.companyPhone" size="30"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+  	<td>Home Address:</td>
+    <td ><input type="text" name="jug.homeAddress" value="$!jug.homeAddress" size="50"></td>
+  	<td>Home Phone:</td>
+    <td ><input type="text" name="jug.homePhone" value="$!jug.homePhone" size="30"></td>
+  </tr>
+  
+  
+  
+  
+
+  <tr bgcolor="#d0dcff">
+  	<td id=tableHeader1 colspan="3"> 
+	<input type="submit" value="Submit" onClick="doUpload()">
+	<input type="reset" name="Clear">
+	</td>
+	<td><strong><a href="../backend/user/login.jsp">BACK</a></strong>&nbsp;</td>
+	
+  </tr>
+</table>
+</form>
+
+</body>
+</html>

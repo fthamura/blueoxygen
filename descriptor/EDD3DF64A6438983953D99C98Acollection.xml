@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="collection" method="post" action="../utility/crvd-engine.jsp">
+	<descriptor title="id"  name="id" search="yes" required="yes" edit="yes" type="list">
+		<builder datatype="varchar" datasize="30"/>
+	</descriptor>
+	
+	<descriptor title="collection"  name="name" search="yes" required="yes" edit="yes"  type="text" size="25">
+		<builder datatype="varchar" datasize="25"/>
+	</descriptor>
+	
+	<descriptor title="description" name="description" search="yes" required="yes" edit="yes"  type="text" size="25">
+		<builder datatype="varchar" datasize="25"/>
+	</descriptor>
+	
+	<descriptor title="descriptor_id" search="yes" required="yes" edit="yes" name="descriptor_id" type="text" size="28">
+		<builder datatype="varchar" datasize="28"/>
+	</descriptor>
+	
+	<descriptor title="article_id" search="yes" required="yes" edit="yes" name="article_id" type="text" size="28">
+		<builder datatype="varchar" datasize="28"/>
+		<references table="article" key="id" value="smethod_name" orderby="id" viewall="yes"/>
+	</descriptor>		
+</contentmanager>

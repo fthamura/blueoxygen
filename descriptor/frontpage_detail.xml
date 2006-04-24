@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="frontpage_detail" method="post" action="../utility/crvd-engine.jsp">
+
+	
+	<descriptor title="frontpage_id" search="yes" required="yes" edit="yes" name="frontpage_id" type="text" size="28">
+		<builder datatype="varchar" datasize="28"/>
+	</descriptor>
+	
+	<descriptor title="collection_id" search="yes" required="yes" edit="yes" name="collection_id" type="text" size="30">
+		<builder datatype="varchar" datasize="30"/>
+	</descriptor>
+	
+	<descriptor title="collection_name" search="yes" required="yes" edit="yes" name="collection_name" type="text" size="50">
+		<builder datatype="varchar" datasize="50"/>
+		
+	</descriptor>
+	
+
+			
+</contentmanager>

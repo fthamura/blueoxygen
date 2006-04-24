@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Ruang Kerja Warintek - List Module Function</title>
+<link rel="stylesheet" type="text/css" href="../decorators/tables.css">
+</head>
+<body>
+
+<p>#if ($sections.isEmpty())Data tidak ditemukan
+#else Ditemukan <strong>$sections.size()</strong> #if ($sections.size()>1) Section #else Sections #end
+</p>
+
+<table border="0" cellspacing="0" cellpadding="5" width="70%">
+<tr>
+    <td id="tableHeader1" colspan=2>list Section</td>
+  </tr>
+    <table border="2" cellspacing="0" cellpadding="5">
+     <tr>
+	  <td id="tableHeader2" colspan="2"><b><a href="create.action">[Back]</a></b></td>
+</tr>
+  <tr id="tableHeader1">
+		<td>Code</td>
+		<td>Descriptor Description</td>
+		<td>Section Image</td>
+		<td>Description</td>
+		
+  </tr>
+   
+  
+ 
+#foreach ($section in $sections)
+	<tr valign="top">
+	<td><a href="view.action?id=$section.Id">$!section.Code</a><br>
+	<td>$!section.sectionDescriptor.description</td>
+	<td>$!section.Url_section</td>
+	<td>$!section.description</td>
+	</tr>
+#end
+</table>
+
+#end
+
+</body>
+</html>

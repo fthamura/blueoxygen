@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="site" method="post" action="../utility/crvd-engine.jsp">
+	
+	<descriptor title="Name" name="name" type="text" required="yes" size="15" maxlength="64" search="yes" edit="yes" help="Site Name">
+		<builder datatype="VARCHAR" datasize="64"/>
+	</descriptor>
+
+	<descriptor title="Description" name="description"  type="text" size="35" maxlength="255" search="yes" edit="yes">
+		<builder datatype="VARCHAR" datasize="255"/>
+	</descriptor>
+	
+	<descriptor title="Theme ID"  required="yes" name="theme_id" type="text" size="28" maxlength="28"  search="yes" edit="yes" getid="yes">
+		<builder datatype="VARCHAR" datasize="28"/>
+	</descriptor>
+	
+	<descriptor title="Site Title" name="title"  type="text" size="35" maxlength="255" search="yes" edit="yes">
+		<builder datatype="VARCHAR" datasize="255"/>
+	</descriptor>
+
+	<descriptor title="Branding Image" name="url_branding" maxlength="255" type="file" size="35" search="yes" edit="yes" help="Company Branding Image">
+		<builder datatype="VARCHAR" datasize="255"/>
+	</descriptor>
+	
+	<descriptor title="Site URL" name="site_url" comment="site.yourdotcom.com" maxlength="255" type="text" size="35" search="yes" edit="yes" help="Site URL">
+		<builder datatype="VARCHAR" datasize="255"/>
+	</descriptor>
+	
+	<descriptor title="Admin Email" name="admin_email"  type="text" size="35" maxlength="255" search="yes" edit="yes">
+		<builder datatype="VARCHAR" datasize="255"/>
+	</descriptor>
+
+	<descriptor title="Notify News" name="notify_flag" required="yes" type="radio" position="multiline" value="1" search="yes" edit="yes">
+		<builder datatype="BOOL" />
+		<choice title="Yes" name="notify_flag" value="1"/>
+		<choice title="No" name="notify_flag" value="0"/>
+	</descriptor>
+
+	<descriptor title="Notify News Email" name="notify_email"  type="text" size="35" maxlength="255" search="yes" edit="yes">
+		<builder datatype="VARCHAR" datasize="255"/>
+	</descriptor>
+
+	<descriptor title="Notify News From" name="notify_from"  type="text" size="35" maxlength="255" search="yes" edit="yes">
+		<builder datatype="VARCHAR" datasize="255"/>
+	</descriptor>
+
+	<descriptor title="Notify News Message" name="notify_message"  type="text" size="35" maxlength="255" search="yes" edit="yes">
+		<builder datatype="VARCHAR" datasize="255"/>
+	</descriptor>
+
+	<descriptor title="Active" name="active_flag" required="yes" type="radio" position="multiline" value="1" search="yes" edit="yes">
+		<builder datatype="BOOL" />
+		<choice title="Yes" name="active_flag" value="1"/>
+		<choice title="No" name="active_flag" value="0"/>
+	</descriptor>
+
+</contentmanager>

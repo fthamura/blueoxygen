@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Workspace Management - Result of Seacrh Template Object</title>
+  	<link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="5"><b>Search Template Object</b></td>
+      </tr>
+
+#if ($objects.isEmpty()) 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right">No such data found</td>
+      	</tr>
+#else 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right">
+        	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) template objects groups #else template object
+        	</td>
+      	</tr>
+#end
+<tr bgcolor="#e4e4e4" width="98%">
+	
+	<td><b>Template Skin</b></td>
+	<td><b>Theme</b></td>
+	<td><b>Description</b></td>
+	<td><b>Action</b></td>
+</tr>
+
+#foreach ($object in $objects)
+	<tr valign="top" bgcolor="white">
+	
+	<td><a href="edit.action?id=$object.Id">$!object.template_skin</a></td>
+	<td><a href="edit.action?id=$object.Id">$!object.theme.name</a></td>
+	<td><a href="edit.action?id=$object.Id">$!object.Description</a></td>
+	
+	<td>
+		<a href="edit.action?id=$object.Id">Edit</a>&nbsp;
+		<a href="confirmDelete.action?id=$object.Id">Del</a>
+	</td>
+	</tr>
+#end
+	<tr bgcolor="#e4e4e4">
+		<td align="right" colspan="5">
+			#if ($currPage > 0) <a href="search.action?template_skin=$template_skin&theme.name=$theme.name&description=$description&currPage=0">&lt;&lt;</a>&nbsp;#end
+			#if ($currPage > 0) <a href="search.action?template_skin=$template_skin&theme.name=$theme.name&description=$description&currPage=$prevPage">&lt;</a>&nbsp;#end
+			[page $page]
+			#if ($currPage < $maxPage) <a href="search.action?template_skin=$template_skin&theme.name=$theme.name&description=$description&currPage=$nextPage">&gt;</a>&nbsp;#end
+			#if ($currPage < $maxPage) <a href="search.action?template_skin=$template_skin&theme.name=$theme.name&description=$description&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+		</td>
+     </tr>
+</table>
+
+#end
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* Standard HTML elements */
+h1 {
+    font-size: 19pt;
+    font-weight: normal;
+    color: #1f4ca5;
+    font-family: arial;
+}
+h2 {
+    font-size: 13pt;
+    color: #663366;
+    font-family: arial;
+}
+big {
+    font-size: 11pt;
+}
+
+
+/* Grid style table */
+.grid {
+    border: 1px solid;
+    border-color: buttonshadow;
+}
+.grid td, .grid th {
+    padding: 1 6 1 6;
+    font: menu;
+}
+.grid th {
+    background: buttonface;
+    border: 1px solid;
+    border-color: buttonhighlight buttonshadow buttonshadow buttonhighlight;
+}
+.grid input, .grid select {
+    font: menu;
+    padding: 0;
+    margin: 0;
+}
+.gridHover {
+	background-color: #f9f9f9;
+	cursor: pointer; cursor: hand; /* use both in this order to keep ie+moz happy */
+}
+
+
+
+/* Form style table */
+.form {
+    border: 1px solid;
+    border-color: buttonshadow;
+    background-color: #eeeeee;
+}
+.form td, .form th {
+    vertical-align: top;
+    font: menu;
+    padding: 5;
+}
+.form th {
+	text-align: left;
+	font-weight: bold;
+	background-color: #dddddd; 
+}
+.form .errorRow input {
+    background-color: #ffcccc;
+}
+.form .label {
+	font-weight: bold;
+}
+.form .error {
+    color: red;
+}
+.form input, .form select, .form textarea {
+    font: menu;
+}
+
+/* Navigation */
+.navLink {
+    font-family: arial;
+    font-size: 9pt;
+    color: white;
+    text-decoration: none;
+}
+.cell {
+    font-size: 10pt;
+    font-family: arial;
+}
+

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+<head>
+  <title>edit - Add Business Partner</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors )
+<li>$error</li>
+ #end
+</ul>
+#end
+
+<form method="post" action="addOpportunityProduct.action" name="upload" enctype="multipart/form-data"> 
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+  <tr bgcolor="#d0dcff">
+    <td id=tableHeader1 colspan="2">
+    <b>Add $!opportunity.name Opportunity Product</b></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+  	<td>Product</td><td>
+	<input type="textfield" id="productName" value="None" size="15" disabled="true" onfocus="this.blur()"/>
+    <input type="hidden" id="productId" name="productId" value="0"/>
+    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../products/listProduct.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+  	</td>                                          
+  </tr>
+  <tr bgcolor="#ffffff">
+  	<td>Target Price:</td>
+  	<td><input type="text" name="price" value=""></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+  	<td>unit :</td>
+  	<td><input type="text" name="unit" value=""></td>
+  </tr>
+  <tr bgcolor="#d0dcff">
+    <td id=tableHeader1 colspan="2"> <input type="hidden" name="id" value="$id">
+    <input type="submit" name="Submit" value="Add" onClick="doUpload()">
+    <input type="reset" name="Clear">
+    </td>
+  </tr>
+  </table>
+  <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+  <tr id="tableHeader1" bgcolor="#d0dcff">
+		<td>Product Name</td>
+		<td>Price</td>
+		<td>Unit</td>
+		<td>Total Price</td>
+		<td></td>
+  </tr>
+  #foreach ($opportunityProduct in $opportunity.opportunityProduct)
+
+    <tr valign="top" bgcolor="#ffffff">
+	<td><strong><a href="../products/view.action?id=$opportunityProduct.productId">$!opportunityProduct.name</a></strong>&nbsp;</td>
+	<td>$!opportunityProduct.viewPrice()</td>
+	<td>$!opportunityProduct.unit</td>
+    <td>$!opportunityProduct.viewSale()</td>
+ 	<td><strong><a href="removeOpportunityProduct.action?opportunityProductId=$opportunityProduct.id&opportunityId=$opportunity.id">[remove]</a></strong>&nbsp;
+    <strong><a href="editOpportunityProduct.action?opportunityProductId=$opportunityProduct.id&opportunityId=$opportunity.id">[edit]</a></strong>&nbsp;</td>
+  </tr>
+  #end
+  </table>
+  <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+  <tr bgcolor="#ffffff"><td> </td></tr>
+  <tr bgcolor="#d0dcff">
+  <td><strong><a href="view.action?id=$opportunity.id">[Finish]</a></strong>&nbsp;</td>
+  </tr>
+	<input type="hidden" name="opportunityId" value="$!opportunity.id">
+  </table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+<!--
+CREATE TABLE role_previlage(
+	id 			INT(11) AUTO_INCREMENT PRIMARY KEY,
+
+	role_id 		INT(11),
+	module_function_id	INT(11),
+	previlage_flag		BOOL DEFAULT 0,
+	url_xml			VARCHAR(255),
+
+	create_by		VARCHAR(15),
+	create_date 		TIMESTAMP,
+	update_by  		VARCHAR(15),
+	update_date		TIMESTAMP
+);
+-->
+<contentmanager name="role_privilage" method="post" action="../utility/crvd-engine.jsp">
+	<descriptor title="Role Name" name="role_id" type="list" search="yes" edit="yes" help="workflow_role" references="yes" >
+		<references table="workflow_role" key="id" value="name" orderby="name" viewall="yes" />
+	</descriptor>
+	<descriptor title="Module Name" name="module_function_id" type="list" multiple="yes" search="yes" edit="yes" help="module_function" references="yes" >
+		<references table="module_function" key="id" value="description" orderby="description" viewall="yes" where="reference.iparent='0'"/>
+	</descriptor>
+	<descriptor title="Active" name="privilage_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" help="put help here">
+		<choice title="Yes" name="privilage_flag" value="1"/>
+		<choice title="No" name="privilage_flag" value="0"/>
+	</descriptor>
+</contentmanager>

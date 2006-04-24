@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="purchase_order" method="post" action="../utility/crvd-engine.jsp">
+	
+	<descriptor title="Provider Id" search="yes" required="yes" edit="yes" name="provider_id" type="text" size="30">
+		<builder datatype="varchar" datasize="30"/>
+	</descriptor>
+
+	<descriptor title="Order number" search="yes" required="yes" edit="yes" name="order_number" type="text" size="15">
+		<builder datatype="varchar" datasize="15"/>
+	</descriptor>
+	
+	<descriptor title="Order date" search="yes" required="yes" edit="yes" name="order_date" type="text" size="15">
+		<builder datatype="varchar" datasize="15"/>
+	</descriptor>
+
+	<descriptor title="Order Status" search="yes" required="yes" edit="yes" name="order_status" type="text" size="15">
+		<builder datatype="varchar" datasize="15"/>
+	</descriptor>
+
+	<descriptor title="Approved date" search="yes" required="yes" edit="yes" name="approved_date" type="text" size="15">
+		<builder datatype="varchar" datasize="15"/>
+	</descriptor>
+
+	<descriptor title="Approved by" search="yes" required="yes" edit="yes" name="approved_by" type="text" size="15">
+		<builder datatype="varchar" datasize="15"/>
+	</descriptor>
+
+	<descriptor title="Active" name="active_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" >
+		<builder datatype="BOOL" />
+		<choice title="Yes" name="active_flag" value="1"/>
+		<choice title="No" name="active_flag" value="0"/>
+	</descriptor>
+		
+</contentmanager>

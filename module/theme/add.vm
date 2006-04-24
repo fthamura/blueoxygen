@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management -
+Add a new Theme</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors ) <li>$error</li>
+#end
+</ul>
+#end
+
+
+
+<form method="post" action="add.action" name="upload" >
+  <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1"
+ width="98%">
+    <tbody>
+      <tr bgcolor="#d0dcff">
+        <td colspan="3"><b>Create Theme</b></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" width="25%">
+        	<font color="red">*</font>
+        	Name
+        	</td>
+        <td width="75%"><input maxlength="25" name="name" size="25" value="$!name"></td>
+        <td align="right" valign="top"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">
+        
+        Description:
+        </td>
+        <td>
+        	<textarea maxlenght="255" id="description" name="description" style="width: 110%" rows="15" cols="80">
+        	</textarea>
+         </td>
+        <td align="right" valign="top"><img alt="Description of The Descriptor" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" width="25%">
+        	<font color="red">*</font>Theme folder
+        	</td>
+        <td width="75%"><input maxlength="255" name="theme_folder" size="25" value="$!theme_folder"></td>
+        <td align="right" valign="top"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">Active:</td>
+        <td><input name="activeFlag" value="1" checked="checked" type="radio">Yes<br><input name="activeFlag" value="0" type="radio">No
+        </td>
+        <td align="right" valign="top"><img alt="Status of Descriptor" src="../../images/help.gif"  style="border: 0px solid ; width: 16px; height: 16px;"></td>
+      </tr>
+      <tr bgcolor="#d0dcff">
+        <td colspan="3">
+        <input type="hidden" name="id" value="$id">
+        <input name="Submit" value="Save" type="submit">&nbsp;&nbsp;
+        <input name="Clear" value="Reset" type="reset"> </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+</html>

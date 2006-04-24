@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Edit a Site</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+<link type="text/css" rel="stylesheet" href="../../style.css">
+ 
+</head>
+
+<body>
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors )
+<li>$error</li>
+ #end
+</ul>
+#end
+
+<form method="post" action="update.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  <tbody>
+  <tr bgcolor="#d0dcff">
+    <td colspan='3'><strong>Edit Site</strong></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+     <td style="font-weight: bold;" align="right" valign="top" width="20%"><font color="red">*</font>Name:</td>
+    <td width="70%"><input type="text" name="name" value="$!site.name" style="width: 50%">
+    </td>
+  	<td align="right" valign="top" style="width: 6%">
+	<img alt="Name of The Site" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Description:</td>
+  	<td><textarea name="description" style="width: 70%" rows="3" cols="30" maxlength="255">$!site.description</textarea>
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Description of The Site" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top"><font color="red">*</font>Theme Id:</td>
+  	<td><input type="textfield" id="themeName" value="$!site.theme.name" size="45" disabled="true" onfocus="this.blur()"/>
+    	<input type="hidden" id="theme_id" name="theme_id" value="$!site.theme.id"/>
+    	&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listTheme.action','cats',scrollbars=yes,status=no,width=300,height=300)"/>
+  	  &nbsp;&nbsp;<a href="../theme/edit.action?id=$!site.theme.id">edit</a>
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Theme ID of The Site" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Title:</td>
+  	<td><input type="text" name="title" value="$!site.title" style="width: 70%">
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Title of The Site" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">URL Branding:</td>
+  	<td><input type="text" name="url_branding" value="$!site.url_branding" style="width: 50%">
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="URL Branding of The Site" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Admin Email:</td>
+  	<td><input type="text" name="admin_email" value="$!site.admin_email" style="width: 50%">
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Admin Email of The Site" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Notify:</td>
+  	<td><input type="radio" name="notify_flag" value=1 #if ($site.notify_flag == 1) checked #end>yes&nbsp;&nbsp;<input type="radio" name="notify_flag" value=0 #if ($site.notify_flag == 0) checked #end>no
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Notify of The Site" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Notify Email:</td>
+  	<td><input type="text" name="notify_email" value="$!site.notify_email" style="width: 50%">
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Notify Email of The Site" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Notify From:</td>
+  	<td><input type="text" name="notify_from" value="$!site.notify_from" style="width: 50%">
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Notify From of The Site" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Notify Message:</td>
+  	<td><input type="text" name="notify_message" value="$!site.notify_message" style="width: 50%">
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Notify Message of The Site" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Site Headline:</td>
+  	<td><input type="text" name="site_headline" value="$!site.site_headline" style="width: 50%">
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Headline of The Site" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Active:</td>
+  	<td><input type="radio" name="activeFlag" value=1 #if ($site.activeFlag == 1) checked #end>active&nbsp;&nbsp;<input type="radio" name="activeFlag" value=0 #if ($site.activeFlag == 0) checked #end>inactive
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Status Active of The Site" src="../../images/help.gif" border="0"></td>
+  </tr>
+  <tr bgcolor="#d0dcff">
+  	<td colspan="3">
+  	  <input type="hidden" name="id" value="$!site.id"><input type="submit" value="Update"><input type="reset" value="Clear"></td>
+  </tr>
+ </table>
+</form>
+</body>
+</html>

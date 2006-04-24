@@ -1,0 +1,25 @@
+BODY {
+	FONT: 9pt Tahoma, Arial, Helvetica, sans-serif
+}
+
+TABLE {
+	FONT: 9pt Tahoma, Arial, Helvetica, sans-serif
+}
+A {
+	FONT-FAMILY: Arial, helvetica, arial, sans-serif; FONT-STYLE: normal; TEXT-DECORATION: none
+; color: #000000
+}
+A:link {
+	COLOR: #000000; CURSOR: hand; FONT-STYLE: normal; FONT-WEIGHT: normal;TEXT-DECORATION: none
+}
+A:active {
+	CURSOR: hand; FONT-STYLE: normal; FONT-WEIGHT: normal; TEXT-DECORATION: none
+; color: #000000 ; TEXT-DECORATION: underline
+}
+A:visited {
+	CURSOR: hand; FONT-STYLE: normal; FONT-WEIGHT: normal; TEXT-DECORATION: none
+; color: #000000 ;TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: red; CURSOR: hand; FONT-STYLE: bold; FONT-WEIGHT: normal; TEXT-DECORATION: none 
+}

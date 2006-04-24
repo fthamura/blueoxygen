@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="workflow_role" method="post" action="../utility/crvd-engine.jsp">
+	
+	<descriptor title="Name" name="name" type="text" size="25" maxlength="50" help="Make role's name unique!" search="yes" edit="yes" required="yes" >
+	</descriptor>
+	
+	<descriptor title="Description" name="description" type="text" size="35" maxlength="125" search="yes" edit="yes" >
+	</descriptor>
+	
+	<descriptor title="Active" name="active_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" help="put help here">
+		<choice title="Yes" name="active_flag" value="1"/>
+		<choice title="No" name="active_flag" value="0"/>
+	</descriptor>
+	
+</contentmanager>

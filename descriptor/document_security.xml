@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="document_security" method="post" action="../utility/crvd-engine.jsp">
+
+	<descriptor title="document_id"  name="document_id" search="yes" required="yes" edit="yes"  type="text" size="28">
+		<builder datatype="varchar" datasize="28"/>
+	</descriptor>
+	
+		
+	<descriptor title="role_id" search="yes" required="yes" edit="yes" name="role_id" type="text" size="28">
+		<builder datatype="varchar" datasize="28"/>
+	</descriptor>
+	
+	<descriptor title="role_name" search="yes" required="yes" edit="yes" name="role_name" type="text" size="30">
+		<builder datatype="varchar" datasize="128"/>
+	</descriptor>
+				
+</contentmanager>

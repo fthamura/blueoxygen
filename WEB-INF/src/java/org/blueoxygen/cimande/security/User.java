@@ -1,0 +1,68 @@
+/*******************************************************************************
+ * Copyright (c) 2004 BlueOxygen Technology.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the BlueOxygen Software License v1.0
+ * which accompanies this distribution, and is available at
+ *
+ * Contributors:
+ *     BlueOxygen Team - initial API and implementation
+ *******************************************************************************/
+package org.blueoxygen.cimande.security;
+
+
+
+import org.blueoxygen.cimande.DefaultPersistent;
+/**
+ * A very simple user. 
+ * @hibernate.class table="backend_user"
+ */
+public class User extends DefaultPersistent {
+	private String username;
+	private String password;
+	private Name name = new Name();
+	private Address address = new Address();
+	
+	public User(){
+	    
+	}
+	/**
+	 * @hibernate.property length="128"
+	 */
+	public String getUsername() {
+	   
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	/**
+	 * Password of user 
+	 * @hibernate.property length="30"
+	 */
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	/**
+	 * @hibernate.component
+	 */
+	public Name getName() {
+		return name;
+	}
+	public void setName(Name name) {
+		this.name = name;
+	}
+	/**
+	 * @hibernate.component
+	 */
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	
+}

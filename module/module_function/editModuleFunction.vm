@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Edit Module Function</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors ) <li>$error</li>
+#end
+</ul>
+#end
+
+
+<form method="get" action="upDateModuleFunction.action" name="upload" enctype="multipart/form-data"> 
+<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+  <tr bgcolor="#d0dcff">
+    <td colspan="3"><b>Edit Module Function<b></td>
+  </tr>
+   <tr bgcolor="#ffffff">
+     <td style="font-weight: bold;" align="right" valign="top">Name:<font color="RED">*</font></td>
+    <td><input type="text" name="name" maxlength="30" value="$!moduleFunction.name" size="30"></td>
+    
+  </tr>
+  <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">
+        <font color="red">*</font>
+        Description:
+        </td>
+        <td>
+        	<textarea name="description" style="width: 85%" rows="4" cols="80">$!moduleFunction.description</textarea>
+         </td>
+        
+      </tr>
+  
+  <tr bgcolor="#ffffff">
+     <td style="font-weight: bold;" align="right" valign="top">Descriptor:</td><td>
+	<input type="textfield" id="moduleDescriptorDescription" value="$!moduleFunction.moduleDescriptor.description" size="35" disabled="true" onfocus="this.blur()"/>
+    <input type="hidden" id="moduleDescriptorId" name="moduleDescriptorId" value="$!moduleFunction.moduleDescriptor.id"/>
+    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../module_function/listModuleDescriptor.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+    &nbsp;&nbsp;&nbsp;<a href="../descriptor/edit.action?id=$moduleFunction.moduleDescriptor.Id">edit</a>
+  	</td>
+  
+  </tr>
+  <tr bgcolor="#ffffff">
+     <td style="font-weight: bold;" align="right" valign="top">Thread Master ID:</td>
+    <td>
+    <input type="textfield" id="moduleFunctionName" value="$!moduleFunction.moduleFunction.name" size="35" disabled="true" onfocus="this.blur()"/>
+    <input type="hidden" id="moduleFunctionId" name="moduleFunctionId" value="$!moduleFunction.moduleFunction.id"/>
+    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../module_function/listThreadNumber.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+    &nbsp;&nbsp;&nbsp;<a href="editModuleFunction.action?id=$moduleFunction.moduleFunction.Id">edit</a></td>
+   </tr>
+  
+  <tr bgcolor="#ffffff">
+  	 <td style="font-weight: bold;" align="right" valign="top">Table References:</td>
+    <td><input type="text" name="tableReferences" value="$!moduleFunction.tableReferences" size="30"></td>
+  	  	
+  </tr>
+  <tr bgcolor="#ffffff">
+  	 <td style="font-weight: bold;" align="right" valign="top">View All:</td>
+  	<td>
+  	<input type="radio" name="viewActive" value=1 #if($!moduleFunction.viewActive == 1) checked #end> Yes<br>
+  	<input type="radio" name="viewActive" value=0 #if($!moduleFunction.viewActive == 0) checked #end> No
+  	</td>
+  
+  </tr>
+  
+  <tr bgcolor="#d0dcff">
+  <td colspan="3"> 
+  <input type="hidden" name="id" value="$id">
+	<input type="submit" name="Submit" value="Update" onClick="doUpload()">&nbsp;&nbsp;
+	<input type="reset" name="Clear">
+  </td>
+  </tr>
+</table>
+</form>
+
+#if ($!moduleFunction.moduleFunctions.isEmpty()) 
+&nbsp;
+#else 
+<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="5"><b>Child Module Function</b></td>
+      </tr>
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right">
+        	Found ( <strong>$!moduleFunction.moduleFunctions.size()</strong> ) #if ($moduleFunction.moduleFunctions.size() > 1) moduleFunctions #else moduleFunction #end
+        	</td>
+      	</tr>
+<tr bgcolor="#e4e4e4">
+<td>Name
+</td>
+<td>Description
+</td>
+<td>Action
+</td>
+</tr>
+
+#foreach ($childModuleF in $moduleFunction.moduleFunctions)
+<tr valign="top" bgcolor="white">
+<td>$!childModuleF.Name
+</td>
+<td>$!childModuleF.Description
+</td>
+<td><a href="editModuleFunction.action?id=$!childModuleF.Id">Edit</a> <a href="deleteModuleFunction.action?id=$!childModuleF.Id">Del</a>
+</td>
+</tr>
+#end
+#end
+</table>
+</body>
+</html>

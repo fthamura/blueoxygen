@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.blueoxygen.cimande.category.Category"
+        table="category"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.String"
+            length="28"
+            unsaved-value="0"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Category.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <many-to-one
+            name="categoryDescriptor"
+            class="org.blueoxygen.cimande.descriptors.Descriptor"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="descriptor_id"
+        />
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="description"
+        />
+
+        <property
+            name="code"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="code"
+            length="3"
+        />
+
+        <many-to-one
+            name="parentCategory"
+            class="org.blueoxygen.cimande.category.Category"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="iparentcode"
+        />
+
+        <bag
+            name="categories"
+            table="category"
+            lazy="false"
+            inverse="true"
+            cascade="all"
+        >
+
+            <key
+                column="iparentcode"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.blueoxygen.cimande.category.Category"
+            />
+
+      </bag>
+
+        <property
+            name="url_category_image"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="url_category_image"
+        />
+
+        <component
+            name="logInformation"
+            class="org.blueoxygen.cimande.LogInformation"
+        >
+        <property
+            name="createBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="create_by"
+            length="28"
+        />
+
+        <property
+            name="lastUpdateBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="update_by"
+            length="28"
+        />
+
+        <property
+            name="createDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="create_date"
+        />
+
+        <property
+            name="lastUpdateDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="update_date"
+        />
+
+        <property
+            name="activeFlag"
+            type="int"
+            update="true"
+            insert="true"
+            column="active_flag"
+        />
+
+        </component>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Category.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

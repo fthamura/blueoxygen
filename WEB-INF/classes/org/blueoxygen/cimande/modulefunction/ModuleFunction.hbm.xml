@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.blueoxygen.cimande.modulefunction.ModuleFunction"
+        table="module_function"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.String"
+            length="28"
+            unsaved-value="0"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ModuleFunction.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <many-to-one
+            name="moduleDescriptor"
+            class="org.blueoxygen.cimande.descriptors.Descriptor"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="descriptor_id"
+        />
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="description"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="name"
+            length="128"
+        />
+
+        <property
+            name="tableReferences"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="ref_desc"
+        />
+
+        <property
+            name="viewActive"
+            type="int"
+            update="true"
+            insert="true"
+            column="viewall_flag"
+            length="1"
+        />
+
+        <many-to-one
+            name="moduleFunction"
+            class="org.blueoxygen.cimande.modulefunction.ModuleFunction"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="iparent"
+        />
+
+        <bag
+            name="moduleFunctions"
+            table="module_function"
+            lazy="false"
+            inverse="true"
+            cascade="all"
+        >
+
+            <key
+                column="iparent"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.blueoxygen.cimande.modulefunction.ModuleFunction"
+            />
+
+      </bag>
+
+        <component
+            name="logInformation"
+            class="org.blueoxygen.cimande.LogInformation"
+        >
+        <property
+            name="createBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="create_by"
+            length="28"
+        />
+
+        <property
+            name="lastUpdateBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="update_by"
+            length="28"
+        />
+
+        <property
+            name="createDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="create_date"
+        />
+
+        <property
+            name="lastUpdateDate"
+            type="java.sql.Timestamp"
+            update="true"
+            insert="true"
+            column="update_date"
+        />
+
+        <property
+            name="activeFlag"
+            type="int"
+            update="true"
+            insert="true"
+            column="active_flag"
+        />
+
+        </component>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-ModuleFunction.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+<!--      
+CREATE TABLE backend_user(
+	
+	id 		INT(11) PRIMARY KEY,
+	username	VARCHAR(15) NOT NULL UNIQUE,
+	password	VARCHAR(15) NOT NULL,
+	first_name	VARCHAR(15),
+	last_name	VARCHAR(15),
+	email		VARCHAR(125),
+	address1	VARCHAR(255),
+	address2	VARCHAR(255),
+        city		VARCHAR(15),
+	description	VARCHAR(255),
+	role_id		INT(11) DEFAULT 0
+);
+-->
+<contentmanager name="web_link" method="post" action="../utility/crvd-engine.jsp">
+	<descriptor title="Category" name="category_id" type="list" search="yes" edit="yes" help="put help here" references="yes" >
+		<builder datatype="varchar" datasize="28" criteria="not null" default="test"/>
+		<references table="category" key="id" value="description" orderby="description" />
+	</descriptor>  
+
+	<descriptor title="Title" name="name" maxlength="128" type="text" size="35" required="yes" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="128"/>
+	</descriptor>
+
+	<descriptor title="Page URL" name="page_url" maxlength="128" type="text" size="25" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="128"/>
+	</descriptor>
+	
+	<descriptor title="Description" name="description" maxlength="255" type="textarea" cols="35" rows="5" edit="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+
+
+</contentmanager>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="provider" method="post" action="../utility/crvd-engine.jsp">
+	
+	<descriptor title="Provider Name" search="yes" required="yes" edit="yes" name="provider_name" type="text" size="30">
+		<builder datatype="varchar" datasize="30"/>
+	</descriptor>
+	
+	<descriptor title="Provider Description" search="yes" required="yes" edit="yes" name="provider_desc" type="text" size="50">
+		<builder datatype="varchar" datasize="50"/>
+	</descriptor>
+	
+	<descriptor title="Address" search="yes" required="yes" edit="yes" name="address" type="text" size="40">
+		<builder datatype="varchar" datasize="40"/>
+	</descriptor>
+	
+	<descriptor title="Province" search="yes" required="yes" edit="yes" name="province" type="text" size="35">
+		<builder datatype="varchar" datasize="35"/>
+	</descriptor>
+	
+	<descriptor title="City" search="yes" required="yes" edit="yes" name="city" type="text" size="30">
+		<builder datatype="varchar" datasize="30"/>
+	</descriptor>
+	
+	<descriptor title="Country" search="yes" required="yes" edit="yes" name="country" type="text" size="30">
+		<builder datatype="varchar" datasize="30"/>
+	</descriptor>
+	
+	<descriptor title="Zip Code" search="yes" required="yes" edit="yes" name="zip_code" type="text" size="5">
+		<builder datatype="varchar" datasize="5"/>
+	</descriptor>
+	
+	<descriptor title="Phone" search="yes" required="yes" edit="yes" name="phone" type="text" size="15">
+		<builder datatype="varchar" datasize="15"/>
+	</descriptor>
+
+	<descriptor title="Fax" search="yes" required="yes" edit="yes" name="fax" type="text" size="15">
+		<builder datatype="varchar" datasize="15"/>
+	</descriptor>
+
+	<descriptor title="Active" name="active_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" >
+		<builder datatype="BOOL" />
+		<choice title="Yes" name="active_flag" value="1"/>
+		<choice title="No" name="active_flag" value="0"/>
+	</descriptor>
+		
+</contentmanager>

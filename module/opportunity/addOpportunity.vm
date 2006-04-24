@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+<head>
+  <title>edit - Add Opportunity</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="../../jscalendar-1.0/calendar-win2k-cold-1.css" title="win2k-cold-1" />
+<script type="text/javascript" src="../../jscalendar-1.0/calendar.js"></script>
+
+<script type="text/javascript" src="../../jscalendar-1.0/lang/calendar-en.js"></script>
+
+<script type="text/javascript" src="../../jscalendar-1.0/calendar-setup.js"></script>
+</head>
+
+<body onload="HTMLArea.replaceAll();">
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors )
+<li>$error</li>
+ #end
+</ul>
+#end
+
+<form method="post" action="add.action" name="upload" enctype="multipart/form-data"> 
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="100%">
+  <tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="4"><b>Opportunity Information</b>/td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Opportunity Name:<font color="RED">*</font></td>
+    <td><input type="text" name="name" maxlength="20" value="$!name" size="30"></td>
+  	<td colspan="4"></td>
+  </tr>
+  
+  <tr bgcolor="#ffffff">
+  	<td>Business Partner</td><td>
+	<input type="textfield" id="businessPartnerName" value="None" size="15" disabled="true" onfocus="this.blur()"/>
+    <input type="hidden" id="businessPartnerId" name="businessPartnerId" value="0"/>
+    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../business_partner/listBusinessPartner.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+  	</td>                                      
+  	<td colspan="4"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Amount:<font color="RED">*</font></td>
+    <td><input type="text" name="amount" value="$!amount" size="30"></td>
+  	<td>Expected Close Date:<font color="RED">*</font></td>
+    <td><input type="text" name="expectedCloseDate" value="$!expectedCloseDate" size="30" id="f_date_b" readonly="1">
+    <img src="../../jscalendar-1.0/img.gif" id="f_trigger_b" style="cursor: pointer; border: 1px solid red;" title="Date selector"
+      onmouseover="this.style.background='red';" onmouseout="this.style.background=''" /></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Next Step:</td>
+    <td><input type="text" name="nextStep" value="$!nextStep" size="30"></td>
+    <td>Probability(%):</td>
+    <td><input type="text" name="probability" maxlength="5" value="$!probability" size="30"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+  	<td id="tableHeader2">Type:</td>
+  	<td><select name="type">
+  		<option value="">---None---</option>
+  		<option value="Existing Business">Existing Business</option>
+  		<option value="New Business">New Business</option>
+  		</select>
+  	</td>
+  	</td>
+	<td id="tableHeader2">Sales Stage:<font color="RED">*</font></td>
+  	<td><select name="salesStage">
+  		<option value="Prospecting">Prospecting</option>
+  		<option value="Qualification">Qualification</option>
+  		<option value="Needs Analysis">Needs Analysis</option>
+  		<option value="Value Proposition">Value Proposition</option>
+  		<option value="Id. Decision Makers">Id. Decision Makers</option>
+  		<option value="Percepion Analysis">Percepion Analysis</option>
+  		<option value="Proposal/Price Quote">Proposal/Price Quote</option>
+  		<option value="Negotiation/Review">Negotiation/Review</option>
+  		<option value="Closed Won">Closed Won</option>
+  		<option value="Closed Lost">Closed Lost</option>
+  		</select>
+  	</td>
+  	</td>
+  </tr>		
+  <tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="4"><b>Description</b></td>
+  </tr>		
+  <tr bgcolor="#ffffff">
+  	<td>Description:</td>
+    <td colspan="3"><textarea name="description" value="$!description" style="width: 100%" rows="15" cols="95"></textarea></td>
+  </tr>	
+  
+  <tr bgcolor="#d0dcff">
+  	<td id=tableHeader1 colspan="4"> <input type="hidden" name="id" value="$id">
+	<input type="submit" name="Submit" value="Submit" onClick="doUpload()">
+	<input type="reset" name="Clear">
+	</td>
+  </tr>
+</table>
+</form>
+
+<script type="text/javascript">
+    Calendar.setup({
+        inputField     :    "f_date_b",      // id of the input field
+        ifFormat       :    "%d/%m/%Y",       // format of the input field
+        showsTime      :    true,            // will display a time selector
+        button         :    "f_trigger_b",   // trigger for the calendar (button ID)
+        singleClick    :    false,           // double-click mode
+        step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+    });
+</script>
+
+</body>
+</html>

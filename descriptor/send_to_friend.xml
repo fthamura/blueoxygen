@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+
+<contentmanager name="send_to_friend" method="post" action="../utility/crvd-engine.jsp">
+	<descriptor title="Name 1" name="name1" maxlength="55" type="text" size="25" required="yes" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="55"/>
+	</descriptor>
+
+	<descriptor title="Name 2" name="name2" maxlength="55" type="text" size="25" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="55"/>
+	</descriptor>
+
+	<descriptor title="Name 3" name="name3" maxlength="55" type="text" size="25" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="55"/>
+	</descriptor>
+
+	<descriptor title="Email 1" name="email1" maxlength="255" type="text" size="25" required="yes" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+
+	<descriptor title="Email 2" name="email2" maxlength="255" type="text" size="25" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+
+	<descriptor title="Email 3" name="email3" maxlength="255" type="text" size="25" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+
+	<descriptor title="Comment" name="comment" maxlength="255" type="textarea" cols="35" rows="5" edit="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+
+</contentmanager>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+<contentmanager name="glossary" method="post" action="../utility/crvd-engine.jsp">
+	<descriptor title="Section" name="section_id" type="list" search="yes" edit="yes" help="put help here" references="yes" >
+		<builder datatype="varchar" datasize="25" criteria="not null" default="test" unique="yes"/>
+		<references table="section" key="id" value="description" orderby="description" />
+	</descriptor>   
+	
+	<descriptor title="Category" name="category_id" type="list" search="yes" edit="yes" help="put help here" references="yes" >
+		<builder datatype="varchar" datasize="25" criteria="not null" default="test" unique="yes"/>
+		<references table="category" key="id" value="description" orderby="description" />
+	</descriptor>  
+	
+	<descriptor title="Terms" name="terms" type="text" size="45" maxlength="128" required="yes" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="128"/>
+	</descriptor>
+	
+	<descriptor title="Description" name="Description" type="textarea" cols="45" rows="5" required="yes" search="yes" edit="yes">
+		<builder datatype="text" />
+	</descriptor>
+
+	<descriptor title="Active" name="active_flag" type="radio" position="multiline" value="1" search="yes" edit="yes" help="put help here">
+		<builder datatype="bool" />
+		<choice title="Yes" name="active_flag" value="1"/>
+		<choice title="No" name="active_flag" value="0"/>
+	</descriptor>
+		
+</contentmanager>

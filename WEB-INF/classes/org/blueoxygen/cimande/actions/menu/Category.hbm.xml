@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="org.blueoxygen.cimande.actions.menu.Category"
+        table="CATEGORIES"
+        proxy="org.petsoar.categories.Category"
+    >
+
+        <id
+            name="id"
+            column="CATID"
+            type="long"
+            unsaved-value="0"
+        >
+            <generator class="increment">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Category.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <many-to-one
+            name="parent"
+            class="org.blueoxygen.cimande.actions.menu.Category"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="PARENTID"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="NAME"
+        />
+
+        <property
+            name="image"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="IMAGE"
+        />
+
+        <bag
+            name="categories"
+            table="CATEGORY"
+            lazy="true"
+            inverse="true"
+            cascade="delete"
+        >
+
+            <key
+                column="PARENTID"
+            >
+            </key>
+
+            <one-to-many
+                  class="org.petsoar.categories.Category"
+            />
+
+      </bag>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Category.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

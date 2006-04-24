@@ -1,0 +1,17 @@
+<head>
+  <title>edit - Add Service</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+  <style type="text/css">@import url("style.css");</style>
+  <script src="sorttable.js"></script>
+</head>
+<body>
+  <table class="sortable" id="table1">
+  <tr>
+    <td>Module Function</td>
+  </tr>
+  #foreach ($comp in $companies)
+  <tr><td>
+  $comp.name
+  </td></tr>
+  #end
+</body>

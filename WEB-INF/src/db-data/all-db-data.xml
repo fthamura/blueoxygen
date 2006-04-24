@@ -1,0 +1,806 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <table name="AGENT">
+    <column>id</column>
+    <column>name</column>
+    <column>status</column>
+    <column>type</column>
+    <column>address</column>
+    <column>birthday</column>
+    <column>city</column>
+    <column>idNumber</column>
+    <column>idType</column>
+    <column>marriageStatus</column>
+    <column>sex</column>
+    <column>zipNumber</column>
+    <column>rank</column>
+    <column>uplineId</column>
+    <column>faxNumber</column>
+    <column>phoneNumber</column>
+    <row>
+      <value>1</value>
+      <value><![CDATA[Ginanjar Utama]]></value>
+      <value/>
+      <value/>
+      <value>Bermis</value>
+      <value>1999-01-01</value>
+      <value>Serpong</value>
+      <value>123123123123</value>
+      <value>KTP</value>
+      <value>widow(er)</value>
+      <value>male</value>
+      <value/>
+      <value>Manager</value>
+      <null/>
+      <value/>
+      <value>081315114260</value>
+    </row>
+    <row>
+      <value>2</value>
+      <value><![CDATA[Prabowo Subianto]]></value>
+      <value/>
+      <value/>
+      <value>Cilangkap</value>
+      <value>1955-08-08</value>
+      <value>Jakarta</value>
+      <value>4555.08081955.1233</value>
+      <value>KTP</value>
+      <value>widow(er)</value>
+      <value>male</value>
+      <value>45321</value>
+      <value>Agent</value>
+      <value>1</value>
+      <value/>
+      <value/>
+    </row>
+    <row>
+      <value>3</value>
+      <value><![CDATA[Susilo Bambang Yudhoyono]]></value>
+      <value/>
+      <value/>
+      <value><![CDATA[Jl. Denpasar Raya]]></value>
+      <value>1945-10-10</value>
+      <value>Jakarta</value>
+      <value>455.10101945.234</value>
+      <value>KTP</value>
+      <value>married</value>
+      <value>male</value>
+      <value>32120</value>
+      <value><![CDATA[Agent Coordinator]]></value>
+      <value>1</value>
+      <value/>
+      <value/>
+    </row>
+    <row>
+      <value>4</value>
+      <value><![CDATA[Megawati Soekarnoputri]]></value>
+      <value/>
+      <value/>
+      <value><![CDATA[Jl. Tengku Cik Ditiro]]></value>
+      <value>1945-01-24</value>
+      <value>Jakarta</value>
+      <value>009.24011945.123</value>
+      <value>KTP</value>
+      <value>married</value>
+      <value>female</value>
+      <value>32120</value>
+      <value>Agent</value>
+      <value>3</value>
+      <value/>
+      <value>02188909090</value>
+    </row>
+    <row>
+      <value>6</value>
+      <value>Yohannes</value>
+      <value/>
+      <value/>
+      <value><![CDATA[Pasar Rebo]]></value>
+      <value>1943-01-01</value>
+      <value>Jakarta</value>
+      <value>2344.23409.2344</value>
+      <value>KTP</value>
+      <value>single</value>
+      <value>male</value>
+      <value/>
+      <value><![CDATA[Agent Coordinator]]></value>
+      <value>1</value>
+      <value/>
+      <value/>
+    </row>
+    <row>
+      <value>7</value>
+      <value>Wiranto</value>
+      <value/>
+      <value/>
+      <value><![CDATA[Jl. Widyautama I Komplek Purnawirawan TNI]]></value>
+      <value>1967-06-17</value>
+      <value>Jakarta</value>
+      <value/>
+      <value>KTP</value>
+      <value>married</value>
+      <value>male</value>
+      <value>45632</value>
+      <value>Agent</value>
+      <value>1</value>
+      <value>345456567</value>
+      <value>345345</value>
+    </row>
+    <row>
+      <value>8</value>
+      <value><![CDATA[Amien Rais]]></value>
+      <value/>
+      <value/>
+      <value/>
+      <value>1990-05-04</value>
+      <value>Yogyakarta</value>
+      <value>53454324.423423.33</value>
+      <value>KTP</value>
+      <value>single</value>
+      <value>male</value>
+      <value>2313123</value>
+      <value>Agent</value>
+      <value>3</value>
+      <value/>
+      <value/>
+    </row>
+    <row>
+      <value>9</value>
+      <value><![CDATA[Mbak Tutut]]></value>
+      <value/>
+      <value/>
+      <value><![CDATA[Jl. Cendana]]></value>
+      <value>1961-09-07</value>
+      <value/>
+      <value>3234234.4234234</value>
+      <value>KTP</value>
+      <value>widow(er)</value>
+      <value>female</value>
+      <value/>
+      <value>Agent</value>
+      <value>6</value>
+      <value/>
+      <value/>
+    </row>
+    <row>
+      <value>10</value>
+      <value><![CDATA[Gus Dur]]></value>
+      <value/>
+      <value/>
+      <value><![CDATA[Jl. Kebagusan]]></value>
+      <value>1992-03-02</value>
+      <value/>
+      <value>4234234.4234.2</value>
+      <value>KTP</value>
+      <value>single</value>
+      <value/>
+      <value/>
+      <value>Agent</value>
+      <value>6</value>
+      <value/>
+      <value/>
+    </row>
+    <row>
+      <value>11</value>
+      <value>Herman</value>
+      <value/>
+      <value/>
+      <value/>
+      <value>1982-10-22</value>
+      <value/>
+      <value>123213.1231321</value>
+      <value>KTP</value>
+      <value>single</value>
+      <value>male</value>
+      <value/>
+      <value>Agent</value>
+      <null/>
+      <value/>
+      <value/>
+    </row>
+  </table>
+  <table name="BENEFICIARY">
+    <column>id</column>
+    <column>address</column>
+    <column>name</column>
+    <column>birthday</column>
+    <column>city</column>
+    <column>faxNumber</column>
+    <column>height</column>
+    <column>idNumber</column>
+    <column>idType</column>
+    <column>marriageStatus</column>
+    <column>occupation</column>
+    <column>phoneNumber</column>
+    <column>productType</column>
+    <column>sex</column>
+    <column>weight</column>
+    <column>zipNumber</column>
+    <column>claim</column>
+    <column>premium</column>
+    <column>paymentStatus</column>
+    <column>rank</column>
+    <column>registrationDay</column>
+    <column>uplineId</column>
+    <column>agentId</column>
+    <row>
+      <value>1</value>
+      <value><![CDATA[Cempaka Putih Tengah II]]></value>
+      <value><![CDATA[Frans Thamura]]></value>
+      <value>1975-10-28</value>
+      <value>Jakarta</value>
+      <value/>
+      <value>165.0</value>
+      <value>345345345</value>
+      <value>KTP</value>
+      <value>single</value>
+      <value><![CDATA[Java Evangelist]]></value>
+      <value>4260933</value>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>male</value>
+      <value>45.0</value>
+      <value>13440</value>
+      <value>50000000000.00</value>
+      <value>20000000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-03-04</value>
+      <null/>
+      <value>1</value>
+    </row>
+    <row>
+      <value>2</value>
+      <value><![CDATA[Jl. Palapa XI/19]]></value>
+      <value><![CDATA[Umar Khatab]]></value>
+      <value>1978-09-11</value>
+      <value>Jakarta</value>
+      <value/>
+      <value>175.0</value>
+      <value>09876543321</value>
+      <value>KTP</value>
+      <value>single</value>
+      <value>Karyawan</value>
+      <value>021-7803470</value>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>male</value>
+      <value>65.0</value>
+      <value>12520</value>
+      <value>500000000.00</value>
+      <value>50000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-03-04</value>
+      <null/>
+      <value>1</value>
+    </row>
+    <row>
+      <value>3</value>
+      <value><![CDATA[Bermis A8/7]]></value>
+      <value><![CDATA[Ginanjar Utama]]></value>
+      <value>1979-05-18</value>
+      <value>Serpong</value>
+      <value/>
+      <value>165.0</value>
+      <value>0987654321</value>
+      <value>KTP</value>
+      <value>married</value>
+      <value>Karyawan</value>
+      <value>021-7565543</value>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>male</value>
+      <value>60.0</value>
+      <value>589021</value>
+      <value>500000000.00</value>
+      <value>50000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-03-04</value>
+      <null/>
+      <value>1</value>
+    </row>
+    <row>
+      <value>4</value>
+      <value>Pademangan</value>
+      <value><![CDATA[Tjhi Yanti]]></value>
+      <value>1982-01-01</value>
+      <value>Jakarta</value>
+      <value/>
+      <value>160.0</value>
+      <value>23444443234</value>
+      <value>KTP</value>
+      <value>single</value>
+      <value/>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>female</value>
+      <value>45.0</value>
+      <value>43320</value>
+      <value>250000000.00</value>
+      <value>30000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-03-04</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>5</value>
+      <value><![CDATA[Bermis A8/7]]></value>
+      <value><![CDATA[Vina Parlina]]></value>
+      <value>1981-02-08</value>
+      <value>Serpong</value>
+      <value/>
+      <value>160.0</value>
+      <value>1234555532</value>
+      <value>KTP</value>
+      <value>married</value>
+      <value/>
+      <value>7565543</value>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>female</value>
+      <value>55.0</value>
+      <value>32209</value>
+      <value>100000000.00</value>
+      <value>12000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-03-04</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>6</value>
+      <value><![CDATA[Jl Pemuda Rawamangun]]></value>
+      <value><![CDATA[Leyla Assegaf]]></value>
+      <value>1973-06-01</value>
+      <value>Jakarta</value>
+      <value/>
+      <value>165.0</value>
+      <value>665232333</value>
+      <value>KTP</value>
+      <value>married</value>
+      <value><![CDATA[Program Director]]></value>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>female</value>
+      <value>50.0</value>
+      <value>14550</value>
+      <value>350000000.00</value>
+      <value>40000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-03-04</value>
+      <value>1</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>7</value>
+      <value><![CDATA[Jl. Sukaluyu]]></value>
+      <value><![CDATA[Isman H. Suryaman]]></value>
+      <value>1976-05-05</value>
+      <value>Bandung</value>
+      <value/>
+      <value>175.0</value>
+      <value>665344432</value>
+      <value>Paspor</value>
+      <value>married</value>
+      <value>Penulis</value>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>male</value>
+      <value>70.0</value>
+      <value>43077</value>
+      <value>450000000.00</value>
+      <value>50000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-08</value>
+      <value>2</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>8</value>
+      <value><![CDATA[Jl.Raya Gubeng]]></value>
+      <value><![CDATA[Pribadi Prananta]]></value>
+      <value>1981-03-16</value>
+      <value>Surabaya</value>
+      <value/>
+      <value>180.0</value>
+      <value>77762354</value>
+      <value>SIM</value>
+      <value>single</value>
+      <value>Wartawan</value>
+      <value>031-5678999</value>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>male</value>
+      <value>70.0</value>
+      <value>55601</value>
+      <value>200000000.00</value>
+      <value>25000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-08</value>
+      <value>2</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>9</value>
+      <value><![CDATA[Jl. Multikarya 41 Utan Kayu]]></value>
+      <value><![CDATA[Ali Imran]]></value>
+      <value>1949-09-19</value>
+      <value>Jakarta</value>
+      <value/>
+      <value>165.0</value>
+      <value>665237787</value>
+      <value>SIM</value>
+      <value>married</value>
+      <value>Wiraswasta</value>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>male</value>
+      <value>60.0</value>
+      <value>12340</value>
+      <value>480000000.00</value>
+      <value>45000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-08</value>
+      <value>2</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>10</value>
+      <value><![CDATA[Jl. Tangguk  Bongkar IX]]></value>
+      <value><![CDATA[Agustina Badar]]></value>
+      <value>1962-08-08</value>
+      <value>Medan</value>
+      <value/>
+      <value>164.0</value>
+      <value>776.99823.2111</value>
+      <value>KTP</value>
+      <value>married</value>
+      <value>Bidan</value>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>female</value>
+      <value>65.0</value>
+      <value>64551</value>
+      <value>600000000.00</value>
+      <value>100000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-08</value>
+      <value>3</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>11</value>
+      <value><![CDATA[Jl. Cipinang Jaya LL]]></value>
+      <value>Chairiza</value>
+      <value>1975-08-06</value>
+      <value>Jakarta</value>
+      <value/>
+      <value>175.0</value>
+      <value>2344.8889.2344</value>
+      <value>KTP</value>
+      <value>married</value>
+      <value>Karyawan</value>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>male</value>
+      <value>68.0</value>
+      <value>12450</value>
+      <value>15000000.00</value>
+      <value>12000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-08</value>
+      <value>3</value>
+      <value>3</value>
+    </row>
+    <row>
+      <value>12</value>
+      <value><![CDATA[Jl. Pasar Warakas Tanjung Priok]]></value>
+      <value><![CDATA[Dedeng Meilani]]></value>
+      <value>1977-08-05</value>
+      <value>Jakarta</value>
+      <value/>
+      <value>170.0</value>
+      <value>766.9998.0008</value>
+      <value>KTP</value>
+      <value>single</value>
+      <value/>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>female</value>
+      <value>55.0</value>
+      <value>45554</value>
+      <value>120000000.00</value>
+      <value>10000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-14</value>
+      <value>3</value>
+      <value>3</value>
+    </row>
+    <row>
+      <value>13</value>
+      <value><![CDATA[Jl. Palapa XI/19]]></value>
+      <value><![CDATA[Isma Tria Savitri]]></value>
+      <value>1982-08-06</value>
+      <value>Jakarta</value>
+      <value/>
+      <value>165.0</value>
+      <value>1233.3345.12333</value>
+      <value>KTP</value>
+      <value>single</value>
+      <value>Mahasiswi</value>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>female</value>
+      <value>52.0</value>
+      <value>12520</value>
+      <value>600000000.00</value>
+      <value>180000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-15</value>
+      <value>3</value>
+      <value>3</value>
+    </row>
+    <row>
+      <value>14</value>
+      <value><![CDATA[Jl. Bendungan Hilir]]></value>
+      <value><![CDATA[Ratna Ariyanti]]></value>
+      <value>1978-01-17</value>
+      <value>Jakarta</value>
+      <value/>
+      <value>165.0</value>
+      <value>232.3345.234455</value>
+      <value>KTP</value>
+      <value>single</value>
+      <value>Wartawan</value>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>female</value>
+      <value>53.0</value>
+      <value>13450</value>
+      <value>50000000.00</value>
+      <value>45000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-15</value>
+      <value>4</value>
+      <value>3</value>
+    </row>
+    <row>
+      <value>15</value>
+      <value><![CDATA[Lorong II/45]]></value>
+      <value><![CDATA[Siti Dinar]]></value>
+      <value>1921-08-09</value>
+      <value><![CDATA[Aek Kanopan]]></value>
+      <value/>
+      <value>155.0</value>
+      <value>1233.4450.22344</value>
+      <value>KTP</value>
+      <value>widow(er)</value>
+      <value>Aktivis</value>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>female</value>
+      <value>45.0</value>
+      <value>560213</value>
+      <value>350000000.00</value>
+      <value>30000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-15</value>
+      <value>4</value>
+      <value>3</value>
+    </row>
+    <row>
+      <value>16</value>
+      <value>Pecenongan</value>
+      <value>Herman</value>
+      <value>1982-07-08</value>
+      <value>Jakarta</value>
+      <value/>
+      <value>0.0</value>
+      <value>345345</value>
+      <value>KTP</value>
+      <value>single</value>
+      <value/>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>male</value>
+      <value>0.0</value>
+      <value>54321</value>
+      <value>0.00</value>
+      <value>0.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-15</value>
+      <value>4</value>
+      <value>4</value>
+    </row>
+    <row>
+      <value>17</value>
+      <value>Sukaluyu</value>
+      <value><![CDATA[Kurnia Yudhawinata]]></value>
+      <value>1976-09-08</value>
+      <value>Bandung</value>
+      <value/>
+      <value>170.0</value>
+      <value>7783.08091976.233</value>
+      <value>KTP</value>
+      <value>married</value>
+      <value>Writer</value>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>male</value>
+      <value>70.0</value>
+      <value>43102</value>
+      <value>100000000.00</value>
+      <value>20000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-13</value>
+      <value>6</value>
+      <value>4</value>
+    </row>
+    <row>
+      <value>18</value>
+      <value><![CDATA[Jl. Tangguk  Bongkar IX]]></value>
+      <value><![CDATA[Danial Salatin]]></value>
+      <value>1983-06-08</value>
+      <value>Medan</value>
+      <value/>
+      <value>175.0</value>
+      <value>33234.08.06.1983</value>
+      <value>KTP</value>
+      <value>single</value>
+      <value>Mahasiswa</value>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>male</value>
+      <value>65.0</value>
+      <value>64301</value>
+      <value>600000000.00</value>
+      <value>300000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-14</value>
+      <value>10</value>
+      <value>4</value>
+    </row>
+    <row>
+      <value>19</value>
+      <value><![CDATA[Komplek Balai Penelitian Hasil Laut Jl. Muara Baru]]></value>
+      <value>Chairita</value>
+      <value>1974-05-10</value>
+      <value>Jakarta</value>
+      <value/>
+      <value>165.0</value>
+      <value>11233.10.051974.123</value>
+      <value>KTP</value>
+      <value>married</value>
+      <value>Karyawati</value>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value>female</value>
+      <value>55.0</value>
+      <value>23430</value>
+      <value>200000000.00</value>
+      <value>50000.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-14</value>
+      <value>11</value>
+      <value>4</value>
+    </row>
+    <row>
+      <value>20</value>
+      <value/>
+      <value><![CDATA[John Doe]]></value>
+      <value>1999-01-01</value>
+      <value/>
+      <value/>
+      <value>0.0</value>
+      <value>23432423.432424</value>
+      <value>KTP</value>
+      <value/>
+      <value/>
+      <value/>
+      <value><![CDATA[KARUNIA MAS]]></value>
+      <value/>
+      <value>0.0</value>
+      <value>42342</value>
+      <value>0.00</value>
+      <value>0.00</value>
+      <null/>
+      <value>Agent</value>
+      <value>2004-04-21</value>
+      <null/>
+      <value>1</value>
+    </row>
+  </table>
+  <table name="PAYMENT">
+    <column>id</column>
+    <column>accountNr</column>
+    <column>agentNr</column>
+    <column>amount</column>
+    <column>amountMentioned</column>
+    <column>bank</column>
+    <column>bankTransferAccount</column>
+    <column>bankTransferAddress</column>
+    <column>bankTransferName</column>
+    <column>formNr</column>
+    <column>name</column>
+    <column>paymentType</column>
+    <column>receiptNr</column>
+    <column>reportStatus</column>
+    <column>salesOffice</column>
+    <column>date</column>
+    <row>
+      <value>1</value>
+      <value/>
+      <value>0987654321</value>
+      <value>500000.00</value>
+      <value><![CDATA[Lima Ratus Ribu Rupiah]]></value>
+      <value/>
+      <value/>
+      <value/>
+      <value/>
+      <value>0987654321</value>
+      <value><![CDATA[Frans Thamura]]></value>
+      <value>cash</value>
+      <value>1234567890</value>
+      <value>none</value>
+      <value><![CDATA[Cempaka Putih]]></value>
+      <value>2004-03-17</value>
+    </row>
+    <row>
+      <value>2</value>
+      <null/>
+      <value>99981272</value>
+      <value>1000000.00</value>
+      <value><![CDATA[Satu Juta Rupiah]]></value>
+      <null/>
+      <value>12333209</value>
+      <value><![CDATA[Jl. Mangga Dua]]></value>
+      <value><![CDATA[BCA Plaza Mangga Dua]]></value>
+      <value>1223376772</value>
+      <value><![CDATA[Ginanjar Utama]]></value>
+      <value>transfer</value>
+      <value>12886625</value>
+      <value>none</value>
+      <value><![CDATA[Mangga Dua]]></value>
+      <value>2004-04-01</value>
+    </row>
+  </table>
+  <table name="backend_user">
+    <column>username</column>
+    <column>password</column>
+    <column>prefix</column>
+    <column>first</column>
+    <column>middle</column>
+    <column>last</column>
+    <column>street1</column>
+    <column>street2</column>
+    <column>city</column>
+    <column>state</column>
+    <column>zip</column>
+    <row>
+      <value>ginanjar</value>
+      <value>bismillah</value>
+      <value>Sir</value>
+      <value>Ginanjar</value>
+      <null/>
+      <value>Utama</value>
+      <null/>
+      <null/>
+      <value>Jakarta</value>
+      <null/>
+      <null/>
+    </row>
+  </table>
+</dataset>

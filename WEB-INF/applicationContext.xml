@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans >
+	
+	<bean id="sessionFactory" class="org.blueoxygen.cimande.persistence.hibernate.DefaultHibernateSessionFactory"
+          init-method="init"
+          destroy-method="destroy"
+          singleton="true"/>
+	
+    <bean 	id="persistenceManager" class="org.blueoxygen.cimande.persistence.hibernate.HibernatePersistenceManager" 
+    		init-method="init"
+    		destroy-method="dispose"
+    		singleton="false">
+    	<property name="hibernateSessionFactory"><ref bean="sessionFactory"/></property>
+    	
+    </bean>
+    
+	<bean 	id="userAccessor" 
+			class="org.blueoxygen.cimande.security.DefaultUserAccessor" 
+			singleton="false">
+		<property name="persistenceManager"><ref bean="persistenceManager"/></property>
+	</bean>
+			
+    <bean 	id="sessionCredentials" 
+    		class="org.blueoxygen.cimande.security.HttpSessionCredentials" 
+    		singleton="false">
+		<property name="userAccessor"><ref bean="userAccessor"/></property>
+    </bean>
+    
+    
+</beans>

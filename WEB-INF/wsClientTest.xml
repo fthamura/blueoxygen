@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SOAP-ENV:Envelope
+	xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SOAP-ENV:Body>
+		<ns1:StruttinShark1.1 xmlns:ns1="StruttinShark1.1"
+			SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+			<packageId xsi:type="xsd:string">WellnessDemo2</packageId>
+			<processId xsi:type="xsd:string">
+				WellnessEvaluationProcess2
+			</processId>
+			<n xsi:type="xsd:string">6</n>
+			<var0 xsi:type="xsd:string">firstName</var0>
+			<val0 xsi:type="xsd:string">Dave</val0>
+			<var1 xsi:type="xsd:string">lastName</var1>
+			<val1 xsi:type="xsd:string">Burnham</val1>
+			<var2 xsi:type="xsd:string">dob</var2>
+			<val2 xsi:type="xsd:string">7/14/2005</val2>
+			<var3 xsi:type="xsd:string">comments</var3>
+			<val3 xsi:type="xsd:string">This is Dave's valuable comment</val3>
+			<var4 xsi:type="xsd:string">phoneNumber</var4>
+			<val4 xsi:type="xsd:string">1234567890</val4>
+			<var5 xsi:type="xsd:string">timeOfDay</var5>
+			<val5 xsi:type="xsd:string">PM</val5>
+		</ns1:StruttinShark1.1>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
+<?cocoon-process type="xslt"?>
+<!--      
+	title		VARCHAR(128),
+	abstract		TEXT,
+	content		TEXT,
+	author_id		INTEGER, 
+	url_thumbnail1	VARCHAR(255),
+	url_image1	VARCHAR(255),
+	url_thumbnail2	VARCHAR(255),
+	url_image2	VARCHAR(255),
+	product_id1	INTEGER,
+	product_id2	INTEGER,
+	banner_id1	INTEGER,
+	banner_id2	INTEGER,
+-->
+<contentmanager name="article" method="post" action="../utility/crvd-engine.jsp" help="Article, Press Release">
+	<descriptor title="Template" name="template_id" type="list" search="yes" edit="yes" help="put help here" references="yes" >
+		<builder datatype="varchar" datasize="28"/>
+		<references table="template" key="id" value="name" orderby="name" />
+	</descriptor>
+	<descriptor title="Section" name="section_id" type="list" search="yes" edit="yes" help="put help here" references="yes" >
+		<builder datatype="varchar" datasize="28" criteria="not null" default="test"/>
+		<references table="section" key="id" value="description" orderby="description" />
+	</descriptor> 
+	
+	<descriptor title="Category" name="category_id" type="list" search="yes" edit="yes" help="put help here" references="yes" >
+		<builder datatype="varchar" datasize="28" criteria="not null" default="test"/>
+		<references table="category" key="id" value="description" orderby="description" />
+	</descriptor>
+	<descriptor title="Title" name="title" maxlength="255" type="text" size="35" help="Story title" required="yes" search="yes" edit="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	<descriptor title="Abstract" name="abstract" type="textarea" cols="45" rows="5" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+	<descriptor title="Content" name="content" type="textarea" cols="45" rows="5" search="no" edit="yes">
+		<builder datatype="text"/>
+	</descriptor>
+	
+	<descriptor title="Thumbnail Image1" name="url_thumbnail1" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+        <descriptor title="Image1" name="url_image1" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	<descriptor title="Thumbnail Image2" name="url_thumbnail2" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	<descriptor title="Image2" name="url_image2" maxlength="255" type="file" default="/images" size="35" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	<descriptor title="Product ID1" name="adsproduct_id1" maxlength="28" type="text" size="28" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+		<references table="section" key="id" value="description" orderby="description" />
+	</descriptor>
+	<descriptor title="Product ID2" name="adsproduct_id2" maxlength="28" type="text" size="28" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	<descriptor title="Banner ID1" name="adsbanner_id1" maxlength="28" type="text" size="28" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+	<descriptor title="Banner ID2" name="adsbanner_id2" maxlength="28" type="text" size="28" search="no" edit="yes" getid="yes">
+		<builder datatype="varchar" datasize="255"/>
+	</descriptor>
+</contentmanager>

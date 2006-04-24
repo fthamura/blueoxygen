@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="WEB-INF/src/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/hibernate-3.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/xwork.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/rife-continuations.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-lang-2.0.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/log4j-1.2.7.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-collections.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/hibernate-tools.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jakarta-oro-2.0.6.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/javamail.jar"/>
+	<classpathentry kind="lib" path="/home/leo/vwork/tomcat-cimandebaru/common/lib/jasper-runtime.jar"/>
+	<classpathentry kind="lib" path="/home/leo/vwork/tomcat-cimandebaru/common/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="/home/leo/vwork/tomcat-cimandebaru/common/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/ognl.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/spring.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/webwork-2.2.2.jar"/>
+	<classpathentry kind="output" path="WEB-INF/classes"/>
+</classpath>
