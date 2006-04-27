@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-
-<?xml-stylesheet href="/xsl/descriptor.xsp.xsl" type="text/xsl"?>
-<?cocoon-process type="xslt"?>
-
-<contentmanager name="content_default" method="post" action="../utility/crvd-engine.jsp">
-	
-		
-</contentmanager>
