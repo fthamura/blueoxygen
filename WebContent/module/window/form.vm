@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+	<head>
+		<title>Form - Window</title>
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	</head>
+	<body>
+		#if (!$actionErrors.isEmpty())
+			<div class="errorMessage">Errors</div>
+			<ul class="errorMessage">
+			#foreach( $error in $actionErrors )
+				<li>$error</li>
+			#end
+			</ul>
+		#end
+		
+		<form method="get" action="add.action">
+			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+				<tr bgcolor="#d0dcff">
+					<td colspan="2"><b>Window</b></td>
+				</tr>
+				<!--tr bgcolor="#ffff00">
+					<td colspan="2">&nbsp;</td>
+				</tr-->
+				<tr bgcolor="#ffffff">
+					<td>Name : <font color="red">*</font></td>
+					<td>
+						<input name="window.name" value="$!window.name"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Description :</td>
+					<td>
+						<input name="window.description" value="$!window.description"/>
+					</td>
+				</tr>
+				<tr bgcolor="#e4e4e4">	
+			      <td colspan="2"> 
+			        <input name="id" type="hidden" value="$!window.id"/>
+					<input name="submit" type="submit" value="Submit">
+				  </td>
+				</tr>
+			</table>
+		</form>
+		<br>
+			<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+				<tr bgcolor="#d0dcff">
+  					<td><b>Tab</b>&nbsp;&nbsp;&nbsp;<a href="../tab/edit.action">Add</a></td>
+  				</tr>
+			</table>
+			$!report
+  		#if(!$tabs.isEmpty())
+			<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+			  <tr id="tableHeader1" bgcolor="#e4e4e4"> 
+			    <td>Name</td>
+			    <td>Description</td>
+				<td>Action</td>
+			  </tr>
+		  #foreach ($de in $tabs) 
+			  <tr valign="top" bgcolor="#ffffff"> 
+			    <td>$!de.name</td>
+			    <td>$!de.description</td>
+			    <td><a href="../tab/edit.action?id=$de.Id">Edit</a> <a href="../tab/delete.action?id=$de.id&windowId=$!window.id">Delete</a></td>
+			  </tr>
+		  #end 
+			</table>
+		#end
+		<br>
+		<!--table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+		  	<tr bgcolor="#ffffff">
+				<td align="center"><a href="../../thin/form.action">Home</a></td>
+			</tr>
+		</table-->
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Ruang Kerja Warintek - List Module Function</title>
+<link rel="stylesheet" type="text/css" href="../decorators/tables.css">
+</head>
+<body>
+
+<p>#if ($templates.isEmpty())Data tidak ditemukan
+#else Ditemukan <strong>$templates.size()</strong> #if ($templates.size()>1) Template #else Templates #end
+</p>
+
+<table border="0" cellspacing="0" cellpadding="5" width="70%">
+<tr>
+    <td id="tableHeader1" colspan=2>list Template</td>
+  </tr>
+    <table border="2" cellspacing="0" cellpadding="5">
+     <tr>
+	  <td id="tableHeader2" colspan="2"><b><a href="create.action">[Back]</a></b></td>
+</tr>
+  <tr id="tableHeader1">
+		<td>Name</td>
+		<td>Descriptor Description</td>
+		<td>Url_Xsl_Template</td>
+		<td>Description</td>
+		
+  </tr>
+   
+  
+ 
+#foreach ($template in $templates)
+	<tr valign="top">
+	<td><a href="view.action?id=$template.Id">$!template.Name</a><br>
+	<td>$!template.templateDescriptor.description</td>
+	<td>$!template.url_xsl_template</td>
+	<td>$!template.description</td>
+	</tr>
+#end
+</table>
+
+#end
+
+</body>
+</html>

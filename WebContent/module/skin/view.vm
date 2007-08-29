@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Workspace Management - Result Skin </title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Quanta Plus">
+<meta name="AUTHOR" content="Amix">
+<link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="6"><b>View Skin</b></td>
+      </tr>
+#if ($skin.isEmpty()) 
+<tr bgcolor="yellow">
+<td colspan="6">
+No such data found
+</td>
+</tr>
+#else
+<tr bgcolor="#e4e4e4" width="98%">
+	<td><b>Name</b></td>
+	<td><b>Description</b></td>
+	<td><b>Theme</b></td>
+	<td><b>Url Theme</b></td>
+	<td><b>Active Flag</b></td>
+	<td>&nbsp;</td>
+</tr>
+<tr bgcolor="#ffffff" width="98%">
+	<td><a href="edit.action?id=$skin.id" name="Edit">$!skin.name</a></td>
+	<td><a href="edit.action?id=$skin.id" name="Edit">$!skin.description</a></td>
+	<td><a href="edit.action?id=$skin.id" name="Edit">$!skin.theme.name</a></td>
+	<td><a href="edit.action?id=$skin.id" name="Edit">$!skin.url_theme</a></td>
+	<td><a href="edit.action?id=$skin.id" name="Edit">#if ($skin.LogInformation.ActiveFlag == 1) active #else inactive #end</a></td>
+<td><a href="edit.action?id=$skin.id" name="Edit">edit</a>&nbsp;<a href="confirmDelete.action?id=$skin.id" name="Delete">del</a></td>
+</tr>
+</table>
+#end
+
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+	<head>
+		<title>Form - Droplist Value</title>
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	</head>
+	<body>
+		#if (!$actionErrors.isEmpty())
+			<div class="errorMessage">Errors</div>
+			<ul class="errorMessage">
+			#foreach( $error in $actionErrors )
+				<li>$error</li>
+			#end
+			</ul>
+		#end
+		
+		<form method="get" action="add.action">
+			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+				<tr bgcolor="#d0dcff">
+					<td colspan="2"><b>Add / Update Droplist Value</b></td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Value : <font color="red">*</font></td>
+					<td>
+						<input name="droplist.value" value="$!droplist.value"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Description : <font color="red">*</font></td>
+					<td>
+						<input name="droplist.description" value="$!droplist.description"/>
+					</td>
+				</tr>
+				<tr bgcolor="#e4e4e4">
+					
+        <td colspan="2"> 
+            <input type="submit" value="Save"/>
+            <input name="id" type="hidden" value="$!droplist.id"/>
+        </td>
+				</tr>
+				<!--tr bgcolor="#ffffff">
+			      <td colspan="2">
+			      	<a href="../form.action">Back</a></td>
+				</tr-->
+			</table>
+		</form>
+	</body>
+</html>

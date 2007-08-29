@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>Workspace Management - Result of Search Template</title>
+  	<link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="5"><b>Search Template</b></td>
+      </tr>
+
+#if ($templates.isEmpty()) 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right">No such data found</td>
+      	</tr>
+#else 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right">
+        	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) templates #else template
+        	</td>
+      	</tr>
+#end
+<tr bgcolor="#e4e4e4" width="98%">
+	
+	<td><b>Name</b></td>
+	<td><b>Description</b></td>
+	<td><b>Url Xsl Template</b></td>
+	<td><b>Folder</b></td>
+	<td>&nbsp;</td>
+</tr>
+
+#foreach ($template in $templates)
+	<tr valign="top" bgcolor="white">
+	
+	<td><a href="edit.action?id=$template.Id">$!template.Name</a></td>
+	<td><a href="edit.action?id=$template.Id">$!template.Description</a></td>
+	<td><a href="edit.action?id=$template.Id">$!template.Url_xsl_theme</a></td>
+	<td><a href="edit.action?id=$template.Id">$!template.Folder</a></td>
+	<td>
+		<a href="edit.action?id=$template.Id">Edit</a>&nbsp;
+		<a href="confirmDelete.action?id=$template.Id">Del</a>
+	</td>
+	</tr>
+#end
+	<tr bgcolor="#e4e4e4">
+		<td align="right" colspan="5">
+			#if ($currPage > 0) <a href="search.action?name=$name&description=$description&url_xsl_template=$url_xsl_template&folder=$folder&currPage=0">&lt;&lt;</a>&nbsp;#end
+			#if ($currPage > 0) <a href="search.action?name=$name&description=$description&url_xsl_template=$url_xsl_template&folder=$folder&currPage=$prevPage">&lt;</a>&nbsp;#end
+			[page $page]
+			#if ($currPage < $maxPage) <a href="search.action?name=$name&description=$description&url_xsl_template=$url_xsl_template&folder=$folder&currPage=$nextPage">&gt;</a>&nbsp;#end
+			#if ($currPage < $maxPage) <a href="search.action?name=$name&description=$description&url_xsl_template=$url_xsl_template&folder=$folder&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+		</td>
+     </tr>
+</table>
+
+#end
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - View Company Detail</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta name="AUTHOR" content="Umar">
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  <tbody>
+	<tr bgcolor="#d0dcff">
+        <td colspan="9"><b>View Company</b></td>
+      </tr>
+	<tr bgcolor="#e4e4e4" width="98%">
+	
+	<td id="tableHeader2"><b>Name</b></td>
+	<td id="tableHeader2"><b>Address</b></td>
+	<td id="tableHeader2"><b>State</b></td>
+	<td id="tableHeader2"><b>Zip number</b></td>
+	<td id="tableHeader2"><b>Telephone</b></td>
+	<td id="tableHeader2"><b>Faximile</b></td>
+	<td id="tableHeader2"><b>Website</b></td>
+	<td id="tableHeader2"><b>Email</b></td>
+	<td id="tableHeader2">&nbsp;</td>
+	
+	</tr>
+	<tr bgcolor="white">
+      <td><a href="edit.action?id=$company.Id">$!company.Name</a></td>
+      <td><a href="edit.action?id=$company.Id">$!company.Address</a></td>
+      <td><a href="edit.action?id=$company.Id">$!company.State</a></td>
+      <td><a href="edit.action?id=$company.Id">$!company.Zip_number</a></td>
+      <td><a href="edit.action?id=$company.Id">$!company.Telephone</a></td>
+      <td><a href="edit.action?id=$company.Id">$!company.Faximile</a></td>
+      <td><a href="edit.action?id=$company.Id">$!company.Website</a></td>
+      <td><a href="edit.action?id=$company.Id">$!company.Email</a></td>
+      
+	  <td id="tableHeader2"><a href="edit.action?id=$company.Id">Edit</a> &nbsp;
+		<a href="confirmDelete.action?id=$company.Id">Del</a></td>
+	
+	</tr>
+    </tbody>
+</table>
+</body>
+</html>

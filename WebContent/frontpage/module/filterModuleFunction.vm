@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Ruang Kerja Warintek - search module function</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+  <link rel="stylesheet" type="text/css" href="../decorators/tables.css">
+</head>
+<body>
+<form name="filterModuleFunction" method="post" action="searchModuleFunction.action">
+<table border="0" cellspacing="0" cellpadding="5" width="70%">
+<tr>
+    <td id="tableHeader1" colspan=2>Module Function Search</td>
+  </tr>
+  <tr >
+    <td width="200">Keyword:</td>
+    <td><input type="text" name="name" maxlength="20" value="$!name" size="30"></td>
+  </tr>
+    <tr id=tableHeader1>
+    <td colspan=2><input type="submit" value="Search">&nbsp;&nbsp;<input type="reset" value="Reset"></td>
+  </tr>
+ 
+</table>
+	
+</body>
+
+</html>

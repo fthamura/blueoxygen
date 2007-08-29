@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html><head><title>descriptor</title></head><script language="JavaScript" version="1.2">
+
+
+function MM_openBrWindow(theURL,winName,features) { 
+  window.open(theURL,winName,features);
+}
+
+function toggle(myObj){
+  if (myObj.style.display == "") {
+    myObj.style.display = "none";
+
+  }
+  else {
+    myObj.style.display = "";
+
+  }
+}
+
+function linkstyle(myObj){
+  myObj.style.cursor="hand";
+  myObj.style.textDecorationUnderline=true;
+  myObj.style.color='red';
+  myObj.style.hover='red';
+}
+
+function normalstyle(myObj){
+  myObj.style.cursor="";
+  myObj.style.textDecorationUnderline=false;
+  myObj.style.color='black';
+}
+
+
+// This next little bit of code tests whether the user accepts cookies.
+var WM_acceptsCookies = false;
+if(document.cookie == '') {
+    document.cookie = 'WM_acceptsCookies=yes'; // Try to set a cookie.
+    if(document.cookie.indexOf('WM_acceptsCookies=yes') != -1) {
+	WM_acceptsCookies = true; 
+    }// If it succeeds, set variable
+} else { // there was already a cookie
+  WM_acceptsCookies = true;
+}
+
+function WM_setCookie (name, value, hours, path, domain, secure) {
+    if (WM_acceptsCookies) { // Don't waste your time if the browser doesn't accept cookies.
+	var not_NN2 = (navigator && navigator.appName 
+		       && (navigator.appName == 'Netscape') 
+		       && navigator.appVersion 
+		       && (parseInt(navigator.appVersion) == 2))?false:true;
+
+	if(hours && not_NN2) { // NN2 cannot handle Dates, so skip this part
+	    if ( (typeof(hours) == 'string') && Date.parse(hours) ) { // already a Date string
+		var numHours = hours;
+	    } else if (typeof(hours) == 'number') { // calculate Date from number of hours
+		var numHours = (new Date((new Date()).getTime() + hours*3600000)).toGMTString();
+	    }
+	}
+	document.cookie = name + '=' + escape(value) + ((numHours)?(';expires=' + numHours):'') + ((path)?';path=' + path:'') + ((domain)?';domain=' + domain:'') + ((secure && (secure == true))?'; secure':''); // Set the cookie, adding any parameters that were specified.
+    }
+} // WM_setCookie
+
+function WM_readCookie(name) {
+    if(document.cookie == '') { // there's no cookie, so go no further
+	return false; 
+    } else { // there is a cookie
+	var firstChar, lastChar;
+	var theBigCookie = document.cookie;
+	firstChar = theBigCookie.indexOf(name);	// find the start of 'name'
+	var NN2Hack = firstChar + name.length;
+	if((firstChar != -1) && (theBigCookie.charAt(NN2Hack) == '=')) { // if you found the cookie
+	    firstChar += name.length + 1; // skip 'name' and '='
+	    lastChar = theBigCookie.indexOf(';', firstChar); // Find the end of the value string (i.e. the next ';').
+	    if(lastChar == -1) lastChar = theBigCookie.length;
+	    return unescape(theBigCookie.substring(firstChar, lastChar));
+	} else { // If there was no cookie of that name, return false.
+	    return "";
+	}
+	
+    }	
+} // WM_readCookie
+
+function WM_killCookie(name, path, domain) {
+  var theValue = WM_readCookie(name); // We need the value to kill the cookie
+  if(theValue) {
+      document.cookie = name + '=' + theValue + '; expires=Fri, 13-Apr-1970 00:00:00 GMT' + ((path)?';path=' + path:'') + ((domain)?';domain=' + domain:''); // set an already-expired cookie
+  }
+} // WM_killCookie
+
+function warningMessage() {
+var x=false;
+if (confirm("Are you sure you? This cannot be undone!")) {
+ return true;
+} else {
+ return false;
+}
+}
+
+
+			
+function checkfields(obj)
+		{    
+			var count=0;
+			
+			// non radio validator
+				if (obj.form.elements['name'].value=="") {
+       				alert("Name cannot be blank!!");
+       				return false;
+    				} 
+					
+			
+			// non radio validator
+				if (obj.form.elements['description'].value=="") {
+       				alert("Description cannot be blank!!");
+       				return false;
+    				} 
+					
+			
+			
+			
+			return true;
+			}
+				</script><LINK href="../style.css" rel="stylesheet" type="text/css"><body bgcolor="lightyellow" width="98%"><table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="98%"><tr bgcolor="#CCFFCC"><td colspan="2"><b>STATUS:</b></td></tr><tr bgcolor="#ffffff" valign="top"><td bgcolor="#ffffff" width="150"><b>Login Session: </b></td><td bgcolor="#ffffff">Activated.</td></tr></table><br><form enctype="multipart/form-data" action="/descriptor/multipleUploads.jsp" method="post" name="upload"><table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="98%"><tr bgcolor="#ffffff" valign="top"><td bgcolor="#D0DCFF" colspan="3"><b>new - descriptor - upload<input name="uploadfile1" type="file" size="50"></b></td></tr><tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>ID: 
+				//"../utility/crvd-engine.jsp"
+					</div></td><td><font color="blue"><b>FE89CCB2E53D0F0215894DE6BD</b></font><input name="id" type="hidden" value="FE89CCB2E53D0F0215894DE6BD"></td><td>&nbsp;</td></tr>
+	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red">* </font>Name: 
+					</div></td><td><font color="red" size="-2">value must be equal with descriptor's contentmanager/name</font><br><input maxlength="128" name="name" size="25" type="text" value></td><td><img alt="Descriptor name must be same with your database's table name (and lower case)!" border="0" src="../images/help.gif"></td></tr>
+	
+	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red">* </font>Description: 
+					</div></td><td><input maxlength="255" name="description" size="35" type="text" value></td><td>&nbsp;</td></tr>
+	
+	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>Descriptor Folder:
+						</div></td><td valign="top"><select name="descriptor_group_id" size>
+		<option value="0">/<option value="product_item">product/item
+	</select></td><td>&nbsp;</td></tr>
+	
+	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>XML Descriptor : 
+					</div></td><td><input maxlength="255" name="url_descriptor" size="35" type="file" value></td><td><img alt="Your content descriptor file" border="0" src="../images/help.gif"></td></tr>
+	
+	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>URL Action: 
+					</div></td><td><input maxlength="255" name="url_action" size="35" type="text" value></td><td><img alt="Your URL Action" border="0" src="../images/help.gif"></td></tr>
+	
+	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>Wizard ID: 
+					</div></td><td><input style="font: 8pt Arial, Helvetica" value="Get ID" onclick="document.descriptor.wizard_id.value=WM_readCookie('DescriptorID');return false;" type="button">
+						&nbsp;
+					<input maxlength="28" name="wizard_id" size="28" type="text" value></td><td><img alt="Make it unique!" border="0" src="../images/help.gif"></td></tr>
+
+	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>Collection Default: 
+					</div></td><td><font color="red" size="-2">Please, fill out with field name!</font><br><input maxlength="128" name="collection_default" size="28" type="text" value></td><td><img alt="Default Field for Collection" border="0" src="../images/help.gif"></td></tr>
+
+	
+	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>Type:
+						</div></td><td>
+		
+		<input name="type_flag" type="radio" value="2">Wizard<br>
+		<input name="type_flag" type="radio" value="1">Action<br>
+		<input name="type_flag" type="radio" value="0">XML<br>
+	</td><td><img alt="Choose Yes to activate the Action" border="0" src="../images/help.gif"></td></tr>
+
+	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>Active:
+						</div></td><td><font color="blue" size="-2"><i>Non-Active means hide</i></font><br>
+		
+		<input name="active_flag" type="radio" value="1">Yes<br>
+		<input name="active_flag" type="radio" value="0">No<br>
+	</td><td><img alt="put help here" border="0" src="../images/help.gif"></td></tr>
+	
+<tr bgcolor="#ffffff" valign="top"><td align="right" width="25%">
+										&nbsp;
+									</td><td colspan="2"><input name="submit" onclick="return checkfields(this);" type="submit" value="Save All"></td></tr></table></form></body></html>
+<!-- This page was served in 1542 milliseconds by Cocoon 1.8.2 -->

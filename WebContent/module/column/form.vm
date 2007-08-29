@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+	<head>
+		<title>Form - Column</title>
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	</head>
+	<body>
+		#if (!$actionErrors.isEmpty())
+			<div class="errorMessage">Errors</div>
+			<ul class="errorMessage">
+			#foreach( $error in $actionErrors )
+				<li>$error</li>
+			#end
+			</ul>
+		#end
+		
+		<form method="get" action="add.action">
+			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+				<tr bgcolor="#d0dcff">
+					<td colspan="2"><b>Column</b></td>
+				</tr>
+				<tr bgcolor="#ffff00">
+					<td colspan="2"><b>&nbsp;</b></td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Name : <font color="red">*</font></td>
+					<td>
+						<input name="column.name" value="$!column.name"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Description :</td>
+					<td>
+						<input name="column.description" value="$!column.description"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Column Name :</td>
+					<td>
+						<input name="column.columnName" value="$!column.columnName"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+  					<td>Table Name</td>
+  					<td><input type="textfield" id="tableDescription" value="$!table.description" size="35" disabled="true" onfocus="this.blur()"/>
+    					<input type="hidden" id="tableId" name="tableId" value="$!table.id"/>
+    					&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../table/list.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>    					
+    					&nbsp;&nbsp;&nbsp;<a href="../table/edit.action?id=$table.Id">edit</a>
+  					</td>
+				</tr>
+				<tr bgcolor="#e4e4e4">
+					<td colspan="2">
+						<input name="id" id="columnId" type="hidden" value="$!column.id"/>
+						<input type="submit" value="Submit"/>
+					</td>
+				</tr>
+				<!--tr bgcolor="#ffffff">
+					<td colspan="2" align="center"><a href="../../thin/form.action">Home</a></td>
+				</tr-->
+			</table>
+		</form>
+	</body>
+</html>

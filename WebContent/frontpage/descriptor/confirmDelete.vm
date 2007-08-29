@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Delete Descriptor Confirmation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta name="AUTHOR" content="Umar">
+</head>
+<body>
+
+
+<form action="delete.action" method="GET">
+<div class=errorMessage>This action cannot be undone.</div>
+<p>Are you sure you want to destroy <strong>$descriptor.Name</strong>?
+<input type="hidden" name="id" value="$descriptor.Id">
+<p>
+<input type="submit" value="Delete"><input type="button" value="Cancel" OnClick="javascript:location.href='view.action?id=$descriptor.Id';">
+</form>
+
+</body>
+</html>

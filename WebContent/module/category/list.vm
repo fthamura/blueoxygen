@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Ruang Kerja Warintek - List Module Function</title>
+<link rel="stylesheet" type="text/css" href="../decorators/tables.css">
+</head>
+<body>
+  #if($categories.isEmpty())
+  <strong>Data not found in Category<strong> Please Search again
+  #else
+<table width=98%>
+
+<tr align="right" bgcolor="#ffffff">
+<td colspan=6>Ditemukan <strong>$categories.size()</strong> #if ($categories.size()>1) Category #else Categories #end &nbsp; &nbsp;    
+	#if ($currPage > 0) <a href="search.action?code=$code&currPage=0">&lt;&lt;</a>&nbsp;#end
+	#if ($currPage > 0) <a href="search.action?code=$code&currPage=$prevPage">&lt;</a>&nbsp;#end
+	[page $currPage]
+	#if ($currPage < $maxPage) <a href="search.action?code=$code&currPage=$nextPage">&gt;</a>&nbsp;#end
+	#if ($currPage < $maxPage) <a href="search.action?code=$code&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+<td>
+
+ <tr bgcolor="#d0dcff" align=center>
+<td colspan=6><strong>Result Category</strong></td>
+</tr>
+<tr bgcolor="#d0dcff" align=center>
+<td>Descriptor </td>
+<td>Code</td>
+<td>Parent Code</td>
+<td>URL Category Image</td>
+<td>Description</td>
+<td>Action</td>
+</tr>
+#foreach ($category in $categories)
+
+<tr bgcolor="#ffffcc">
+<td><a href="edit.action?id=$category.Id">$!category.categoryDescriptor.name</a></td>
+<td><a href="edit.action?id=$category.Id">$!category.Code</a></td>
+<td><a href="edit.action?id=$category.Id">$!category.parentCategory.code</a></td>
+<td><a href="edit.action?id=$category.Id">$!category.Url_category_image</a></td>
+<td><a href="edit.action?id=$category.Id">$!category.Description</a></td>
+<td><b><a href="edit.action?id=$category.Id">[Edit]</a><a href="confirmDelete.action?id=$category.Id">[Delete]</a></b></td>
+</tr>
+#end
+#end
+</table>	 
+
+</body>
+</html>

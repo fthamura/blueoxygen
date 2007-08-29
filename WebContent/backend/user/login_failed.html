@@ -1,0 +1,58 @@
+  <table border=0 cellpadding=0 cellspacing=2>
+    <tbody> 
+    <tr> 
+      <td><img border=0 height=50 
+      src="../../images/empty.gif" width=150></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td></td>
+      <td> 
+        <table border=0 cellpadding=0 cellspacing=5 width="512">
+          <tr> 
+            <td colspan=2><img border=0 
+            src="../../images/e-business-suite.gif"></td>
+          </tr>
+          <tr> 
+            <td colspan=2><img border=0 height=5 
+            src="../../images/empty.gif" 
+        width=1></td>
+          </tr>
+          <tr> 
+            <td class=form-label-text>Login Name:</td>
+            <td> 
+            <% if (!sRedirectUri.equals("")) { %>
+		<input type="hidden" name="redirectUri" value="<%=request.getParameter("redirectUri")%>">
+		<%} %>
+              <input name=username size=24>
+            </td>
+          </tr>
+          <tr> 
+            <td class=form-label-text>Password:</td>
+            <td> 
+              <input name=password onFocus=this.select(); size=24 
+            type=password>
+            </td>
+          </tr>
+          <tr> 
+            <td></td>
+            <td> 
+              <input name=login type=submit value=Login>
+              <img border=0 height=1 
+            src="../../images/empty.gif" width=15> 
+              <input type=reset value=Reset name="reset">
+            </td>
+          </tr>
+          <tr> 
+            <td></td>
+            <td class=copyright-text><b><font color="#FF0000">Login Failed</font></b></td>
+          </tr>
+          <tr> 
+            <td colspan="2">Copyright &copy; 2000-2005, <b>BlueOxygen Inspiration Technology</b>. 
+              All Rights Reserved. </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    </tbody> 
+  </table>

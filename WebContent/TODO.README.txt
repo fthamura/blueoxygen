@@ -1,0 +1,8 @@
+Content Manager
+- Skin
+- Template
+- Template Object
+- Template Object Detail
+- Theme
+- Category
+- Section

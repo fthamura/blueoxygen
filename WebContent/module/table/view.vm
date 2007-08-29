@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Table Detail</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script language="JavaScript">
+  	function newColumn(){
+  		id = document.getElementById("columnId");
+  		name = document.getElementById("columnName");
+  		description = document.getElementById("columnDesc");
+  		columnName = document.getElementById("columnColumnName");
+  		id.value = "";
+  		name.value = "";
+  		description.value = "";
+  		columnName.value = "";
+  	}
+  </script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  <tbody>
+	<tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="2"><b>Table</b></td>
+  	</tr>
+	<tr bgcolor="#ffff00">
+	  <td id="tableHeader2" colspan="2"><b><a href="../table/edit.action?id=$!table.id">Edit</a> | <a href="../table/confirm.action?id=$table.Id">Delete</a></b>
+    </tr>
+    <tr bgcolor="#ffffff">
+      <td id="tableHeader2">Table    :</td>
+      <td>$!table.name  </td>
+    </tr bgcolor="#ffffff">
+    <tr bgcolor="#ffffff">
+      <td id="tableHeader2">Description :   </td>
+      <td>$!table.description  </td>
+    </tr>
+	<tr bgcolor="#ffffff">
+		<td id="tableHeader2">Table Name  : </td>
+		<td>$!table.tableName</td>
+	</tr>
+    </tbody>
+	</table>
+  	<br>
+  <!--table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+    <tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="2">Column</td>
+  	</tr>
+  	 <tr bgcolor="#ffffff">
+    <td>Name</td>
+  <td>  <input id="columnName" name="column.name" value="$!column.name"/> 
+    
+	 <tr bgcolor="#ffffff">
+    <td>Description</td>
+  <td>  <input id="columnDesc" name="column.description" value="$!column.description"/> 
+  	</td>
+	 <tr bgcolor="#ffffff">
+  <td>Column Name</td>
+  <td>  <input id="columnColumnName" name="column.columnName" value="$!column.columnName"/></td> 
+  </tr>
+
+    <tr bgcolor="#d0dcff">
+  <td id=tableHeader1 colspan="2"><input type="hidden" id="columnId" name="id" value="$!column.id">
+      <input type="submit" value="Submit"> <input type="reset" value="Reset"> <input type="button" value="Clear" onClick="newColumn()">
+      <input type="hidden" name="tableId" value="$!table.id">
+  </td>
+  </tr>
+ </table-->
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+	<tr bgcolor="#ffff00">
+		<td><b>Column</b>&nbsp;&nbsp;&nbsp;<a href="../column/edit.action">Add</a></td>
+  </tr>
+</table>
+ <br>$!report
+  #if(!$columns.isEmpty())
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+    <tr bgcolor="#ffff00">
+    	<td id="tableHeader1" colspan="4"><b>Column</b></td>
+  	</tr>
+    <tr id="tableHeader1" bgcolor="#d0dcff"> 
+    	<td>Name</td>
+    	<td>Description</td>
+    	<td>Column Name</td>
+		<td>Action</td>
+  	</tr>
+  #foreach ($de in $columns) 
+  <tr valign="top" bgcolor="#ffffff"> 
+    <td>$!de.name</td>
+    <td>$!de.description</td>
+    <td>$!de.columnName</td>
+    <td><a href="../column/edit.action?id=$de.Id">Edit</a> <a href="../column/delete.action?id=$de.id&tableId=$!table.id">Delete</a></td>
+  </tr>
+  #end 
+  </table>
+	#end
+	<br>
+<!--table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  	<tr bgcolor="#ffffff">
+		<td align="center"><a href="../form.action">Home</a></td>
+	</tr>
+</table-->
+</body>
+</html>
+    

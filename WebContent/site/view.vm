@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - View Site Detail</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta name="AUTHOR" content="Anggie">
+  <link rel="StyleSheet" href="dtree.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="../decorators/tables.css">
+  <script type="text/javascript" src="dtree.js"></script>
+
+</head>
+<body>
+<table border=0 cellspacing="0" cellpadding="5">
+  <tbody>
+
+	<tr>
+      <td id="tableHeader1" colspan="2"><a href="edit.action?id=$site.Id">Edit</a> | <a href="confirmDelete.action?id=$site.Id">Delete</a>
+
+    </tr>
+    <tr>
+      <td id="tableHeader1">Name  </td>
+      <td>$!site.Name  </td>
+    </tr>
+	<tr>
+      <td id="tableHeader1">Description  </td>
+      <td>$!site.Description  </td>
+    </tr>
+	<tr>
+		<td id="tableHeader2">Status</td>
+		<td>#if ($site.LogInformation.isActive()) active #else inactive #end</td>
+	</tr>
+    </tbody>
+</table>
+
+</body>
+</html>

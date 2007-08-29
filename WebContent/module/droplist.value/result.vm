@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+	<head>
+		<title>Search Result - Droplist Value</title>
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	</head>
+	<body>
+		<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+			<tr bgcolor="#d0dcff">
+				<td colspan="4"><b>Search Droplist Value</b></td>
+			</tr>
+			#if ($droplist.isEmpty()) 
+			<tr bgcolor="#ffff00">
+				<td colspan="4" align="right">No such data found</td>
+			</tr>
+			#else 
+			<tr bgcolor="#ffff00">
+				<td colspan="4" align="right">
+					Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) droplists #else droplist #end
+				</td>
+			</tr>
+			
+			<tr bgcolor="#e4e4e4" width="98%">
+				<td>Create Date</td>
+				<td>Value</td>
+				<td>Description</td>
+				
+			</tr>
+			#foreach ($dv in $droplists)
+			<tr valign="top" bgcolor="#fffff">
+				<td>$!dv.logInformation.createDate</td>
+				<td>$!dv.value</td>
+				<td>$!dv.description</td>
+				
+				<td>
+					<a href="edit.action?id=$dv.Id">Edit</a>
+					<a href="confirm.action?id=$dv.Id">Delete</a>
+				</td>
+			</tr>
+			#end
+			<tr bgcolor="#e4e4e4">
+				<td align="right" colspan="4">
+					#if ($currPage > 0) <a href="search.action?droplist.value=$!droplist.value&droplist.description=$!droplist.description&orderBy=$!orderBy&currPage=0">&lt;&lt;</a>&nbsp;#end
+					#if ($currPage > 0) <a href="search.action?droplist.value=$!droplist.value&droplist.description=$!droplist.description&orderBy=$!orderBy&currPage=$prevPage">&lt;</a>&nbsp;#end
+					[page $page]
+					#if ($currPage < $maxPage) <a href="search.action?droplist.value=$!droplist.value&droplist.description=$!droplist.description&orderBy=$!orderBy&currPage=$nextPage">&gt;</a>&nbsp;#end
+					#if ($currPage < $maxPage) <a href="search.action?droplist.value=$!droplist.value&droplist.description=$!droplist.description&orderBy=$!orderBy&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+				</td>
+			</tr>
+			#end
+			<!--tr bgcolor="#ffffff">
+				<td colspan="6"><a href="../form.action">Home</a></td>
+			</tr-->
+		</table>
+	</body>
+</html>

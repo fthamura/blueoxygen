@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title>Workspace Management - Result of Seacrh Template Object</title>
+  	<link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="5"><b>Search Template Object Detail</b></td>
+      </tr>
+
+#if ($objectDetails.isEmpty()) 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right">No such data found</td>
+      	</tr>
+#else 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right">
+        	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) template object details groups #else template object detail
+        	</td>
+      	</tr>
+#end
+<tr bgcolor="#e4e4e4" width="98%">
+	
+	<td><b>Template Object</b></td>
+	<td><b>Descriptor</b></td>
+	<td><b>Collection</b></td>
+	<td><b>Descriptor</b></td>
+	<td><b>Action</b></td>
+</tr>
+
+#foreach ($objectDetail in $objectDetails)
+	<tr valign="top" bgcolor="white">
+	
+	<td><a href="edit.action?id=$objectDetail.Id">$!objectDetail.templateObject.template_skin</a></td>
+	<td><a href="edit.action?id=$objectDetail.Id">$!objectDetail.descriptor.name</a></td>
+	<td><a href="edit.action?id=$objectDetail.Id">$!objectDetail.collection.name</a></td>
+	<td><a href="edit.action?id=$objectDetail.Id">$!objectDetail.Description</a></td>
+	
+	<td>
+		<a href="edit.action?id=$objectDetail.Id">Edit</a>&nbsp;
+		<a href="confirmDelete.action?id=$objectDetail.Id">Del</a>
+	</td>
+	</tr>
+#end
+	<tr bgcolor="#e4e4e4">
+		<td align="right" colspan="5">
+			#if ($currPage > 0) <a href="search.action?templateObject.template_skin=$templateObject.template_skin&descriptor.name=$descriptor.name&collection.name=$collection.name&description=$description&currPage=0">&lt;&lt;</a>&nbsp;#end
+			#if ($currPage > 0) <a href="search.action?templateObject.template_skin=$templateObject.template_skin&descriptor.name=$descriptor.name&collection.name=$collection.name&description=$description&currPage=$prevPage">&lt;</a>&nbsp;#end
+			[page $page]
+			#if ($currPage < $maxPage) <a href="search.action?templateObject.template_skin=$templateObject.template_skin&descriptor.name=$descriptor.name&collection.name=$collection.name&description=$description&currPage=$nextPage">&gt;</a>&nbsp;#end
+			#if ($currPage < $maxPage) <a href="search.action?templateObject.template_skin=$templateObject.template_skin&descriptor.name=$descriptor.name&collection.name=$collection.name&description=$description&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+		</td>
+     </tr>
+</table>
+
+#end
+
+</body>
+</html>

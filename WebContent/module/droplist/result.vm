@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+	<head>
+		<title>Search</title>
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	</head>
+	<body>
+		<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%" height="373">
+			<tr bgcolor="#d0dcff">				
+    <td colspan="6" height="19"><b>Search Droplist</b></td>
+			</tr>
+			#if ($droplist.isEmpty()) 
+			<tr bgcolor="yellow">
+				<td colspan="6" align="right" height="19">No such data found</td>
+			</tr>
+			#else 
+			<tr bgcolor="yellow">
+				<td colspan="6" align="right" height="19">
+					Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) droplists #else droplist #end
+				</td>
+			</tr>
+			
+			<tr bgcolor="#e4e4e4" width="98%">
+				<td height="8"><a href="search.action?droplist.name=$!droplist.name&droplist.description=$!droplist.description&parentId=$!parentId&orderBy=logInformation.createDate&currPage=$!currPage">Create Date</a></td>
+				<td height="8"><a href="search.action?droplist.name=$!droplist.name&droplist.description=$!droplist.description&parentId=$!parentId&orderBy=name&currPage=$!currPage">Name</a></td>
+				<td height="8">Description</td>
+				<td height="8">Value</td>
+				
+				<td height="8">Description</td>
+				
+			</tr>
+			#foreach ($ct in $droplists)
+			<tr valign="top" bgcolor="white">
+				<td height="174" rowspan="2">$!ct.logInformation.createDate</td>
+				<td height="174" rowspan="2">$!ct.name</td>
+				
+    <td height="174" rowspan="2">$!ct.descname</td>
+				
+    <td height="87">$!ct.value</td>			
+				
+    <td height="87">$!ct.descvalue</td>			
+				<td height="87">
+					<a href="edit.action?id=$ct.Id">Edit</a>
+				#if(!$ct.id.equals("0"))
+					<a href="confirm.action?id=$ct.Id">Delete</a>
+				#else
+					&nbsp;
+				#end
+				</td>
+			</tr>
+			<tr valign="top" bgcolor="white">
+				
+    <td height="87">&nbsp;</td>			
+				
+    <td height="87">&nbsp;</td>			
+				<td height="87">
+					&nbsp;</td>
+			</tr>
+			#end
+			<tr bgcolor="#e4e4e4">
+				<td align="right" colspan="6" height="38">
+					#if ($currPage > 0) <a href="search.action?droplist.name=$!droplist.name&droplist.description=$!droplist.description&&orderBy=$!orderBy&currPage=0">&lt;&lt;</a>&nbsp;#end
+					#if ($currPage > 0) <a href="search.action?droplist.name=$!droplist.name&droplist.description=$!droplist.description&&orderBy=$!orderBy&currPage=$prevPage">&lt;</a>&nbsp;#end
+					[page $page]
+					#if ($currPage < $maxPage) <a href="search.action?droplist.name=$!droplist.name&droplist.description=$!droplist.description&orderBy=$!orderBy&currPage=$nextPage">&gt;</a>&nbsp;#end
+					#if ($currPage < $maxPage) <a href="search.action?droplist.name=$!droplist.name&droplist.description=$!droplist.description&orderBy=$!orderBy&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+				</td>
+			</tr>
+			#end
+			<tr bgcolor="#ffffff">
+				<!--td colspan="6" height="19"><a href="../form.action">Home</a--> 
+					<a href="../search.action">New Search</a>
+              	</td>
+			</tr>
+		</table>
+	</body>
+</html>

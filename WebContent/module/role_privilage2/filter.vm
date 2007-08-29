@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Search Role Privilage</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+<link type="text/css" rel="stylesheet" href="../../style.css">
+ 
+</head>
+
+<body>
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors )
+<li>$error</li>
+ #end
+</ul>
+#end
+
+<form method="post" action="search.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  <tbody>
+  <tr bgcolor="#d0dcff">
+    <td colspan='3'><strong>Search Role Privilage</strong></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+     <td style="font-weight: bold;" align="right" valign="top" width="20%">
+	 URL XML:</td>
+    <td width="70%"><input type="text" name="url_xml" value="$!url_xml" style="width: 50%">
+    </td>
+  	<td align="right" valign="top" style="width: 6%">
+	<img alt="URL Xml  of The Role Privilage" src="../../images/help.gif" border="0"></td>
+  </tr>
+   <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Module Function Id:</td>
+  	<td><input type="textfield" id="moduleName" value="None" size="15" disabled="true" onfocus="this.blur()"/>
+    	<input type="hidden" id="module_function_id" name="module_function_id" value=""/>
+    	&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listModuleFunction.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Module Function ID of The Role Privilage" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Role  Id:</td>
+  	<td><input type="textfield" id="roleName" value="None" size="15" disabled="true" onfocus="this.blur()"/>
+    	<input type="hidden" id="role_id" name="role_id" value=""/>
+    	&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listRole.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Role ID of The Role Privilage" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Privilage Flag:</td>
+  	<td><input type="radio" name="privilage_flag" value=1 checked>yes&nbsp;&nbsp;<input type="radio" name="privilage_flag" value=0>no
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Flag of The Role Privilage" src="../../images/help.gif" border="0"></td>
+  </tr>
+  <tr bgcolor="#d0dcff">
+  	<td colspan="3"><input type="submit" value="Search"><input type="reset" value="Clear"></td>
+  </tr>
+ </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>Workspace Management - Result of Search Company </title>
+  	<link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="9"><b>Search Company</b></td>
+      </tr>
+
+#if ($!companies.isEmpty()) 
+	<tr bgcolor="yellow">
+        	<td colspan="9" align="right">No such data found</td>
+      	</tr>
+#else 
+	<tr bgcolor="yellow">
+        	<td colspan="9" align="right">
+        	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) companies #else company 
+        	</td>
+      	</tr>
+#end
+<tr bgcolor="#e4e4e4" width="98%">
+	
+	<td><b>Name</b></td>
+	<td><b>Address</b></td>
+	<td><b>State</b></td>
+	<td><b>Zip number</b></td>
+	<td><b>Telephone</b></td>
+	<td><b>Faximile</b></td>
+	<td><b>Website</b></td>
+	<td><b>Email</b></td>
+	<td><b>Action</b></td>
+</tr>
+
+#foreach ($company in $companies)
+	<tr valign="top" bgcolor="white">
+	
+	<td><a href="edit.action?id=$company.Id">$!company.Name</a></td>
+	<td><a href="edit.action?id=$company.Id">$!company.Address</a></td>
+	<td><a href="edit.action?id=$company.Id">$!company.State</a></td>
+	<td><a href="edit.action?id=$company.Id">$!company.Zip_number</a></td>
+	<td><a href="edit.action?id=$company.Id">$!company.Telephone</a></td>
+	<td><a href="edit.action?id=$company.Id">$!company.Faximile</a></td>
+	<td><a href="edit.action?id=$company.Id">$!company.Website</a></td>
+	<td><a href="edit.action?id=$company.Id">$!company.Email</a></td>
+	
+	<td>
+		<a href="edit.action?id=$company.Id">Edit</a>&nbsp;
+		<a href="confirmDelete.action?id=$company.Id">Del</a>
+	</td>
+	</tr>
+#end
+	<tr bgcolor="#e4e4e4">
+		<td colspan="9" align="right" colspan="5">
+			#if ($currPage > 0) <a href="search.action?name=$name&address=$address&state=$state&zip_number=$zip_number&telephone=$telephone&faximile=$faximile&website=$website&email=$email&currPage=0">&lt;&lt;</a>&nbsp;#end
+			#if ($currPage > 0) <a href="search.action?name=$name&address=$address&state=$state&zip_number=$zip_number&telephone=$telephone&faximile=$faximile&website=$website&email=$email&currPage=$prevPage">&lt;</a>&nbsp;#end
+			[page $page]
+			#if ($currPage < $maxPage) <a href="search.action?name=$name&address=$address&state=$state&zip_number=$zip_number&telephone=$telephone&faximile=$faximile&website=$website&email=$email&currPage=$nextPage">&gt;</a>&nbsp;#end
+			#if ($currPage < $maxPage) <a href="search.action?name=$name&address=$address&state=$state&zip_number=$zip_number&telephone=$telephone&faximile=$faximile&website=$website&email=$email&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+		</td>
+     </tr>
+</table>
+
+#end
+
+</body>
+</html>

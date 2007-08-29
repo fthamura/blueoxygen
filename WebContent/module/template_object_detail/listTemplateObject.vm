@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>list - Template Object Option</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="AUTHOR" content="Amix">
+<link rel="stylesheet" type="text/css" href="../../decorators/tables.css">
+
+</head>
+<body>
+<h3>Theme Option List</h3>
+#if ($obj.isEmpty()) No Template Object available yet
+#else
+
+<table width=100% border="0">
+<tr>
+	<td width=60%>None</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('template_object_id').value='';window.opener.document.getElementById('template_object_id').value='None';window.close();" value="Set"></td>
+</tr>
+#foreach ($temObj in $obj)
+<tr>
+	<td width=60%>$temObj.template_skin</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('template_object_id').value='$temObj.id';window.opener.document.getElementById('temObjDescription').value='$temObj.template_skin';window.close();" value="Set"></td>
+</tr>
+#end
+</table>
+#end
+</body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>edit - Add Business Partner</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+<form method="get" action="filter.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
+  <tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan=2>Cari Role</td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Role Name:</td>
+    <td><input type="text" name="name" value="$!name">
+    </td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Description:</td>
+    <td><input type="text" name="description" value="$!description">
+    </td>
+  </tr>
+  
+  
+  <tr id="tableHeader1" bgcolor="#d0dcff">
+  <td colspan="2">
+ 	<input type="submit" value="cari">
+	<input type="reset" name="reset">
+
+  </td>
+  </tr>
+ </table>
+  #if ($roles.isEmpty()) Data tidak ditemukan
+	#else
+	<p><tr id="tableHeader2" bgcolor="#d0dcff">
+	<td colspan="6">
+	Found <strong>$!resultRows()</strong> #if ($resultRows > 1) Role #else Roles #end
+	</tr></p>
+    <tr id="tableHeader2" bgcolor="#ffffff">
+	<td colspan="6">
+    #if ($currPage > 0) <a href="filter.action?name=$name&description=$description&currPage=0">&lt;&lt;</a>&nbsp;#end
+	#if ($currPage > 0) <a href="filter.action?name=$name&description=$description&currPage=$prevPage">&lt;</a>&nbsp;#end
+	[page $currPage]
+	#if ($currPage < $maxPage) <a href="filter.action?name=$name&description=$description&currPage=$nextPage">&gt;</a>&nbsp;#end
+	#if ($currPage < $maxPage) <a href="filter.action?name=$name&description=$description&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+	
+</p>
+<p>
+
+  <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
+<tr id="tableHeader1" bgcolor="#d0dcff">
+	<td>&nbsp;</td>
+	<td>Nama</td>
+	<td>Penjelasan</td>
+	 
+
+</tr>
+
+
+#foreach ($role in $roles)
+<tr valign="top" bgcolor="#ffffff">
+	<td><a href="view_privilage.action?id=$role.Id" name="View Detail">v</a>&nbsp;<a href="edit.action?id=$role.Id" name="Edit">e</a>&nbsp;<a href="confirmDelete.action?id=$role.Id" name="Delete">d</a></td>
+	<td>$!role.name</td>
+	<td>$!role.description</td>
+</tr>
+
+#end
+
+#end
+
+</table>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>View Field</title>
+	
+	<LINK href="/cimande/style.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="lightyellow" leftmargin="0" topmargin="0">
+<CENTER>
+<table cellpadding="3" width="100%">
+	<tr><td><br>
+    <br> 
+  <table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="98%">
+    	<tr bgcolor="eeeeee"><td align="center">&nbsp;</td><td align="center"><b>Name</b></td><td align="center"><b>Address</b></td><td align="center"><b>Tab Id</b></td></tr>
+
+<tr bgcolor="#ffffff" valign="top">
+		
+    <td><a href="javascript:Update('$!de.name','$!de.description','$!de.tab_id');"><img src="/cimande/images/right-arrow.gif" border="0"></a></td>
+		<td>$!de.name</td>
+		<td>$!de.description</td>
+		<td>$!de.tab_id</td>
+		</tr>
+</table>
+<p align="center"><input TYPE="button" VALUE="Close Window" onClick="window.close();"></p>
+
+<script language="JavaScript">
+<!--
+	function Update(var1,var2)
+	{
+		window.opener.document.form2.vm.field_id.value = var1; 
+		window.opener.document.form2.vm.field_name.value = var2; 
+		window.close();
+	}
+//-->
+</script>
+

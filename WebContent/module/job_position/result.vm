@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Workspace Management - Result of Search Job Description</title>
+  	<link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="3"><b>Search Job Description</b></td>
+      </tr>
+
+#if ($jobDescs.isEmpty()) 
+	<tr bgcolor="yellow">
+        	<td colspan="3" align="right">No such data found</td>
+      	</tr>
+#else 
+	<tr bgcolor="yellow">
+        	<td colspan="3" align="right">
+        	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) Job Descriptions #else Job Description 
+        	</td>
+      	</tr>
+#end
+<tr bgcolor="#e4e4e4" width="98%">
+	
+	<td><b>Name</b></td>
+	<td><b>Description</b></td>
+	<td><b>Action</b></td>
+</tr>
+
+#foreach ($jobDesc in $jobDescs)
+	<tr valign="top" bgcolor="white">
+	
+	<td><a href="edit.action?id=$jobDesc.Id">$!jobDesc.Name</a></td>
+	<td><a href="edit.action?id=$jobDesc.Id">$!jobDesc.Description</a></td>
+	
+	<td>
+		<a href="edit.action?id=$jobDesc.Id">Edit</a>&nbsp;
+		<a href="confirmDelete.action?id=$jobDesc.Id">Del</a>
+	</td>
+	</tr>
+#end
+	<tr bgcolor="#e4e4e4">
+		<td align="right" colspan="3">
+			#if ($currPage > 0) <a href="search.action?name=$name&description=$description&currPage=0">&lt;&lt;</a>&nbsp;#end
+			#if ($currPage > 0) <a href="search.action?name=$name&description=$description&currPage=$prevPage">&lt;</a>&nbsp;#end
+			[page $page]
+			#if ($currPage < $maxPage) <a href="search.action?name=$name&description=$description&&currPage=$nextPage">&gt;</a>&nbsp;#end
+			#if ($currPage < $maxPage) <a href="search.action?name=$name&description=$description&&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+		</td>
+     </tr>
+</table>
+
+#end
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Tab Detail</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script language="JavaScript">
+  	function newField(){
+  		id = document.getElementById("fieldId");
+  		name = document.getElementById("fieldName");
+  		description = document.getElementById("fieldDesc");
+  		fieldName = document.getElementById("fieldFieldName");
+  		id.value = "";
+  		name.value = "";
+  		description.value = "";
+  		fieldName.value = "";
+  	}
+  </script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+<form method="post" action="../field/add.action">
+<!--table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+  <tbody>
+	<tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="2">Tab</td>
+  	</tr>
+	<tr bgcolor="#ffffff">
+	  <td id="tableHeader2" colspan="2"><b><a href="../tab/edit.action?id=$!tab.id">Edit</a> | <a href="../tab/confirm.action?id=$tab.Id">Delete</a></b>
+    </tr>
+    <tr bgcolor="#ffffff">
+      <td width="40%" id="tableHeader2">Name    :</td>
+      <td width="60%">$!tab.name  </td>
+    </tr bgcolor="#ffffff">
+    <tr bgcolor="#ffffff">
+      <td id="tableHeader2">Description :   </td>
+      <td>$!tab.description  </td>
+    </tr>
+	<tr bgcolor="#ffffff">
+		<td id="tableHeader2">Tab Name  : </td>
+		<td>$!tab.tabName</td>
+	</tr>
+    </tbody>
+	</table>
+  	<br-->
+  	<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+    <tr bgcolor="#ffff00">
+      <td id="tableHeader2" colspan="2"><b>Tab    : $!tab.name</b>  <a href="../tab/edit.action?id=$!tab.id">Edit</a></td>    
+	</tr>
+    <tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="2">Field</td>
+  	</tr>
+  	 <tr bgcolor="#ffffff">
+    <td width="40%">Name</td>
+  <td width="60%">  <input id="fieldName" name="field.name" value="$!field.name"/> 
+    
+	 <tr bgcolor="#ffffff">
+    <td>Description</td>
+  <td>  <input id="fieldDesc" name="field.description" value="$!field.description"/> 
+  	</td>
+	 <tr bgcolor="#ffffff">
+  <td>Field Name</td>
+  <td>  <input id="fieldFieldName" name="field.fieldName" value="$!field.fieldName"/></td> 
+  </tr>
+
+    <tr bgcolor="#d0dcff">
+  <td id=tableHeader1 colspan="2"><input type="hidden" id="fieldId" name="id" value="$!field.id">
+      <input type="submit" value="Submit"> <input type="reset" value="Reset"> <input type="button" value="Clear" onClick="newField()">
+      <input type="hidden" name="tabId" value="$!tab.id">
+  </td>
+  </tr>
+ </table>
+  <br>$!report
+  #if(!$fields.isEmpty())
+<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+  <tr id="tableHeader1" bgcolor="#d0dcff"> 
+    <td>Name</td>
+    <td>Description</td>
+    <td>Field Name</td>
+	<td>Action</td>
+  </tr>
+  #foreach ($de in $fields) 
+  <tr valign="top" bgcolor="#ffffff"> 
+    <td>$!de.name</td>
+    <td>$!de.description</td>
+    <td>$!de.fieldName</td>
+    <td><a href="../field/edit.action?id=$de.Id">Edit</a> <a href="../field/delete.action?id=$de.id&tabId=$!tab.id">Delete</a></td>
+  </tr>
+  #end 
+</table>
+#end
+<br>
+<!--table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+  	<tr bgcolor="#ffffff">
+		<td align="center"><a href="../form.action">Home</a></td>
+	</tr>
+</table-->
+</body>
+</html>
+    

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Search Workflow Role</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<form method="post" action="search.action">
+<table bgcolor="gray" border="0" cellspacing="1" cellpadding="5" width="98%">
+<tbody>
+ <tr bgcolor="#d0dcff">
+      <td colspan=3><strong>Search Template</strong></td>
+ </tr>
+
+ <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top" width=25%>Name:</td>
+        <td width="75%"><input maxlength="30" name="name" size="30%"></td>
+ 		<td align="right" valign="top"><img alt="Code of The Category" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
+ </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Descriptor ID:</td>
+     <td><input type="text" descriptor_id="descriptor_id" maxlength="30" value="" size="30%"></td>
+   <td align="right" valign="top">
+    
+  	</td>
+  
+<tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Folder:</td>
+     <td><input type="text" folder="folder" maxlength="30" value="" size="30%"></td>
+   <td align="right" valign="top">    
+  	</td>
+  
+  </tr>
+  <tr bgcolor="#ffffff">
+  	<td style="font-weight: bold;" align="right" valign="top">Url Xsl Template:</td>
+    <td><input name="url_xsl_template" value="" size="30%"></td>
+    <td align="right" valign="top"><img alt="URL Image of The Template" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
+	</tr>
+
+  <tr bgcolor="#ffffff"> 
+    <td style="font-weight: bold;" align="right" valign="top">
+    Description:
+    </td>
+    <td><input name="description" value="" size="30%"></td>
+    <td align="right" valign="top"><img alt="URL Image of The Template" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
+	</tr>
+
+  <tr bgcolor="#d0dcff">
+         <td colspan=3><input name="Submit" value="Search" type="submit">&nbsp;&nbsp;
+        <input name="Clear" value="Reset" type="reset"> </td>
+      </tr>
+     </tbody>
+  </table>
+</form>
+</center>
+</body>
+</html>

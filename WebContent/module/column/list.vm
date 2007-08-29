@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>list - column</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="AUTHOR" content="Alex">
+<link rel="stylesheet" type="text/css" href="../../decorators/tables.css">
+
+</head>
+<body>
+<h3>Columns List</h3>
+#if ($columns.isEmpty()) No Columns  available yet
+#else
+
+<table width=100% border="0">
+<tr>
+	<td width=60%>None</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('columnId').value='';window.opener.document.getElementById('columnDescription').value='None';window.close();" value="Set"></td>
+</tr>
+#foreach ($column in $columns)
+<tr>
+	<td width=60%>$column.name</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('columnId').value='$column.id';window.opener.document.getElementById('columnDescription').value='$column.description';window.close();" value="Set"></td>
+</tr>
+#end
+</table>
+#end
+</body>
+</html>
