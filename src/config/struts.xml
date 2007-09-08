@@ -49,7 +49,7 @@
 		</action>
 	</package>
 	    
-    <package name="role" extends="default" namespace="/module/role">            
+    <package name="role" extends="default" namespace="/WEB-INF/module/role">            
         <action name="create" class="org.blueoxygen.cimande.role.actions.RoleForm" >
             <result name="success" type="velocity">add.vm</result>
         </action>
@@ -88,7 +88,7 @@
         </action>
 	</package>
 
-	<package name="site" extends="default" namespace="/module/site">            
+	<package name="site" extends="default" namespace="/WEB-INF/module/site">            
       	<action name="create" class="org.blueoxygen.cimande.site.actions.SiteForm" >
             <result name="success" type="velocity">add.vm</result>
             <result name="error">/errors/errors.vm</result>
@@ -131,7 +131,7 @@
 		</action>
 	</package>
 
-	<package name="descriptor" extends="default" namespace="/module/descriptor">
+	<package name="descriptor" extends="default" namespace="/WEB-INF/module/descriptor">
 	
 		<action name="create" class="org.blueoxygen.cimande.descriptors.actions.DescriptorForm">
 			<result name="success" type="velocity">add.vm</result>
@@ -305,7 +305,7 @@
         </action>
 	</package>
 	
-	<package name="moduleFunction" extends="default" namespace="/module/module_function">
+	<package name="moduleFunction" extends="default" namespace="/WEB-INF/module/module_function">
 	<!-- Descriptor -->
 		<action name="listModuleDescriptor" class="org.blueoxygen.cimande.moduledescriptor.actions.ListModuleDescriptor">
             <result name="success" type="velocity">listModuleDescriptor.vm</result>
@@ -365,7 +365,7 @@
 	<!-- End Module Function -->
 	</package>
 	
-	<package name="worlkflowRole" extends="default" namespace="/module/workflow_role">            
+	<package name="worlkflowRole" extends="default" namespace="/WEB-INF/module/workflow_role">            
         	<action name="create" class="org.blueoxygen.cimande.role.actions.RoleForm" >
         	    <result name="success" type="velocity">add.vm</result>
         	</action>
@@ -494,7 +494,7 @@
 	
 	
 
-	<package name="category" extends="default" namespace="/module/category">	
+	<package name="category" extends="default" namespace="/WEB-INF/module/category">	
 	
 		<action name="create" class="org.blueoxygen.cimande.category.actions.CategoryForm">
 			<result name="success" type="velocity">add.vm</result>
@@ -546,7 +546,7 @@
         </action>
 	</package>
 
-	<package name="section" extends="default" namespace="/module/section">	
+	<package name="section" extends="default" namespace="/WEB-INF/module/section">	
 	
 		<action name="create" class="org.blueoxygen.cimande.section.actions.SectionForm">
 			<result name="success" type="velocity">add.vm</result>
@@ -598,7 +598,7 @@
         </action>
 	</package>
 
-	<package name="descriptor_group" extends="default" namespace="/module/descriptor_group">
+	<package name="descriptor_group" extends="default" namespace="/WEB-INF/module/descriptor_group">
 	
 		<action name="create" class="org.blueoxygen.cimande.descriptorgroup.actions.DescriptorGroupForm">
 			<result name="success" type="velocity">add.vm</result>
@@ -638,7 +638,7 @@
 		</action>
 	</package>
 
-	<package name="jobDesc" extends="default" namespace="/module/job_position">
+	<package name="jobDesc" extends="default" namespace="/WEB-INF/module/job_position">
 	
 		<action name="create" class="org.blueoxygen.cimande.jobdescription.actions.JobDescForm">
 			<result name="success" type="velocity">add.vm</result>
@@ -681,7 +681,7 @@
 		</action>
 	</package>
 
-	<package name="company" extends="default" namespace="/module/company">
+	<package name="company" extends="default" namespace="/WEB-INF/module/company">
 	
 		<action name="create" class="org.blueoxygen.cimande.company.actions.CompanyForm">
 			<result name="success" type="velocity">add.vm</result>
@@ -721,7 +721,7 @@
 		</action>
 	</package>
 
-<package name="moduleTheme" extends="default" namespace="/module/theme">
+<package name="moduleTheme" extends="default" namespace="/WEB-INF/module/theme">
 	
 		<action name="create" class="org.blueoxygen.cimande.theme.actions.ThemeForm">
 			<result name="success" type="velocity">add.vm</result>
@@ -762,7 +762,7 @@
 	</package>
 		
 	<!-- ### Action For Skin Menu ### -->
-	<package name="skin" extends="default" namespace="/module/skin">
+	<package name="skin" extends="default" namespace="/WEB-INF/module/skin">
 		<action name="create" class="org.blueoxygen.cimande.skin.actions.SkinForm">
 			<result name="success" type="velocity">add.vm</result>
 		</action>
@@ -806,7 +806,7 @@
     	</action>
 	</package>
 
-	<package name="templateObjectDetail" extends="default" namespace="/module/template_object_detail">
+	<package name="templateObjectDetail" extends="default" namespace="/WEB-INF/module/template_object_detail">
 	
 		<action name="listCollection" class="org.blueoxygen.cimande.template.actions.ListCollection">
 			<result name="success" type="velocity">listCollection.vm</result>
@@ -855,7 +855,7 @@
 		</action>
 	</package>
 
-	<package name="templateObject" extends="default" namespace="/module/template_object">
+	<package name="templateObject" extends="default" namespace="/WEB-INF/module/template_object">
 	
 		<action name="listTheme" class="org.blueoxygen.cimande.template.actions.ListTheme">
 			<result name="success" type="velocity">listTheme.vm</result>
@@ -898,7 +898,7 @@
 		</action>
 	</package>
 
-	<package name="template" extends="default" namespace="/module/template">
+	<package name="template" extends="default" namespace="/WEB-INF/module/template">
 		
 		<!-- Template -->
 		<action name="create" class="org.blueoxygen.cimande.template.actions.TemplateForm">
@@ -943,7 +943,7 @@
 	
 	</package>
 
-	<package name="role_privilage" extends="default" namespace="/module/role_privilage">
+	<package name="role_privilage" extends="default" namespace="/WEB-INF/module/role_privilage">
 	    <action name="list_privilage" class="org.blueoxygen.cimande.role.actions.ListPrivilage">
         	<result name="success" type="velocity">list_privilage.vm</result>
         	<result name="error" type="velocity">/errors/notfound.jsp</result>

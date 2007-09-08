@@ -37,7 +37,7 @@
 	</package>
 	
 	<!--  COLUMN  -->
-	<package name="column" extends="default" namespace="/module/column">
+	<package name="column" extends="default" namespace="/WEB-INF/module/column">
 		<action name="create" class="org.blueoxygen.cimande.gx.column.action.ColumnForm">
 			<result name="success" type="velocity">form.vm</result>
 		</action>
@@ -57,7 +57,7 @@
 	</package>
 	
 	<!--  WINDOW  -->
-	<package name="window" extends="default" namespace="/module/window">
+	<package name="window" extends="default" namespace="/WEB-INF/module/window">
 		<action name="create" class="org.blueoxygen.cimande.gx.window.action.WindowForm">
 			<result name="success" type="velocity">form.vm</result>
 		</action>
@@ -89,7 +89,7 @@
 	</package>
 		
 	<!--  TAB  -->
-	<package name="tab" extends="default" namespace="/module/tab">
+	<package name="tab" extends="default" namespace="/WEB-INF/module/tab">
 		<action name="create" class="org.blueoxygen.cimande.gx.tab.action.TabForm">
 			<result name="success" type="velocity">form.vm</result>
 		</action>
@@ -121,7 +121,7 @@
 	</package>
 	
 	<!--  FIELD  -->
-	<package name="field" extends="default" namespace="/module/field">
+	<package name="field" extends="default" namespace="/WEB-INF/module/field">
 		<action name="add" class="org.blueoxygen.cimande.gx.field.action.AddField"  >
 			<result name="success" type="redirect">../tab/view.action?id=${tableId}</result>
 			<result name="input" type="redirect">../tab/view.action?id=${tableId}</result>
@@ -135,7 +135,7 @@
 	</package>	
 	
 	<!--  DropList Name  -->	
-	<package name="droplist.name" extends="default" namespace="/module/droplist.name">
+	<package name="droplist.name" extends="default" namespace="/WEB-INF/module/droplist.name">
 		<action name="create" class="org.blueoxygen.cimande.gx.droplistname.action.DroplistNameForm">
 			<result name="success" type="velocity">form.vm</result>
 		</action>
@@ -162,7 +162,7 @@
 	
 	
 		<!--  VALUE DESCRIPTION  -->
-	<package name="droplist.value" extends="default" namespace="/module/droplist.value">
+	<package name="droplist.value" extends="default" namespace="/WEB-INF/module/droplist.value">
 		<action name="create" class="org.blueoxygen.cimande.gx.droplistvalue.action.DroplistValueForm">
 			<result name="success" type="velocity">form.vm</result>
 		</action>
@@ -187,7 +187,7 @@
 		</action>
 	</package>
 	<!--  DropList Name & Value  -->
-	<package name="droplist" extends="default" namespace="/module/droplist">
+	<package name="droplist" extends="default" namespace="/WEB-INF/module/droplist">
 		<action name="create" class="org.blueoxygen.cimande.gx.droplist.action.DroplistForm">
 			<result name="success" type="velocity">form_name.vm</result>
 		</action>
