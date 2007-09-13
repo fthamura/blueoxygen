@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Gxform Detail</title>
+ <link rel="stylesheet" type="text/css" href="../../style.css">
+  <script language="JavaScript">
+  	function newGxgreenator(){
+  		id = document.getElementById("gxgreenatorId");
+  		name = document.getElementById("gxgreenatorName");
+  		value = document.getElementById("gxgreenatorValue");
+  		type = document.getElementById("gxgreenatorType");
+  		size = document.getElementById("gxgreenatorSize");
+  		maxlength = document.getElementById("gxgreenatorMaxlength");
+   		gxgreenatorName = document.getElementById("gxgreenatorGxgreenatorName");
+  		rows = document.getElementById("gxgreenatorRows");
+  		cols = document.getElementById("gxgreenatorCols");
+  		dateid = document.getElementById("gxgreenatorDateid");
+   		id.value = "";
+  		name.value = "";
+  		value.value = "";
+  		type.value = "";
+  		size.value = "";
+  		maxlength.value = "";
+  		gxgreenatorName.value = "";
+  		rows.value = "";
+  		cols.value = "";
+  		dateid.value = "";
+  	}
+  </script>
+  <style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+-->
+  </style>
+</head>
+
+#if (!$gxgreenator.actionErrors.isEmpty())
+			<ul class="errorMessage">
+			#foreach( $gxgreenatorerror in $gxgreenator.actionErrors )
+				<li>$gxgreenator.error</li>
+			#end
+			</ul>
+		#end
+
+<body onload="HTMLArea.replaceAll();"><Br>
+<form method="post" action="../gxgreenator/add.action">
+<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="80%">
+  <tbody>
+	<tr bgcolor="#8FEC13">
+    	<td colspan="2" bgcolor="#333366" id="tableHeader1"><span class="style1">Gxform - Form Detail</span></td>
+  	</tr>
+    <tr bgcolor="#ffffff">
+     	<td align="right" width="40%" id="tableHeader2">Name    :</td>
+     	<td>$!gxform.name  </td>
+    </tr bgcolor="#ffffff">
+	<tr bgcolor="#ffffff">
+		<td align="right" id="tableHeader2">Gxform Name  : </td>
+		<td>$!gxform.gxformName</td>
+	</tr>
+	<tr bgcolor="#A8FF93">
+		<td colspan="2" align="right" bgcolor="#CFE9EB" id="tableHeader2"><a href="../generate/edit.action?id=$!gxform.id">Edit</a> <b>|</b><a href="../generate/confirm.action?id=$gxform.Id">Delete</a> <b>|</b> 
+		<a href="../generate/gen.action?id=$!gxform.id"><b><font color="red">Generate</font></b></a>    </tr>
+  </tbody>
+</table>
+  	<br>
+  	
+<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="80%">
+    <tr bgcolor="#8FEC13">
+	    <td colspan="2" bgcolor="#333366" id="tableHeader1"><span class="style1">Gxgreenator - Field Detail</span></td>
+  	</tr>
+  	<tr bgcolor="#ffffff">
+    	<td width="40%" align="right">Name <font color="red">*</font>		: </td>
+  		<td><input id="gxgreenatorName" name="gxgreenator.name" value="$!gxgreenator.name"/></td>
+	</tr>
+  	<tr bgcolor="#ffffff">
+		<td align="right">Gxgreenator Name	: </td>
+		<td><input id="gxgreenatorGxgreenatorName" name="gxgreenator.gxgreenatorName" value="$!gxgreenator.gxgreenatorName"/></td> 
+	</tr> 
+  	<tr bgcolor="#ffffff">
+		<td align="right">Value				: </td>
+		<td><input id="gxgreenatorValue" name="gxgreenator.value" value="$!gxgreenator.value"/></td>
+	</tr>
+	<tr bgcolor="#ffffff">
+		<td align="right">Type <font color="red">*</font>				:</td>
+		<td><select id="gxgreenatorType" name="gxgreenator.type">
+			<option value="$!gxgreenator.type">$!gxgreenator.type</option>			
+			<option value="date">Date</option>
+			<option value="separator">Separator</option>
+			<option value="text">Text</option>
+			<option value="textarea">Textarea</option>
+			<option value="textfield">Textfield</option>			
+			</select>
+			<font color="#FF0000">+</font></td>
+	</tr>
+	<tr bgcolor="#FFFFCC">
+		<td colspan="2">&nbsp;Fill this box where the Type(<font color="#FF0000">+</font>) as like as you have choose before.</td>
+	</tr>	
+	<tr bgcolor="#ffffff">
+		<td align="center">Type : Text</td>
+		<td align="right">
+			Size : <input id="gxgreenatorSize" name="gxgreenator.size" value="$!gxgreenator.size"/><br><br>
+			Maxlength : <input id="gxgreenatorMaxlength" name="gxgreenator.maxlength" value="$!gxgreenator.maxlength"/>
+		</td>
+	</tr>
+	<tr bgcolor="#ffffff">
+		<td align="center">Type : Textarea</td>
+		<td align="right">
+			Rows : <input id="gxgreenatorRows" name="gxgreenator.rows" value="$!gxgreenator.rows"/><br><br>
+			Columns : <input id="gxgreenatorCols" name="gxgreenator.cols" value="$!gxgreenator.cols"/>
+		</td>
+	</tr>
+	<tr bgcolor="#ffffff">
+		<td align="center">Type : Date</td>
+		<td align="right">Date id : 
+			<select id="gxgreenatorDateid" name="gxgreenator.dateid">
+			<option value="-">-</option>
+			<option value="a">A</option>
+			<option value="b">B</option>
+			<option value="c">C</option>
+			</select><font color="red">++</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</td>
+	</tr>
+	<tr bgcolor="#FFFFCC"><td colspan="2"><font color="red">++</font> In one form can not have the same "Date id" if u have Type(Date) more than one.</td></tr>
+	<tr bgcolor="#A8FF93">
+		<td colspan="2" align="right" bgcolor="#CFE9EB" id=tableHeader1><input type="hidden" id="gxgreenatorId" name="id" value="$!gxgreenator.id">
+      		<input type="submit" value="Submit"> <input type="reset" value="Reset"> <input type="button" value="Clear" onClick="newGxgreenator()">
+      		<input type="hidden" name="gxformId" value="$!gxform.id">
+	  </td>
+	</tr>
+</table>
+ 
+  <br>$!report
+  #if(!$gxgreenators.isEmpty())
+
+<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="80%">
+  <tr id="tableHeader1" bgcolor="#8FEC13">
+    <td bgcolor="#333366"><span class="style1">Name</span></td>
+    <td bgcolor="#333366"><span class="style1">Value</span></td>
+    <td bgcolor="#333366"><span class="style1">Type</span></td>
+    <td bgcolor="#333366"><span class="style1">Size</span></td>
+    <td bgcolor="#333366"><span class="style1">Maxlength</span></td>
+    <td bgcolor="#333366"><span class="style1">gxgreenator Name</span></td>
+    <td bgcolor="#333366"><span class="style1">Sum</span></td>
+    <td bgcolor="#333366"><span class="style1">Rows</span></td>
+    <td bgcolor="#333366"><span class="style1">Cols</span></td>
+    <td bgcolor="#333366"><span class="style1">Date id</span></td>
+	<td bgcolor="#333366"><span class="style1">Action</span></td>
+  </tr>
+  #foreach ($de in $gxgreenators) 
+  <tr valign="top" bgcolor="#ffffff"> 
+    <td>$!de.name</td>
+    <td>$!de.value</td>
+    <td>$!de.type</td>
+    <td>$!de.size</td>
+    <td>$!de.maxlength</td>
+    <td>$!de.gxgreenatorName</td>
+    <td>$!de.sum</td>
+    <td>$!de.rows</td>
+    <td>$!de.cols</td>
+    <td>$!de.dateid</td>
+    <td><a href="../gxgreenator/edit.action?id=$de.Id">Edit</a> 
+  <a href="../gxgreenator/delete.action?id=$de.id&gxformId=$!gxform.id">Delete</a>  </tr>
+  #end
+</table>
+#end
+<br>
+<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="80%">
+  	<tr bgcolor="#C1C1FF">
+		<td align="center"><a href="../generate/create.action"><b>[New]</b></a> <b>|</b> 
+		<a href="../generate/filter.action"><b>[Search]</b></a>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
+    

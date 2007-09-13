@@ -3,9 +3,9 @@ package org.blueoxygen.cimande.gx.droplist.action;
 import java.sql.Timestamp;
 
 import org.blueoxygen.cimande.LogInformation;
-import org.blueoxygen.cimande.gx.droplist.Droplist;
-import org.blueoxygen.cimande.gx.droplistname.DroplistName;
-import org.blueoxygen.cimande.gx.droplistvalue.DroplistValue;
+import org.blueoxygen.cimande.gx.entity.Droplist;
+import org.blueoxygen.cimande.gx.entity.DroplistName;
+import org.blueoxygen.cimande.gx.entity.DroplistValue;
 
 public class AddDroplist extends DroplistForm {
 	public String execute() {

@@ -11,11 +11,20 @@ package org.blueoxygen.cimande.security;
 
 
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 /**
  * A very simple user. 
  * @hibernate.class table="backend_user"
  */
+@Entity()
+@Table(name="backend_user")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class User extends DefaultPersistent {
 	private String username;
 	private String password;
@@ -49,6 +58,7 @@ public class User extends DefaultPersistent {
 	/**
 	 * @hibernate.component
 	 */
+	@Embedded
 	public Name getName() {
 		return name;
 	}
@@ -58,6 +68,7 @@ public class User extends DefaultPersistent {
 	/**
 	 * @hibernate.component
 	 */
+	@Embedded
 	public Address getAddress() {
 		return address;
 	}

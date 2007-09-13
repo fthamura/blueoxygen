@@ -3,7 +3,7 @@ package org.blueoxygen.cimande.gx.table.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.blueoxygen.cimande.gx.table.DBTable;
+import org.blueoxygen.cimande.gx.entity.DBTable;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 

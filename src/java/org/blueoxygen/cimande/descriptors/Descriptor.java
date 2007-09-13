@@ -10,6 +10,12 @@
 
 package org.blueoxygen.cimande.descriptors;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 
 
@@ -19,6 +25,9 @@ import org.blueoxygen.cimande.DefaultPersistent;
  *
  * @hibernate.class table="descriptor"
  */
+@Entity()
+@Table(name="descriptor")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Descriptor extends DefaultPersistent {
 	private String name;
 	private String description;
@@ -69,6 +78,7 @@ public class Descriptor extends DefaultPersistent {
 	 * @return Returns the urlAction.
 	 * @hibernate.property column="url_action"
 	 */
+	@Column(name="url_action")
 	public String getUrlAction() {
 		return urlAction;
 	}
@@ -82,6 +92,7 @@ public class Descriptor extends DefaultPersistent {
 	 * @return Returns the urlDescriptor.
 	 * @hibernate.property column="url_descriptor"
 	 */
+	@Column(name="url_descriptor")
 	public String getUrlDescriptor() {
 		return urlDescriptor;
 	}
@@ -97,6 +108,7 @@ public class Descriptor extends DefaultPersistent {
 	 * @return Returns the descriptorFlag.
 	 * @hibernate.property column="descriptor_flag"
 	 */
+	@Column(name="descriptor_flag")
 	public int getDescriptorFlag() {
 		return descriptorFlag;
 	}
@@ -110,6 +122,7 @@ public class Descriptor extends DefaultPersistent {
 	 * @return Returns the typeFlag.
 	 * @hibernate.property column="type_flag"
 	 */
+	@Column(name="type_flag")
 	public int getTypeFlag() {
 		return typeFlag;
 	}

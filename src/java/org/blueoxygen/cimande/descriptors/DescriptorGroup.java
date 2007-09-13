@@ -10,6 +10,12 @@
 
 package org.blueoxygen.cimande.descriptors;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 
 /**
@@ -17,6 +23,9 @@ import org.blueoxygen.cimande.DefaultPersistent;
  *
  * @hibernate.class table="descriptor_group"
  */
+@Entity()
+@Table(name="descriptor_group")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class DescriptorGroup extends DefaultPersistent {
 	private String groupId;
 	private String folder;
@@ -26,6 +35,7 @@ public class DescriptorGroup extends DefaultPersistent {
 	 * @return Returns the groupId.
 	 * @hibernate.property column="group_id"
 	 */
+	@Column(name="group_id")
 	public String getGroupId() {
 		return groupId;
 	}

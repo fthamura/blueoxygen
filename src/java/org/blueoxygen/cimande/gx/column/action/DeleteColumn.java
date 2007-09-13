@@ -2,7 +2,7 @@ package org.blueoxygen.cimande.gx.column.action;
 
 import java.util.Iterator;
 
-import org.blueoxygen.cimande.gx.column.DBColumn;
+import org.blueoxygen.cimande.gx.entity.DBColumn;
 
 
 public class DeleteColumn extends ColumnForm {

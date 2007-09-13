@@ -6,6 +6,13 @@
  */
 package org.blueoxygen.cimande.role;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 import org.blueoxygen.cimande.modulefunction.ModuleFunction;
 
@@ -16,6 +23,9 @@ import org.blueoxygen.cimande.modulefunction.ModuleFunction;
  * Window - Preferences - Java - Code Generation - Code and Comments
  * @hibernate.class table="role_privilage"
  */
+@Entity()
+@Table(name="role_privilage")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class RolePrivilage extends DefaultPersistent{
 	
 	private Role role;
@@ -40,6 +50,7 @@ public class RolePrivilage extends DefaultPersistent{
 	 * @return Returns the role.
 	 * @hibernate.many-to-one column="role_id"
 	 */
+	@ManyToOne
 	public Role getRole() {
 		return role;
 	}
@@ -67,6 +78,8 @@ public class RolePrivilage extends DefaultPersistent{
 	 * @hibernate.many-to-one column="module_function_id"
 	 * @return Returns the moduleFunction.
 	 */
+	@ManyToOne
+	@JoinColumn(name="module_function_id")
 	public ModuleFunction getModuleFunction() {
 		return moduleFunction;
 	}

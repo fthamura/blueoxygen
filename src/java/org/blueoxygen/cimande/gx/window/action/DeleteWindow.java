@@ -2,7 +2,7 @@ package org.blueoxygen.cimande.gx.window.action;
 
 import java.util.Iterator;
 
-import org.blueoxygen.cimande.gx.window.Window;
+import org.blueoxygen.cimande.gx.entity.Window;
 
 
 public class DeleteWindow extends WindowForm {

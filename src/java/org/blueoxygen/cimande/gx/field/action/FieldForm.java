@@ -3,8 +3,8 @@ package org.blueoxygen.cimande.gx.field.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.blueoxygen.cimande.gx.field.Field;
-import org.blueoxygen.cimande.gx.tab.Tab;
+import org.blueoxygen.cimande.gx.entity.Field;
+import org.blueoxygen.cimande.gx.entity.Tab;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 

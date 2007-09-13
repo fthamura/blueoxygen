@@ -13,6 +13,14 @@ package org.blueoxygen.cimande.role;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 
 
@@ -21,10 +29,13 @@ import org.blueoxygen.cimande.DefaultPersistent;
  *
  * @hibernate.class table="workflow_role"
  */
+@Entity()
+@Table(name="workflow_role")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Role extends DefaultPersistent {
 	private String name;
 	private String description;
-	private List rolePrivilage = new ArrayList();
+	private List<RolePrivilage> rolePrivilage = new ArrayList<RolePrivilage>();
 	private String site_id;
 	
 	
@@ -63,13 +74,14 @@ public class Role extends DefaultPersistent {
 	 * @hibernate.collection-one-to-many class="org.blueoxygen.cimande.role.RolePrivilage"
 	 * @hibernate.collection-key column="role_id"
 	 */
-	public List getRolePrivilage() {
+	@OneToMany(mappedBy="role", fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	public List<RolePrivilage> getRolePrivilage() {
 		return rolePrivilage;
 	}
 	/**
 	 * @param rolePrivilage The rolePrivilage to set.
 	 */
-	public void setRolePrivilage(List rolePrivilage) {
+	public void setRolePrivilage(List<RolePrivilage> rolePrivilage) {
 		this.rolePrivilage = rolePrivilage;
 	}
 	/**

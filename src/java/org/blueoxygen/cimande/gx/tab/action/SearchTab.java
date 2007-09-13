@@ -2,7 +2,7 @@ package org.blueoxygen.cimande.gx.tab.action;
 
 import java.sql.SQLException;
 
-import org.blueoxygen.cimande.gx.tab.Tab;
+import org.blueoxygen.cimande.gx.entity.Tab;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactoryAware;
 import org.hibernate.Criteria;

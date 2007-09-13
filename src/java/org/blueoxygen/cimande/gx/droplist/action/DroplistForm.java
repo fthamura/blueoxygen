@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
-import org.blueoxygen.cimande.gx.droplistname.DroplistName;
-import org.blueoxygen.cimande.gx.droplistvalue.DroplistValue;
-import org.blueoxygen.cimande.gx.droplist.Droplist;
+import org.blueoxygen.cimande.gx.entity.Droplist;
+import org.blueoxygen.cimande.gx.entity.DroplistName;
+import org.blueoxygen.cimande.gx.entity.DroplistValue;
 
 import com.opensymphony.xwork2.ActionSupport;
 

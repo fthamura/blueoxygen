@@ -3,7 +3,7 @@
 <beans>
     <bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost/cimande-wx" />
+        <property name="url" value="jdbc:mysql://localhost/cimande" />
         <property name="username" value="root" />
         <property name="password" value="tulalit" />
 <!-- <property name="factoryClassLocation" value="org.hibernate.transaction.JDBCTransactionFactory"/> -->
@@ -12,38 +12,57 @@
         <property name="dataSource" ref="myDataSource" />
         <property name="mappingResources">
             <list>
-                <value>org/blueoxygen/cimande/security/User.hbm.xml</value>
-                <value>org/blueoxygen/cimande/role/Role.hbm.xml</value>
-                <value>org/blueoxygen/cimande/role/RolePrivilage.hbm.xml</value>
-                <value>org/blueoxygen/cimande/site/Site.hbm.xml</value>
-                <value>org/blueoxygen/cimande/descriptors/Collection.hbm.xml</value>
-                <value>org/blueoxygen/cimande/descriptors/Descriptor.hbm.xml</value>
-                <value>org/blueoxygen/cimande/descriptors/DescriptorGroup.hbm.xml</value>
-                <value>org/blueoxygen/cimande/descriptors/Wizard.hbm.xml</value>
-                <value>org/blueoxygen/cimande/modulefunction/ModuleFunction.hbm.xml</value>
-                <value>org/blueoxygen/cimande/category/Category.hbm.xml</value>
-                <value>org/blueoxygen/cimande/section/Section.hbm.xml</value>
-                <value>org/blueoxygen/cimande/jobdescription/JobDesc.hbm.xml</value>
-                <value>org/blueoxygen/cimande/company/Company.hbm.xml</value>
-                <value>org/blueoxygen/cimande/skin/Skin.hbm.xml</value>
-                <value>org/blueoxygen/cimande/theme/Theme.hbm.xml</value>
-                <value>org/blueoxygen/cimande/template/TemplateObject.hbm.xml</value>
-                <value>org/blueoxygen/cimande/template/TemplateObjectDetail.hbm.xml</value>
-                <value>org/blueoxygen/cimande/template/Template.hbm.xml</value>
+                <!--value>org/blueoxygen/cimande/security/User.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/role/Role.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/role/RolePrivilage.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/site/Site.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/descriptors/Collection.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/descriptors/Descriptor.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/descriptors/DescriptorGroup.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/descriptors/Wizard.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/modulefunction/ModuleFunction.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/category/Category.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/section/Section.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/jobdescription/JobDesc.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/company/Company.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/skin/Skin.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/theme/Theme.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/template/TemplateObject.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/template/TemplateObjectDetail.hbm.xml</value-->
+                <!--value>org/blueoxygen/cimande/template/Template.hbm.xml</value-->
             </list>
         </property>
         <property name="annotatedClasses">
             <list>
-                <value>org.blueoxygen.cimande.gx.droplistname.DroplistName</value>
-                <value>org.blueoxygen.cimande.gx.droplistvalue.DroplistValue</value>
-                <value>org.blueoxygen.cimande.gx.droplist.Droplist</value>
-                <value>org.blueoxygen.cimande.gx.table.DBTable</value>
-                <value>org.blueoxygen.cimande.gx.column.DBColumn</value>
-                <value>org.blueoxygen.cimande.gx.field.Field</value>
-                <value>org.blueoxygen.cimande.gx.window.Window</value>
-                <value>org.blueoxygen.cimande.gx.tab.Tab</value>
-                <value>org.blueoxygen.cimande.gx.references.References</value>
-                <value>org.blueoxygen.cimande.gx.references.RefType</value>
+                <value>org.blueoxygen.cimande.security.User</value>
+                <value>org.blueoxygen.cimande.role.Role</value>
+                <value>org.blueoxygen.cimande.role.RolePrivilage</value>
+                <value>org.blueoxygen.cimande.site.Site</value>
+                <value>org.blueoxygen.cimande.descriptors.Collection</value>
+                <value>org.blueoxygen.cimande.descriptors.Descriptor</value>
+                <value>org.blueoxygen.cimande.descriptors.DescriptorGroup</value>
+                <value>org.blueoxygen.cimande.descriptors.Wizard</value>
+                <value>org.blueoxygen.cimande.modulefunction.ModuleFunction</value>
+                <value>org.blueoxygen.cimande.category.Category</value>
+                <value>org.blueoxygen.cimande.section.Section</value>
+                <value>org.blueoxygen.cimande.jobdescription.JobDesc</value>
+                <value>org.blueoxygen.cimande.company.Company</value>
+                <value>org.blueoxygen.cimande.skin.Skin</value>
+                <value>org.blueoxygen.cimande.theme.Theme</value>
+                <value>org.blueoxygen.cimande.template.TemplateObject</value>
+                <value>org.blueoxygen.cimande.template.TemplateObjectDetail</value>
+                <value>org.blueoxygen.cimande.template.Template</value>
+                
+                <value>org.blueoxygen.cimande.gx.entity.DroplistName</value>
+                <value>org.blueoxygen.cimande.gx.entity.DroplistValue</value>
+                <value>org.blueoxygen.cimande.gx.entity.Droplist</value>
+                <value>org.blueoxygen.cimande.gx.entity.DBTable</value>
+                <value>org.blueoxygen.cimande.gx.entity.DBColumn</value>
+                <value>org.blueoxygen.cimande.gx.entity.Field</value>
+                <value>org.blueoxygen.cimande.gx.entity.Window</value>
+                <value>org.blueoxygen.cimande.gx.entity.Tab</value>
+                <value>org.blueoxygen.cimande.gx.entity.References</value>
+                <value>org.blueoxygen.cimande.gx.entity.RefType</value>
             </list>
         </property>
         <property name="hibernateProperties">

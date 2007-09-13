@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.blueoxygen.cimande.LogInformation;
-import org.blueoxygen.cimande.gx.droplistname.DroplistName;
-import org.blueoxygen.cimande.gx.droplistvalue.DroplistValue;
 import org.blueoxygen.cimande.gx.droplistvalue.action.DroplistValueForm;
+import org.blueoxygen.cimande.gx.entity.DroplistName;
+import org.blueoxygen.cimande.gx.entity.DroplistValue;
 
 import com.opensymphony.xwork2.ActionContext;
 

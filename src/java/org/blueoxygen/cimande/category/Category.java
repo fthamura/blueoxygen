@@ -8,6 +8,16 @@ package org.blueoxygen.cimande.category;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 import org.blueoxygen.cimande.descriptors.Descriptor;
 
@@ -18,13 +28,16 @@ import org.blueoxygen.cimande.descriptors.Descriptor;
  * Window - Preferences - Java - Code Style - Code Templates
  * @hibernate.class table="category"
  */
+@Entity()
+@Table(name="category")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Category extends DefaultPersistent{
 	
 	private String code;
 	private String description;
 	private String url_category_image;
 
-	private List categories;
+	private List<Category> categories;
 	private Category parentCategory;
 
 	private Descriptor categoryDescriptor;
@@ -33,6 +46,7 @@ public class Category extends DefaultPersistent{
 	 * @hibernate.many-to-one column="descriptor_id"
 	 * @return Returns the categoryDescriptor.
 	 */
+	@ManyToOne
 	public Descriptor getCategoryDescriptor() {
 		return categoryDescriptor;
 	}
@@ -74,6 +88,8 @@ public class Category extends DefaultPersistent{
 	 * @return Returns the parentCategory.
 	 * @hibernate.many-to-one column="iparentcode"
 	 */
+	@ManyToOne
+	@JoinColumn(name="iparentcode")
 	public Category getParentCategory() {
 		return parentCategory;
 	}
@@ -89,13 +105,14 @@ public class Category extends DefaultPersistent{
 	 * @hibernate.collection-one-to-many class="org.blueoxygen.cimande.category.Category"
 	 * @hibernate.collection-key column="iparentcode"
 	 */
-	public List getCategories() {
+	@OneToMany(mappedBy="parentCategory", cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
+	public List<Category> getCategories() {
 		return categories;
 	}
 	/**
 	 * @param categories The categories to set.
 	 */
-	public void setCategories(List categories) {
+	public void setCategories(List<Category> categories) {
 		this.categories = categories;
 	}
 	

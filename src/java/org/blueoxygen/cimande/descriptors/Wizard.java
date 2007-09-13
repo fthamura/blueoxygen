@@ -10,12 +10,20 @@
 
 package org.blueoxygen.cimande.descriptors;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 
 /**
  * @author frans
  * @hibernate.class table="wizard"
  */
+@Entity()
+@Table(name="wizard")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Wizard extends DefaultPersistent {
 	
 	private String name;

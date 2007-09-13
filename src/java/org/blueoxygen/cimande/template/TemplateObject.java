@@ -3,6 +3,12 @@
  *******************************************************************************/
 package org.blueoxygen.cimande.template;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.theme.Theme;
 import org.blueoxygen.cimande.DefaultPersistent;
 
@@ -10,6 +16,9 @@ import org.blueoxygen.cimande.DefaultPersistent;
  * @author amix {amix_adib@yahoo.com}
  * @hibernate.class table="template_object"
  */
+@Entity()
+@Table(name="template_object")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class TemplateObject extends DefaultPersistent{
 	
 	private Theme theme;
@@ -46,6 +55,7 @@ public class TemplateObject extends DefaultPersistent{
 	 * @return Returns the theme.
 	 * @hibernate.many-to-one column="theme_id"
 	 */
+	@ManyToOne
 	public Theme getTheme() {
 		return theme;
 	}

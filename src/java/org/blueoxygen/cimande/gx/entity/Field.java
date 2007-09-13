@@ -1,4 +1,4 @@
-package org.blueoxygen.cimande.gx.field;
+package org.blueoxygen.cimande.gx.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,9 +7,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.gx.column.DBColumn;
-import org.blueoxygen.cimande.gx.references.References;
-import org.blueoxygen.cimande.gx.tab.Tab;
 import org.blueoxygen.cimande.DefaultPersistent;
 
 @Entity()

@@ -2,7 +2,7 @@ package org.blueoxygen.cimande.gx.field.action;
 
 import java.util.Iterator;
 
-import org.blueoxygen.cimande.gx.field.Field;
+import org.blueoxygen.cimande.gx.entity.Field;
 
 
 public class DeleteField extends FieldForm {

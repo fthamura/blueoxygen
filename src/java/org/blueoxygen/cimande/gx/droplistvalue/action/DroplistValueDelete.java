@@ -2,8 +2,8 @@ package org.blueoxygen.cimande.gx.droplistvalue.action;
 
 import java.util.List;
 
-import org.blueoxygen.cimande.gx.droplistvalue.DroplistValue;
 import org.blueoxygen.cimande.gx.droplistvalue.action.DroplistValueForm;
+import org.blueoxygen.cimande.gx.entity.DroplistValue;
 
 public class DroplistValueDelete extends DroplistValueForm {
 

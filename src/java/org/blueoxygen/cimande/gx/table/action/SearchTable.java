@@ -3,7 +3,7 @@ package org.blueoxygen.cimande.gx.table.action;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.blueoxygen.cimande.gx.table.DBTable;
+import org.blueoxygen.cimande.gx.entity.DBTable;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactoryAware;
 import org.hibernate.Criteria;

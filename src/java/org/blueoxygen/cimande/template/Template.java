@@ -7,6 +7,12 @@
 package org.blueoxygen.cimande.template;
 
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 import org.blueoxygen.cimande.descriptors.Descriptor;
 
@@ -17,6 +23,10 @@ import org.blueoxygen.cimande.descriptors.Descriptor;
  * 
  * @hibernate.class table="template"
  */
+
+@Entity()
+@Table(name="template")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Template extends DefaultPersistent{
 	
 	private String name;
@@ -53,6 +63,7 @@ public class Template extends DefaultPersistent{
 	 * @return Returns the descriptor.
 	 * @hibernate.many-to-one column="descriptor_id"
 	 */
+	@ManyToOne
 	public Descriptor getDescriptor() {
 		return Descriptor;
 	}

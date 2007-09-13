@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 
 
-import org.blueoxygen.cimande.gx.field.Field;
-import org.blueoxygen.cimande.gx.tab.Tab;
+import org.blueoxygen.cimande.gx.entity.Field;
+import org.blueoxygen.cimande.gx.entity.Tab;
 import org.blueoxygen.cimande.LogInformation;
 
 public class AddField extends FieldForm {

@@ -7,6 +7,12 @@
 package org.blueoxygen.cimande.section;
 
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 import org.blueoxygen.cimande.descriptors.Descriptor;
 
@@ -17,6 +23,9 @@ import org.blueoxygen.cimande.descriptors.Descriptor;
  * Window - Preferences - Java - Code Style - Code Templates
  * @hibernate.class table="section"
  */
+@Entity()
+@Table(name="section")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Section extends DefaultPersistent{
 	
 	private String code;
@@ -29,6 +38,7 @@ public class Section extends DefaultPersistent{
 	 * @hibernate.many-to-one column="descriptor_id"
 	 * @return Returns the sectionDescriptor.
 	 */
+	@ManyToOne
 	public Descriptor getSectionDescriptor() {
 		return sectionDescriptor;
 	}

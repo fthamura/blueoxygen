@@ -9,6 +9,11 @@
  *******************************************************************************/
 package org.blueoxygen.cimande.security;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Transient;
+
+@Embeddable
 public class Address {
     private String street1;
     private String street2;
@@ -19,6 +24,7 @@ public class Address {
     /**
      * @hibernate.property column="address1"
      */
+    @Column(name="address1")
     public String getStreet1() {
         return street1;
     }
@@ -30,6 +36,7 @@ public class Address {
     /**
      * @hibernate.property column="address2"
      */
+    @Column(name="address2")
     public String getStreet2() {
         return street2;
     }
@@ -52,6 +59,7 @@ public class Address {
     /**
      * 
      */
+    @Transient
     public String getState() {
         return state;
     }
@@ -63,6 +71,7 @@ public class Address {
     /**
      * 
      */
+    @Transient
     public String getZip() {
         return zip;
     }

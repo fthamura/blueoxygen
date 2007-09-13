@@ -2,7 +2,7 @@ package org.blueoxygen.cimande.gx.column.action;
 
 import java.sql.SQLException;
 
-import org.blueoxygen.cimande.gx.column.DBColumn;
+import org.blueoxygen.cimande.gx.entity.DBColumn;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactoryAware;
 import org.hibernate.Criteria;

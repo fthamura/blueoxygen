@@ -1,4 +1,4 @@
-package org.blueoxygen.cimande.gx.droplistname;
+package org.blueoxygen.cimande.gx.entity;
 
 import java.util.ArrayList;
 import java.util.List;

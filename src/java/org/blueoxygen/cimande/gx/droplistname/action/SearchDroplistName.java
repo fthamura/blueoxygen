@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactoryAware;
-import org.blueoxygen.cimande.gx.droplistname.DroplistName;
+import org.blueoxygen.cimande.gx.entity.DroplistName;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.classic.Session;

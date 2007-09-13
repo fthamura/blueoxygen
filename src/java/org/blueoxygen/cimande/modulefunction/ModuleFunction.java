@@ -8,6 +8,17 @@ package org.blueoxygen.cimande.modulefunction;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 import org.blueoxygen.cimande.descriptors.Descriptor;
 
@@ -18,19 +29,24 @@ import org.blueoxygen.cimande.descriptors.Descriptor;
  * Window - Preferences - Java - Code Style - Code Templates
  * @hibernate.class table="module_function"
  */
+@Entity()
+@Table(name="module_function")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class ModuleFunction extends DefaultPersistent{
 	
 	private String name;
 	private String description;
 	private int viewActive;
 	private String tableReferences;
-	private List moduleFunctions;
+	private List<ModuleFunction> moduleFunctions;
 	private ModuleFunction moduleFunction;
 	private Descriptor moduleDescriptor;
 	/**
 	 * @hibernate.many-to-one column="descriptor_id"
 	 * @return Returns the moduleDescriptor.
 	 */
+	@ManyToOne
+	@JoinColumn(name="descriptor_id")
 	public Descriptor getModuleDescriptor() {
 		return moduleDescriptor;
 	}
@@ -70,6 +86,7 @@ public class ModuleFunction extends DefaultPersistent{
 	 * @return Returns the tableReferences.
 	 * @hibernate.property column="ref_desc"
 	 */
+	@Column(name="ref_desc")
 	public String getTableReferences() {
 		return tableReferences;
 	}
@@ -83,6 +100,7 @@ public class ModuleFunction extends DefaultPersistent{
 	 * @return Returns the viewActive.
 	 * @hibernate.property column="viewall_flag" length="1"
 	 */
+	@Column(name="viewall_flag")
 	public int getViewActive() {
 		return viewActive;
 	}
@@ -96,6 +114,8 @@ public class ModuleFunction extends DefaultPersistent{
 	 * @return Returns the moduleFunction.
 	 * @hibernate.many-to-one column="iparent"
 	 */
+	@ManyToOne
+	@JoinColumn(name="iparent")
 	public ModuleFunction getModuleFunction() {
 		return moduleFunction;
 	}
@@ -111,13 +131,14 @@ public class ModuleFunction extends DefaultPersistent{
 	 * @hibernate.collection-one-to-many class="org.blueoxygen.cimande.modulefunction.ModuleFunction"
 	 * @hibernate.collection-key column="iparent"
 	 */
-	public List getModuleFunctions() {
+	@OneToMany(mappedBy="moduleFunction", cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
+	public List<ModuleFunction> getModuleFunctions() {
 		return moduleFunctions;
 	}
 	/**
 	 * @param moduleFunctions The moduleFunctions to set.
 	 */
-	public void setModuleFunctions(List moduleFunctions) {
+	public void setModuleFunctions(List<ModuleFunction> moduleFunctions) {
 		this.moduleFunctions = moduleFunctions;
 	}
 	

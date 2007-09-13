@@ -2,7 +2,7 @@ package org.blueoxygen.cimande.gx.table.action;
 
 import java.sql.Timestamp;
 
-import org.blueoxygen.cimande.gx.table.DBTable;
+import org.blueoxygen.cimande.gx.entity.DBTable;
 import org.blueoxygen.cimande.LogInformation;
 
 

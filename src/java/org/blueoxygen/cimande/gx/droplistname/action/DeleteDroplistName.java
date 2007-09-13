@@ -3,8 +3,8 @@ package org.blueoxygen.cimande.gx.droplistname.action;
 import java.util.Iterator;
 import java.util.List;
 
-import org.blueoxygen.cimande.gx.droplistname.DroplistName;
-import org.blueoxygen.cimande.gx.droplistvalue.DroplistValue;
+import org.blueoxygen.cimande.gx.entity.DroplistName;
+import org.blueoxygen.cimande.gx.entity.DroplistValue;
 
 /**
  * @author anja

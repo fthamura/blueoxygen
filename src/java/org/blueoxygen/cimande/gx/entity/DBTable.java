@@ -1,20 +1,32 @@
-package org.blueoxygen.cimande.gx.window;
+package org.blueoxygen.cimande.gx.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+
 import javax.persistence.Table;
+
 
 import org.blueoxygen.cimande.DefaultPersistent;
 
 @Entity()
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@Table(name="gx_window")
-public class Window extends DefaultPersistent {
+@Table(name="gx_table")
+public class DBTable extends DefaultPersistent {
 
 	private String name;
 	private String description;
+	private String tableName;
+	
+
+	@Column(name="db_table_name")
+	public String getTableName() {
+		return tableName;
+	}
+	public void setTableName(String action) {
+		this.tableName = action;
+	}
 
 	@Column
 	public String getDescription() {

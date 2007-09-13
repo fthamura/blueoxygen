@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 
 
-import org.blueoxygen.cimande.gx.column.DBColumn;
-import org.blueoxygen.cimande.gx.table.DBTable;
+import org.blueoxygen.cimande.gx.entity.DBColumn;
+import org.blueoxygen.cimande.gx.entity.DBTable;
 import org.blueoxygen.cimande.LogInformation;
 
 public class AddColumn extends ColumnForm {

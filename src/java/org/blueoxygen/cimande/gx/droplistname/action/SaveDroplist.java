@@ -1,6 +1,6 @@
 package org.blueoxygen.cimande.gx.droplistname.action;
 
-import org.blueoxygen.cimande.gx.droplistvalue.DroplistValue;
+import org.blueoxygen.cimande.gx.entity.DroplistValue;
 
 import com.opensymphony.xwork2.ActionContext;
 

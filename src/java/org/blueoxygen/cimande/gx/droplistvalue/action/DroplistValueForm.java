@@ -3,11 +3,10 @@ package org.blueoxygen.cimande.gx.droplistvalue.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.blueoxygen.cimande.gx.entity.DroplistName;
+import org.blueoxygen.cimande.gx.entity.DroplistValue;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
-import org.blueoxygen.cimande.gx.droplistname.DroplistName;
-import org.blueoxygen.cimande.gx.droplistvalue.DroplistValue;
-import org.blueoxygen.cimande.gx.droplist.Droplist;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -16,7 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DroplistValueForm extends ActionSupport implements PersistenceAware {
 	protected PersistenceManager manager;
 	protected List droplists = new ArrayList();
-	protected List droplistvalues = new ArrayList();
+	protected List<DroplistValue> droplistvalues = new ArrayList<DroplistValue>();
 	protected DroplistValue droplistvalue = new DroplistValue();
 	protected DroplistValue temp = new DroplistValue();
 	protected DroplistName dn = new DroplistName();
@@ -27,7 +26,7 @@ public class DroplistValueForm extends ActionSupport implements PersistenceAware
 	
 	public String execute(){
 		//droplists = manager.findAll(Droplist.class);
-		droplistvalues = manager.findAll(DroplistValue.class);
+		droplistvalues = (ArrayList<DroplistValue>) manager.findAll(DroplistValue.class);
 		if (!getId().equalsIgnoreCase("")){
 			droplistvalue = (DroplistValue)manager.getById(DroplistValue.class, getId());
 		}

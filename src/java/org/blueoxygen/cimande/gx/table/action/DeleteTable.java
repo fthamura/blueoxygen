@@ -2,7 +2,7 @@ package org.blueoxygen.cimande.gx.table.action;
 
 import java.util.Iterator;
 
-import org.blueoxygen.cimande.gx.table.DBTable;
+import org.blueoxygen.cimande.gx.entity.DBTable;
 
 
 public class DeleteTable extends TableForm {

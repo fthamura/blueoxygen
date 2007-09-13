@@ -3,6 +3,13 @@
  */
 package org.blueoxygen.cimande.template;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 import org.blueoxygen.cimande.descriptors.Descriptor;
 import org.blueoxygen.cimande.descriptors.Collection;
@@ -16,6 +23,9 @@ import org.blueoxygen.cimande.descriptors.Collection;
  * 
  * @hibernate.class table="template_object_detail"
  */
+@Entity()
+@Table(name="template_object_detail")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class TemplateObjectDetail extends DefaultPersistent{
 	private String description;
 	private Collection collection;
@@ -28,6 +38,8 @@ public class TemplateObjectDetail extends DefaultPersistent{
 	 * @hibernate.many-to-one column="template_object_id"
 	 * @return Returns the templateObject.
 	 */
+	@ManyToOne
+	@JoinColumn(name="template_object_id")
 	public TemplateObject getTemplateObject() {
 		return templateObject;
 	}
@@ -43,6 +55,7 @@ public class TemplateObjectDetail extends DefaultPersistent{
 	 * @hibernate.many-to-one column="descriptor_id"
 	 * @return Returns the objDescriptor.
 	 */
+	@ManyToOne
 	public Descriptor getDescriptor() {
 		return descriptor;
 	}
@@ -57,6 +70,7 @@ public class TemplateObjectDetail extends DefaultPersistent{
 	 * @hibernate.many-to-one column="collection_id"
 	 * @return Returns the collection.
 	 */
+	@ManyToOne
 	public Collection getCollection() {
 		return collection;
 	}

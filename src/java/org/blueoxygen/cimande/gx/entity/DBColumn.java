@@ -1,4 +1,4 @@
-package org.blueoxygen.cimande.gx.column;
+package org.blueoxygen.cimande.gx.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
-import org.blueoxygen.cimande.gx.table.DBTable;
 import org.blueoxygen.cimande.DefaultPersistent;
 import org.blueoxygen.cimande.modulefunction.ModuleFunction;
 

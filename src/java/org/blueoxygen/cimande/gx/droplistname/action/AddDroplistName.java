@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.blueoxygen.cimande.LogInformation;
-import org.blueoxygen.cimande.gx.droplistname.DroplistName;
+import org.blueoxygen.cimande.gx.entity.DroplistName;
 
 import com.opensymphony.xwork2.ActionContext;
 

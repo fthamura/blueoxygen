@@ -1,13 +1,20 @@
 package org.blueoxygen.cimande.theme;
 
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 
 /**
  * @author kromy
  * @hibernate.class table="theme"
  */
-
+@Entity()
+@Table(name="theme")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Theme extends DefaultPersistent{
 	private String name;
 	private String description;

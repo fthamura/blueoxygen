@@ -2,7 +2,7 @@ package org.blueoxygen.cimande.gx.tab.action;
 
 import java.util.Iterator;
 
-import org.blueoxygen.cimande.gx.tab.Tab;
+import org.blueoxygen.cimande.gx.entity.Tab;
 
 
 public class DeleteTab extends TabForm {

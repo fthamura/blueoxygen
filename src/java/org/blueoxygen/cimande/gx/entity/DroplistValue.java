@@ -1,4 +1,4 @@
-package org.blueoxygen.cimande.gx.droplistvalue;
+package org.blueoxygen.cimande.gx.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.blueoxygen.cimande.DefaultPersistent;
-import org.blueoxygen.cimande.gx.droplistname.DroplistName;
 
 /**
  * @author Fida & Anja

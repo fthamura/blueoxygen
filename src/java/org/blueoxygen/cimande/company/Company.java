@@ -1,11 +1,20 @@
 package org.blueoxygen.cimande.company;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 /**
  * 
  * @author gurki
  * @hibernate.class table="company"
  */
+@Entity()
+@Table(name="company")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Company extends DefaultPersistent{
 	
 	private String name="";
@@ -66,7 +75,7 @@ public void setEmail(String email) {
  * @return Return the faximile.
  * @hibernate.property column="faximile"
  */
-
+@Column(name="faximile")
 public String getFaximile() {
 	return faximile;
 }

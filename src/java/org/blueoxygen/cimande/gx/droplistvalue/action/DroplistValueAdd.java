@@ -2,17 +2,17 @@ package org.blueoxygen.cimande.gx.droplistvalue.action;
 
 import java.sql.Timestamp;
 
-import org.blueoxygen.cimande.gx.droplistvalue.DroplistValue;
 import org.blueoxygen.cimande.gx.droplistvalue.action.DroplistValueForm;
+import org.blueoxygen.cimande.gx.entity.DroplistValue;
 import org.blueoxygen.cimande.LogInformation;
 
 public class DroplistValueAdd extends DroplistValueForm {
 	
 	public String execute() {
-		if(getDroplist().getValue().equalsIgnoreCase("")){
+		if(getDroplistvalue().getValue().equalsIgnoreCase("")){
 			addActionError("Select the module");
 		}
-		if(getDroplist().getDescription().equalsIgnoreCase("")){
+		if(getDroplistvalue().getDescription().equalsIgnoreCase("")){
 			addActionError("Select the descriptor");
 		}
 		if(hasActionErrors()){
@@ -30,8 +30,8 @@ public class DroplistValueAdd extends DroplistValueForm {
 		
 		/*tm = (Module) manager.getById(Module.class, getModuleId());
 		td = (gxDescriptor) manager.getById(gxDescriptor.class, getDescriptorId());*/
-		temp.setValue(droplist.getValue());
-		temp.setDescription(droplist.getDescription());
+		temp.setValue(droplistvalue.getValue());
+		temp.setDescription(droplistvalue.getDescription());
 		temp.setLogInformation(logInfo);
 				
 		manager.save(temp);

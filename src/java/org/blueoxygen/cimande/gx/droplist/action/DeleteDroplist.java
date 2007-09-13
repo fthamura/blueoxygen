@@ -1,6 +1,6 @@
 package org.blueoxygen.cimande.gx.droplist.action;
 
-import org.blueoxygen.cimande.gx.droplist.Droplist;
+import org.blueoxygen.cimande.gx.entity.Droplist;
 
 public class DeleteDroplist extends DroplistForm {
 	
