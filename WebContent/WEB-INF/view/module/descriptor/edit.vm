@@ -31,7 +31,7 @@
   <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">Description:</td>
         <td>
-        	<input maxlength="128" name="name" size="25" value="$!description"></td>
+        	<input maxlength="128" name="description" size="25" value="$!description"></td>
   </tr>  
   <tr bgcolor="#ffffff">
   	<td style="font-weight: bold;" align="right" valign="top">URL Action:</td>
