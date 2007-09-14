@@ -9,80 +9,13 @@
 	<link rel="stylesheet" type="text/css" href="../jscript/yui-ext/resources/css/yui-ext.css" />
 <link rel="stylesheet" type="text/css" href="../examples.css" />
     <script language="javascript" src="hello.js"></script>
-	<script type="text/javascript" src="../jscript/dojo/dojo.js"></script>
-<script type="text/javascript">
-	dojo.require("dojo.widget.*");
-</script>
-<script>
-	function load_app(){
-		
-		HelloWorld.showDialog();
-	}
-</script>
-
-<style>
-
-.dojoHtmlFisheyeListBar {
-	margin: 0 auto;
-	text-align: center;
-}
-
-.outerbar {
-	background-color: #083772;
-	text-align: center;
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-}
 
 
 
-
-</style>
 </head>
 
 <body>
 
-<div class="outerbar">
-
-<div dojoType="FisheyeList"
-	itemWidth="50" itemHeight="50"
-	itemMaxWidth="200" itemMaxHeight="200"
-	orientation="horizontal"
-	effectUnits="2"
-	itemPadding="10"
-	attachEdge="top"
-	labelEdge="bottom"
-	enableCrappySvgSupport="false"
->
-
-	<div dojoType="FisheyeListItem" onClick="load_app();" 
-		iconsrc="images/icon_browser.png" caption="Web Browser">
-	</div>
-
-	<div dojoType="FisheyeListItem" onClick="load_app();"
-		iconsrc="images/icon_calendar.png" caption="Calendar">
-	</div>
-
-	<div dojoType="FisheyeListItem" onClick="load_app();"
-		iconsrc="images/icon_email.png" caption="Email">
-	</div>
-
-	<div dojoType="FisheyeListItem" onClick="load_app();"
-		iconsrc="images/icon_texteditor.png" caption="Text Editor">
-	</div>
-
-	<div dojoType="FisheyeListItem" onClick="load_app();"
-		iconsrc="images/icon_update.png" caption="Software Update">
-	</div>
-
-	<div dojoType="FisheyeListItem" id="load_app();"
-		iconsrc="images/icon_users.png" caption="Users" >
-	</div>
-</div>
-
-</div>
 
 <div class="page">
 

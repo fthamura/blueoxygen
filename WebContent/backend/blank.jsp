@@ -14,6 +14,6 @@
 <p align="center">&nbsp;</p>
 <p align="center">&nbsp;</p>
 <p align="center">&nbsp;</p>
-<p align="center"><b><font face="Arial, Helvetica, sans-serif" size="1">Copyright &copy; 2000-2004, BlueOxygen Inspiration Technology. All Rights Reserved.</font></b></p>
+<p align="center"><b><font face="Arial, Helvetica, sans-serif" size="1">Copyright &copy; 2000-2007, BlueOxygen Technology. All Rights Reserved.</font></b></p>
 </body>
 </html>
