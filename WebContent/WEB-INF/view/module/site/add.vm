@@ -33,7 +33,7 @@
   </tr>
  <tr bgcolor="#ffffff">
     <td style="font-weight: bold;" align="right" valign="top">Description:</td>
-  	<td><textarea name="description" style="width: 70%" rows="3" cols="30" maxlength="255"></textarea>
+  	<td><input type="text" name="name" value="$!name" style="width: 50%">
   	</td>
   	<td align="right" valign="top">
 	<img alt="Description of The Site" src="../../images/help.gif" border="0"></td>

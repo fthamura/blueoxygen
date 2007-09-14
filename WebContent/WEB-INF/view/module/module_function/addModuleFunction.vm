@@ -37,7 +37,7 @@
         Description:
         </td>
         <td>
-        	<textarea id="description" name="description" style="width: 108%" rows="15" cols="80">
+        	<textarea name="description" style="width: 50%" rows="3" cols="1" maxlength="255">
         	</textarea>
          </td>
         <td align="right" valign="top"><img alt="Description of The Descriptor" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>

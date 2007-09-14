@@ -21,7 +21,7 @@
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">Description:</td>
         <td>
-        	<input maxlength="128" name="description" size="25" >
+        	<input maxlength="128" name="description" size="50" >
          </td>
         <td align="right" valign="top"><img alt="Description of The Descriptor" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
       </tr>

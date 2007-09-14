@@ -30,17 +30,14 @@ Add a new Descriptor</title>
         	Name
         	</td>
         <td width="75%"><input maxlength="128" name="name" size="25" value="$!name"></td>
-        <td align="right" valign="top"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
+        <td align="right" valign="top">&nbsp;</td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">
         <font color="red">*</font>
         Description:
         </td>
-        <td>
-        	<textarea name="description" style="width: 110%" rows="15" cols="50" maxlength="255">
-        	</textarea>
-         </td>
+        <td><input maxlength="128" name="name" size="50" value=""></td>
         <td align="right" valign="top"><img alt="Description of The Descriptor" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
       </tr>
       <tr bgcolor="#ffffff">
