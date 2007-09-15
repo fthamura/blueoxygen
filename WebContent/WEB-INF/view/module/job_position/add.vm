@@ -43,8 +43,7 @@ Add a new Job Description</title>
         Description:
         </td>
         <td>
-        	<textarea id="description" name="description" style="width: 110%" rows="15" cols="80" maxlength="255">
-        	</textarea>
+       <input maxlength="150" name="description" size="50" value="$!description">
          </td>
         <td align="right" valign="top"><img alt="Description of The Job" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
       </tr>
