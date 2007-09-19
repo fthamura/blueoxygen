@@ -1,17 +1,28 @@
 package org.blueoxygen.cimande.gx.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 
 /**
  * @author MeiyMeiy
  * @hibernate.class table="gxgreenator"
  */
+@Entity()
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Table(name="gxgreenator")
 public class GxGreenator extends DefaultPersistent {
 	
 	private String name;
 	private String description;
 	private String value;
-	private String type;
+	private InputType type;
 	private String size;
 	private String maxlength;
 	private Gxform thinGxform;
@@ -29,6 +40,8 @@ public class GxGreenator extends DefaultPersistent {
 	 * @return Returns the thinGxform.
 	 * 
 	 */
+	@ManyToOne
+	@JoinColumn(name="Gxform_id")
 	public Gxform getThinGxform() {
 		return thinGxform;
 	}
@@ -123,13 +136,14 @@ public class GxGreenator extends DefaultPersistent {
 	 * @return Returns the type.
 	 * @hibernate.property
 	 */
-	public String getType() {
+	
+	public InputType getType() {
 		return type;
 	}
 	/**
 	 * @param type The type to set.
 	 */
-	public void setType(String type) {
+	public void setType(InputType type) {
 		this.type = type;
 	}
 	/**
@@ -158,25 +172,76 @@ public class GxGreenator extends DefaultPersistent {
 	public void setDateid(String dateid) {
 		this.dateid = dateid;
 	}
-	
+	@Transient
 	public String generate(){
 		String result="";
-			if(getType().equalsIgnoreCase("text")){
-				result += "<input name='"+ getName() + "' type='" + getType() + "' value='"+ getValue() +"' size='"+ getSize() +"' maxlength='"+ getMaxlength() + "'>";
+		if(getType() == InputType.TEXT){
+			result += "<input name='"+ getName() + "' type='" + getType() + "' value='"+ getValue() +"' size='"+ getSize() +"' maxlength='"+ getMaxlength() + "'>";
 		}
-			if(getType().equalsIgnoreCase("textarea")){
-				result += "<textarea name='"+ getName() + "' rows='" + getRows() + "' cols='" + getCols() + "'></textarea>";
+		if(getType()== InputType.TEXTAREA){
+			result += "<textarea name='"+ getName() + "' rows='" + getRows() + "' cols='" + getCols() + "'></textarea>";
 		}
-			if(getType().equalsIgnoreCase("textfield")){
-				result += "<input name='"+ getName() + "' type='" + getType() + "'>";
+		if(getType() == InputType.TEXTFIELD){
+			result += "<input name='"+ getName() + "' type='" + getType() + "'>";
 		}
-			if(getType().equalsIgnoreCase("separator")){
-				result +="<tr bgcolor='#CFE9EB'><td align='center' colspan='2'><font size='2'><b>" + getName() + "</b><font></td></tr>";
+		if(getType() == InputType.SEPARATOR){
+			result +="<tr bgcolor='#CFE9EB'><td align='center' colspan='2'><font size='2'><b>" + getName() + "</b><font></td></tr>";
 		}
-			if(getType().equalsIgnoreCase("date")){
-				result +="<input name='"+ getName() +"' type='textfield' id='f_date_a' size='20' readonly='1' onfocus='this.blur()'/><img src='../../jscript/jscalendar-1.0/img.gif' id='f_trigger_"+ getDateid() +"' style='cursor: pointer; border: ipx solid red;' tittle='tiazdate' onmouseover='this.style.background='red';' onmouseout='this.style.background='white'' /></td>";
+		if(getType() == InputType.DATE){
+			result +="<input name='"+ getName() +"' type='textfield' id='f_date_a' size='20' readonly='1' onfocus='this.blur()'/><img src='../../jscript/jscalendar-1.0/img.gif' id='f_trigger_"+ getDateid() +"' style='cursor: pointer; border: ipx solid red;' tittle='tiazdate' onmouseover='this.style.background='red';' onmouseout='this.style.background='white'' /></td>";
 		}
 		return result;
+	}
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	/**
+	 * @return the tab
+	 */
+	@ManyToOne
+	public Tab getTab() {
+		return tab;
+	}
+	/**
+	 * @param tab the tab to set
+	 */
+	public void setTab(Tab tab) {
+		this.tab = tab;
+	}
+	/**
+	 * @return the column
+	 */
+	@ManyToOne
+	public DBColumn getColumn() {
+		return column;
+	}
+	/**
+	 * @param column the column to set
+	 */
+	public void setColumn(DBColumn column) {
+		this.column = column;
+	}
+	/**
+	 * @return the references
+	 */
+	@ManyToOne
+	public References getReferences() {
+		return references;
+	}
+	/**
+	 * @param references the references to set
+	 */
+	public void setReferences(References references) {
+		this.references = references;
 	}
 	
 }

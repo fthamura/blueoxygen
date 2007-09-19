@@ -1,5 +1,12 @@
 package org.blueoxygen.cimande.gx.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 
 
@@ -7,6 +14,9 @@ import org.blueoxygen.cimande.DefaultPersistent;
  * @author MeiyMeiy
  * @hibernate.class table="gxform"
  */
+@Entity()
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Table(name="gxform")
 public class Gxform extends DefaultPersistent {
 
 	private String name;
@@ -20,6 +30,7 @@ public class Gxform extends DefaultPersistent {
 	 * @return Returns the gxformName.
 	 * @hibernate.property column="gxformName"
 	 */
+	@Column(name="gxformname")
 	public String getGxformName() {
 		return gxformName;
 	}
@@ -52,6 +63,27 @@ public class Gxform extends DefaultPersistent {
 			//+ getName() +"</td><tr>";
 	
 		return result;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	@ManyToOne
+	public Window getWindow() {
+		return window;
+	}
+	public void setWindow(Window window) {
+		this.window = window;
+	}
+	@ManyToOne
+	public DBTable getTable() {
+		return table;
+	}
+	public void setTable(DBTable table) {
+		this.table = table;
 	}
 
 }
