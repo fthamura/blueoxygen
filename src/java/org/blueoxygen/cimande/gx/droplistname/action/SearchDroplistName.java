@@ -27,13 +27,13 @@ public class SearchDroplistName extends DroplistNameForm implements HibernateSes
 	public String execute() {
 		sess = hsf.createSession();
 		Criteria crit = sess.createCriteria(DroplistName.class);
-		if(!droplistname.getName().equalsIgnoreCase("")) {
+		if(droplistname.getName() != null && !"".equalsIgnoreCase(droplistname.getName())) {
 			crit.add(Expression.like("name","%"+droplistname.getName()+"%"));
 		}
-		if(!droplistname.getDescription().equalsIgnoreCase("")) {
+		if(droplistname.getDescription() != null && !"".equalsIgnoreCase(droplistname.getDescription())) {
 			crit.add(Expression.like("description","%"+droplistname.getDescription()+"%"));	
 		}
-		if(!getParentId().equalsIgnoreCase("")){
+		if(getParentId() != null && !"".equalsIgnoreCase(getParentId())){
 			crit.add(Expression.like("parent.id", "%"+getParentId()+"%"));
 		}			
 		resultRows = crit.list().size();
