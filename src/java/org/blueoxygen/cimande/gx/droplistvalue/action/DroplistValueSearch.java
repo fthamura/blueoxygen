@@ -25,10 +25,10 @@ public class DroplistValueSearch extends DroplistValueForm implements HibernateS
 	public String execute() {
 		sess = hsf.createSession();
 		Criteria crit = sess.createCriteria(DroplistValue.class);
-		if (!droplistvalue.getValue().equalsIgnoreCase("")){
+		if (droplistvalue.getValue() != null && !"".equalsIgnoreCase(droplistvalue.getValue())){
 			crit.add(Expression.like("value", "%"+droplistvalue.getValue()+"%"));
 		}
-		if (!droplistvalue.getDescription().equalsIgnoreCase("")){
+		if (droplistvalue.getDescription() != null && !"".equalsIgnoreCase(droplistvalue.getDescription())){
 			crit.add(Expression.like("description", "%"+droplistvalue.getDescription()+"%"));
 		}
 		resultRows = crit.list().size();
