@@ -1,6 +1,6 @@
 <% // populate prev and next button %>
 <table border="0" width="100%">
-  <tr bgcolor="#ffffff" valin="top" ><td align="right">&nbsp;
+  <tr bgcolor="#ffffff" valign="top" ><td align="right">&nbsp;
 <% 
   // check prev query
   if ((iStart>0)&&(iStart<iCount)) {
