@@ -23,6 +23,7 @@
         
     </package>
 	<include file="struts-gx.xml"/>	
+	<include file="struts-cimande-gx.xml"/>	
 	<package name="tree" extends="default" namespace="/backend">
 		<action name="code" class="org.blueoxygen.cimande.sitemanager.NavigationTree">
 			<result name="success" type="velocity">hibernateTree.vm</result>
@@ -992,5 +993,16 @@
         </action>
        
 	</package>
-	
+	<!--  GANTI PASSWORD  -->
+	<package name="rizalpass" extends="default" namespace="/module/password">
+		<action name="edit" class="org.blueoxygen.cimande.password.PasswordForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/password/form.vm</result>
+		</action>
+		
+		<action name="update" class="org.blueoxygen.cimande.password.UpdatePassword">
+			<result name="success" type="velocity">/WEB-INF/view/module/password/successUpdate.vm</result>
+		</action>
+		
+		
+	</package>
 </struts>

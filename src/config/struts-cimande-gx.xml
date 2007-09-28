@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="gx-table" extends="default" namespace="/module/gx-table">
+		<action name="create" class="org.blueoxygen.cimande.gx2.db.table.TableForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/table/form.vm</result>
+		</action>
+		<action name="save" class="org.blueoxygen.cimande.gx2.db.table.SaveTable">
+			<result name="success" type="redirect">view.action?table.id=${table.id}</result>
+			<result name="input" type="velocity">/WEB-INF/view/module/gx/table/form.vm</result>
+		</action>
+		<action name="filter" class="org.blueoxygen.cimande.gx2.db.table.TableForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/table/filter.vm</result>
+		</action>
+		<action name="search" class="org.blueoxygen.cimande.gx2.db.table.SearchTable">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/table/result.vm</result>
+		</action>
+		<action name="edit" class="org.blueoxygen.cimande.gx2.db.table.TableForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/table/form.vm</result>
+		</action>
+		<action name="delete" class="org.blueoxygen.cimande.gx2.db.table.TableForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/table/delete.vm</result>
+		</action>
+		<action name="confirm" class="org.blueoxygen.cimande.gx2.db.table.DeleteTable">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/table/report.vm</result>
+		</action>
+		<action name="view" class="org.blueoxygen.cimande.gx2.db.table.TableForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/table/view.vm</result>
+		</action>
+		<action name="listTable" class="org.blueoxygen.cimande.gx2.db.table.ListTable">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/table/list.vm</result>
+		</action>
+	</package>
+	<package name="gx-column" extends="default" namespace="/module/gx-column">
+		<action name="create" class="org.blueoxygen.cimande.gx2.db.column.ColumnForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/column/form.vm</result>
+		</action>
+		<action name="save" class="org.blueoxygen.cimande.gx2.db.column.SaveColumn">
+			<result name="success" type="redirect">../gx-table/view.action?table.id=${table.id}</result>
+			<result name="input" type="velocity">/WEB-INF/view/module/gx/column/form.vm</result>
+		</action>
+		<action name="edit" class="org.blueoxygen.cimande.gx2.db.column.ColumnForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/column/form.vm</result>
+		</action>
+		<action name="delete" class="org.blueoxygen.cimande.gx2.db.column.ColumnForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/column/delete.vm</result>
+		</action>
+		<action name="confirm" class="org.blueoxygen.cimande.gx2.db.column.DeleteColumn">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/column/form.vm</result>
+		</action>
+	</package>
+	<package name="gx-droplist" extends="default" namespace="/module/gx-droplist">
+		<action name="create" class="org.blueoxygen.cimande.gx2.droplist.DroplistForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/form.vm</result>
+		</action>
+		<action name="save" class="org.blueoxygen.cimande.gx2.droplist.SaveDroplist">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/report.vm</result>
+		</action>
+		<action name="filter" class="org.blueoxygen.cimande.gx2.droplist.DroplistForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/search.vm</result>
+		</action>
+		<action name="search" class="org.blueoxygen.cimande.gx2.droplist.SearchDroplist">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/result.vm</result>
+		</action>
+		<action name="edit" class="org.blueoxygen.cimande.gx2.droplist.DroplistForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/form.vm</result>
+		</action>
+		<action name="view" class="org.blueoxygen.cimande.gx2.droplist.DroplistForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/view.vm</result>
+		</action>
+		<action name="savevalue" class="org.blueoxygen.cimande.gx2.droplist.SaveValue">
+			<result name="success" type="redirect">view.action?name.id=${name.id}</result>
+			<result name="input" type="redirect">view.action?name.id=${name.id}</result>
+		</action>
+		
+		<!-- Detail View Droplist -->
+		
+		<action name="detail" class="org.blueoxygen.cimande.gx2.droplist.DetailValue">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/detail.vm</result>
+		</action>
+		
+		<!-- END DETAIL -->
+
+
+		<action name="editvalue" class="org.blueoxygen.cimande.gx2.droplist.DroplistForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/view.vm</result>
+		</action>
+		<action name="listName" class="org.blueoxygen.cimande.gx2.droplist.ListName">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/list.vm</result>
+		</action>
+	</package>
+</struts>

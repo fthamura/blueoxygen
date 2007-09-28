@@ -242,7 +242,8 @@
 		</action>
 		<action name="gen" class="org.blueoxygen.cimande.gx.gxform.action.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/view_gx.vm</result>
-		</action>		
+		</action>
+ 
 	</package>
 
 <!--  GXGREENATOR  -->
@@ -255,7 +256,7 @@
 			<result name="success" type="redirect">../generate/view.action?id=${gxformId}</result>
 		</action>
 		<action name="edit" class="org.blueoxygen.cimande.gx.gxgreenator.action.GxgreenatorForm">
-			<result name="success" type="velocity">../generate/view.vm</result>
+			<result name="success" type="velocity">/WEB-INF/view/module/generate/view.vm</result>
 		</action>
 		<action name="gen" class="org.blueoxygen.cimande.gx.gxgreenator.action.AddGxgreenator">
 			<result name="success" type="velocity">/WEB-INF/view/module/gxgreenator/view_gx.vm</result>
