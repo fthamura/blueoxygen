@@ -14,12 +14,12 @@
 <table width=100% border="0">
 <tr>
 	<td width=60%>None</td>
-	<td><input type="button" onClick="javascript:window.opener.document.getElementById('tableId').value='';window.opener.document.getElementById('tableDescription').value='None';window.close();" value="Set"></td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('${formId}tableId').value='';window.opener.document.getElementById('${formId}tableDescription').value='None';window.close();" value="Set"></td>
 </tr>
 #foreach ($table in $tables)
 <tr>
 	<td width=60%>$table.name</td>
-	<td><input type="button" onClick="javascript:window.opener.document.getElementById('tableId').value='$table.id';window.opener.document.getElementById('tableDescription').value='$table.description';window.close();" value="Set"></td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('${formId}tableId').value='$table.id';window.opener.document.getElementById('${formId}tableDescription').value='$table.description';window.close();" value="Set"></td>
 </tr>
 #end
 </table>
