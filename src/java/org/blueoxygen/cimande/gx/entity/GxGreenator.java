@@ -9,6 +9,9 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.gx2.entity.GXColumn;
+import org.blueoxygen.cimande.gx2.entity.GXDroplistValue;
+import org.blueoxygen.cimande.gx2.entity.GXRow;
 
 /**
  * @author MeiyMeiy
@@ -22,7 +25,7 @@ public class GxGreenator extends DefaultPersistent {
 	private String name;
 	private String description;
 	private String value;
-	private InputType type;
+	private GXDroplistValue type;
 	private String size;
 	private String maxlength;
 	private Gxform thinGxform;
@@ -31,14 +34,16 @@ public class GxGreenator extends DefaultPersistent {
 	private String cols;
 	private String dateid;
 //	public String result;
-	private Tab tab;
-	private DBColumn column;
-	private References references;
+//	private Tab tab;
+	private GXColumn column;
+//	private boolean referenceFlag;
+//	private ReferenceType reference;
+//	private GXDroplistValue reference1;
+//	private GXRow reference2;
 	
 	/**
 	 * @hibernate.many-to-one column="Gxform_id"
 	 * @return Returns the thinGxform.
-	 * 
 	 */
 	@ManyToOne
 	@JoinColumn(name="Gxform_id")
@@ -136,14 +141,15 @@ public class GxGreenator extends DefaultPersistent {
 	 * @return Returns the type.
 	 * @hibernate.property
 	 */
-	
-	public InputType getType() {
+	@ManyToOne
+	@JoinColumn(name="field_type")
+	public GXDroplistValue getType() {
 		return type;
 	}
 	/**
 	 * @param type The type to set.
 	 */
-	public void setType(InputType type) {
+	public void setType(GXDroplistValue type){
 		this.type = type;
 	}
 	/**
@@ -172,26 +178,32 @@ public class GxGreenator extends DefaultPersistent {
 	public void setDateid(String dateid) {
 		this.dateid = dateid;
 	}
+	
 	@Transient
 	public String generate(){
 		String result="";
-		if(getType() == InputType.TEXT){
-			result += "<input name='"+ getName() + "' type='" + getType() + "' value='"+ getValue() +"' size='"+ getSize() +"' maxlength='"+ getMaxlength() + "'>";
+		//if(getType().getValue().equalsIgnoreCase("text")){
+		if(getType().getValue().equalsIgnoreCase("text")){
+			result += "<input name='"+ getName() + "' type='" + getType().getValue() + "' value='"+ getValue() +"' size='"+ getSize() +"' maxlength='"+ getMaxlength() + "'>";
 		}
-		if(getType()== InputType.TEXTAREA){
+		if(getType().getValue().equalsIgnoreCase("textarea")){
 			result += "<textarea name='"+ getName() + "' rows='" + getRows() + "' cols='" + getCols() + "'></textarea>";
 		}
-		if(getType() == InputType.TEXTFIELD){
+		if(getType().getValue().equalsIgnoreCase("submit")){
 			result += "<input name='"+ getName() + "' type='" + getType() + "'>";
 		}
-		if(getType() == InputType.SEPARATOR){
+		if(getType().getValue().equalsIgnoreCase("separator")){
 			result +="<tr bgcolor='#CFE9EB'><td align='center' colspan='2'><font size='2'><b>" + getName() + "</b><font></td></tr>";
 		}
-		if(getType() == InputType.DATE){
+		if(getType().getValue().equalsIgnoreCase("calendar")){
 			result +="<input name='"+ getName() +"' type='textfield' id='f_date_a' size='20' readonly='1' onfocus='this.blur()'/><img src='../../jscript/jscalendar-1.0/img.gif' id='f_trigger_"+ getDateid() +"' style='cursor: pointer; border: ipx solid red;' tittle='tiazdate' onmouseover='this.style.background='red';' onmouseout='this.style.background='white'' /></td>";
 		}
+//		if(getType().getValue().equals(1)){
+//			result +="<select name='"+getName() +"><option value=""></option></select>";
+//		}
 		return result;
 	}
+	
 	/**
 	 * @return the description
 	 */
@@ -204,44 +216,33 @@ public class GxGreenator extends DefaultPersistent {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+//	/**
+//	 * 
+//	 * @return the tab
+//	 */
+//	//@ManyToOne
+//	public Tab getTab() {
+//		return tab;
+//	}
+//	/**
+//	 * @param tab the tab to set
+//	 */
+//	public void setTab(Tab tab) {
+//		this.tab = tab;
+//	}
 	/**
-	 * @return the tab
-	 */
-	@ManyToOne
-	public Tab getTab() {
-		return tab;
-	}
-	/**
-	 * @param tab the tab to set
-	 */
-	public void setTab(Tab tab) {
-		this.tab = tab;
-	}
-	/**
+	 * @hibernate.many-to-one column="column_id"
 	 * @return the column
 	 */
 	@ManyToOne
-	public DBColumn getColumn() {
+	public GXColumn getColumn() {
 		return column;
 	}
 	/**
 	 * @param column the column to set
 	 */
-	public void setColumn(DBColumn column) {
+	public void setColumn(GXColumn column) {
 		this.column = column;
-	}
-	/**
-	 * @return the references
-	 */
-	@ManyToOne
-	public References getReferences() {
-		return references;
-	}
-	/**
-	 * @param references the references to set
-	 */
-	public void setReferences(References references) {
-		this.references = references;
 	}
 	
 }

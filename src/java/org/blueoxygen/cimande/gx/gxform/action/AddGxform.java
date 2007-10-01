@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.gx.entity.Gxform;
+import org.blueoxygen.cimande.gx2.entity.GXTable;
 
 public class AddGxform extends GxformForm {
 	
@@ -14,6 +15,13 @@ public class AddGxform extends GxformForm {
 		if (getGxform().getGxformName().equalsIgnoreCase("")) {
 			addActionError("GxformName can not be empty");
 		}
+		
+		if (getTable().getId() == null || "".equalsIgnoreCase(getTable().getId())) {
+			addActionError("Table can not be empty");
+		} else {
+			setTable((GXTable) manager.getById(GXTable.class, getTable().getId()));
+		}
+	
 		if (hasActionErrors()){
 			return INPUT;
 		}
@@ -30,6 +38,8 @@ public class AddGxform extends GxformForm {
 		
 		temp.setName(gxform.getName());
 		temp.setGxformName(gxform.getGxformName());
+		temp.setTable(getTable());
+		
 		temp.setLogInformation(logInfo);
 		
 		manager.save(temp);

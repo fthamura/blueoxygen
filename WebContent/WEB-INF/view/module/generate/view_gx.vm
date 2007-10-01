@@ -37,10 +37,10 @@
 			</tr>
 		</table>
 		<table align="center" border="0" cellpadding="5" cellspacing="1" width="80%" bgcolor="#000000">
-			$gxform.fgenerate()
+			$!gxform.fgenerate()
 			<br>
 			#foreach($gx in $gxgreenators)			
-			#if($gx.type == "separator")
+			#if($gx.type == "String")
 					$gx.generate()
 			#else
 				<tr bgcolor="#ffffff">

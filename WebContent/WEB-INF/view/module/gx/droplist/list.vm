@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>list - table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="AUTHOR" content="Alex">
+<link rel="stylesheet" type="text/css" href="../../decorators/tables.css">
+
+</head>
+<body>
+<h3>Tables List</h3>
+#if ($tables.isEmpty()) No Tables  available yet
+#else
+
+<table width=100% border="0">
+<tr>
+	<td width=60%>None</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('refDroplistId').value='';window.opener.document.getElementById('refDroplistDescription').value='None';window.close();" value="Set"></td>
+</tr>
+#foreach ($n in $names)
+<tr>
+	<td width=60%>$n.name</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('refDroplistId').value='$n.id';window.opener.document.getElementById('refDroplistDescription').value='$n.description';window.close();" value="Set"></td>
+</tr>
+#end
+</table>
+#end
+</body>
+</html>

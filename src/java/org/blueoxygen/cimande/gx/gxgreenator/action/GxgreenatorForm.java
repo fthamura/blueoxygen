@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.blueoxygen.cimande.gx.entity.GxGreenator;
 import org.blueoxygen.cimande.gx.entity.Gxform;
+import org.blueoxygen.cimande.gx2.entity.GXDroplistValue;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 
@@ -12,20 +13,19 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GxgreenatorForm extends ActionSupport implements PersistenceAware {
 	protected PersistenceManager manager;
-	protected List<GxGreenator> gxgreenators = new ArrayList();
+	protected List<GxGreenator> gxgreenators = new ArrayList<GxGreenator>();
 	protected GxGreenator gxgreenator = new GxGreenator();
 	protected GxGreenator gx = new GxGreenator();
 	protected Gxform gxform = new Gxform();
-	protected String gxformId = "";
-	private String id = "";
 	private String report = "";
 
 	public String execute() {
-		if (!getId().equalsIgnoreCase("")) {
-			gxgreenator = (GxGreenator)manager.getById(GxGreenator.class, getId());
-			gxform = gxgreenator.getThinGxform();
-			String query = "FROM "+GxGreenator.class.getName()+" AS tc WHERE tc.thinGxform.id='"+gxform.getId()+"'";
-			gxgreenators = (ArrayList<GxGreenator>)manager.getList(query, null, null);
+		if(gx.getId() != null && !"".equalsIgnoreCase(gx.getId())){
+			gx = (GxGreenator) manager.getById(GxGreenator.class, gx.getId());
+			gxform = gx.getThinGxform();
+		} else if(gxform.getId() != null && !"".equalsIgnoreCase(gxform.getId())){
+			gxform = (Gxform) manager.getById(Gxform.class, getGxform().getId());
+			gxgreenators = gxform.getGreenators();
 		}
 		return SUCCESS;
 	}
@@ -57,20 +57,20 @@ public class GxgreenatorForm extends ActionSupport implements PersistenceAware {
 	public void setGxform(Gxform gxform) {
 		this.gxform = gxform;
 	}
-
-	/**
-	 * @return Returns the gxformId.
-	 */
-	public String getGxformId() {
-		return gxformId;
-	}
-
-	/**
-	 * @param gxformId The gxformId to set.
-	 */
-	public void setGxformId(String gxformId) {
-		this.gxformId = gxformId;
-	}
+//
+//	/**
+//	 * @return Returns the gxformId.
+//	 */
+//	public String getGxformId() {
+//		return gxformId;
+//	}
+//
+//	/**
+//	 * @param gxformId The gxformId to set.
+//	 */
+//	public void setGxformId(String gxformId) {
+//		this.gxformId = gxformId;
+//	}
 
 	/**
 	 * @return Returns the gxgreenator.
@@ -98,20 +98,6 @@ public class GxgreenatorForm extends ActionSupport implements PersistenceAware {
 	 */
 	public void setGxgreenators(List<GxGreenator> gxgreenators) {
 		this.gxgreenators = gxgreenators;
-	}
-
-	/**
-	 * @return Returns the id.
-	 */
-	public String getId() {
-		return id;
-	}
-
-	/**
-	 * @param id The id to set.
-	 */
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	/**
@@ -145,5 +131,13 @@ public class GxgreenatorForm extends ActionSupport implements PersistenceAware {
 	public void setPersistenceManager(PersistenceManager persistenceManager) {
 		this.manager = persistenceManager;		
 	}
+
+//	public GXDroplistValue getFieldType() {
+//		return fieldType;
+//	}
+//
+//	public void setFieldType(GXDroplistValue fieldType) {
+//		this.fieldType = fieldType;
+//	}
 
 }

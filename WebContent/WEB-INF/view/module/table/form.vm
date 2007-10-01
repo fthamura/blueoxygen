@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		#if (!$actionErrors.isEmpty())
-			<div class="errorMessage">Errors</div>
+			<div class="errorMessage">$report</div>
 			<ul class="errorMessage">
 			#foreach( $error in $actionErrors )
 				<li>$error</li>
@@ -78,11 +78,6 @@
   	#end 
 	</table>
 	#end
-	<br>
-		<!--table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
-		  	<tr bgcolor="#ffffff">
-				<td align="center"><a href="../../thin/form.action">Home</a></td>
-			</tr>
-		</table-->
+	
 	</body>
 </html>

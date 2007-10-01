@@ -18,7 +18,7 @@ public class Field extends DefaultPersistent {
 	private String description;
 	private Tab tab;
 	private DBColumn column;
-	private References references;
+//	private References references;
 	
 	@Column
 	public String getDescription() {
@@ -52,12 +52,12 @@ public class Field extends DefaultPersistent {
 	public void setColumn(DBColumn column) {
 		this.column = column;
 	}
-	@ManyToOne ()
-	@Column(name="ref_id")
-	public References getReferences() {
-		return references;
-	}
-	public void setReferences(References references) {
-		this.references = references;
-	}
+//	@ManyToOne ()
+//	@Column(name="ref_id")
+//	public References getReferences() {
+//		return references;
+//	}
+//	public void setReferences(References references) {
+//		this.references = references;
+//	}
 }

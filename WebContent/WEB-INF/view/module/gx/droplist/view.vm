@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+	<head>
+		<title>Form - Droplist</title>
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	</head>
+	<body>
+		<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+			<tr bgcolor="#d0dcff">
+				<td colspan="2"><b>View Droplist Detail</b></td>
+			</tr>
+			<tr bgcolor="#ffffff">
+				<td>Id:</td>
+				<td>$!name.id</td>
+				</td>
+			</tr>
+			<tr bgcolor="#ffffff">
+				<td>Name:</td>
+				<td>$!name.name</td>
+				</td>
+			</tr>
+			<tr bgcolor="#ffffff">
+				<td>Description:</td>
+				<td>$!name.description</td>
+			</tr>
+			<tr bgcolor="#ffffff">
+				<td>Parent:</td>
+				<td>$!name.parent.name</td>
+			</tr>
+			
+		</table>
+		<br>
+		<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+			<tr bgcolor="#d0dcff">
+				<td colspan="3"><b>Droplist Value</b></td>
+			</tr>
+			<tr bgcolor="#ffff00">
+				<td>Value</td>
+				<td>Description</td>
+				<td>Action</td>
+			</tr>
+			#foreach($dl in $name.values)
+				#if(!$dl.id.equals($value.id))
+				<tr bgcolor="#ffffff">
+					<td>$!dl.value</td>
+					<td>$!dl.description</td>
+					<td>
+						<a href="editvalue.action?name.id=$!name.id&value.id=$!dl.id">Edit</a>
+					</td>
+				</tr>
+				#else
+				<form action="savevalue.action" method="get">
+					<tr bgcolor="#ffffff">
+						<td>
+							<input name="value.value" value="$!value.value"/> <font color="#ff0000">*</font>
+						</td>
+						<td>
+							<input name="value.description" value="$!value.description"/>
+						</td>
+						<td>
+							<input name="name.id" type="hidden" value="$!name.id"/>
+							<input name="value.id" type="hidden" value="$!dl.id"/>
+							<input type="submit" value="Submit">
+						</td>
+					</tr>
+				</form>
+				#end
+			#end
+			#if(!$value.id)
+			<form action="savevalue.action" method="get">
+				<tr bgcolor="#ffffff">
+					<td>
+						<input name="value.value" value="$!value.value"/> <font color="#ff0000">*</font>
+					</td>
+					<td>
+						<input name="value.description" value="$!value.description"/>
+					</td>
+					<td>
+						<input name="name.id" type="hidden" value="$!name.id"/>
+						<input type="submit" value="Submit">
+					</td>
+				</tr>
+			</form>
+			#end
+		</table>
+	</body>
+</html>

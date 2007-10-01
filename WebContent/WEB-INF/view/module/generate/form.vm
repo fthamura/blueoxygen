@@ -30,23 +30,25 @@
 					<td colspan="2" bgcolor="#333366"><span class="style1">Add / Edit Gxform</span></td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td align="right" width="40%">Name <font color="red">*</font> :</td>
+					<td align="right" width="40%">Name<font color="red">*</font> :</td>
 					<td>
-						<input name="gxform.name" value="$!gxform.name"/>
-					</td>
+						<input name="gxform.name" value="$!gxform.name"/>					</td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td align="right">Gxform name <font color="red">*</font> :</td>
-					<td>
-						<input name="gxform.gxformName" value="$!gxform.gxformName"/>
-					</td>
+				  <td align="right">Gxform name <font color="red">*</font> :</td>
+				  <td><input name="gxform.gxformName" value="$!gxform.gxformName"/></td>
+			  </tr>
+				<tr bgcolor="#ffffff">
+					<td align="right">Table name  <font color="red">*</font> :</td>
+					<td><input type="textfield" id="tableDescription" value="Nama Table" size="24" disabled="true" onfocus="this.blur()"/>
+					<input type="hidden" id="tableId" name="table.id" value="$!gxform.table.id">
+				    <label><input type="button" value="Change" onclick="javascript:window.open('../gx-table/listTable.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></label></td>
 				</tr>
 				<tr bgcolor="#A8FF93">
 					
       <td colspan="2" align="right" bgcolor="#CFE9EB"> 
         <input name="id" type="hidden" value="$!gxform.id"/>
-		<input name="submit" onclick="return checkfields(this);" type="submit" value="Next &gt;&gt;">
-				  </td>
+		<input name="submit" onclick="return checkfields(this);" type="submit" value="Next &gt;&gt;">				  </td>
 				</tr>
 			</table>
 		</form>

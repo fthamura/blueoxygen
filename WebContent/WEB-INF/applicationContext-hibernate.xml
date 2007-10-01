@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="/WEB-INF/classes/cimande.properties"/>
+	</bean>
+    
     <bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost/cimande-wx" />
-        <property name="username" value="root" />
-        <property name="password" value="tulalit" />
+        <property name="driverClassName" value="${db.driver}" />
+        <property name="url" value="${db.url}" />
+        <property name="username" value="${db.user}" />
+        <property name="password" value="${db.password}" />
 <!-- <property name="factoryClassLocation" value="org.hibernate.transaction.JDBCTransactionFactory"/> -->
     </bean>
+    
     <bean id="mySessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="myDataSource" />
         <property name="mappingResources">
@@ -38,6 +43,7 @@
                 <value>org.blueoxygen.cimande.role.Role</value>
                 <value>org.blueoxygen.cimande.role.RolePrivilage</value>
                 <value>org.blueoxygen.cimande.site.Site</value>
+                <value>org.blueoxygen.cimande.role.RoleSite</value>
                 <value>org.blueoxygen.cimande.descriptors.Collection</value>
                 <value>org.blueoxygen.cimande.descriptors.Descriptor</value>
                 <value>org.blueoxygen.cimande.descriptors.DescriptorGroup</value>
@@ -61,8 +67,16 @@
                 <value>org.blueoxygen.cimande.gx.entity.Field</value>
                 <value>org.blueoxygen.cimande.gx.entity.Window</value>
                 <value>org.blueoxygen.cimande.gx.entity.Tab</value>
-                <value>org.blueoxygen.cimande.gx.entity.References</value>
-                <value>org.blueoxygen.cimande.gx.entity.RefType</value>
+                <value>org.blueoxygen.cimande.gx.entity.Gxform</value>
+                <value>org.blueoxygen.cimande.gx.entity.GxGreenator</value>
+                
+                <value>org.blueoxygen.cimande.gx2.entity.GXTable</value>
+                <value>org.blueoxygen.cimande.gx2.entity.GXColumn</value>
+                <value>org.blueoxygen.cimande.gx2.entity.GXRow</value>
+                <value>org.blueoxygen.cimande.gx2.entity.GXRecord</value>
+                <value>org.blueoxygen.cimande.gx2.entity.GXDroplistName</value>
+                <value>org.blueoxygen.cimande.gx2.entity.GXDroplistValue</value>
+                
             </list>
         </property>
         <property name="hibernateProperties">

@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-  <title>Welcome to BlueOxygen Cimande Workspace</title>
+  <title>Welcome to BlueOxygen Cimande Ar</title>
     <link rel="stylesheet" type="text/css" href="../jscript/ext/docs/resources/collapser.css"></link>
 	<link rel="stylesheet" type="text/css" href="../jscript/ext/docs/resources/docs.css"></link>
 </head>
@@ -22,7 +22,9 @@
   <div id="header" class="ylayout-inactive-content">
 	<div style="padding-top:0px;"><table width="100%"><tr width="100%">
 	<td><img src="../images/blueoxygen-logo.png" ></td>
-	<td align="right"><a href="../backend/user/change_site.jsp" target="_parent" ><font size="1" color="white">Change Site</font></a>&nbsp;<font color="white">|</font>&nbsp;
+	<td align="right">
+		<a href="../module/password/edit.action" target="main" ><font size="1" color="white">Change Password</font></a>&nbsp;<font color="white">|</font>&nbsp;
+		<a href="../backend/user/change_site.jsp" target="_parent" ><font size="1" color="white">Change Site</font></a>&nbsp;<font color="white">|</font>&nbsp;
 		<a href="../backend/user/logout.jsp" target="_parent" ><font size="1" color="white">Sign Out</font>&nbsp;&nbsp;</a></td></tr>
 	</div>
   <div id="classes" class="ylayout-inactive-content">
@@ -36,7 +38,7 @@
 	  <!-- END TREE -->
   </div>
   
-  <iframe id="main" id="main" frameborder="no"></iframe>
+  <iframe id="main" name="main" frameborder="no"></iframe>
   </body>
 </html>
 

@@ -24,12 +24,12 @@ public class SearchDroplist extends DroplistForm implements HibernateSessionFact
 	public String execute() {
 		sess = hsf.createSession();
 		Criteria crit = sess.createCriteria(Droplist.class);
-		if (!droplist.getName().getName().equalsIgnoreCase("")){
-			crit.add(Expression.like("name", "%"+droplist.getName().getName()+"%"));
-		}
-		if (!droplist.getName().getName().equalsIgnoreCase("")){
-			crit.add(Expression.like("description", "%"+droplist.getName().getName()+"%"));
-		}
+//		if (droplist.getName().getName() != null && !"".equalsIgnoreCase(droplist.getName().getName())){
+//			crit.add(Expression.like("name", "%"+droplist.getName().getName()+"%"));
+//		}
+//		if (!droplist.getName().getName().equalsIgnoreCase("")){
+//			crit.add(Expression.like("description", "%"+droplist.getName().getName()+"%"));
+//		}
 		
 		resultRows = crit.list().size();
 		maxPage = resultRows / maxRowPerPage;

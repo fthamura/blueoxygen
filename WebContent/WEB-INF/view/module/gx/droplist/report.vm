@@ -2,18 +2,18 @@
 <!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
 <html>
 	<head>
-		<title>Report</title>
+		<title>Report - Droplist</title>
 		<link rel="stylesheet" type="text/css" href="../../style.css">
 	</head>
 	<body>
 		<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
 			<tr bgcolor="#d0dcff">
-				<td>Report Action</td>
+				<td>Droplist Report Action</td>
 			<tr>
 			<tr bgcolor="#ffffff">
 				<td align="center">$report</td>
 			<tr>
+			
 		</table>
-		
 	</body>
 </html>

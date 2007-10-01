@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+	<head>
+		<title>Search</title>
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	</head>
+	<body>
+		<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+			<tr bgcolor="#d0dcff">				
+    <td colspan="6"><b>Search Droplist</b></td>
+			</tr>
+			#if ($names.isEmpty()) 
+			<tr bgcolor="yellow">
+				<td colspan="6" align="right">No such data found</td>
+			</tr>
+			#else 
+			<tr bgcolor="yellow">
+				<td colspan="6" align="right">
+					Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) droplists #else droplist #end
+				</td>
+			</tr>
+			
+			<tr bgcolor="#e4e4e4" width="98%">
+				<td><a href="search.action?droplist.name=$!droplist.name&droplist.description=$!droplist.description&parentId=$!parentId&orderBy=logInformation.createDate&currPage=$!currPage">Create Date</a></td>
+				<td><a href="search.action?droplist.name=$!droplist.name&droplist.description=$!droplist.description&parentId=$!parentId&orderBy=name&currPage=$!currPage">Name</a></td>
+				<td>Description</td>
+				<td>Action</td>
+			</tr>
+			#foreach ($ct in $names)
+			<tr valign="top" bgcolor="white">
+				<td>$!ct.logInformation.createDate</td>
+				<td>$!ct.name</td>
+				<td>$!ct.description</td>
+    				<td>
+				    <a href="edit.action?name.id=$ct.id">Edit</a>
+				    <a href="view.action?name.id=$ct.id">View</a>
+					<a href="detail.action?name.id=$ct.id">Detail</a>
+				</td>
+			</tr>
+			
+			#end
+			<tr bgcolor="#e4e4e4">
+				<td align="right" colspan="6">
+					#if ($currPage > 0) <a href="search.action?droplist.name=$!droplist.name&droplist.description=$!droplist.description&&orderBy=$!orderBy&currPage=0">&lt;&lt;</a>&nbsp;#end
+					#if ($currPage > 0) <a href="search.action?droplist.name=$!droplist.name&droplist.description=$!droplist.description&&orderBy=$!orderBy&currPage=$prevPage">&lt;</a>&nbsp;#end
+					[Page $!nextPage]
+					#if ($currPage < $maxPage) <a href="search.action?droplist.name=$!droplist.name&droplist.description=$!droplist.description&orderBy=$!orderBy&currPage=$nextPage">&gt;</a>&nbsp;#end
+					#if ($currPage < $maxPage) <a href="search.action?droplist.name=$!droplist.name&droplist.description=$!droplist.description&orderBy=$!orderBy&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+				</td>
+			</tr>
+			#end
+			
+		</table>
+	</body>
+</html>

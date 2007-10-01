@@ -5,8 +5,8 @@ import org.blueoxygen.cimande.gx.entity.GxGreenator;
 public class DeleteGxgreenator extends GxgreenatorForm {
 	
 	public String execute(){
-		if (!getId().equalsIgnoreCase("")){
-			gxgreenator = (GxGreenator)manager.getById(GxGreenator.class, getId());
+		if (!gx.getId().equalsIgnoreCase("")){
+			gxgreenator = (GxGreenator)manager.getById(GxGreenator.class, gx.getId());
 			manager.remove(gxgreenator);
 			setReport("Delete gxgreenator success.");
 		} else {

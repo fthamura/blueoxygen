@@ -29,9 +29,9 @@ public class SearchGxgreenator extends GxgreenatorForm implements HibernateSessi
 		if (!gxgreenator.getValue().equalsIgnoreCase("")){
 			crit.add(Expression.like("name", "%"+ gxgreenator.getValue()+"%"));
 		}
-		if (!gxgreenator.getType().equalsIgnoreCase("")){
-			crit.add(Expression.like("name", "%"+ gxgreenator.getType()+"%"));
-		}
+//		if (!gxgreenator.getType().equalsIgnoreCase("")){
+//			crit.add(Expression.like("name", "%"+ gxgreenator.getType()+"%"));
+//		}
 		
 		resultRows = crit.list().size();
 		maxPage = resultRows / maxRowPerPage;

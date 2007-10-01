@@ -2,78 +2,114 @@ package org.blueoxygen.cimande.gx.gxgreenator.action;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.gx.entity.GxGreenator;
 import org.blueoxygen.cimande.gx.entity.Gxform;
+import org.blueoxygen.cimande.gx2.entity.GXColumn;
+import org.blueoxygen.cimande.gx2.entity.GXDroplistValue;
+import org.blueoxygen.cimande.security.SessionCredentials;
+import org.blueoxygen.cimande.security.SessionCredentialsAware;
 
-public class AddGxgreenator extends GxgreenatorForm {
+public class AddGxgreenator extends GxgreenatorForm implements SessionCredentialsAware {
+	private SessionCredentials sessionCredentials;
+	
+	private List<String> fieldTypes = new ArrayList<String>();
+	private List<String> names = new ArrayList<String>();
+	private List<String> columnIds = new ArrayList<String>();
+	private List<String> defaultValues = new ArrayList<String>();
+	
+	private List<GxGreenator> gxs = new ArrayList<GxGreenator>();
 	
 	public String execute() {
-		if(getGxformId().equalsIgnoreCase("")){
+		int columnCount = 0;
+		if(getGxform().getId() == null || "".equalsIgnoreCase(getGxform().getId())){
 			addActionError("Please select a gxform first");
-		}
-		if(getGxgreenator().getName().equalsIgnoreCase("")){
-			addActionError("Name can not be empty");
-		}		
-		if(getGxgreenator().getType().equalsIgnoreCase("")){
-			addActionError("Type can not be empty");
-		}
-		if(getGxgreenator().getType().equalsIgnoreCase("text")){
-			if(getGxgreenator().getSize().equalsIgnoreCase("")){
-				addActionError("Size can not be empty");
-			}
-			if(getGxgreenator().getMaxlength().equalsIgnoreCase("")){
-				addActionError("Maxlength can not be empty");
-			}
-		}
-		if(getGxgreenator().getType().equalsIgnoreCase("textarea")){
-			if(getGxgreenator().getRows().equalsIgnoreCase("")){
-				addActionError("Rows can not be empty");
-			}
-			if(getGxgreenator().getCols().equalsIgnoreCase("")){
-				addActionError("Cols can not be empty");
-			}
-		}
-		if(getGxgreenator().getType().equalsIgnoreCase("date")){
-			if(getGxgreenator().getDateid().equalsIgnoreCase("")){
-				addActionError("Date id can not be empty");
-			}
+		} else {
+			setGxform((Gxform) manager.getById(Gxform.class, getGxform().getId()));
+			columnCount = getGxform().getTable().getColumns().size();
 		}
 		
 		if(hasActionErrors()){
 			return INPUT;
 		}
 		
-		LogInformation logInfo = new LogInformation();
-		if(getId().equalsIgnoreCase("")){
-			logInfo.setCreateDate(new Timestamp(System.currentTimeMillis()));
-		} else {
-			gx = (GxGreenator)manager.getById(GxGreenator.class, getId());
-			logInfo.setCreateDate(gx.getLogInformation().getCreateDate());
+		LogInformation log;
+		GXColumn c;
+		
+		for(int i = 0; i < columnCount; i ++){
+			setGx(new GxGreenator());
+			if(names.get(i) != null && !"".equalsIgnoreCase(names.get(i))){
+				c = (GXColumn) manager.getById(GXColumn.class, columnIds.get(i));
+				if(!getGxform().getTable().equals(c.getTable())){
+					addActionError("Column " + c.getName() + " is not property of table " + gxform.getTable().getName());
+				}
+				if(getGx().getId() == null){
+					log = new LogInformation();
+					log.setCreateBy(sessionCredentials.getCurrentUser().getId());
+					log.setCreateDate(new Timestamp(System.currentTimeMillis()));
+				} else if(getGx().getId() != null && "".equalsIgnoreCase(getGx().getId())){
+					log = new LogInformation();
+					log.setCreateBy(sessionCredentials.getCurrentUser().getId());
+					log.setCreateDate(new Timestamp(System.currentTimeMillis()));
+					getGx().setId(null);
+				} else {
+					gxgreenator = getGx();
+					setGx((GxGreenator)manager.getById(GxGreenator.class, getGx().getId()));
+					log = getGx().getLogInformation();
+				}
+				log.setActiveFlag(1);
+				log.setLastUpdateBy(sessionCredentials.getCurrentUser().getId());
+				log.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
+				getGx().setLogInformation(log);
+				
+				getGx().setColumn(c);
+				getGx().setName(names.get(i));
+				getGx().setValue(defaultValues.get(i));
+				getGx().setType((GXDroplistValue) manager.getById(GXDroplistValue.class, fieldTypes.get(i)));
+				getGx().setThinGxform(getGxform());
+				manager.save(gx);
+			}
 		}
-		
-		logInfo.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
-		logInfo.setActiveFlag(1);
-		gxform = (Gxform)manager.getById(Gxform.class, gxformId);
-		gx.setThinGxform(gxform);
-		gx.setName(gxgreenator.getName());
-		gx.setValue(gxgreenator.getValue());
-		gx.setSize(gxgreenator.getSize());
-		gx.setType(gxgreenator.getType());
-		gx.setMaxlength(gxgreenator.getMaxlength());
-		gx.setGxgreenatorName(gxgreenator.getGxgreenatorName());
-		gx.setCols(gxgreenator.getCols());
-		gx.setRows(gxgreenator.getRows());
-		gx.setDateid(gxgreenator.getDateid());
-		gx.setLogInformation(logInfo);
-		
-		manager.save(gx);
-		
-		String query = "FROM "+ GxGreenator.class.getName() + " AS tc WHERE tc.thinGxform.id='"+ gxform.getId()+"'";
-		gxgreenators = (ArrayList<GxGreenator>)manager.getList(query, null, null);
 		setReport("Add GxGreenator success");
 		return SUCCESS;
+	}
+
+	public List<String> getFieldTypes() {
+		return fieldTypes;
+	}
+
+	public void setFieldTypes(List<String> fieldTypes) {
+		this.fieldTypes = fieldTypes;
+	}
+
+	public List<String> getNames() {
+		return names;
+	}
+
+	public void setNames(List<String> names) {
+		this.names = names;
+	}
+
+	public void setSessionCredentials(SessionCredentials sessionCredentials) {
+		this.sessionCredentials = sessionCredentials;
+	}
+
+	public List<String> getColumnIds() {
+		return columnIds;
+	}
+
+	public void setColumnIds(List<String> columnIds) {
+		this.columnIds = columnIds;
+	}
+
+	public List<String> getDefaultValues() {
+		return defaultValues;
+	}
+
+	public void setDefaultValues(List<String> defaultValues) {
+		this.defaultValues = defaultValues;
 	}
 
 
