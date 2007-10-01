@@ -8,69 +8,43 @@
   		id = document.getElementById("columnId");
   		name = document.getElementById("columnName");
   		description = document.getElementById("columnDesc");
-  		columnName = document.getElementById("columnColumnName");
   		id.value = "";
   		name.value = "";
   		description.value = "";
-  		columnName.value = "";
   	}
   </script>
 </head>
-<body onload="HTMLArea.replaceAll();">
+<body>
 <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
   <tbody>
 	<tr bgcolor="#d0dcff">
     <td id="tableHeader1" colspan="2"><b>Table</b></td>
   	</tr>
 	<tr bgcolor="#ffff00">
-	  <td id="tableHeader2" colspan="2"><b><a href="../table/edit.action?id=$!table.id">Edit</a> | <a href="../table/confirm.action?id=$table.Id">Delete</a></b>
+	  <td id="tableHeader2" colspan="2"><b><a href="edit.action?table.id=$!table.id">Edit</a> | <a href="delete.action?table.id=$!table.Id">Delete</a></b>
     </tr>
     <tr bgcolor="#ffffff">
-      <td id="tableHeader2">Table    :</td>
+      <td id="tableHeader2">Table :</td>
       <td>$!table.name  </td>
     </tr bgcolor="#ffffff">
     <tr bgcolor="#ffffff">
       <td id="tableHeader2">Description :   </td>
       <td>$!table.description  </td>
     </tr>
-	<tr bgcolor="#ffffff">
-		<td id="tableHeader2">Table Name  : </td>
-		<td>$!table.tableName</td>
-	</tr>
+	
     </tbody>
 	</table>
   	<br>
-  <!--table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
-    <tr bgcolor="#d0dcff">
-    <td id="tableHeader1" colspan="2">Column</td>
-  	</tr>
-  	 <tr bgcolor="#ffffff">
-    <td>Name</td>
-  <td>  <input id="columnName" name="column.name" value="$!column.name"/> 
-    
-	 <tr bgcolor="#ffffff">
-    <td>Description</td>
-  <td>  <input id="columnDesc" name="column.description" value="$!column.description"/> 
-  	</td>
-	 <tr bgcolor="#ffffff">
-  <td>Column Name</td>
-  <td>  <input id="columnColumnName" name="column.columnName" value="$!column.columnName"/></td> 
-  </tr>
-
-    <tr bgcolor="#d0dcff">
-  <td id=tableHeader1 colspan="2"><input type="hidden" id="columnId" name="id" value="$!column.id">
-      <input type="submit" value="Submit"> <input type="reset" value="Reset"> <input type="button" value="Clear" onClick="newColumn()">
-      <input type="hidden" name="tableId" value="$!table.id">
-  </td>
-  </tr>
- </table-->
+  
 <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
 	<tr bgcolor="#ffff00">
-		<td><b>Column</b>&nbsp;&nbsp;&nbsp;<a href="../column/edit.action">Add</a></td>
+		<td><b>Column</b>&nbsp;&nbsp;&nbsp;<a href="../gx-column/create.action?table.id=$!table.id">Add</a></td>
   </tr>
 </table>
+<br>
+#saction("name=create" "namespace=/module/gx-column" "executeResult=true")
  <br>$!report
-  #if(!$columns.isEmpty())
+  #if(!$table.columns.isEmpty())
 <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
     <tr bgcolor="#ffff00">
     	<td id="tableHeader1" colspan="4"><b>Column</b></td>
@@ -78,25 +52,19 @@
     <tr id="tableHeader1" bgcolor="#d0dcff"> 
     	<td>Name</td>
     	<td>Description</td>
-    	<td>Column Name</td>
+    	<td>Data Type</td>
 		<td>Action</td>
   	</tr>
-  #foreach ($de in $columns) 
+  #foreach ($de in $table.columns) 
   <tr valign="top" bgcolor="#ffffff"> 
     <td>$!de.name</td>
     <td>$!de.description</td>
-    <td>$!de.columnName</td>
-    <td><a href="../column/edit.action?id=$de.Id">Edit</a> <a href="../column/delete.action?id=$de.id&tableId=$!table.id">Delete</a></td>
+    <td>$!de.dataType.value</td>
+    <td><a href="../gx-column/edit.action?column.id=$de.id">Edit</a> <a href="../gx-column/delete.action?column.id=$de.id&table.id=$!table.id">Delete</a></td>
   </tr>
   #end 
   </table>
-	#end
-	<br>
-<!--table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
-  	<tr bgcolor="#ffffff">
-		<td align="center"><a href="../form.action">Home</a></td>
-	</tr>
-</table-->
+  #end
 </body>
 </html>
     
