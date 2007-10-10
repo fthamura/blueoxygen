@@ -23,7 +23,6 @@ public class GXColumn extends DefaultPersistent {
 	private GXDroplistValue dataType;
 	private String defaultValue;
 	private String description;
-//	private ReferenceType reference = ReferenceType.NOT_REFERENCE;
 	private int reference;
 	private GXTable referenceTable;
 	private GXDroplistName referenceDroplist;
@@ -38,7 +37,6 @@ public class GXColumn extends DefaultPersistent {
 		this.dataType = dataType;
 		this.defaultValue = defaultValue;
 		this.description = description;
-//		this.reference = ReferenceType.NOT_REFERENCE;
 		this.reference = 0;
 		referenceTable = null;
 		this.setLogInformation(log);
@@ -50,7 +48,6 @@ public class GXColumn extends DefaultPersistent {
 		this.dataType = dataType;
 		this.defaultValue = defaultValue;
 		this.description = description;
-//		this.reference = ReferenceType.TABLE;
 		this.reference = 1;
 		this.referenceTable = referenceTable;
 		this.setLogInformation(log);
@@ -62,7 +59,6 @@ public class GXColumn extends DefaultPersistent {
 		this.dataType = dataType;
 		this.defaultValue = defaultValue;
 		this.description = description;
-//		this.reference = ReferenceType.DROPLIST;
 		this.reference = 2;
 		this.referenceDroplist = referenceDroplist;
 		this.setLogInformation(log);
@@ -109,13 +105,6 @@ public class GXColumn extends DefaultPersistent {
 	public void setReferenceTable(GXTable referenceTable) {
 		this.referenceTable = referenceTable;
 	}
-//	@Enumerated(EnumType.ORDINAL)
-//	public ReferenceType getReference() {
-//		return reference;
-//	}
-//	public void setReference(ReferenceType reference) {
-//		this.reference = reference;
-//	}
 	public int getReference() {
 		return reference;
 	}
