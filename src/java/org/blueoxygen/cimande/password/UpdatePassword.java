@@ -6,10 +6,7 @@ import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 import org.blueoxygen.cimande.security.User;
-//import org.blueoxygen.jobmerv.entity.Country;
-//import org.blueoxygen.jobmerv.entity.Employee;
 import org.blueoxygen.util.StringUtils;
-import org.blueoxygen.cimande.gx.*;
 
 public class UpdatePassword extends PasswordForm implements SessionCredentialsAware{
 	private SessionCredentials sess;

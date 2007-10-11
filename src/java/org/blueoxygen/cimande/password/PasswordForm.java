@@ -1,22 +1,12 @@
 package org.blueoxygen.cimande.password;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 import org.blueoxygen.cimande.security.User;
-import org.blueoxygen.cimande.gx.*;
-//import org.blueoxygen.jobmerv.JobMervConstant;
-//import org.blueoxygen.jobmerv.entity.Country;
-//import org.blueoxygen.jobmerv.entity.Employee;
-//import org.blueoxygen.jobmerv.entity.Employer;
-//import org.blueoxygen.jobmerv.entity.IndustryCategory;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.sun.jmx.snmp.UserAcl;
 
 
 public class PasswordForm extends ActionSupport implements PersistenceAware, SessionCredentialsAware{
