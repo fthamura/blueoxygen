@@ -41,15 +41,15 @@
                 <value>org.blueoxygen.cimande.template.TemplateObjectDetail</value>
                 <value>org.blueoxygen.cimande.template.Template</value>
                 
-                <value>org.blueoxygen.cimande.gx2.entity.Gxform</value>
-                <value>org.blueoxygen.cimande.gx2.entity.GxGreenator</value>
-                <value>org.blueoxygen.cimande.gx2.entity.GXTable</value>
-                <value>org.blueoxygen.cimande.gx2.entity.GXColumn</value>
-                <value>org.blueoxygen.cimande.gx2.entity.GXRow</value>
-                <value>org.blueoxygen.cimande.gx2.entity.GXRecord</value>
-                <value>org.blueoxygen.cimande.gx2.entity.GXDroplistName</value>
-                <value>org.blueoxygen.cimande.gx2.entity.GXDroplistValue</value>
-                <value>org.blueoxygen.cimande.gx2.entity.Window</value>
+                <value>org.blueoxygen.cimande.gx.entity.Gxform</value>
+                <value>org.blueoxygen.cimande.gx.entity.GxGreenator</value>
+                <value>org.blueoxygen.cimande.gx.entity.GXTable</value>
+                <value>org.blueoxygen.cimande.gx.entity.GXColumn</value>
+                <value>org.blueoxygen.cimande.gx.entity.GXRow</value>
+                <value>org.blueoxygen.cimande.gx.entity.GXRecord</value>
+                <value>org.blueoxygen.cimande.gx.entity.GXDroplistName</value>
+                <value>org.blueoxygen.cimande.gx.entity.GXDroplistValue</value>
+                <value>org.blueoxygen.cimande.gx.entity.Window</value>
                 
             </list>
         </property>

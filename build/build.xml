@@ -197,6 +197,12 @@
         </copy>
     </target>
 	
+	<target name="onlyconfig" depends="build" description="Just assemble configuration">
+        <echo>Copy config files to classes</echo>
+		<copy todir="${build.dest.dir}">
+            <fileset dir="${src.config.dir}" includes="*"/>
+        </copy>
+    </target>
 
     <target name="update-schema" depends="config" description="Update the database schema">
         <path id="update.schema.classpath">

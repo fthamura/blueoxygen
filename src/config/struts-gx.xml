@@ -6,81 +6,81 @@
 <struts>
 	<!--  WINDOW  -->
 	<package name="window" extends="default" namespace="/module/window">
-		<action name="create" class="org.blueoxygen.cimande.gx2.window.actions.WindowForm">
+		<action name="create" class="org.blueoxygen.cimande.gx.window.WindowForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/window/form.vm</result>
 		</action>
-		<action name="add" class="org.blueoxygen.cimande.gx2.window.actions.AddWindow">
+		<action name="add" class="org.blueoxygen.cimande.gx.window.AddWindow">
 			<result name="success" type="redirect">view.action?id=${Id}</result>
 			<result name="input" type="velocity">/WEB-INF/view/module/window/form.vm</result>
 		</action>
-		<action name="view" class="org.blueoxygen.cimande.gx2.window.actions.WindowForm">
+		<action name="view" class="org.blueoxygen.cimande.gx.window.WindowForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/window/form.vm</result>
 		</action>
-		<action name="filter" class="org.blueoxygen.cimande.gx2.window.actions.WindowForm">
+		<action name="filter" class="org.blueoxygen.cimande.gx.window.WindowForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/window/search.vm</result>
 		</action>
-		<action name="search" class="org.blueoxygen.cimande.gx2.window.actions.SearchWindow">
+		<action name="search" class="org.blueoxygen.cimande.gx.window.SearchWindow">
 			<result name="success" type="velocity">/WEB-INF/view/module/window/result.vm</result>
 		</action>
-		<action name="edit" class="org.blueoxygen.cimande.gx2.window.actions.WindowForm">
+		<action name="edit" class="org.blueoxygen.cimande.gx.window.WindowForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/window/form.vm</result>
 		</action>
-		<action name="confirm" class="org.blueoxygen.cimande.gx2.window.actions.WindowForm">
+		<action name="confirm" class="org.blueoxygen.cimande.gx.window.WindowForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/window/delete.vm</result>
 		</action>
-		<action name="delete" class="org.blueoxygen.cimande.gx2.window.actions.DeleteWindow">
+		<action name="delete" class="org.blueoxygen.cimande.gx.window.DeleteWindow">
 			<result name="success" type="velocity">/WEB-INF/view/module/window/report.vm</result>
 		</action>
-		<action name="list" class="org.blueoxygen.cimande.gx2.window.actions.ListWindow">
+		<action name="list" class="org.blueoxygen.cimande.gx.window.ListWindow">
 			<result name="success" type="velocity">/WEB-INF/view/module/window/list.vm</result>
 		</action>
 	</package>
 
 	<!--  GXFORM  -->
 	<package name="generate" extends="default" namespace="/module/generate">
-		<action name="create" class="org.blueoxygen.cimande.gx2.gxform.action.GxformForm">
+		<action name="create" class="org.blueoxygen.cimande.gx.gxform.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/form.vm</result>
 		</action>
-		<action name="add" class="org.blueoxygen.cimande.gx2.gxform.action.AddGxform">
+		<action name="add" class="org.blueoxygen.cimande.gx.gxform.AddGxform">
 			<result name="success" type="redirect">view.action?id=${id}</result>
 			<result name="input" type="velocity">/WEB-INF/view/module/generate/form.vm</result>
 		</action>
-		<action name="view" class="org.blueoxygen.cimande.gx2.gxform.action.GxformForm">
+		<action name="view" class="org.blueoxygen.cimande.gx.gxform.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/view.vm</result>
 		</action>
-		<action name="filter" class="org.blueoxygen.cimande.gx2.gxform.action.GxformForm">
+		<action name="filter" class="org.blueoxygen.cimande.gx.gxform.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/search.vm</result>
 		</action>
-		<action name="search" class="org.blueoxygen.cimande.gx2.gxform.action.SearchGxform">
+		<action name="search" class="org.blueoxygen.cimande.gx.gxform.SearchGxform">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/result.vm</result>
 		</action>
-		<action name="edit" class="org.blueoxygen.cimande.gx2.gxform.action.GxformForm">
+		<action name="edit" class="org.blueoxygen.cimande.gx.gxform.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/form.vm</result>
 		</action>
-		<action name="confirm" class="org.blueoxygen.cimande.gx2.gxform.action.GxformForm">
+		<action name="confirm" class="org.blueoxygen.cimande.gx.gxform.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/delete.vm</result>
 		</action>
-		<action name="delete" class="org.blueoxygen.cimande.gx2.gxform.action.DeleteGxform">
+		<action name="delete" class="org.blueoxygen.cimande.gx.gxform.DeleteGxform">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/report.vm</result>
 		</action>
-		<action name="gen" class="org.blueoxygen.cimande.gx2.gxform.action.GxformForm">
+		<action name="gen" class="org.blueoxygen.cimande.gx.gxform.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/view_gx.vm</result>
 		</action>
 	</package>
 
 <!--  GXGREENATOR  -->
 	<package name="gxgreenator" extends="default" namespace="/module/gxgreenator">
-		<action name="add" class="org.blueoxygen.cimande.gx2.gxgreenator.action.AddGxgreenator"  >
+		<action name="add" class="org.blueoxygen.cimande.gx.gxgreenator.AddGxgreenator"  >
 			<result name="success" type="redirect">../generate/view.action?id=${gxformId}</result>
 			<result name="input" type="redirect">../generate/view.action?id=${gxformId}</result>
 		</action>
-		<action name="delete" class="org.blueoxygen.cimande.gx2.gxgreenator.action.DeleteGxgreenator">
+		<action name="delete" class="org.blueoxygen.cimande.gx.gxgreenator.DeleteGxgreenator">
 			<result name="success" type="redirect">../generate/view.action?id=${gxformId}</result>
 		</action>
-		<action name="edit" class="org.blueoxygen.cimande.gx2.gxgreenator.action.GxgreenatorForm">
+		<action name="edit" class="org.blueoxygen.cimande.gx.gxgreenator.GxgreenatorForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/view.vm</result>
 		</action>
-		<action name="gen" class="org.blueoxygen.cimande.gx2.gxgreenator.action.AddGxgreenator">
+		<action name="gen" class="org.blueoxygen.cimande.gx.gxgreenator.AddGxgreenator">
 			<result name="success" type="velocity">/WEB-INF/view/module/gxgreenator/view_gx.vm</result>
 		</action>
 	</package>
