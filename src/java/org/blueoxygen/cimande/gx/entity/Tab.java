@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.gx2.entity.Window;
 
 @Entity()
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)

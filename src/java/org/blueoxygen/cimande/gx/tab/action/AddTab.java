@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import org.blueoxygen.cimande.gx.entity.Tab;
-import org.blueoxygen.cimande.gx.entity.Window;
+import org.blueoxygen.cimande.gx2.entity.Window;
 import org.blueoxygen.cimande.LogInformation;
 
 public class AddTab extends TabForm {

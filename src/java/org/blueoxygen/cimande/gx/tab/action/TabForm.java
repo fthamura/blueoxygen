@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.blueoxygen.cimande.gx.entity.Tab;
-import org.blueoxygen.cimande.gx.entity.Window;
+import org.blueoxygen.cimande.gx2.entity.Window;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 
