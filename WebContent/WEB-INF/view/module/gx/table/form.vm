@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+	<head>
+		<title>Form - Table</title>
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	</head>
+	<body>
+		#if (!$actionErrors.isEmpty())
+			<div class="errorMessage">Error</div>
+			<ul class="errorMessage">
+			#foreach( $error in $actionErrors )
+				<li>$error</li>
+			#end
+			</ul>
+		#end
+		
+		<form method="get" action="save.action">
+			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+				<tr bgcolor="#d0dcff">
+					<td colspan="2"><b>Table</b></td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Name : <font color="red">*</font></td>
+					<td>
+						<input name="table.name" value="$!table.name"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Description :</td>
+					<td>
+						<input name="table.description" value="$!table.description"/>
+					</td>
+				</tr>
+				<tr bgcolor="#e4e4e4">
+					<td colspan="2">
+						<input type="submit" value="Submit">
+						<input name="table.id" type="hidden" value="$!table.id"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<br>
+		#if(!$table.columns.isEmpty())
+		<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+			<tr bgcolor="#d0dcff">
+  				<td><b>Column</b>&nbsp;&nbsp;&nbsp;<a href="../gx-column/create.action">Add</a></td>
+  			</tr>
+		</table>
+		$!report
+		<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+			<tr id="tableHeader1" bgcolor="#e4e4e4"> 
+				<td>Name</td>
+				<td>Description</td>
+				<td>Data Type</td>
+				<td>Default</td>
+				<td>Action</td>
+			</tr>
+		  	#foreach ($de in $table.columns) 
+  			<tr valign="top" bgcolor="#ffffff"> 
+				<td>$!de.name</td>
+				<td>$!de.description</td>
+				<td>$!de.dataType</td>
+				<td>$!de.defaultValue</td>
+				<td><a href="../gx-column/edit.action?column.id=$de.Id">Edit</a> <a href="../gx-column/delete.action?column.id=$de.id&table.id=$!table.id">Delete</a></td>
+	  		</tr>
+  			#end 
+		</table>
+		#end
+		<br>
+	</body>
+</html>
