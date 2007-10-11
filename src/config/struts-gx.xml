@@ -38,32 +38,32 @@
 
 	<!--  GXFORM  -->
 	<package name="generate" extends="default" namespace="/module/generate">
-		<action name="create" class="org.blueoxygen.cimande.gx2.gxform.GxformForm">
+		<action name="create" class="org.blueoxygen.cimande.gx2.gxform.action.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/form.vm</result>
 		</action>
-		<action name="add" class="org.blueoxygen.cimande.gx2.gxform.AddGxform">
+		<action name="add" class="org.blueoxygen.cimande.gx2.gxform.action.AddGxform">
 			<result name="success" type="redirect">view.action?id=${id}</result>
 			<result name="input" type="velocity">/WEB-INF/view/module/generate/form.vm</result>
 		</action>
-		<action name="view" class="org.blueoxygen.cimande.gx2.gxform.GxformForm">
+		<action name="view" class="org.blueoxygen.cimande.gx2.gxform.action.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/view.vm</result>
 		</action>
-		<action name="filter" class="org.blueoxygen.cimande.gx2.gxform.GxformForm">
+		<action name="filter" class="org.blueoxygen.cimande.gx2.gxform.action.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/search.vm</result>
 		</action>
-		<action name="search" class="org.blueoxygen.cimande.gx2.gxform.SearchGxform">
+		<action name="search" class="org.blueoxygen.cimande.gx2.gxform.action.SearchGxform">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/result.vm</result>
 		</action>
-		<action name="edit" class="org.blueoxygen.cimande.gx2.gxform.GxformForm">
+		<action name="edit" class="org.blueoxygen.cimande.gx2.gxform.action.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/form.vm</result>
 		</action>
-		<action name="confirm" class="org.blueoxygen.cimande.gx2.gxform.GxformForm">
+		<action name="confirm" class="org.blueoxygen.cimande.gx2.gxform.action.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/delete.vm</result>
 		</action>
-		<action name="delete" class="org.blueoxygen.cimande.gx2.gxform.DeleteGxform">
+		<action name="delete" class="org.blueoxygen.cimande.gx2.gxform.action.DeleteGxform">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/report.vm</result>
 		</action>
-		<action name="gen" class="org.blueoxygen.cimande.gx2.gxform.GxformForm">
+		<action name="gen" class="org.blueoxygen.cimande.gx2.gxform.action.GxformForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/generate/view_gx.vm</result>
 		</action>
 	</package>
