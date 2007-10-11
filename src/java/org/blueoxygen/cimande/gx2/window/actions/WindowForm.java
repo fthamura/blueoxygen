@@ -3,7 +3,6 @@ package org.blueoxygen.cimande.gx2.window.actions;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.blueoxygen.cimande.gx.entity.Tab;
 import org.blueoxygen.cimande.gx2.entity.Window;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
@@ -12,7 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class WindowForm extends ActionSupport implements PersistenceAware {
 	protected PersistenceManager manager;
-	protected List<Tab> tabs = new ArrayList<Tab>();
+//	protected List<Tab> tabs = new ArrayList<Tab>();
 	protected List<Window> windows = new ArrayList<Window>();
 	protected Window window = new Window();
 	protected Window temp = new Window();
@@ -22,8 +21,8 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 	public String execute(){
 		if (!getId().equalsIgnoreCase("")){
 			window = (Window)manager.getById(Window.class, getId());
-			String query = "FROM "+ Tab.class.getName() + " AS tc WHERE tc.window.id='"+window.getId()+"'";
-			tabs = (ArrayList<Tab>)manager.getList(query, null, null);
+//			String query = "FROM "+ Tab.class.getName() + " AS tc WHERE tc.window.id='"+window.getId()+"'";
+//			tabs = (ArrayList<Tab>)manager.getList(query, null, null);
 		}
 		return SUCCESS;
 	}
@@ -47,9 +46,9 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 		this.window = window;
 	}
 
-	public List getTabs() {
-		return tabs;
-	}
+//	public List getTabs() {
+//		return tabs;
+//	}
 
 	/**
 	 * @return Returns the id.
@@ -107,11 +106,11 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 		this.windows = windows;
 	}
 
-	/**
-	 * @param tabs the tabs to set
-	 */
-	public void setTabs(List<Tab> tabs) {
-		this.tabs = tabs;
-	}
+//	/**
+//	 * @param tabs the tabs to set
+//	 */
+//	public void setTabs(List<Tab> tabs) {
+//		this.tabs = tabs;
+//	}
 
 }

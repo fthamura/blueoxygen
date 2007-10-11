@@ -3,7 +3,6 @@ package org.blueoxygen.cimande.gx2.db.column;
 import java.sql.Timestamp;
 
 import org.blueoxygen.cimande.LogInformation;
-import org.blueoxygen.cimande.gx.entity.ReferenceType;
 import org.blueoxygen.cimande.gx2.db.GXDBAccessorImpl;
 import org.blueoxygen.cimande.gx2.entity.GXColumn;
 import org.blueoxygen.cimande.gx2.entity.GXDroplistName;

@@ -2,8 +2,6 @@ package org.blueoxygen.cimande.gx2.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
@@ -12,7 +10,6 @@ import javax.persistence.Table;
 
 import org.blueoxygen.cimande.DefaultPersistent;
 import org.blueoxygen.cimande.LogInformation;
-import org.blueoxygen.cimande.gx.entity.ReferenceType;
 
 @Entity
 @Table(name="gx_db_column")
