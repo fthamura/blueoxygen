@@ -17,24 +17,6 @@
         <property name="dataSource" ref="myDataSource" />
         <property name="mappingResources">
             <list>
-                <!--value>org/blueoxygen/cimande/security/User.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/role/Role.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/role/RolePrivilage.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/site/Site.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/descriptors/Collection.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/descriptors/Descriptor.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/descriptors/DescriptorGroup.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/descriptors/Wizard.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/modulefunction/ModuleFunction.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/category/Category.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/section/Section.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/jobdescription/JobDesc.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/company/Company.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/skin/Skin.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/theme/Theme.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/template/TemplateObject.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/template/TemplateObjectDetail.hbm.xml</value-->
-                <!--value>org/blueoxygen/cimande/template/Template.hbm.xml</value-->
             </list>
         </property>
         <property name="annotatedClasses">
@@ -59,23 +41,15 @@
                 <value>org.blueoxygen.cimande.template.TemplateObjectDetail</value>
                 <value>org.blueoxygen.cimande.template.Template</value>
                 
-                <value>org.blueoxygen.cimande.gx.entity.DroplistName</value>
-                <value>org.blueoxygen.cimande.gx.entity.DroplistValue</value>
-                <value>org.blueoxygen.cimande.gx.entity.Droplist</value>
-                <value>org.blueoxygen.cimande.gx.entity.DBTable</value>
-                <value>org.blueoxygen.cimande.gx.entity.DBColumn</value>
-                <value>org.blueoxygen.cimande.gx.entity.Field</value>
-                <value>org.blueoxygen.cimande.gx.entity.Window</value>
-                <value>org.blueoxygen.cimande.gx.entity.Tab</value>
-                <value>org.blueoxygen.cimande.gx.entity.Gxform</value>
-                <value>org.blueoxygen.cimande.gx.entity.GxGreenator</value>
-                
+                <value>org.blueoxygen.cimande.gx2.entity.Gxform</value>
+                <value>org.blueoxygen.cimande.gx2.entity.GxGreenator</value>
                 <value>org.blueoxygen.cimande.gx2.entity.GXTable</value>
                 <value>org.blueoxygen.cimande.gx2.entity.GXColumn</value>
                 <value>org.blueoxygen.cimande.gx2.entity.GXRow</value>
                 <value>org.blueoxygen.cimande.gx2.entity.GXRecord</value>
                 <value>org.blueoxygen.cimande.gx2.entity.GXDroplistName</value>
                 <value>org.blueoxygen.cimande.gx2.entity.GXDroplistValue</value>
+                <value>org.blueoxygen.cimande.gx2.entity.Window</value>
                 
             </list>
         </property>
