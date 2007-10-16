@@ -18,25 +18,19 @@ import org.blueoxygen.cimande.DefaultPersistent;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @Table(name="gxgreenator")
 public class GxGreenator extends DefaultPersistent {
-	
+	private Gxform thinGxform;
+	private GXColumn column;
+	private GXDroplistValue type;
 	private String name;
 	private String description;
 	private String value;
-	private GXDroplistValue type;
 	private String size;
 	private String maxlength;
-	private Gxform thinGxform;
+	
 	private String gxgreenatorName;
 	private String rows;
 	private String cols;
 	private String dateid;
-//	public String result;
-//	private Tab tab;
-	private GXColumn column;
-//	private boolean referenceFlag;
-//	private ReferenceType reference;
-//	private GXDroplistValue reference1;
-//	private GXRow reference2;
 	
 	/**
 	 * @hibernate.many-to-one column="Gxform_id"

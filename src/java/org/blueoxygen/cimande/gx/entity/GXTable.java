@@ -19,9 +19,13 @@ import org.blueoxygen.cimande.DefaultPersistent;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class GXTable extends DefaultPersistent {
 	private String name;
-	private GXColumn primary;
 	private String description;
-	private List<GXRow> rows = new ArrayList<GXRow>();
+	private String dbTable;
+	private Window window;
+	private GXDroplistValue dataAccessLevel;
+	private String entityName;
+//	private GXColumn primary;
+//	private List<GXRow> rows = new ArrayList<GXRow>();
 	private List<GXColumn> columns = new ArrayList<GXColumn>();
 	
 	public String getName() {
@@ -30,27 +34,27 @@ public class GXTable extends DefaultPersistent {
 	public void setName(String name) {
 		this.name = name;
 	}
-	@ManyToOne
-	@JoinColumn(name="primary_id")
-	public GXColumn getPrimary() {
-		return primary;
-	}
-	public void setPrimary(GXColumn primary) {
-		this.primary = primary;
-	}
+//	@ManyToOne
+//	@JoinColumn(name="primary_id")
+//	public GXColumn getPrimary() {
+//		return primary;
+//	}
+//	public void setPrimary(GXColumn primary) {
+//		this.primary = primary;
+//	}
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	@OneToMany(mappedBy="table")
-	public List<GXRow> getRows() {
-		return rows;
-	}
-	public void setRows(List<GXRow> rows) {
-		this.rows = rows;
-	}
+//	@OneToMany(mappedBy="table")
+//	public List<GXRow> getRows() {
+//		return rows;
+//	}
+//	public void setRows(List<GXRow> rows) {
+//		this.rows = rows;
+//	}
 	@OneToMany(mappedBy="table")
 	public List<GXColumn> getColumns() {
 		return columns;

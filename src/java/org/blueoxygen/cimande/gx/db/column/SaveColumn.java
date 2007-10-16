@@ -34,14 +34,14 @@ public class SaveColumn extends ColumnForm implements SessionCredentialsAware {
 		}
 		// reference
 		if(getDataType().getId() != null && "ff808081153c724b01153c7430e70001".equalsIgnoreCase(getDataType().getId())){
-			if(getColumn().getReference() == 1){ 
+			if(getColumn().getReferenceFlag() == 1){ 
 				if(getReferenceTable().getId() == null || "".equalsIgnoreCase(getReferenceTable().getId())){
 					addActionError("Reference Table is required if reference type is table");
 				} else {
 					setReferenceTable((GXTable) manager.getById(GXTable.class, getReferenceTable().getId()));
 					getColumn().setReferenceTable(getReferenceTable());
 				}
-			} else if(getColumn().getReference() == 2) {
+			} else if(getColumn().getReferenceFlag() == 2) {
 				if(getReferenceDroplist().getId() == null || "".equalsIgnoreCase(getReferenceDroplist().getId())){
 					addActionError("Reference Droplist is required if reference type is droplist");
 				} else {

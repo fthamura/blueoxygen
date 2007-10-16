@@ -28,6 +28,8 @@ public class Gxform extends DefaultPersistent {
 	private String gxformName;
 	private Window window;
 	private GXTable table;
+	private int sequence;
+	private int singleRowLayoutFlag;
 	private List<GxGreenator> greenators = new ArrayList<GxGreenator>();
 //	private String result;
 	

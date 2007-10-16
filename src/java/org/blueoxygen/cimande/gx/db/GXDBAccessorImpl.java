@@ -33,10 +33,10 @@ public class GXDBAccessorImpl implements GXDBAccessor, PersistenceAware {
 	}
 	
 	public GXTable deleteColumn(GXTable table, GXColumn column){
-		if(!column.equals(table.getPrimary())){
+//		if(!column.equals(table.getPrimary())){
 			manager.remove(column);
 			table = (GXTable) manager.getById(GXTable.class, table.getId());
-		}
+//		}
 		return table;
 	}
 	

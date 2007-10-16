@@ -15,6 +15,11 @@ public class Window extends DefaultPersistent {
 
 	private String name;
 	private String description;
+	private String entityType;
+	private String windowType;
+	private String image;
+	private int height;
+	private int width;
 
 	@Column
 	public String getDescription() {
@@ -30,6 +35,24 @@ public class Window extends DefaultPersistent {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public int getWidth() {
+		return width;
+	}
+	public void setWidth(int width) {
+		this.width = width;
+	}
+	public int getHeight() {
+		return height;
+	}
+	public void setHeight(int height) {
+		this.height = height;
 	}
 	
 	

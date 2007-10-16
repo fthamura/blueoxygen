@@ -27,6 +27,8 @@ public class DroplistForm extends ActionSupport implements PersistenceAware {
 		if(getValue().getId() != null && !"".equalsIgnoreCase(getValue().getId())){
 			setValue((GXDroplistValue) manager.getById(GXDroplistValue.class, getValue().getId()));
 		}
+		setNames((ArrayList<GXDroplistName>)manager.getList("FROM " + GXDroplistName.class.getName() 
+				+ " n WHERE n.logInformation.activeFlag=1" , null, null));
 		return SUCCESS;
 	}
 

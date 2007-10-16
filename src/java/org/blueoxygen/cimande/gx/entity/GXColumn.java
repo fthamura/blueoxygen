@@ -17,10 +17,18 @@ import org.blueoxygen.cimande.LogInformation;
 public class GXColumn extends DefaultPersistent {
 	private GXTable table;
 	private String name;
-	private GXDroplistValue dataType;
-	private String defaultValue;
 	private String description;
-	private int reference;
+	private GXDroplistValue dataType;
+	private String dbColumn;
+	private String entityProperty;
+	private String defaultValue;
+	private String element;
+	private int lenght;
+	private int mandatoryFlag;
+	private int keyColumnFlag;
+	private int parentLinkColumnFlag;
+	private int encryptedFlag;
+	private int referenceFlag;
 	private GXTable referenceTable;
 	private GXDroplistName referenceDroplist;
 	
@@ -34,7 +42,7 @@ public class GXColumn extends DefaultPersistent {
 		this.dataType = dataType;
 		this.defaultValue = defaultValue;
 		this.description = description;
-		this.reference = 0;
+		this.referenceFlag = 0;
 		referenceTable = null;
 		this.setLogInformation(log);
 	}
@@ -45,7 +53,7 @@ public class GXColumn extends DefaultPersistent {
 		this.dataType = dataType;
 		this.defaultValue = defaultValue;
 		this.description = description;
-		this.reference = 1;
+		this.referenceFlag = 1;
 		this.referenceTable = referenceTable;
 		this.setLogInformation(log);
 	}
@@ -56,7 +64,7 @@ public class GXColumn extends DefaultPersistent {
 		this.dataType = dataType;
 		this.defaultValue = defaultValue;
 		this.description = description;
-		this.reference = 2;
+		this.referenceFlag = 2;
 		this.referenceDroplist = referenceDroplist;
 		this.setLogInformation(log);
 	}
@@ -102,11 +110,11 @@ public class GXColumn extends DefaultPersistent {
 	public void setReferenceTable(GXTable referenceTable) {
 		this.referenceTable = referenceTable;
 	}
-	public int getReference() {
-		return reference;
+	public int getReferenceFlag() {
+		return referenceFlag;
 	}
-	public void setReference(int reference) {
-		this.reference = reference;
+	public void setReferenceFlag(int reference) {
+		this.referenceFlag = reference;
 	}
 	@ManyToOne
 	@JoinColumn(name="reference_droplist_id")
@@ -115,6 +123,48 @@ public class GXColumn extends DefaultPersistent {
 	}
 	public void setReferenceDroplist(GXDroplistName referenceDroplist) {
 		this.referenceDroplist = referenceDroplist;
+	}
+	public String getDbColumn() {
+		return dbColumn;
+	}
+	public void setDbColumn(String dbColumn) {
+		this.dbColumn = dbColumn;
+	}
+	public String getEntityProperty() {
+		return entityProperty;
+	}
+	public void setEntityProperty(String entityProperty) {
+		this.entityProperty = entityProperty;
+	}
+	public int getLenght() {
+		return lenght;
+	}
+	public void setLenght(int lenght) {
+		this.lenght = lenght;
+	}
+	public int getKeyColumnFlag() {
+		return keyColumnFlag;
+	}
+	public void setKeyColumnFlag(int keyColumnFlag) {
+		this.keyColumnFlag = keyColumnFlag;
+	}
+	public int getMandatoryFlag() {
+		return mandatoryFlag;
+	}
+	public void setMandatoryFlag(int mandatoryFlag) {
+		this.mandatoryFlag = mandatoryFlag;
+	}
+	public int getParentLinkColumnFlag() {
+		return parentLinkColumnFlag;
+	}
+	public void setParentLinkColumnFlag(int parentLinkColumnFlag) {
+		this.parentLinkColumnFlag = parentLinkColumnFlag;
+	}
+	public int getEncryptedFlag() {
+		return encryptedFlag;
+	}
+	public void setEncryptedFlag(int encryptedFlag) {
+		this.encryptedFlag = encryptedFlag;
 	}
 	
 }
