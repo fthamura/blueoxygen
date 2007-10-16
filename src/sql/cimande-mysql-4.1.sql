@@ -287,7 +287,14 @@ CREATE TABLE `gx_db_column` (
   `data_type` varchar(100) default '',
   `default_value` varchar(100) default '',
   `description` varchar(255) default '',
-  `reference` int(11) default '0',
+  `entity_property` varchar(100) default '',
+  `db_column` varchar(100) default '',
+  `lenght` int(11) default '0',
+  `mandatory_flag` int(11) default '0',
+  `key_column_flag` int(11) default '0',
+  `parent_link_column_flag` int(11) default '0',
+  `encrypted_flag` int(11) default '0',
+  `reference_flag` int(11) default '0',
   `reference_droplist_id` varchar(32) default '',
   `reference_table_id` varchar(32) default '',
   PRIMARY KEY  (`id`)
@@ -300,6 +307,7 @@ CREATE TABLE `gx_db_column` (
 
 /*!40000 ALTER TABLE `gx_db_column` DISABLE KEYS */;
 LOCK TABLES `gx_db_column` WRITE;
+INSERT INTO `gx_db_column` VALUES ('ff808081158dd16201158dd56fcb0002','2007-10-11 13:51:56','96f673bc-283e-4b75-b63d-6edc','2007-10-11 13:51:56','96f673bc-283e-4b75-b63d-6edc',1,'ff808081158dd16201158dd500510001','name','ff808081153c589b01153c5946ad0001','','Name','','',0,0,0,0,0,0,NULL,NULL),('ff808081158dd16201158dd5a7de0003','2007-10-11 13:52:10','96f673bc-283e-4b75-b63d-6edc','2007-10-11 13:52:10','96f673bc-283e-4b75-b63d-6edc',1,'ff808081158dd16201158dd500510001','email','ff808081153c589b01153c5946ad0001','','Email','','',0,0,0,0,0,0,NULL,NULL),('ff808081158dd16201158dd603f20004','2007-10-11 13:52:34','96f673bc-283e-4b75-b63d-6edc','2007-10-11 13:52:34','96f673bc-283e-4b75-b63d-6edc',1,'ff808081158dd16201158dd500510001','country','ff808081153c724b01153c7430e70001','','Country','','',0,0,0,0,0,2,'ff80808115425bc401154271168a0001',NULL),('ff808081158dd16201158dd685af0005','2007-10-11 13:53:07','96f673bc-283e-4b75-b63d-6edc','2007-10-11 13:53:07','96f673bc-283e-4b75-b63d-6edc',1,'ff808081158dd16201158dd500510001','city','ff808081153c589b01153c5946ad0001','','City','','',0,0,0,0,0,0,NULL,NULL),('ff808081158dd16201158dd6c0290006','2007-10-11 13:53:22','96f673bc-283e-4b75-b63d-6edc','2007-10-11 13:53:22','96f673bc-283e-4b75-b63d-6edc',1,'ff808081158dd16201158dd500510001','address','ff808081153c589b01153c5946ad0001','','Address','','',0,0,0,0,0,0,NULL,NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `gx_db_column` ENABLE KEYS */;
 
@@ -382,6 +390,7 @@ CREATE TABLE `gx_db_table` (
 
 /*!40000 ALTER TABLE `gx_db_table` DISABLE KEYS */;
 LOCK TABLES `gx_db_table` WRITE;
+INSERT INTO `gx_db_table` VALUES ('ff808081158dd16201158dd500510001','2007-10-11 13:51:27','96f673bc-283e-4b75-b63d-6edc','2007-10-11 13:51:27','96f673bc-283e-4b75-b63d-6edc',1,'business_partner',NULL,'Business Partner');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `gx_db_table` ENABLE KEYS */;
 
@@ -473,68 +482,11 @@ UNLOCK TABLES;
 /*!40000 ALTER TABLE `gx_droplist_value` ENABLE KEYS */;
 
 --
--- Table structure for table `gx_window`
+-- Table structure for table `gx_form_field`
 --
 
-DROP TABLE IF EXISTS `gx_window`;
-CREATE TABLE `gx_window` (
-  `id` varchar(32) NOT NULL default '',
-  `create_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `create_by` varchar(32) default '',
-  `update_date` timestamp NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(32) default '',
-  `active_flag` int(11) default '0',
-  `name` varchar(255) default '',
-  `description` varchar(255) default '',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `gx_window`
---
-
-
-/*!40000 ALTER TABLE `gx_window` DISABLE KEYS */;
-LOCK TABLES `gx_window` WRITE;
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `gx_window` ENABLE KEYS */;
-
---
--- Table structure for table `gxform`
---
-
-DROP TABLE IF EXISTS `gxform`;
-CREATE TABLE `gxform` (
-  `description` varchar(255) default '',
-  `active_flag` int(11) default '0',
-  `id` varchar(32) NOT NULL default '',
-  `create_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL default '0000-00-00 00:00:00',
-  `create_by` varchar(255) default '',
-  `update_by` varchar(255) default '',
-  `window_id` varchar(32) default '',
-  `table_id` varchar(32) default '',
-  `name` varchar(255) default '',
-  `gxformName` varchar(255) default '',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `gxform`
---
-
-
-/*!40000 ALTER TABLE `gxform` DISABLE KEYS */;
-LOCK TABLES `gxform` WRITE;
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `gxform` ENABLE KEYS */;
-
---
--- Table structure for table `gxgreenator`
---
-
-DROP TABLE IF EXISTS `gxgreenator`;
-CREATE TABLE `gxgreenator` (
+DROP TABLE IF EXISTS `gx_form_field`;
+CREATE TABLE `gx_form_field` (
   `description` varchar(255) default '',
   `id` varchar(100) NOT NULL default '',
   `create_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
@@ -557,14 +509,78 @@ CREATE TABLE `gxgreenator` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `gxgreenator`
+-- Dumping data for table `gx_form_field`
 --
 
 
-/*!40000 ALTER TABLE `gxgreenator` DISABLE KEYS */;
-LOCK TABLES `gxgreenator` WRITE;
+/*!40000 ALTER TABLE `gx_form_field` DISABLE KEYS */;
+LOCK TABLES `gx_form_field` WRITE;
+INSERT INTO `gx_form_field` VALUES (NULL,'ff808081158dd16201158de274190008','2007-10-11 14:06:09','2007-10-11 14:06:09','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc',1,'Nama','','ff80808115422db90115423307c10002',NULL,NULL,NULL,NULL,NULL,'ff808081158dd16201158dd834ed0007','ff808081158dd16201158dd56fcb0002',NULL),(NULL,'ff808081158dd16201158de274310009','2007-10-11 14:06:09','2007-10-11 14:06:09','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc',1,'Email','','ff80808115422db90115423307c10002',NULL,NULL,NULL,NULL,NULL,'ff808081158dd16201158dd834ed0007','ff808081158dd16201158dd5a7de0003',NULL),(NULL,'ff808081158dd16201158de27438000a','2007-10-11 14:06:09','2007-10-11 14:06:09','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc',1,'Negara','','ff80808115422db901154234e44d0006',NULL,NULL,NULL,NULL,NULL,'ff808081158dd16201158dd834ed0007','ff808081158dd16201158dd603f20004',NULL),(NULL,'ff808081158dd16201158de2743d000b','2007-10-11 14:06:09','2007-10-11 14:06:09','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc',1,'Kota','','ff80808115422db90115423307c10002',NULL,NULL,NULL,NULL,NULL,'ff808081158dd16201158dd834ed0007','ff808081158dd16201158dd685af0005',NULL),(NULL,'ff808081158dd16201158de27441000c','2007-10-11 14:06:09','2007-10-11 14:06:09','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc',1,'Alamat','','ff80808115422db90115423307c10002',NULL,NULL,NULL,NULL,NULL,'ff808081158dd16201158dd834ed0007','ff808081158dd16201158dd6c0290006',NULL);
 UNLOCK TABLES;
-/*!40000 ALTER TABLE `gxgreenator` ENABLE KEYS */;
+/*!40000 ALTER TABLE `gx_form_field` ENABLE KEYS */;
+
+--
+-- Table structure for table `gx_form_tab`
+--
+
+DROP TABLE IF EXISTS `gx_form_tab`;
+CREATE TABLE `gx_form_tab` (
+  `description` varchar(255) default '',
+  `active_flag` int(11) default '0',
+  `id` varchar(32) NOT NULL default '',
+  `create_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `update_date` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `create_by` varchar(255) default '',
+  `update_by` varchar(255) default '',
+  `window_id` varchar(32) default '',
+  `table_id` varchar(32) default '',
+  `name` varchar(255) default '',
+  `gxformName` varchar(255) default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `gx_form_tab`
+--
+
+
+/*!40000 ALTER TABLE `gx_form_tab` DISABLE KEYS */;
+LOCK TABLES `gx_form_tab` WRITE;
+INSERT INTO `gx_form_tab` VALUES (NULL,1,'ff808081158dd16201158dd834ed0007','2007-10-11 13:54:57','2007-10-11 13:54:57','','',NULL,'ff808081158dd16201158dd500510001','BusinessPartner','Business Partner');
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `gx_form_tab` ENABLE KEYS */;
+
+--
+-- Table structure for table `gx_form_window`
+--
+
+DROP TABLE IF EXISTS `gx_form_window`;
+CREATE TABLE `gx_form_window` (
+  `id` varchar(32) NOT NULL default '',
+  `create_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `create_by` varchar(32) default '',
+  `update_date` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `update_by` varchar(32) default '',
+  `active_flag` int(11) default '0',
+  `name` varchar(100) default '',
+  `description` varchar(100) default '',
+  `entity_type` varchar(100) default '',
+  `window_type` varchar(100) default '',
+  `image` varchar(100) default '',
+  `height` int(11) default '0',
+  `width` int(11) default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `gx_form_window`
+--
+
+
+/*!40000 ALTER TABLE `gx_form_window` DISABLE KEYS */;
+LOCK TABLES `gx_form_window` WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `gx_form_window` ENABLE KEYS */;
 
 --
 -- Table structure for table `job_position`
