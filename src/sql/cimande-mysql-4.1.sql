@@ -283,13 +283,11 @@ CREATE TABLE `gx_db_column` (
   `update_by` varchar(32) default '',
   `active_flag` int(11) default '1',
   `table_id` varchar(32) default '',
-  `name` varchar(100) default '',
-  `data_type` varchar(100) default '',
-  `default_value` varchar(100) default '',
+  `name` varchar(255) default '',
   `description` varchar(255) default '',
-  `entity_property` varchar(100) default '',
-  `db_column` varchar(100) default '',
-  `lenght` int(11) default '0',
+  `db_column` varchar(255) default '',
+  `element_id` varchar(32) default '',
+  `length` int(11) default '0',
   `mandatory_flag` int(11) default '0',
   `key_column_flag` int(11) default '0',
   `parent_link_column_flag` int(11) default '0',
@@ -307,63 +305,8 @@ CREATE TABLE `gx_db_column` (
 
 /*!40000 ALTER TABLE `gx_db_column` DISABLE KEYS */;
 LOCK TABLES `gx_db_column` WRITE;
-INSERT INTO `gx_db_column` VALUES ('ff808081158dd16201158dd56fcb0002','2007-10-11 13:51:56','96f673bc-283e-4b75-b63d-6edc','2007-10-11 13:51:56','96f673bc-283e-4b75-b63d-6edc',1,'ff808081158dd16201158dd500510001','name','ff808081153c589b01153c5946ad0001','','Name','','',0,0,0,0,0,0,NULL,NULL),('ff808081158dd16201158dd5a7de0003','2007-10-11 13:52:10','96f673bc-283e-4b75-b63d-6edc','2007-10-11 13:52:10','96f673bc-283e-4b75-b63d-6edc',1,'ff808081158dd16201158dd500510001','email','ff808081153c589b01153c5946ad0001','','Email','','',0,0,0,0,0,0,NULL,NULL),('ff808081158dd16201158dd603f20004','2007-10-11 13:52:34','96f673bc-283e-4b75-b63d-6edc','2007-10-11 13:52:34','96f673bc-283e-4b75-b63d-6edc',1,'ff808081158dd16201158dd500510001','country','ff808081153c724b01153c7430e70001','','Country','','',0,0,0,0,0,2,'ff80808115425bc401154271168a0001',NULL),('ff808081158dd16201158dd685af0005','2007-10-11 13:53:07','96f673bc-283e-4b75-b63d-6edc','2007-10-11 13:53:07','96f673bc-283e-4b75-b63d-6edc',1,'ff808081158dd16201158dd500510001','city','ff808081153c589b01153c5946ad0001','','City','','',0,0,0,0,0,0,NULL,NULL),('ff808081158dd16201158dd6c0290006','2007-10-11 13:53:22','96f673bc-283e-4b75-b63d-6edc','2007-10-11 13:53:22','96f673bc-283e-4b75-b63d-6edc',1,'ff808081158dd16201158dd500510001','address','ff808081153c589b01153c5946ad0001','','Address','','',0,0,0,0,0,0,NULL,NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `gx_db_column` ENABLE KEYS */;
-
---
--- Table structure for table `gx_db_record`
---
-
-DROP TABLE IF EXISTS `gx_db_record`;
-CREATE TABLE `gx_db_record` (
-  `id` varchar(32) NOT NULL default '',
-  `create_date` datetime default '0000-00-00 00:00:00',
-  `create_by` varchar(32) default '',
-  `update_date` datetime default '0000-00-00 00:00:00',
-  `update_by` varchar(32) default '',
-  `active_flag` int(11) default '1',
-  `column_id` varchar(32) default '',
-  `row_id` varchar(32) default '',
-  `value` varchar(255) default '',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `gx_db_record`
---
-
-
-/*!40000 ALTER TABLE `gx_db_record` DISABLE KEYS */;
-LOCK TABLES `gx_db_record` WRITE;
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `gx_db_record` ENABLE KEYS */;
-
---
--- Table structure for table `gx_db_row`
---
-
-DROP TABLE IF EXISTS `gx_db_row`;
-CREATE TABLE `gx_db_row` (
-  `id` varchar(32) NOT NULL default '',
-  `create_date` datetime default '0000-00-00 00:00:00',
-  `create_by` varchar(32) default '',
-  `update_date` datetime default '0000-00-00 00:00:00',
-  `update_by` varchar(32) default '',
-  `active_flag` int(11) default '1',
-  `table_id` varchar(32) default '',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `gx_db_row`
---
-
-
-/*!40000 ALTER TABLE `gx_db_row` DISABLE KEYS */;
-LOCK TABLES `gx_db_row` WRITE;
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `gx_db_row` ENABLE KEYS */;
 
 --
 -- Table structure for table `gx_db_table`
@@ -378,8 +321,11 @@ CREATE TABLE `gx_db_table` (
   `update_by` varchar(32) default '',
   `active_flag` int(11) default '1',
   `name` varchar(255) default '',
-  `primary_id` varchar(32) default '',
   `description` varchar(255) default '',
+  `db_table` varchar(255) default '',
+  `window_id` varchar(32) default '',
+  `data_access_level_id` varchar(32) default '',
+  `entity_id` varchar(32) default '',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -390,37 +336,8 @@ CREATE TABLE `gx_db_table` (
 
 /*!40000 ALTER TABLE `gx_db_table` DISABLE KEYS */;
 LOCK TABLES `gx_db_table` WRITE;
-INSERT INTO `gx_db_table` VALUES ('ff808081158dd16201158dd500510001','2007-10-11 13:51:27','96f673bc-283e-4b75-b63d-6edc','2007-10-11 13:51:27','96f673bc-283e-4b75-b63d-6edc',1,'business_partner',NULL,'Business Partner');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `gx_db_table` ENABLE KEYS */;
-
---
--- Table structure for table `gx_droplist`
---
-
-DROP TABLE IF EXISTS `gx_droplist`;
-CREATE TABLE `gx_droplist` (
-  `update_by` varchar(100) default '',
-  `create_by` varchar(100) default '',
-  `name` varchar(100) NOT NULL default '',
-  `description` varchar(100) NOT NULL default '',
-  `value` varchar(100) NOT NULL default '',
-  `create_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL default '0000-00-00 00:00:00',
-  `active_flag` varchar(100) NOT NULL default '',
-  `id` varchar(100) NOT NULL default '',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `gx_droplist`
---
-
-
-/*!40000 ALTER TABLE `gx_droplist` DISABLE KEYS */;
-LOCK TABLES `gx_droplist` WRITE;
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `gx_droplist` ENABLE KEYS */;
 
 --
 -- Table structure for table `gx_droplist_name`
@@ -447,7 +364,7 @@ CREATE TABLE `gx_droplist_name` (
 
 /*!40000 ALTER TABLE `gx_droplist_name` DISABLE KEYS */;
 LOCK TABLES `gx_droplist_name` WRITE;
-INSERT INTO `gx_droplist_name` VALUES ('96f673bc-283e-4b75-b63d-6edc','','ff808081153bcda301153bce42640001','columndatatype','0000-00-00 00:00:00','2007-09-26 14:16:05',1,NULL,'Column Data Type'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','ff80808115422db9011542327c580001','fielddatatype','2007-09-26 21:22:25','2007-09-26 21:22:25',1,NULL,'Field Data Type'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','ff80808115425bc401154271168a0001','country','2007-09-26 22:30:48','2007-09-26 22:30:48',1,NULL,'Country');
+INSERT INTO `gx_droplist_name` VALUES ('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','ff808081153bcda301153bce42640001','columndatatype','2007-10-17 08:54:53','2007-09-26 14:16:05',1,NULL,'Column Data Type'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','ff80808115422db9011542327c580001','fielddatatype','2007-09-26 21:22:25','2007-09-26 21:22:25',1,NULL,'Field Data Type'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','ff80808115425bc401154271168a0001','country','2007-09-26 22:30:48','2007-09-26 22:30:48',1,NULL,'Country');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `gx_droplist_name` ENABLE KEYS */;
 
@@ -457,7 +374,6 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `gx_droplist_value`;
 CREATE TABLE `gx_droplist_value` (
-  `name_id` varchar(32) default '',
   `update_by` varchar(32) default '',
   `create_by` varchar(32) default '',
   `create_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
@@ -465,7 +381,7 @@ CREATE TABLE `gx_droplist_value` (
   `active_flag` int(4) default '0',
   `id` varchar(32) NOT NULL default '',
   `value` varchar(255) default '',
-  `droplistname_id` varchar(32) default '',
+  `droplist_name_id` varchar(32) default '',
   `description` varchar(255) default '',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -477,7 +393,7 @@ CREATE TABLE `gx_droplist_value` (
 
 /*!40000 ALTER TABLE `gx_droplist_value` DISABLE KEYS */;
 LOCK TABLES `gx_droplist_value` WRITE;
-INSERT INTO `gx_droplist_value` VALUES ('ff808081153bcda301153bce42640001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-25 18:07:04','2007-09-26 14:17:04',1,'ff808081153c589b01153c5946ad0001','String','','String'),('ff808081153bcda301153bce42640001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-25 18:29:49','2007-09-26 14:17:27',1,'ff808081153c6d5601153c6e1a6e0001','Number','','Number'),('ff808081153bcda301153bce42640001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-25 18:36:28','2007-09-26 14:17:48',1,'ff808081153c724b01153c7430e70001','Reference','','Reference'),('ff808081153bcda301153bce42640001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 14:17:59','2007-09-26 14:17:59',1,'ff80808115408aa7011540ade5ec0006','Date','','Date'),('ff80808115422db9011542327c580001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 21:23:01','2007-09-26 21:23:01',1,'ff80808115422db90115423307c10002','text','','Textfield'),('ff80808115422db9011542327c580001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 21:23:18','2007-09-26 21:23:18',1,'ff80808115422db90115423349760003','textarea','','Textarea'),('ff80808115422db9011542327c580001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 21:23:45','2007-09-26 21:23:45',1,'ff80808115422db901154233b5300004','radio','','Radio Button'),('ff80808115422db9011542327c580001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 21:24:28','2007-09-26 21:24:28',1,'ff80808115422db9011542345ab40005','checkbox','','Check Box'),('ff80808115422db9011542327c580001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 21:25:03','2007-09-26 21:25:03',1,'ff80808115422db901154234e44d0006','select','','Droplist Select Box'),('ff80808115422db9011542327c580001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 21:25:30','2007-09-26 21:25:30',1,'ff80808115422db9011542354dee0007','file','','File Upload'),('ff80808115422db9011542327c580001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 21:25:59','2007-09-26 21:25:59',1,'ff80808115422db901154235bdec0008','reference','','Reference Table'),('ff80808115425bc401154271168a0001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 22:31:17','2007-09-26 22:31:17',1,'ff80808115425bc40115427185fd0002','Indonesia','','Indonesia'),('ff80808115425bc401154271168a0001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 22:31:50','2007-09-26 22:31:50',1,'ff80808115425bc40115427208120003','USA','','United States of America'),('ff80808115425bc401154271168a0001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 22:32:09','2007-09-26 22:32:09',1,'ff80808115425bc401154272533c0004','UK','','United Kingdom'),('ff80808115425bc401154271168a0001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 22:32:22','2007-09-26 22:32:22',1,'ff80808115425bc40115427287080005','Malaysia','','Malaysia'),('ff80808115425bc401154271168a0001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-26 23:00:28','2007-09-26 23:00:28',1,'ff8080811542796a0115428c3e8a0001','Japanese','','Japanese'),('ff80808115422db9011542327c580001','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-09-27 07:29:10','2007-09-27 07:29:10',1,'ff8080811542f5340115445dfabb0001','hidden','','Hidden');
+INSERT INTO `gx_droplist_value` VALUES ('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:07:43','2007-09-26 14:17:04',1,'ff808081153c589b01153c5946ad0001','String','ff808081153bcda301153bce42640001','String'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:07:44','2007-09-26 14:17:27',1,'ff808081153c6d5601153c6e1a6e0001','Number','ff808081153bcda301153bce42640001','Number'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:07:46','2007-09-26 14:17:48',1,'ff808081153c724b01153c7430e70001','Reference','ff808081153bcda301153bce42640001','Reference'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:07:49','2007-09-26 14:17:59',1,'ff80808115408aa7011540ade5ec0006','Date','ff808081153bcda301153bce42640001','Date'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:07:56','2007-09-26 21:23:01',1,'ff80808115422db90115423307c10002','text','ff80808115422db9011542327c580001','Textfield'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:07:57','2007-09-26 21:23:18',1,'ff80808115422db90115423349760003','textarea','ff80808115422db9011542327c580001','Textarea'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:07:58','2007-09-26 21:23:45',1,'ff80808115422db901154233b5300004','radio','ff80808115422db9011542327c580001','Radio Button'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:08:00','2007-09-26 21:24:28',1,'ff80808115422db9011542345ab40005','checkbox','ff80808115422db9011542327c580001','Check Box'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:08:01','2007-09-26 21:25:03',1,'ff80808115422db901154234e44d0006','select','ff80808115422db9011542327c580001','Droplist Select Box'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:08:02','2007-09-26 21:25:30',1,'ff80808115422db9011542354dee0007','file','ff80808115422db9011542327c580001','File Upload'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:08:04','2007-09-26 21:25:59',1,'ff80808115422db901154235bdec0008','reference','ff80808115422db9011542327c580001','Reference Table'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:08:11','2007-09-26 22:31:17',1,'ff80808115425bc40115427185fd0002','Indonesia','ff80808115425bc401154271168a0001','Indonesia'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:08:12','2007-09-26 22:31:50',1,'ff80808115425bc40115427208120003','USA','ff80808115425bc401154271168a0001','United States of America'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:08:13','2007-09-26 22:32:09',1,'ff80808115425bc401154272533c0004','UK','ff80808115425bc401154271168a0001','United Kingdom'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:08:15','2007-09-26 22:32:22',1,'ff80808115425bc40115427287080005','Malaysia','ff80808115425bc401154271168a0001','Malaysia'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:08:17','2007-09-26 23:00:28',1,'ff8080811542796a0115428c3e8a0001','Japanese','ff80808115425bc401154271168a0001','Japanese'),('96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc','2007-10-17 09:08:32','2007-09-27 07:29:10',1,'ff8080811542f5340115445dfabb0001','hidden','ff80808115422db9011542327c580001','Hidden');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `gx_droplist_value` ENABLE KEYS */;
 
@@ -488,23 +404,19 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `gx_form_field`;
 CREATE TABLE `gx_form_field` (
   `description` varchar(255) default '',
-  `id` varchar(100) NOT NULL default '',
+  `id` varchar(32) NOT NULL default '',
   `create_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL default '0000-00-00 00:00:00',
-  `create_by` varchar(255) default '',
-  `update_by` varchar(255) default '',
+  `create_by` varchar(32) default '',
+  `update_by` varchar(32) default '',
   `active_flag` int(11) default '0',
   `name` varchar(255) default '',
-  `value` varchar(255) default '',
-  `field_type` varchar(100) default '',
-  `size` int(11) default '0',
-  `maxlength` int(11) default '0',
-  `rows` int(11) default '0',
-  `cols` int(11) default '0',
-  `dateid` varchar(100) default '',
-  `Gxform_id` varchar(255) default '',
+  `entity_type_id` varchar(32) default '',
+  `displayed_flag` int(11) default '0',
+  `display_length` int(11) default '0',
+  `sequence` int(11) default '0',
+  `tab_id` varchar(32) default '',
   `column_id` varchar(32) default '',
-  `gxgreenatorName` varchar(255) default '',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -515,7 +427,6 @@ CREATE TABLE `gx_form_field` (
 
 /*!40000 ALTER TABLE `gx_form_field` DISABLE KEYS */;
 LOCK TABLES `gx_form_field` WRITE;
-INSERT INTO `gx_form_field` VALUES (NULL,'ff808081158dd16201158de274190008','2007-10-11 14:06:09','2007-10-11 14:06:09','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc',1,'Nama','','ff80808115422db90115423307c10002',NULL,NULL,NULL,NULL,NULL,'ff808081158dd16201158dd834ed0007','ff808081158dd16201158dd56fcb0002',NULL),(NULL,'ff808081158dd16201158de274310009','2007-10-11 14:06:09','2007-10-11 14:06:09','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc',1,'Email','','ff80808115422db90115423307c10002',NULL,NULL,NULL,NULL,NULL,'ff808081158dd16201158dd834ed0007','ff808081158dd16201158dd5a7de0003',NULL),(NULL,'ff808081158dd16201158de27438000a','2007-10-11 14:06:09','2007-10-11 14:06:09','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc',1,'Negara','','ff80808115422db901154234e44d0006',NULL,NULL,NULL,NULL,NULL,'ff808081158dd16201158dd834ed0007','ff808081158dd16201158dd603f20004',NULL),(NULL,'ff808081158dd16201158de2743d000b','2007-10-11 14:06:09','2007-10-11 14:06:09','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc',1,'Kota','','ff80808115422db90115423307c10002',NULL,NULL,NULL,NULL,NULL,'ff808081158dd16201158dd834ed0007','ff808081158dd16201158dd685af0005',NULL),(NULL,'ff808081158dd16201158de27441000c','2007-10-11 14:06:09','2007-10-11 14:06:09','96f673bc-283e-4b75-b63d-6edc','96f673bc-283e-4b75-b63d-6edc',1,'Alamat','','ff80808115422db90115423307c10002',NULL,NULL,NULL,NULL,NULL,'ff808081158dd16201158dd834ed0007','ff808081158dd16201158dd6c0290006',NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `gx_form_field` ENABLE KEYS */;
 
@@ -530,12 +441,14 @@ CREATE TABLE `gx_form_tab` (
   `id` varchar(32) NOT NULL default '',
   `create_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL default '0000-00-00 00:00:00',
-  `create_by` varchar(255) default '',
-  `update_by` varchar(255) default '',
+  `create_by` varchar(32) default '',
+  `update_by` varchar(32) default '',
   `window_id` varchar(32) default '',
   `table_id` varchar(32) default '',
+  `process_id` varchar(32) default '',
+  `sequence` int(11) default '0',
   `name` varchar(255) default '',
-  `gxformName` varchar(255) default '',
+  `single_row_layout_flag` int(11) default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -546,7 +459,6 @@ CREATE TABLE `gx_form_tab` (
 
 /*!40000 ALTER TABLE `gx_form_tab` DISABLE KEYS */;
 LOCK TABLES `gx_form_tab` WRITE;
-INSERT INTO `gx_form_tab` VALUES (NULL,1,'ff808081158dd16201158dd834ed0007','2007-10-11 13:54:57','2007-10-11 13:54:57','','',NULL,'ff808081158dd16201158dd500510001','BusinessPartner','Business Partner');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `gx_form_tab` ENABLE KEYS */;
 
@@ -562,11 +474,11 @@ CREATE TABLE `gx_form_window` (
   `update_date` timestamp NOT NULL default '0000-00-00 00:00:00',
   `update_by` varchar(32) default '',
   `active_flag` int(11) default '0',
-  `name` varchar(100) default '',
-  `description` varchar(100) default '',
-  `entity_type` varchar(100) default '',
-  `window_type` varchar(100) default '',
-  `image` varchar(100) default '',
+  `name` varchar(255) default '',
+  `description` varchar(255) default '',
+  `entity_type_id` varchar(32) default '',
+  `window_type_id` varchar(32) default '',
+  `image` varchar(255) default '',
   `height` int(11) default '0',
   `width` int(11) default '0',
   PRIMARY KEY  (`id`)

@@ -45,6 +45,9 @@
 		<action name="edit" class="org.blueoxygen.cimande.gx.db.column.ColumnForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/column/form.vm</result>
 		</action>
+		<action name="listdetail" class="org.blueoxygen.cimande.gx.db.column.ColumnForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/column/listdetail.vm</result>
+		</action>
 		<action name="delete" class="org.blueoxygen.cimande.gx.db.column.ColumnForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/column/delete.vm</result>
 		</action>
