@@ -35,7 +35,7 @@
 					<tr bgcolor="#ffffff">
 					<td>Parent:</td>
 					<td>
-						<select name="parentId">
+						<select name="parent.id">
 							<option value=""></option>
 							#foreach($ct in $names)
 							<option value="$!ct.id" #if($ct.id == $name.parent.id)selected#end>$!ct.description</option>
