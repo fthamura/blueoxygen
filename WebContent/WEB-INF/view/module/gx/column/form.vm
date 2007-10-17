@@ -51,8 +51,8 @@
 				<tr bgcolor="#ffffff">
 					<td>Reference:</td>
 					<td>
-						<input type="radio" name="column.reference" value="1" #if($column.referenceFlag == 1) checked #end/> Table
-						<input type="radio" name="column.reference" value="2" #if($column.referenceFlag == 2) checked #end/> Droplist
+						<input type="radio" name="column.referenceFlag" value="1" #if($column.referenceFlag == 1) checked #end/> Table
+						<input type="radio" name="column.referenceFlag" value="2" #if($column.referenceFlag == 2) checked #end/> Droplist
 					</td>
 				</tr>
 				<tr bgcolor="#ffffff">
