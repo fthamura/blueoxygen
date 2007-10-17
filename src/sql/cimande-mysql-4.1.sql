@@ -250,7 +250,6 @@ CREATE TABLE `gx_db_column` (
   `update_by` varchar(32) default '',
   `active_flag` int(11) default '1',
   `table_id` varchar(32) default '',
-  `deleted_from_table_id` varchar(32) default '',
   `name` varchar(255) default '',
   `description` varchar(255) default '',
   `db_column` varchar(255) default '',
@@ -273,7 +272,7 @@ CREATE TABLE `gx_db_column` (
 
 /*!40000 ALTER TABLE `gx_db_column` DISABLE KEYS */;
 LOCK TABLES `gx_db_column` WRITE;
-INSERT INTO `gx_db_column` VALUES ('ff80808115ac439e0115ac4ba7390002','2007-10-17 11:49:40','96f673bc-283e-4b75-b63d-6edc','2007-10-17 12:30:29','96f673bc-283e-4b75-b63d-6edc',1,'ff80808115ac439e0115ac492f120001',NULL,'Username','Login Username','','ff808081153c589b01153c5946ad0001',100,0,0,0,0,0,NULL,NULL),('ff80808115ac439e0115ac4bc4e80003','2007-10-17 11:49:47','96f673bc-283e-4b75-b63d-6edc','2007-10-17 12:30:19','96f673bc-283e-4b75-b63d-6edc',1,'ff80808115ac439e0115ac492f120001',NULL,'Password','Login Password','','ff808081153c589b01153c5946ad0001',100,0,0,0,1,0,NULL,NULL),('ff80808115ac5c060115ac68c4960001','2007-10-17 12:21:28','96f673bc-283e-4b75-b63d-6edc','2007-10-17 12:34:08','96f673bc-283e-4b75-b63d-6edc',1,'ff80808115ac439e0115ac492f120001',NULL,'Email','User Email','email','ff808081153c589b01153c5946ad0001',100,0,0,0,0,0,NULL,NULL),('ff80808115ac5c060115ac74afd00002','2007-10-17 12:34:29','96f673bc-283e-4b75-b63d-6edc','2007-10-17 12:34:29','96f673bc-283e-4b75-b63d-6edc',1,'ff80808115ac439e0115ac492f120001',NULL,'Id','Primary Key','id','ff808081153c589b01153c5946ad0001',32,0,1,0,0,0,NULL,NULL);
+INSERT INTO `gx_db_column` VALUES ('ff80808115ac439e0115ac4ba7390002','2007-10-17 11:49:40','96f673bc-283e-4b75-b63d-6edc','2007-10-17 12:30:29','96f673bc-283e-4b75-b63d-6edc',1,'ff80808115ac439e0115ac492f120001','Username','Login Username','','ff808081153c589b01153c5946ad0001',100,0,0,0,0,0,NULL,NULL),('ff80808115ac439e0115ac4bc4e80003','2007-10-17 11:49:47','96f673bc-283e-4b75-b63d-6edc','2007-10-17 12:30:19','96f673bc-283e-4b75-b63d-6edc',1,'ff80808115ac439e0115ac492f120001','Password','Login Password','','ff808081153c589b01153c5946ad0001',100,0,0,0,1,0,NULL,NULL),('ff80808115ac5c060115ac68c4960001','2007-10-17 12:21:28','96f673bc-283e-4b75-b63d-6edc','2007-10-17 12:34:08','96f673bc-283e-4b75-b63d-6edc',1,'ff80808115ac439e0115ac492f120001','Email','User Email','email','ff808081153c589b01153c5946ad0001',100,0,0,0,0,0,NULL,NULL),('ff80808115ac5c060115ac74afd00002','2007-10-17 12:34:29','96f673bc-283e-4b75-b63d-6edc','2007-10-17 12:34:29','96f673bc-283e-4b75-b63d-6edc',1,'ff80808115ac439e0115ac492f120001','Id','Primary Key','id','ff808081153c589b01153c5946ad0001',32,0,1,0,0,0,NULL,NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `gx_db_column` ENABLE KEYS */;
 

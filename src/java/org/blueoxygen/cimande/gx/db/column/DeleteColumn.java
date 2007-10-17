@@ -7,10 +7,7 @@ public class DeleteColumn extends ColumnForm {
 	public String execute(){
 		if("yes".equalsIgnoreCase(getConfirm())){
 			setColumn((GxColumn) manager.getById(GxColumn.class, getColumn().getId()));
-			getColumn().getLogInformation().setActiveFlag(0);
-			getColumn().setDeletedFromTable(getColumn().getTable());
-			getColumn().setTable(null);
-			manager.save(getColumn());
+			manager.remove(getColumn());
 		}
 		return SUCCESS;
 	}

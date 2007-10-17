@@ -81,8 +81,8 @@
 		
 		<!-- Detail View Droplist -->
 		
-		<action name="detail" class="org.blueoxygen.cimande.gx.droplist.DetailValue">
-			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/detail.vm</result>
+		<action name="detail" class="org.blueoxygen.cimande.gx.droplist.DroplistForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/template.vm</result>
 		</action>
 		
 		<!-- END DETAIL -->
