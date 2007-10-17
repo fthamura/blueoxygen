@@ -37,14 +37,14 @@ public class SearchTable extends TableForm implements HibernateSessionFactoryAwa
 		resultRows = crit.list().size();
 		paging();
 		
-		if(resultRows > 0){
+//		if(resultRows > 0){
 			setTables((ArrayList<GxTable>) crit.addOrder(Order.asc(orderBy))
 					.setFirstResult(currPage * maxRowPerPage)
 					.setMaxResults(maxRowPerPage)
 					.list());
-		} else {
-			setTables(null);
-		}
+//		} else {
+//			setTables(null);
+//		}
 		
 		try {
 			hsf.endSession(sess);

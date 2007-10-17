@@ -39,7 +39,7 @@
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/column/form.vm</result>
 		</action>
 		<action name="save" class="org.blueoxygen.cimande.gx.db.column.SaveColumn">
-			<result name="success" type="redirect">../gx-table/view.action?table.id=${table.id}</result>
+			<result name="success" type="redirect">../gx-table/edit.action?table.id=${table.id}</result>
 			<result name="input" type="velocity">/WEB-INF/view/module/gx/column/form.vm</result>
 		</action>
 		<action name="edit" class="org.blueoxygen.cimande.gx.db.column.ColumnForm">
@@ -52,7 +52,7 @@
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/column/delete.vm</result>
 		</action>
 		<action name="confirm" class="org.blueoxygen.cimande.gx.db.column.DeleteColumn">
-			<result name="success" type="velocity">/WEB-INF/view/module/gx/column/form.vm</result>
+			<result name="success" type="redirect">../gx-table/edit.action?table.id=${table.id}</result>
 		</action>
 	</package>
 	<package name="gx-droplist" extends="default" namespace="/module/gx-droplist">
@@ -60,7 +60,7 @@
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/form.vm</result>
 		</action>
 		<action name="save" class="org.blueoxygen.cimande.gx.droplist.SaveDroplist">
-			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/report.vm</result>
+			<result name="success" type="redirect">view.action?name.id=${name.id}</result>
 		</action>
 		<action name="filter" class="org.blueoxygen.cimande.gx.droplist.DroplistForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/search.vm</result>
@@ -86,7 +86,6 @@
 		</action>
 		
 		<!-- END DETAIL -->
-
 
 		<action name="editvalue" class="org.blueoxygen.cimande.gx.droplist.DroplistForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/droplist/view.vm</result>

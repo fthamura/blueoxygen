@@ -11,7 +11,7 @@ import org.hibernate.classic.Session;
 import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Order;
 
-public class SearchGxgreenator extends GxgreenatorForm implements HibernateSessionFactoryAware {
+public class SearchField extends FieldForm implements HibernateSessionFactoryAware {
 	
 	private HibernateSessionFactory hsf;
 	private Session sess;

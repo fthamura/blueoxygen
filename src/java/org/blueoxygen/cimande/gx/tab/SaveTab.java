@@ -6,10 +6,10 @@ import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.gx.entity.GxTable;
 import org.blueoxygen.cimande.gx.entity.GxTab;
 
-public class AddGxform extends GxformForm {
+public class SaveTab extends TabForm {
 	
 	public String execute() {
-		if (getGxform().getName().equalsIgnoreCase("")){
+		if (getTab().getName().equalsIgnoreCase("")){
 			addActionError("Name can not be empty");
 		}
 		

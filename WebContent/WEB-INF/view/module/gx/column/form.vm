@@ -21,6 +21,18 @@
 					</td>
 				</tr>
 				<tr bgcolor="#ffffff">
+					<td>Description:</td>
+					<td>
+						<input name="column.description" value="$!column.description" size="35"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Database Column:</td>
+					<td>
+						<input name="column.dbColumn" value="$!column.dbColumn" size="35"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
 					<td>Data Type: <font color="red">*</font></td>
 					<td>
 						<select name="dataType.id">
@@ -31,15 +43,9 @@
 					</td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td>Default Value:</td>
+					<td>Length:</td>
 					<td>
-						<input name="column.defaultValue" value="$!column.defaultValue" size="35"/>
-					</td>
-				</tr>
-				<tr bgcolor="#ffffff">
-					<td>Description:</td>
-					<td>
-						<input name="column.description" value="$!column.description" size="35"/>
+						<input name="column.length" value="$!column.length" size="4"/>
 					</td>
 				</tr>
 				<tr bgcolor="#ffffff">
@@ -63,11 +69,18 @@
     					&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../gx-droplist/listName.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>    					
   					</td>
 				</tr>
+				<tr bgcolor="#ffffff">
+					<td colspan="2">
+						<input type="checkbox" name="column.encryptedFlag" value="1" #if($column.encryptedFlag == 1)checked #end/>Encrypted
+						<input type="checkbox" name="column.keyColumnFlag" value="1" #if($column.keyColumnFlag == 1)checked #end/>Key Column
+					</td>
+				</tr>
 				<tr bgcolor="#e4e4e4">
 					<td colspan="2">
 						<input name="table.id" id="nametableId" type="hidden" value="$!table.id"/>
 						<input name="column.id" id="columnId" type="hidden" value="$!column.id"/>
 						<input type="submit" value="Submit"/>
+						<input type="Reset" value="Reset"/>
 					</td>
 				</tr>
 			</table>

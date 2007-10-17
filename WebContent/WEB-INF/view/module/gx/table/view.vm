@@ -31,7 +31,10 @@
       <td id="tableHeader2">Description :   </td>
       <td>$!table.description  </td>
     </tr>
-	
+	<tr bgcolor="#ffffff">
+      <td id="tableHeader2">Database Table :   </td>
+      <td>$!table.dbTable  </td>
+    </tr>
     </tbody>
 	</table>
   	<br>

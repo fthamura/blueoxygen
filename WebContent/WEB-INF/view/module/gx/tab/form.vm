@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
 <html>
 <head>
 <title>Form - Gxform</title>
@@ -24,40 +23,31 @@
 		#end
 		
 		<form method="get" action="add.action">
-		<br><br>
 			<table align="center" border="0" cellpadding="5" cellspacing="1" width="70%" bgcolor="#000000">
-				<tr bgcolor="#8FEC13">
+				<tr>
 					<td colspan="2" bgcolor="#333366"><span class="style1">Add / Edit Gxform</span></td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td align="right" width="40%">Name<font color="red">*</font> :</td>
-					<td>
-						<input name="gxform.name" value="$!gxform.name"/>					</td>
+					<td align="right" width="40%">Name<font color="red">*</font>:</td>
+					<td><input name="tab.name" value="$!tab.name"/></td>
 				</tr>
 				<tr bgcolor="#ffffff">
-				  <td align="right">Gxform name <font color="red">*</font> :</td>
-				  <td><input name="gxform.gxformName" value="$!gxform.gxformName"/></td>
-			  </tr>
+				    <td align="right">Description:</td>
+				    <td><input name="tab.description" value="$!tab.description"/></td>
+			    </tr>
 				<tr bgcolor="#ffffff">
 					<td align="right">Table name  <font color="red">*</font> :</td>
-					<td><input type="textfield" id="tableDescription" value="Nama Table" size="24" disabled="true" onfocus="this.blur()"/>
-					<input type="hidden" id="tableId" name="table.id" value="$!gxform.table.id">
+					<td><input type="textfield" id="tableDescription" value="Table Name" size="24" disabled="true" onfocus="this.blur()"/>
+					<input type="hidden" id="tableId" name="table.id" value="$!tab.table.id">
 				    <label><input type="button" value="Change" onclick="javascript:window.open('../gx-table/listTable.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></label></td>
 				</tr>
 				<tr bgcolor="#A8FF93">
-					
-      <td colspan="2" align="right" bgcolor="#CFE9EB"> 
-        <input name="id" type="hidden" value="$!gxform.id"/>
-		<input name="submit" onclick="return checkfields(this);" type="submit" value="Next &gt;&gt;">				  </td>
+                    <td colspan="2" align="right" bgcolor="#CFE9EB">
+                    	<input name="id" type="hidden" value="$!tab.id"/>
+                    	<input name="submit" onclick="return checkfields(this);" type="submit" value="Next &gt;&gt;">
+                    </td>
 				</tr>
 			</table>
 		</form>
-		<br>
-		<!--
-		<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
-		  	<tr bgcolor="#ffff88">
-				<td align="center"><a href="../form.action"><b>[Home]</b></a></td>
-			</tr>
-		</table>-->
 	</body>
 </html>

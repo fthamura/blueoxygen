@@ -24,10 +24,5 @@
 			</table>
 		</form>
 		<br>
-		<!--table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="100%">
-		  	<tr bgcolor="#ffffff">
-				<td align="center"><a href="../form.action">Home</a></td>
-			</tr>
-		</table-->
 	</body>
 </html>

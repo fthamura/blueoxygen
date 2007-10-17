@@ -12,7 +12,7 @@ import org.hibernate.classic.Session;
 import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Order;
 
-public class SearchGxform extends GxformForm implements HibernateSessionFactoryAware {
+public class SearchTab extends TabForm implements HibernateSessionFactoryAware {
 	private HibernateSessionFactory hsf;
 	private Session sess;
 	

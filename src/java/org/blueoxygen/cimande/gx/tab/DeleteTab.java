@@ -6,7 +6,7 @@ import java.util.List;
 import org.blueoxygen.cimande.gx.entity.GxField;
 import org.blueoxygen.cimande.gx.entity.GxTab;
 
-public class DeleteGxform extends GxformForm{
+public class DeleteTab extends TabForm{
 	private String confirm = "";
 	protected GxTab tab = new GxTab();
 	protected List<GxField> gxgreenators = new ArrayList();

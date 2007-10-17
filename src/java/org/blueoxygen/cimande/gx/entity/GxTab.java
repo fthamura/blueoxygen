@@ -16,7 +16,7 @@ import org.blueoxygen.cimande.DefaultPersistent;
 
 /**
  * @author MeiyMeiy
- * @hibernate.class table="tab"
+ * 
  */
 @Entity()
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
@@ -31,7 +31,6 @@ public class GxTab extends DefaultPersistent {
 	private GxTable table;
 	private GxDroplistValue process; 
 	private List<GxField> fields = new ArrayList<GxField>();
-//	private String result;
 	
 	/**
 	 * @return Returns the name.

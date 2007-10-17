@@ -13,31 +13,22 @@
         </style>
 </head>
 	<body>
-		#if (!$actionErrors.isEmpty())
-			<div class="errorMessage">Errors</div>
-			<ul class="errorMessage">
-			#foreach( $error in $actionErrors )
-				<li>$error</li>
-			#end
-			</ul>
-		#end
 		<br><Br>
 		<form method="get" action="search.action">
 			<table align="center" border="0" cellpadding="5" cellspacing="1" width="70%" bgcolor="#000000">
 				<tr bgcolor="#8FEC13">
-					<td colspan="2" bgcolor="#333366"><span class="style1">Search Gxform</span></td>
+					<td colspan="2" bgcolor="#333366"><span class="style1">Search Tab</span></td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td align="right" width="40%">Name :</td>
+					<td align="right" width="40%">Name:</td>
 					<td>
-						<input name="gxform.name" value="$!gxform.name"/>
+						<input name="tab.name" value="$!tab.name"/>
 					</td>
 				</tr>
-				
 				<tr bgcolor="#ffffff">
-					<td align="right">Gxform name :</td>
+					<td align="right">Description:</td>
 					<td>
-						<input name="gxform.gxformName" value="$!gxform.gxformName"/>
+						<input name="tab.description" value="$!tab.description"/>
 					</td>
 				</tr>
 				<tr bgcolor="#A8FF93">
@@ -48,10 +39,5 @@
 			</table>
 		</form>
 		<br>
-		<!--<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
-		  	<tr bgcolor="#ffff88">
-				<td align="center"><a href="../form.action"><b>[Home]</b></a></td>
-			</tr>
-		</table>-->
 	</body>
 </html>

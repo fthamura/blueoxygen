@@ -12,7 +12,7 @@ import org.blueoxygen.cimande.gx.entity.GxTab;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 
-public class AddGxgreenator extends GxgreenatorForm implements SessionCredentialsAware {
+public class SaveField extends FieldForm implements SessionCredentialsAware {
 	private SessionCredentials sessionCredentials;
 	
 	private List<String> fieldTypes = new ArrayList<String>();

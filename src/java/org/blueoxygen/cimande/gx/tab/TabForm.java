@@ -16,12 +16,12 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author MeiyMeiy
  *
  */
-public class GxformForm extends ActionSupport implements PersistenceAware{
+public class TabForm extends ActionSupport implements PersistenceAware{
 	protected PersistenceManager manager;
-	protected List<GxField> gxgreenators = new ArrayList<GxField>();
+	protected List<GxField> fields = new ArrayList<GxField>();
 	protected List<GxTab> tabs = new ArrayList<GxTab>();
 	protected GxTab tab = new GxTab();
-	protected GxField gx2 = new GxField();
+//	protected GxField gx2 = new GxField();
 	protected GxTab temp = new GxTab();
 	private GxTable table = new GxTable();
 	private String id = "";
@@ -33,7 +33,7 @@ public class GxformForm extends ActionSupport implements PersistenceAware{
 		if (!getId().equalsIgnoreCase("")){
 			tab = (GxTab)manager.getById(GxTab.class, getId());
 			String query = "FROM "+ GxField.class.getName() +" AS tc WHERE tc.thinGxform.id='"+ tab.getId() +"'";
-			gxgreenators = (ArrayList<GxField>)manager.getList(query, null, null);
+			fields = (ArrayList<GxField>)manager.getList(query, null, null);
 		}
 		fieldTypes = (List<GxDroplistValue>)manager.getList("FROM " + GxDroplistValue.class.getName() + 
 				" v WHERE v.name.id='ff80808115422db9011542327c580001'", null, null);
@@ -43,43 +43,43 @@ public class GxformForm extends ActionSupport implements PersistenceAware{
 	/**
 	 * @return Returns the tab.
 	 */
-	public GxTab getGxform() {
+	public GxTab getTab() {
 		return tab;
 	}
 
 	/**
 	 * @param tab The tab to set.
 	 */
-	public void setGxform(GxTab tab) {
+	public void setTab(GxTab tab) {
 		this.tab = tab;
 	}
 
 	/**
 	 * @return Returns the tabs.
 	 */
-	public List<GxTab> getGxforms() {
+	public List<GxTab> getTabs() {
 		return tabs;
 	}
 
 	/**
 	 * @param tabs The tabs to set.
 	 */
-	public void setGxforms(List<GxTab> tabs) {
+	public void setTabs(List<GxTab> tabs) {
 		this.tabs = tabs;
 	}
 
 	/**
 	 * @return Returns the fields.
 	 */
-	public List<GxField> getGxgreenators() {
-		return gxgreenators;
+	public List<GxField> getFields() {
+		return fields;
 	}
 
 	/**
 	 * @param fields The fields to set.
 	 */
-	public void setGxgreenators(List<GxField> gxgreenators) {
-		this.gxgreenators = gxgreenators;
+	public void setFields(List<GxField> fields) {
+		this.fields = fields;
 	}
 
 	/**
@@ -167,19 +167,19 @@ public class GxformForm extends ActionSupport implements PersistenceAware{
 		this.fieldType = fieldType;
 	}
 
-	/**
-	 * @return the gx2
-	 */
-	public GxField getGx2() {
-		return gx2;
-	}
-
-	/**
-	 * @param gx2 the gx2 to set
-	 */
-	public void setGx2(GxField gx2) {
-		this.gx2 = gx2;
-	}
+//	/**
+//	 * @return the gx2
+//	 */
+//	public GxField getGx2() {
+//		return gx2;
+//	}
+//
+//	/**
+//	 * @param gx2 the gx2 to set
+//	 */
+//	public void setGx2(GxField gx2) {
+//		this.gx2 = gx2;
+//	}
 
 
 }

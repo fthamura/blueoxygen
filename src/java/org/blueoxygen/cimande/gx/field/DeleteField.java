@@ -2,7 +2,7 @@ package org.blueoxygen.cimande.gx.field;
 
 import org.blueoxygen.cimande.gx.entity.GxField;
 
-public class DeleteGxgreenator extends GxgreenatorForm {
+public class DeleteField extends FieldForm {
 	
 	public String execute(){
 		if (!gx.getId().equalsIgnoreCase("")){

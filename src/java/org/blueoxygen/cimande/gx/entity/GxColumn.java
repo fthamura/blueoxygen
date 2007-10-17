@@ -28,6 +28,7 @@ public class GxColumn extends DefaultPersistent {
 	private int encryptedFlag;
 	private int referenceFlag;
 	private GxTable table;
+	private GxTable deletedFromTable;
 	private GxTable referenceTable;
 	private GxDroplistName referenceDroplist;
 	private GxDroplistValue element;
@@ -124,6 +125,14 @@ public class GxColumn extends DefaultPersistent {
 	}
 	public void setElement(GxDroplistValue element) {
 		this.element = element;
+	}
+	@ManyToOne
+	@JoinColumn(name="deleted_from_table_id")
+	public GxTable getDeletedFromTable() {
+		return deletedFromTable;
+	}
+	public void setDeletedFromTable(GxTable deletedFromTable) {
+		this.deletedFromTable = deletedFromTable;
 	}
 	
 }

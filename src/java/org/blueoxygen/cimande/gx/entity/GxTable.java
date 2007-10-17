@@ -3,6 +3,7 @@ package org.blueoxygen.cimande.gx.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -45,6 +46,7 @@ public class GxTable extends DefaultPersistent {
 	public void setColumns(List<GxColumn> columns) {
 		this.columns = columns;
 	}
+	@Column(name="db_table")
 	public String getDbTable() {
 		return dbTable;
 	}

@@ -2,21 +2,22 @@
 <!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
 <html>
 	<head>
-		<title>Delete - Table</title>
+		<title>Delete - Column</title>
 		<link rel="stylesheet" type="text/css" href="../../style.css">
 	</head>
 	<body>
-		<form method="get" action="delete.action">
+		<form method="get" action="confirm.action">
 			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
 				<tr bgcolor="#d0dcff">
-					<td><b>Delete Table</b></td>
+					<td><b>Delete Column</b></td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td>Delete table $table.name??</td> 
+					<td>Delete column $column.name??</td> 
 				</tr>
 				<tr bgcolor="#e4e4e4">
 					<td>
-						<input name="id" type="hidden" value="$table.id"/>
+						<input name="column.id" type="hidden" value="$column.id"/>
+						<input name="table.id" type="hidden" value="$table.id"/>
 						<input name="confirm" type="submit" value="Yes"/>
 						<input name="confirm" type="submit" value="No"/>
 					</td>

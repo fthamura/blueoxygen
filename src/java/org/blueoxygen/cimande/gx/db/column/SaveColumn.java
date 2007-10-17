@@ -81,7 +81,7 @@ public class SaveColumn extends ColumnForm implements SessionCredentialsAware {
 		log.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
 		
 		getColumn().setLogInformation(log);
-//		getColumn().setDataType(getDataType());
+		getColumn().setElement(getDataType());
 		getColumn().setTable(getTable());
 		manager.save(getColumn());
 		

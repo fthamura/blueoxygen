@@ -16,7 +16,7 @@
 			#else 
 			<tr bgcolor="yellow">
 				<td colspan="5" align="right">
-					Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) Modules #else Module #end
+					Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) Tables #else Table #end
 				</td>
 			</tr>
 			

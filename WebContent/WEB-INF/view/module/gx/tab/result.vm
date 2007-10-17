@@ -2,7 +2,7 @@
 <!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
 <html>
 	<head>
-		<title>Search Result - Gxform</title>
+		<title>Search Result - Tab</title>
 		<link rel="stylesheet" type="text/css" href="../../style.css">
 	    <style type="text/css">
 <!--
@@ -17,30 +17,29 @@
 	<Br><Br>
 		<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
 			<tr bgcolor="#8FEC13">
-				<td colspan="9" bgcolor="#333366"><span class="style1">Search Result - Gxform</span></td>
+				<td colspan="4" bgcolor="#333366"><span class="style1">Search Result - Tab</span></td>
 			</tr>
-			#if ($Gxforms.isEmpty()) 
+			#if ($tabs.isEmpty()) 
 			<tr bgcolor="#ffff88">
-				<td colspan="9" align="right">No such data found</td>
+				<td colspan="4" align="right">No such data found</td>
 			</tr>
 			#else 
 			<tr bgcolor="#FFFF9D">
-				<td colspan="9" align="right">
-					Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) Modules #else Module #end
+				<td colspan="4" align="right">
+					Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) Tabs #else Tab #end
 				</td>
 			</tr>
-			
 			<tr bgcolor="#A8FF93" width="98%">
-				<td bgcolor="#CFE9EB">Create Date</td>
 				<td bgcolor="#CFE9EB">Name</td>
-				<td bgcolor="#CFE9EB">Gxform name</td>
+				<td bgcolor="#CFE9EB">Description</td>
+				<td bgcolor="#CFE9EB">Table</td>
 				<td bgcolor="#CFE9EB">Action</td>
 			</tr>
-			#foreach ($de in $gxforms)
+			#foreach ($de in $tabs)
 			<tr valign="top" bgcolor="white">
-				<td>$!de.logInformation.createDate
 				<td>$!de.name</td>
-				<td>$!de.gxformName</td>
+				<td>$!de.description</td>
+				<td>$!de.table.name</td>
 				<td>
 					<a href="view.action?id=$de.Id">View</a>
 					<a href="edit.action?id=$de.Id">Edit</a>
@@ -49,23 +48,15 @@
 			</tr>
 			#end
 			<tr bgcolor="#A8FF93">
-				<td colspan="9" align="right" bgcolor="#CFE9EB">
-					#if ($currPage > 0) <a href="search.action?gxform.name=$!gxform.name&gxform.value=$!gxform.value&gxform.type=$!gxform.type$gxform.size=$!gxform.size&gxform.maxlenght=$!gxform.maxlenght&gxform.gxformName=$!gxform.gxformName&orderBy=$!orderBy&currPage=0">&lt;&lt;</a>&nbsp;#end
-					#if ($currPage > 0) <a href="search.action?gxform.name=$!gxform.name&gxform.value=$!gxform.value&gxform.type=$!gxform.type$gxform.size=$!gxform.size&gxform.maxlenght=$!gxform.maxlenght&gxform.gxformName=$!gxform.gxformName&orderBy=$!orderBy&currPage=$prevPage">&lt;</a>&nbsp;#end
+				<td colspan="4" align="right" bgcolor="#CFE9EB">
+					#if ($currPage > 0) <a href="search.action?tab.name=$!tab.name&tab.value=$!tab.value&tab.type=$!tab.type$tab.size=$!tab.size&tab.maxlenght=$!tab.maxlenght&tab.tabName=$!tab.tabName&orderBy=$!orderBy&currPage=0">&lt;&lt;</a>&nbsp;#end
+					#if ($currPage > 0) <a href="search.action?tab.name=$!tab.name&tab.value=$!tab.value&tab.type=$!tab.type$tab.size=$!tab.size&tab.maxlenght=$!tab.maxlenght&tab.tabName=$!tab.tabName&orderBy=$!orderBy&currPage=$prevPage">&lt;</a>&nbsp;#end
 					[page $page]
-					#if ($currPage < $maxPage) <a href="search.action?gxform.name=$!gxform.name&gxform.value=$!gxform.value&gxform.type=$!gxform.type$gxform.size=$!gxform.size&gxform.maxlenght=$!gxform.maxlenght&gxform.gxformName=$!gxform.gxformName&orderBy=$!orderBy&currPage=$nextPage">&gt;</a>&nbsp;#end
-					#if ($currPage < $maxPage) <a href="search.action?gxform.name=$!gxform.name&gxform.value=$!gxform.value&gxform.type=$!gxform.type$gxform.size=$!gxform.size&gxform.maxlenght=$!gxform.maxlenght&gxform.gxformName=$!gxform.gxformName&orderBy=$!orderBy&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end				</td>
+					#if ($currPage < $maxPage) <a href="search.action?tab.name=$!tab.name&tab.value=$!tab.value&tab.type=$!tab.type$tab.size=$!tab.size&tab.maxlenght=$!tab.maxlenght&tab.tabName=$!tab.tabName&orderBy=$!orderBy&currPage=$nextPage">&gt;</a>&nbsp;#end
+					#if ($currPage < $maxPage) <a href="search.action?tab.name=$!tab.name&tab.value=$!tab.value&tab.type=$!tab.type$tab.size=$!tab.size&tab.maxlenght=$!tab.maxlenght&tab.tabName=$!tab.tabName&orderBy=$!orderBy&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end				</td>
 			</tr>
 			#end
 	</table>
 		<br>
-		<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
-		  	<tr bgcolor="#B7B7FF">
-				<td align="center" bgcolor="#C1C1FF"><!--<a href="../form.action"><b>[Home]</b></a></td>-->
-				<a href="../generate/create.action"><b>[New]</b></a> <b>|</b>				 
-				<a href="../generate/filter.action"><b>[Search]</b></a>
-				</td>
-			</tr>
-		</table>
 	</body>
 </html>

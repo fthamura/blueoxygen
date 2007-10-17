@@ -9,6 +9,7 @@ public class DeleteTable extends TableForm {
 			setTable((GxTable) manager.getById(GxTable.class, getTable().getId()));
 			getTable().getLogInformation().setActiveFlag(0);
 			manager.save(getTable());
+			setReport("Delete Success");
 		}
 		return SUCCESS;
 	}

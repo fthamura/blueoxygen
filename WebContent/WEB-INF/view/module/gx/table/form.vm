@@ -21,20 +21,27 @@
 					<td colspan="2"><b>Table</b></td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td>Name : <font color="red">*</font></td>
+					<td>Name: <font color="red">*</font></td>
 					<td>
 						<input name="table.name" value="$!table.name"/>
 					</td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td>Description :</td>
+					<td>Description:</td>
 					<td>
 						<input name="table.description" value="$!table.description"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Database Table:</td>
+					<td>
+						<input name="table.dbTable" value="$!table.dbTable"/>
 					</td>
 				</tr>
 				<tr bgcolor="#e4e4e4">
 					<td colspan="2">
 						<input type="submit" value="Submit">
+						<input type="reset" value="Reset">
 						<input name="table.id" type="hidden" value="$!table.id"/>
 					</td>
 				</tr>

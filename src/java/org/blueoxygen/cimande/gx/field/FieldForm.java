@@ -11,7 +11,7 @@ import org.blueoxygen.cimande.persistence.PersistenceManager;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GxgreenatorForm extends ActionSupport implements PersistenceAware {
+public class FieldForm extends ActionSupport implements PersistenceAware {
 	protected PersistenceManager manager;
 	protected List<GxField> fields = new ArrayList<GxField>();
 	protected GxField field = new GxField();
