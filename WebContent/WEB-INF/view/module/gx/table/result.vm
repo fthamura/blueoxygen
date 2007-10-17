@@ -32,7 +32,6 @@
 				<td>$!de.name</td>
 				<td>$!de.description</td>
 				<td>
-					<a href="view.action?table.id=$de.Id">Detail</a>
 					<a href="edit.action?table.id=$de.Id">Edit</a>
 					<a href="delete.action?table.id=$de.Id">Delete</a>
 				</td>

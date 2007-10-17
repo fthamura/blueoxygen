@@ -36,35 +36,9 @@
 	</table>
   	<br>
   
-<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
-	<tr bgcolor="#ffff00">
-		<td><b>Column</b>&nbsp;&nbsp;&nbsp;<a href="../gx-column/create.action?table.id=$!table.id">Add</a></td>
-  </tr>
-</table>
-<br>
 #saction("name=create" "namespace=/module/gx-column" "executeResult=true")
  <br>$!report
-  #if(!$table.columns.isEmpty())
-<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
-    <tr bgcolor="#ffff00">
-    	<td id="tableHeader1" colspan="4"><b>Column</b></td>
-  	</tr>
-    <tr id="tableHeader1" bgcolor="#d0dcff"> 
-    	<td>Name</td>
-    	<td>Description</td>
-    	<td>Data Type</td>
-		<td>Action</td>
-  	</tr>
-  #foreach ($de in $table.columns) 
-  <tr valign="top" bgcolor="#ffffff"> 
-    <td>$!de.name</td>
-    <td>$!de.description</td>
-    <td>$!de.dataType.value</td>
-    <td><a href="../gx-column/edit.action?column.id=$de.id">Edit</a> <a href="../gx-column/delete.action?column.id=$de.id&table.id=$!table.id">Delete</a></td>
-  </tr>
-  #end 
-  </table>
-  #end
+#saction("name=listdetail" "namespace=/module/gx-column" "executeResult=true")
 </body>
 </html>
     

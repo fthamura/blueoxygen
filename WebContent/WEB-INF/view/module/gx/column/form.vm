@@ -17,7 +17,7 @@
 				<tr bgcolor="#ffffff">
 					<td>Name: <font color="red">*</font></td>
 					<td>
-						<input name="column.name" value="$!column.name"/>
+						<input name="column.name" value="$!column.name" size="35"/>
 					</td>
 				</tr>
 				<tr bgcolor="#ffffff">
@@ -25,7 +25,7 @@
 					<td>
 						<select name="dataType.id">
 							#foreach($dt in $dataTypes)
-								<option value="$dt.id">$dt.value</option>
+								<option value="$dt.id" #if($column.dataType.id.equals($dt.id)) selected #end>$dt.value</option>
 							#end
 						</select>
 					</td>
@@ -33,20 +33,20 @@
 				<tr bgcolor="#ffffff">
 					<td>Default Value:</td>
 					<td>
-						<input name="column.defaultValue" value="$!column.defaultValue"/>
+						<input name="column.defaultValue" value="$!column.defaultValue" size="35"/>
 					</td>
 				</tr>
 				<tr bgcolor="#ffffff">
 					<td>Description:</td>
 					<td>
-						<input name="column.description" value="$!column.description"/>
+						<input name="column.description" value="$!column.description" size="35"/>
 					</td>
 				</tr>
 				<tr bgcolor="#ffffff">
 					<td>Reference:</td>
 					<td>
-						<input type="radio" name="column.reference" value="1" #if($column.reference == 1) checked #end/> Table
-						<input type="radio" name="column.reference" value="2" #if($column.reference == 2) checked #end/> Droplist
+						<input type="radio" name="column.reference" value="1" #if($column.referenceFlag == 1) checked #end/> Table
+						<input type="radio" name="column.reference" value="2" #if($column.referenceFlag == 2) checked #end/> Droplist
 					</td>
 				</tr>
 				<tr bgcolor="#ffffff">
