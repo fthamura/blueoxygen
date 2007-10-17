@@ -1,7 +1,9 @@
 package org.blueoxygen.cimande.gx.droplist;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Timestamp;
 
+import org.apache.commons.beanutils.PropertyUtils;
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.gx.entity.GxDroplistName;
 import org.blueoxygen.cimande.security.SessionCredentials;
@@ -37,13 +39,21 @@ public class SaveDroplist extends DroplistForm implements SessionCredentialsAwar
 			GxDroplistName temp = getName();
 			setName((GxDroplistName)manager.getById(GxDroplistName.class, getName().getId()));
 			log = getName().getLogInformation();
-			getName().setName(temp.getName());
-			getName().setDescription(temp.getDescription());
+			try {
+				PropertyUtils.copyProperties(getName(), temp);
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				e.printStackTrace();
+			} catch (NoSuchMethodException e) {
+				e.printStackTrace();
+			}
 		}
 		log.setActiveFlag(1);
 		log.setLastUpdateBy(sessionCredentials.getCurrentUser().getId());
 		log.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
 		getName().setLogInformation(log);
+		getName().setParent(getParent());
 		manager.save(getName());
 		return SUCCESS;
 	}

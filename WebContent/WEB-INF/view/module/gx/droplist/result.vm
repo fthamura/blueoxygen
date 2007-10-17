@@ -34,8 +34,8 @@
 				<td>$!ct.description</td>
     				<td>
 				    <a href="edit.action?name.id=$ct.id">Edit</a>
-				    <a href="view.action?name.id=$ct.id">View</a>
-					<a href="detail.action?name.id=$ct.id">Detail</a>
+				    <a href="delete.action?name.id=$ct.id">Delete</a>
+				    <!--a href="detail.action?name.id=$ct.id">Detail</a-->
 				</td>
 			</tr>
 			

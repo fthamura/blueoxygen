@@ -1,3 +1,6 @@
-<select name="$name">
+<select name="$!name.name">
 	<option value="">None</option>
+	#foreach($dl in $name.values)
+	<option value="$!dl.value">$!dl.description</option>
+	#end
 </select>
