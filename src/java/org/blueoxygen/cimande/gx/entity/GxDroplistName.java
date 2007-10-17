@@ -11,14 +11,18 @@ import javax.persistence.Table;
 
 import org.blueoxygen.cimande.DefaultPersistent;
 
+/**
+ * @author leo
+ *
+ */
 @Entity
 @Table(name="gx_droplist_name")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class GXDroplistName extends DefaultPersistent {
+public class GxDroplistName extends DefaultPersistent {
 	private String name;
-	private GXDroplistName parent;
-	private List<GXDroplistValue> values;
-	private List<GXDroplistName> childs;
+	private GxDroplistName parent;
+	private List<GxDroplistValue> values;
+	private List<GxDroplistName> childs;
 	private String description;
 	
 	public String getName() {
@@ -27,31 +31,31 @@ public class GXDroplistName extends DefaultPersistent {
 	public void setName(String name) {
 		this.name = name;
 	}
-	@ManyToOne
-	public GXDroplistName getParent() {
-		return parent;
-	}
-	public void setParent(GXDroplistName parent) {
-		this.parent = parent;
-	}
-	@OneToMany(mappedBy="name")
-	public List<GXDroplistValue> getValues() {
-		return values;
-	}
-	public void setValues(List<GXDroplistValue> values) {
-		this.values = values;
-	}
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	@ManyToOne
+	public GxDroplistName getParent() {
+		return parent;
+	}
+	public void setParent(GxDroplistName parent) {
+		this.parent = parent;
+	}
+	@OneToMany(mappedBy="name")
+	public List<GxDroplistValue> getValues() {
+		return values;
+	}
+	public void setValues(List<GxDroplistValue> values) {
+		this.values = values;
+	}
 	@OneToMany(mappedBy="parent")
-	public List<GXDroplistName> getChilds() {
+	public List<GxDroplistName> getChilds() {
 		return childs;
 	}
-	public void setChilds(List<GXDroplistName> childs) {
+	public void setChilds(List<GxDroplistName> childs) {
 		this.childs = childs;
 	}
 }

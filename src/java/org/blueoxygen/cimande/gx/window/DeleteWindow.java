@@ -1,6 +1,6 @@
 package org.blueoxygen.cimande.gx.window;
 
-import org.blueoxygen.cimande.gx.entity.Window;
+import org.blueoxygen.cimande.gx.entity.GxWindow;
 
 
 public class DeleteWindow extends WindowForm {
@@ -11,7 +11,7 @@ public class DeleteWindow extends WindowForm {
 		if(!confirm.equalsIgnoreCase("")){
 			if(confirm.equalsIgnoreCase("Yes")){
 				if(!getId().equalsIgnoreCase("")){
-					window = (Window) manager.getById(Window.class, getId());
+					window = (GxWindow) manager.getById(GxWindow.class, getId());
 					manager.remove(window);
 					setReport("Delete window success.");
 				}else {

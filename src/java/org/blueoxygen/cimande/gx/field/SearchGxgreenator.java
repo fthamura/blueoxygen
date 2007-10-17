@@ -1,9 +1,8 @@
-package org.blueoxygen.cimande.gx.gxform;
+package org.blueoxygen.cimande.gx.field;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-import org.blueoxygen.cimande.gx.entity.Gxform;
+import org.blueoxygen.cimande.gx.entity.GxField;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactoryAware;
 import org.hibernate.Criteria;
@@ -12,37 +11,42 @@ import org.hibernate.classic.Session;
 import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Order;
 
-public class SearchGxform extends GxformForm implements HibernateSessionFactoryAware {
+public class SearchGxgreenator extends GxgreenatorForm implements HibernateSessionFactoryAware {
+	
 	private HibernateSessionFactory hsf;
 	private Session sess;
-	
 	private int maxPage, currPage, nextPage, prevPage = 0, page = 0;
 	private int maxRowPerPage = 10;
 	private String orderBy = "name";
 	private int resultRows;
 	
-	public String execute(){
+	public String execute() {
 		sess = hsf.createSession();
-		Criteria crit = sess.createCriteria(Gxform.class);
-		if (!gxform.getName().equalsIgnoreCase("")){
-			crit.add(Expression.like("name", "%"+ gxform.getName()+ "%"));
+		Criteria crit = sess.createCriteria(GxField.class);
+		if (!field.getName().equalsIgnoreCase("")){
+			crit.add(Expression.like("name", "%"+ field.getName()+"%"));
 		}
-		if (!gxform.getGxformName().equalsIgnoreCase("")){
-			crit.add(Expression.like("gxformName", "%"+ gxform.getGxformName()+ "%"));
-		}
+//		if (!field.getValue().equalsIgnoreCase("")){
+//			crit.add(Expression.like("name", "%"+ field.getValue()+"%"));
+//		}
+//		if (!field.getType().equalsIgnoreCase("")){
+//			crit.add(Expression.like("name", "%"+ field.getType()+"%"));
+//		}
+		
 		resultRows = crit.list().size();
 		maxPage = resultRows / maxRowPerPage;
 		prevPage = currPage - 1;
 		nextPage = currPage + 1;
 		page = currPage + 1;
-		if (resultRows % maxRowPerPage == 0) maxPage = maxPage -1;
-		gxforms = (ArrayList<Gxform>)crit.addOrder(Order.asc(orderBy))
+		
+		if (resultRows % maxRowPerPage == 0) maxPage = maxPage - 1;
+		fields = crit.addOrder(Order.asc(orderBy))
 			.setFirstResult(currPage*maxRowPerPage)
 			.setMaxResults(maxRowPerPage)
 			.list();
 		
-		try {
-			hsf.endSession((sess));
+		try{
+			hsf.endSession(sess);
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -50,7 +54,7 @@ public class SearchGxform extends GxformForm implements HibernateSessionFactoryA
 		}
 		return SUCCESS;
 	}
-
+	
 	/**
 	 * @return Returns the currPage.
 	 */
@@ -75,7 +79,7 @@ public class SearchGxform extends GxformForm implements HibernateSessionFactoryA
 	/**
 	 * @param hsf The hsf to set.
 	 */
-	public void setHsf(HibernateSessionFactory hsf) {
+	public void setHibernateSessionFactory(HibernateSessionFactory hsf) {
 		this.hsf = hsf;
 	}
 
@@ -189,10 +193,5 @@ public class SearchGxform extends GxformForm implements HibernateSessionFactoryA
 	 */
 	public void setSess(Session sess) {
 		this.sess = sess;
-	}
-
-	public void setHibernateSessionFactory(HibernateSessionFactory hsf) {
-		this.hsf = hsf;		
-	}
-
+	}	
 }

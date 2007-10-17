@@ -5,10 +5,10 @@ import java.util.List;
 
 import org.blueoxygen.cimande.gx.db.GXDBAccessor;
 import org.blueoxygen.cimande.gx.db.GXDBAccessorImpl;
-import org.blueoxygen.cimande.gx.entity.GXColumn;
-import org.blueoxygen.cimande.gx.entity.GXDroplistName;
-import org.blueoxygen.cimande.gx.entity.GXDroplistValue;
-import org.blueoxygen.cimande.gx.entity.GXTable;
+import org.blueoxygen.cimande.gx.entity.GxColumn;
+import org.blueoxygen.cimande.gx.entity.GxDroplistName;
+import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
+import org.blueoxygen.cimande.gx.entity.GxTable;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 
@@ -16,28 +16,26 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ColumnForm extends ActionSupport implements PersistenceAware {
 	protected PersistenceManager manager;
-	protected GXDBAccessor accessor;
-	private GXColumn column = new GXColumn();
-	private List<GXColumn> columns = new ArrayList<GXColumn>();
-	private GXTable table = new GXTable();
-	private GXTable referenceTable = new GXTable();
-	private GXDroplistName referenceDroplist = new GXDroplistName();
+	private GxColumn column = new GxColumn();
+	private List<GxColumn> columns = new ArrayList<GxColumn>();
+	private GxTable table = new GxTable();
+	private GxTable referenceTable = new GxTable();
+	private GxDroplistName referenceDroplist = new GxDroplistName();
 	private String report = "";
-	private List<GXDroplistValue> dataTypes = new ArrayList<GXDroplistValue>();
-	private GXDroplistValue dataType = new GXDroplistValue();
+	private List<GxDroplistValue> dataTypes = new ArrayList<GxDroplistValue>();
+	private GxDroplistValue dataType = new GxDroplistValue();
 	
 	public String execute(){
-		accessor = new GXDBAccessorImpl(manager);
 		if(getColumn().getId() != null && !"".equalsIgnoreCase(getColumn().getId())){
-			setColumn((GXColumn) manager.getById(GXColumn.class, getColumn().getId()));
+			setColumn((GxColumn) manager.getById(GxColumn.class, getColumn().getId()));
 //			getColumn().getTable();
 //			getColumn().getReferenceTable();
 		}
 		if(getTable().getId() != null && !"".equalsIgnoreCase(getTable().getId())){
-			setTable((GXTable) manager.getById(GXTable.class, getTable().getId()));
+			setTable((GxTable) manager.getById(GxTable.class, getTable().getId()));
 			getTable().getColumns();
 		}
-		dataTypes = (List<GXDroplistValue>)manager.getList("FROM " + GXDroplistValue.class.getName() + 
+		dataTypes = (List<GxDroplistValue>)manager.getList("FROM " + GxDroplistValue.class.getName() + 
 				" v WHERE v.name.id='ff808081153bcda301153bce42640001'", null, null);
 		return SUCCESS;
 	}
@@ -46,27 +44,27 @@ public class ColumnForm extends ActionSupport implements PersistenceAware {
 		this.manager = persistenceManager;
 	}
 
-	public GXColumn getColumn() {
+	public GxColumn getColumn() {
 		return column;
 	}
 
-	public void setColumn(GXColumn column) {
+	public void setColumn(GxColumn column) {
 		this.column = column;
 	}
 
-	public List<GXColumn> getColumns() {
+	public List<GxColumn> getColumns() {
 		return columns;
 	}
 
-	public void setColumns(List<GXColumn> columns) {
+	public void setColumns(List<GxColumn> columns) {
 		this.columns = columns;
 	}
 
-	public GXTable getTable() {
+	public GxTable getTable() {
 		return table;
 	}
 
-	public void setTable(GXTable table) {
+	public void setTable(GxTable table) {
 		this.table = table;
 	}
 
@@ -78,35 +76,35 @@ public class ColumnForm extends ActionSupport implements PersistenceAware {
 		this.report = report;
 	}
 
-	public GXTable getReferenceTable() {
+	public GxTable getReferenceTable() {
 		return referenceTable;
 	}
 
-	public void setReferenceTable(GXTable referenceTable) {
+	public void setReferenceTable(GxTable referenceTable) {
 		this.referenceTable = referenceTable;
 	}
 
-	public List<GXDroplistValue> getDataTypes() {
+	public List<GxDroplistValue> getDataTypes() {
 		return dataTypes;
 	}
 
-	public void setDataTypes(List<GXDroplistValue> dataTypes) {
+	public void setDataTypes(List<GxDroplistValue> dataTypes) {
 		this.dataTypes = dataTypes;
 	}
 
-	public GXDroplistValue getDataType() {
+	public GxDroplistValue getDataType() {
 		return dataType;
 	}
 
-	public void setDataType(GXDroplistValue dataType) {
+	public void setDataType(GxDroplistValue dataType) {
 		this.dataType = dataType;
 	}
 
-	public GXDroplistName getReferenceDroplist() {
+	public GxDroplistName getReferenceDroplist() {
 		return referenceDroplist;
 	}
 
-	public void setReferenceDroplist(GXDroplistName referenceDroplist) {
+	public void setReferenceDroplist(GxDroplistName referenceDroplist) {
 		this.referenceDroplist = referenceDroplist;
 	}
 

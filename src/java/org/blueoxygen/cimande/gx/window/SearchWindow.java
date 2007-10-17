@@ -3,7 +3,7 @@ package org.blueoxygen.cimande.gx.window;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.blueoxygen.cimande.gx.entity.Window;
+import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactoryAware;
 import org.hibernate.Criteria;
@@ -24,7 +24,7 @@ public class SearchWindow extends WindowForm implements HibernateSessionFactoryA
 	//private List  = new ArrayList();
 	public String execute() {
 		sess = hsf.createSession();
-		Criteria crit = sess.createCriteria(Window.class);
+		Criteria crit = sess.createCriteria(GxWindow.class);
 		if (!window.getName().equalsIgnoreCase("")){
 			crit.add(Expression.like("name", "%"+window.getName()+"%"));
 		}
@@ -37,7 +37,7 @@ public class SearchWindow extends WindowForm implements HibernateSessionFactoryA
 		nextPage = currPage + 1;
 		page = currPage + 1;
 		if (resultRows % maxRowPerPage == 0) maxPage = maxPage - 1;
-		windows = (ArrayList<Window>)crit.addOrder(Order.asc(orderBy))
+		windows = (ArrayList<GxWindow>)crit.addOrder(Order.asc(orderBy))
 					.setFirstResult(currPage*maxRowPerPage)
 					.setMaxResults(maxRowPerPage)
 					.list();

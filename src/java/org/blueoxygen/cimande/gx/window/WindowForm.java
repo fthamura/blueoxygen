@@ -3,7 +3,7 @@ package org.blueoxygen.cimande.gx.window;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.blueoxygen.cimande.gx.entity.Window;
+import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 
@@ -12,15 +12,15 @@ import com.opensymphony.xwork2.ActionSupport;
 public class WindowForm extends ActionSupport implements PersistenceAware {
 	protected PersistenceManager manager;
 //	protected List<Tab> tabs = new ArrayList<Tab>();
-	protected List<Window> windows = new ArrayList<Window>();
-	protected Window window = new Window();
-	protected Window temp = new Window();
+	protected List<GxWindow> windows = new ArrayList<GxWindow>();
+	protected GxWindow window = new GxWindow();
+	protected GxWindow temp = new GxWindow();
 	private String id = "";
 	private String report = "";
 	
 	public String execute(){
 		if (!getId().equalsIgnoreCase("")){
-			window = (Window)manager.getById(Window.class, getId());
+			window = (GxWindow)manager.getById(GxWindow.class, getId());
 //			String query = "FROM "+ Tab.class.getName() + " AS tc WHERE tc.window.id='"+window.getId()+"'";
 //			tabs = (ArrayList<Tab>)manager.getList(query, null, null);
 		}
@@ -35,14 +35,14 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 	/**
 	 * @return Returns the window.
 	 */
-	public Window getWindow() {
+	public GxWindow getWindow() {
 		return window;
 	}
 
 	/**
 	 * @param window The window to set.
 	 */
-	public void setWindow(Window window) {
+	public void setWindow(GxWindow window) {
 		this.window = window;
 	}
 
@@ -81,28 +81,28 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 	/**
 	 * @return Returns the temp.
 	 */
-	public Window getTemp() {
+	public GxWindow getTemp() {
 		return temp;
 	}
 
 	/**
 	 * @param temp The temp to set.
 	 */
-	public void setTemp(Window temp) {
+	public void setTemp(GxWindow temp) {
 		this.temp = temp;
 	}
 
 	/**
 	 * @return the windows
 	 */
-	public List<Window> getWindows() {
+	public List<GxWindow> getWindows() {
 		return windows;
 	}
 
 	/**
 	 * @param windows the windows to set
 	 */
-	public void setWindows(List<Window> windows) {
+	public void setWindows(List<GxWindow> windows) {
 		this.windows = windows;
 	}
 

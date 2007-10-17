@@ -2,7 +2,7 @@ package org.blueoxygen.cimande.gx.window;
 
 import java.sql.Timestamp;
 
-import org.blueoxygen.cimande.gx.entity.Window;
+import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.LogInformation;
 
 
@@ -21,7 +21,7 @@ public class AddWindow extends WindowForm {
 		if(getId().equalsIgnoreCase("")){
 			logInfo.setCreateDate(new Timestamp(System.currentTimeMillis()));
 		} else {
-			temp = (Window)manager.getById(Window.class, getId());
+			temp = (GxWindow)manager.getById(GxWindow.class, getId());
 			logInfo.setCreateDate(temp.getLogInformation().getCreateDate());
 		}
 		logInfo.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));

@@ -17,16 +17,14 @@ import org.blueoxygen.cimande.DefaultPersistent;
 @Entity
 @Table(name="gx_db_table")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class GXTable extends DefaultPersistent {
+public class GxTable extends DefaultPersistent {
 	private String name;
 	private String description;
 	private String dbTable;
-	private Window window;
-	private GXDroplistValue dataAccessLevel;
-	private String entityName;
-//	private GXColumn primary;
-//	private List<GXRow> rows = new ArrayList<GXRow>();
-	private List<GXColumn> columns = new ArrayList<GXColumn>();
+	private GxWindow window;
+	private GxDroplistValue dataAccessLevel;
+	private GxDroplistValue entity;
+	private List<GxColumn> columns = new ArrayList<GxColumn>();
 	
 	public String getName() {
 		return name;
@@ -34,33 +32,47 @@ public class GXTable extends DefaultPersistent {
 	public void setName(String name) {
 		this.name = name;
 	}
-//	@ManyToOne
-//	@JoinColumn(name="primary_id")
-//	public GXColumn getPrimary() {
-//		return primary;
-//	}
-//	public void setPrimary(GXColumn primary) {
-//		this.primary = primary;
-//	}
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
-//	@OneToMany(mappedBy="table")
-//	public List<GXRow> getRows() {
-//		return rows;
-//	}
-//	public void setRows(List<GXRow> rows) {
-//		this.rows = rows;
-//	}
 	@OneToMany(mappedBy="table")
-	public List<GXColumn> getColumns() {
+	public List<GxColumn> getColumns() {
 		return columns;
 	}
-	public void setColumns(List<GXColumn> columns) {
+	public void setColumns(List<GxColumn> columns) {
 		this.columns = columns;
+	}
+	public String getDbTable() {
+		return dbTable;
+	}
+	public void setDbTable(String dbTable) {
+		this.dbTable = dbTable;
+	}
+	@ManyToOne
+	public GxWindow getWindow() {
+		return window;
+	}
+	public void setWindow(GxWindow window) {
+		this.window = window;
+	}
+	@ManyToOne
+	@JoinColumn(name="data_access_level_id")
+	public GxDroplistValue getDataAccessLevel() {
+		return dataAccessLevel;
+	}
+	public void setDataAccessLevel(GxDroplistValue dataAccessLevel) {
+		this.dataAccessLevel = dataAccessLevel;
+	}
+	@ManyToOne
+	@JoinColumn(name="entity_id")
+	public GxDroplistValue getEntity() {
+		return entity;
+	}
+	public void setEntity(GxDroplistValue entity) {
+		this.entity = entity;
 	}
 	@Transient
 	public int getColumnCount(){

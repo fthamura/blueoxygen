@@ -4,23 +4,25 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.blueoxygen.cimande.DefaultPersistent;
 
 @Entity()
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@Table(name="gx_window")
-public class Window extends DefaultPersistent {
+@Table(name="gx_form_window")
+public class GxWindow extends DefaultPersistent {
 
 	private String name;
 	private String description;
-	private String entityType;
-	private String windowType;
 	private String image;
 	private int height;
 	private int width;
-
+	private GxDroplistValue entityType;
+	private GxDroplistValue windowType;
+	
 	@Column
 	public String getDescription() {
 		return description;
@@ -53,6 +55,22 @@ public class Window extends DefaultPersistent {
 	}
 	public void setHeight(int height) {
 		this.height = height;
+	}
+	@ManyToOne
+	@JoinColumn(name="entity_type_id")
+	public GxDroplistValue getEntityType() {
+		return entityType;
+	}
+	public void setEntityType(GxDroplistValue entityType) {
+		this.entityType = entityType;
+	}
+	@ManyToOne
+	@JoinColumn(name="window_type_id")
+	public GxDroplistValue getWindowType() {
+		return windowType;
+	}
+	public void setWindowType(GxDroplistValue windowType) {
+		this.windowType = windowType;
 	}
 	
 	

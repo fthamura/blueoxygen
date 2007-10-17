@@ -3,7 +3,7 @@ package org.blueoxygen.cimande.gx.db.table;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.blueoxygen.cimande.gx.entity.GXTable;
+import org.blueoxygen.cimande.gx.entity.GxTable;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactoryAware;
 import org.hibernate.Criteria;
@@ -26,7 +26,7 @@ public class SearchTable extends TableForm implements HibernateSessionFactoryAwa
 	
 	public String execute(){
 		sess = hsf.createSession();
-		Criteria crit = sess.createCriteria(GXTable.class);
+		Criteria crit = sess.createCriteria(GxTable.class);
 		if (getTable().getName() != null && "".equalsIgnoreCase(getTable().getName())){
 			crit.add(Expression.like("name", "%"+getTable().getName()+"%"));
 		}
@@ -38,7 +38,7 @@ public class SearchTable extends TableForm implements HibernateSessionFactoryAwa
 		paging();
 		
 		if(resultRows > 0){
-			setTables((ArrayList<GXTable>) crit.addOrder(Order.asc(orderBy))
+			setTables((ArrayList<GxTable>) crit.addOrder(Order.asc(orderBy))
 					.setFirstResult(currPage * maxRowPerPage)
 					.setMaxResults(maxRowPerPage)
 					.list());

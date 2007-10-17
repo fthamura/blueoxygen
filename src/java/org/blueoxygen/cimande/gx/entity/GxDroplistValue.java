@@ -3,24 +3,30 @@ package org.blueoxygen.cimande.gx.entity;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.blueoxygen.cimande.DefaultPersistent;
 
+/**
+ * @author leo
+ *
+ */
 @Entity
 @Table(name="gx_droplist_value")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class GXDroplistValue extends DefaultPersistent {
-	private GXDroplistName name;
+public class GxDroplistValue extends DefaultPersistent {
+	private GxDroplistName name;
 	private String value;
 	private String description;
 	
 	@ManyToOne
-	public GXDroplistName getName() {
+	@JoinColumn(name="droplist_name_id")
+	public GxDroplistName getName() {
 		return name;
 	}
-	public void setName(GXDroplistName name) {
+	public void setName(GxDroplistName name) {
 		this.name = name;
 	}
 	public String getValue() {

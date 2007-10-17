@@ -1,11 +1,11 @@
-package org.blueoxygen.cimande.gx.gxgreenator;
+package org.blueoxygen.cimande.gx.field;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.blueoxygen.cimande.gx.entity.GXDroplistValue;
-import org.blueoxygen.cimande.gx.entity.GxGreenator;
-import org.blueoxygen.cimande.gx.entity.Gxform;
+import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
+import org.blueoxygen.cimande.gx.entity.GxField;
+import org.blueoxygen.cimande.gx.entity.GxTab;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 
@@ -13,19 +13,19 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GxgreenatorForm extends ActionSupport implements PersistenceAware {
 	protected PersistenceManager manager;
-	protected List<GxGreenator> gxgreenators = new ArrayList<GxGreenator>();
-	protected GxGreenator gxgreenator = new GxGreenator();
-	protected GxGreenator gx = new GxGreenator();
-	protected Gxform gxform = new Gxform();
+	protected List<GxField> fields = new ArrayList<GxField>();
+	protected GxField field = new GxField();
+	protected GxField gx = new GxField();
+	protected GxTab tab = new GxTab();
 	private String report = "";
 
 	public String execute() {
 		if(gx.getId() != null && !"".equalsIgnoreCase(gx.getId())){
-			gx = (GxGreenator) manager.getById(GxGreenator.class, gx.getId());
-			gxform = gx.getThinGxform();
-		} else if(gxform.getId() != null && !"".equalsIgnoreCase(gxform.getId())){
-			gxform = (Gxform) manager.getById(Gxform.class, getGxform().getId());
-			gxgreenators = gxform.getGreenators();
+			gx = (GxField) manager.getById(GxField.class, gx.getId());
+			tab = gx.getTab();
+		} else if(tab.getId() != null && !"".equalsIgnoreCase(tab.getId())){
+			tab = (GxTab) manager.getById(GxTab.class, getGxform().getId());
+			fields = tab.getFields();
 		}
 		return SUCCESS;
 	}
@@ -33,29 +33,29 @@ public class GxgreenatorForm extends ActionSupport implements PersistenceAware {
 	/**
 	 * @return Returns the gx.
 	 */
-	public GxGreenator getGx() {
+	public GxField getGx() {
 		return gx;
 	}
 
 	/**
 	 * @param gx The gx to set.
 	 */
-	public void setGx(GxGreenator gx) {
+	public void setGx(GxField gx) {
 		this.gx = gx;
 	}
 
 	/**
-	 * @return Returns the gxform.
+	 * @return Returns the tab.
 	 */
-	public Gxform getGxform() {
-		return gxform;
+	public GxTab getGxform() {
+		return tab;
 	}
 
 	/**
-	 * @param gxform The gxform to set.
+	 * @param tab The tab to set.
 	 */
-	public void setGxform(Gxform gxform) {
-		this.gxform = gxform;
+	public void setGxform(GxTab tab) {
+		this.tab = tab;
 	}
 //
 //	/**
@@ -73,31 +73,31 @@ public class GxgreenatorForm extends ActionSupport implements PersistenceAware {
 //	}
 
 	/**
-	 * @return Returns the gxgreenator.
+	 * @return Returns the field.
 	 */
-	public GxGreenator getGxgreenator() {
-		return gxgreenator;
+	public GxField getGxgreenator() {
+		return field;
 	}
 
 	/**
-	 * @param gxgreenator The gxgreenator to set.
+	 * @param field The field to set.
 	 */
-	public void setGxgreenator(GxGreenator gxgreenator) {
-		this.gxgreenator = gxgreenator;
+	public void setGxgreenator(GxField gxgreenator) {
+		this.field = gxgreenator;
 	}
 
 	/**
-	 * @return Returns the gxgreenators.
+	 * @return Returns the fields.
 	 */
-	public List<GxGreenator> getGxgreenators() {
-		return gxgreenators;
+	public List<GxField> getGxgreenators() {
+		return fields;
 	}
 
 	/**
-	 * @param gxgreenators The gxgreenators to set.
+	 * @param fields The fields to set.
 	 */
-	public void setGxgreenators(List<GxGreenator> gxgreenators) {
-		this.gxgreenators = gxgreenators;
+	public void setGxgreenators(List<GxField> gxgreenators) {
+		this.fields = gxgreenators;
 	}
 
 	/**
@@ -132,11 +132,11 @@ public class GxgreenatorForm extends ActionSupport implements PersistenceAware {
 		this.manager = persistenceManager;		
 	}
 
-//	public GXDroplistValue getFieldType() {
+//	public GxDroplistValue getFieldType() {
 //		return fieldType;
 //	}
 //
-//	public void setFieldType(GXDroplistValue fieldType) {
+//	public void setFieldType(GxDroplistValue fieldType) {
 //		this.fieldType = fieldType;
 //	}
 

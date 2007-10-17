@@ -1,8 +1,9 @@
-package org.blueoxygen.cimande.gx.gxgreenator;
+package org.blueoxygen.cimande.gx.tab;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-import org.blueoxygen.cimande.gx.entity.GxGreenator;
+import org.blueoxygen.cimande.gx.entity.GxTab;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactoryAware;
 import org.hibernate.Criteria;
@@ -11,42 +12,34 @@ import org.hibernate.classic.Session;
 import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Order;
 
-public class SearchGxgreenator extends GxgreenatorForm implements HibernateSessionFactoryAware {
-	
+public class SearchGxform extends GxformForm implements HibernateSessionFactoryAware {
 	private HibernateSessionFactory hsf;
 	private Session sess;
+	
 	private int maxPage, currPage, nextPage, prevPage = 0, page = 0;
 	private int maxRowPerPage = 10;
 	private String orderBy = "name";
 	private int resultRows;
 	
-	public String execute() {
+	public String execute(){
 		sess = hsf.createSession();
-		Criteria crit = sess.createCriteria(GxGreenator.class);
-		if (!gxgreenator.getName().equalsIgnoreCase("")){
-			crit.add(Expression.like("name", "%"+ gxgreenator.getName()+"%"));
+		Criteria crit = sess.createCriteria(GxTab.class);
+		if (!tab.getName().equalsIgnoreCase("")){
+			crit.add(Expression.like("name", "%"+ tab.getName()+ "%"));
 		}
-		if (!gxgreenator.getValue().equalsIgnoreCase("")){
-			crit.add(Expression.like("name", "%"+ gxgreenator.getValue()+"%"));
-		}
-//		if (!gxgreenator.getType().equalsIgnoreCase("")){
-//			crit.add(Expression.like("name", "%"+ gxgreenator.getType()+"%"));
-//		}
-		
 		resultRows = crit.list().size();
 		maxPage = resultRows / maxRowPerPage;
 		prevPage = currPage - 1;
 		nextPage = currPage + 1;
 		page = currPage + 1;
-		
-		if (resultRows % maxRowPerPage == 0) maxPage = maxPage - 1;
-		gxgreenators = crit.addOrder(Order.asc(orderBy))
+		if (resultRows % maxRowPerPage == 0) maxPage = maxPage -1;
+		tabs = (ArrayList<GxTab>)crit.addOrder(Order.asc(orderBy))
 			.setFirstResult(currPage*maxRowPerPage)
 			.setMaxResults(maxRowPerPage)
 			.list();
 		
-		try{
-			hsf.endSession(sess);
+		try {
+			hsf.endSession((sess));
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -54,7 +47,7 @@ public class SearchGxgreenator extends GxgreenatorForm implements HibernateSessi
 		}
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * @return Returns the currPage.
 	 */
@@ -79,7 +72,7 @@ public class SearchGxgreenator extends GxgreenatorForm implements HibernateSessi
 	/**
 	 * @param hsf The hsf to set.
 	 */
-	public void setHibernateSessionFactory(HibernateSessionFactory hsf) {
+	public void setHsf(HibernateSessionFactory hsf) {
 		this.hsf = hsf;
 	}
 
@@ -193,5 +186,10 @@ public class SearchGxgreenator extends GxgreenatorForm implements HibernateSessi
 	 */
 	public void setSess(Session sess) {
 		this.sess = sess;
-	}	
+	}
+
+	public void setHibernateSessionFactory(HibernateSessionFactory hsf) {
+		this.hsf = hsf;		
+	}
+
 }

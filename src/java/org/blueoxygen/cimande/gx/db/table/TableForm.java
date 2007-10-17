@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.blueoxygen.cimande.gx.db.GXDBAccessor;
 import org.blueoxygen.cimande.gx.db.GXDBAccessorImpl;
-import org.blueoxygen.cimande.gx.entity.GXTable;
+import org.blueoxygen.cimande.gx.entity.GxTable;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 
@@ -13,15 +13,15 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class TableForm extends ActionSupport implements PersistenceAware {
 	protected PersistenceManager manager;
-	protected GXDBAccessor accessor;
-	private List<GXTable> tables = new ArrayList<GXTable>();
-	private GXTable table = new GXTable();
+//	protected GXDBAccessor accessor;
+	private List<GxTable> tables = new ArrayList<GxTable>();
+	private GxTable table = new GxTable();
 	private String report = "";
 	
 	public String execute(){
-		accessor = new GXDBAccessorImpl(manager);
+//		accessor = new GXDBAccessorImpl(manager);
 		if(getTable().getId() != null && !"".equalsIgnoreCase(getTable().getId())){
-			setTable((GXTable) manager.getById(GXTable.class, getTable().getId()));
+			setTable((GxTable) manager.getById(GxTable.class, getTable().getId()));
 			getTable().getColumns();
 		}
 		return SUCCESS;
@@ -31,19 +31,19 @@ public class TableForm extends ActionSupport implements PersistenceAware {
 		this.manager = persistenceManager;
 	}
 
-	public List<GXTable> getTables() {
+	public List<GxTable> getTables() {
 		return tables;
 	}
 
-	public void setTables(List<GXTable> tables) {
+	public void setTables(List<GxTable> tables) {
 		this.tables = tables;
 	}
 
-	public GXTable getTable() {
+	public GxTable getTable() {
 		return table;
 	}
 
-	public void setTable(GXTable table) {
+	public void setTable(GxTable table) {
 		this.table = table;
 	}
 

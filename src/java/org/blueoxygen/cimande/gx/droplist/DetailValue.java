@@ -3,8 +3,8 @@ package org.blueoxygen.cimande.gx.droplist;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.blueoxygen.cimande.gx.entity.GXDroplistName;
-import org.blueoxygen.cimande.gx.entity.GXDroplistValue;
+import org.blueoxygen.cimande.gx.entity.GxDroplistName;
+import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 
@@ -12,45 +12,45 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DetailValue extends ActionSupport implements PersistenceAware {
 	protected PersistenceManager manager;
-	private GXDroplistName name = new GXDroplistName();
-	private GXDroplistName parent = new GXDroplistName();
-	private GXDroplistValue value = new GXDroplistValue();
-	private List<GXDroplistName> names = new ArrayList<GXDroplistName>();
+	private GxDroplistName name = new GxDroplistName();
+	private GxDroplistName parent = new GxDroplistName();
+	private GxDroplistValue value = new GxDroplistValue();
+	private List<GxDroplistName> names = new ArrayList<GxDroplistName>();
 	private String report = "";
 	
 	public String execute(){
 		if(getName().getId() != null && !"".equalsIgnoreCase(getName().getId())){
-			setName((GXDroplistName) manager.getById(GXDroplistName.class, getName().getId()));
+			setName((GxDroplistName) manager.getById(GxDroplistName.class, getName().getId()));
 			getName().getChilds();
 			getName().getValues();
 		}
 		if(getValue().getId() != null && !"".equalsIgnoreCase(getValue().getId())){
-			setValue((GXDroplistValue) manager.getById(GXDroplistValue.class, getValue().getId()));
+			setValue((GxDroplistValue) manager.getById(GxDroplistValue.class, getValue().getId()));
 		}
 		return SUCCESS;
 	}
 
-	public GXDroplistName getName() {
+	public GxDroplistName getName() {
 		return name;
 	}
 
-	public void setName(GXDroplistName name) {
+	public void setName(GxDroplistName name) {
 		this.name = name;
 	}
 
-	public GXDroplistValue getValue() {
+	public GxDroplistValue getValue() {
 		return value;
 	}
 
-	public void setValue(GXDroplistValue value) {
+	public void setValue(GxDroplistValue value) {
 		this.value = value;
 	}
 
-	public List<GXDroplistName> getNames() {
+	public List<GxDroplistName> getNames() {
 		return names;
 	}
 
-	public void setNames(List<GXDroplistName> names) {
+	public void setNames(List<GxDroplistName> names) {
 		this.names = names;
 	}
 
@@ -66,11 +66,11 @@ public class DetailValue extends ActionSupport implements PersistenceAware {
 		this.report = report;
 	}
 
-	public GXDroplistName getParent() {
+	public GxDroplistName getParent() {
 		return parent;
 	}
 
-	public void setParent(GXDroplistName parent) {
+	public void setParent(GxDroplistName parent) {
 		this.parent = parent;
 	}
 }

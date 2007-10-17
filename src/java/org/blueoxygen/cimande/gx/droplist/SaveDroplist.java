@@ -3,7 +3,7 @@ package org.blueoxygen.cimande.gx.droplist;
 import java.sql.Timestamp;
 
 import org.blueoxygen.cimande.LogInformation;
-import org.blueoxygen.cimande.gx.entity.GXDroplistName;
+import org.blueoxygen.cimande.gx.entity.GxDroplistName;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 
@@ -17,7 +17,7 @@ public class SaveDroplist extends DroplistForm implements SessionCredentialsAwar
 		if(getParent().getId() == null || "".equalsIgnoreCase(getParent().getId())){
 			setParent(null);
 		} else {
-			setParent((GXDroplistName) manager.getById(GXDroplistName.class, getParent().getId()));
+			setParent((GxDroplistName) manager.getById(GxDroplistName.class, getParent().getId()));
 		}
 		if(hasErrors()){
 			return INPUT;
@@ -34,8 +34,8 @@ public class SaveDroplist extends DroplistForm implements SessionCredentialsAwar
 			log.setCreateDate(new Timestamp(System.currentTimeMillis()));
 			getName().setId(null);
 		} else {
-			GXDroplistName temp = getName();
-			setName((GXDroplistName)manager.getById(GXDroplistName.class, getName().getId()));
+			GxDroplistName temp = getName();
+			setName((GxDroplistName)manager.getById(GxDroplistName.class, getName().getId()));
 			log = getName().getLogInformation();
 			getName().setName(temp.getName());
 			getName().setDescription(temp.getDescription());

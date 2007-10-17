@@ -1,10 +1,10 @@
-package org.blueoxygen.cimande.gx.gxform;
+package org.blueoxygen.cimande.gx.tab;
 
 import java.sql.Timestamp;
 
 import org.blueoxygen.cimande.LogInformation;
-import org.blueoxygen.cimande.gx.entity.GXTable;
-import org.blueoxygen.cimande.gx.entity.Gxform;
+import org.blueoxygen.cimande.gx.entity.GxTable;
+import org.blueoxygen.cimande.gx.entity.GxTab;
 
 public class AddGxform extends GxformForm {
 	
@@ -12,14 +12,11 @@ public class AddGxform extends GxformForm {
 		if (getGxform().getName().equalsIgnoreCase("")){
 			addActionError("Name can not be empty");
 		}
-		if (getGxform().getGxformName().equalsIgnoreCase("")) {
-			addActionError("GxformName can not be empty");
-		}
 		
 		if (getTable().getId() == null || "".equalsIgnoreCase(getTable().getId())) {
 			addActionError("Table can not be empty");
 		} else {
-			setTable((GXTable) manager.getById(GXTable.class, getTable().getId()));
+			setTable((GxTable) manager.getById(GxTable.class, getTable().getId()));
 		}
 	
 		if (hasActionErrors()){
@@ -30,20 +27,19 @@ public class AddGxform extends GxformForm {
 		if(getId().equalsIgnoreCase("")){
 			logInfo.setCreateDate(new Timestamp(System.currentTimeMillis()));
 		} else {
-			temp = (Gxform)manager.getById(Gxform.class, getId());
+			temp = (GxTab)manager.getById(GxTab.class, getId());
 			logInfo.setCreateDate(temp.getLogInformation().getCreateDate());
 		}
 		logInfo.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
 		logInfo.setActiveFlag(1);
 		
-		temp.setName(gxform.getName());
-		temp.setGxformName(gxform.getGxformName());
+		temp.setName(tab.getName());
 		temp.setTable(getTable());
 		
 		temp.setLogInformation(logInfo);
 		
 		manager.save(temp);
-		setReport("Add gxform succes");
+		setReport("Add tab succes");
 		setId(temp.getId());
 		return SUCCESS;
 	}

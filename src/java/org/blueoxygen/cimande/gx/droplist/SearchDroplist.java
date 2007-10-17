@@ -3,7 +3,7 @@ package org.blueoxygen.cimande.gx.droplist;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.blueoxygen.cimande.gx.entity.GXDroplistName;
+import org.blueoxygen.cimande.gx.entity.GxDroplistName;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactoryAware;
 import org.hibernate.Criteria;
@@ -23,7 +23,7 @@ public class SearchDroplist extends DroplistForm implements HibernateSessionFact
 	
 	public String execute(){
 		sess = hsf.createSession();
-		Criteria crit = sess.createCriteria(GXDroplistName.class);
+		Criteria crit = sess.createCriteria(GxDroplistName.class);
 		if(getName().getName() != null && !"".equalsIgnoreCase(getName().getName())) {
 			crit.add(Expression.like("name","%"+getName().getName()+"%"));
 		}
@@ -38,7 +38,7 @@ public class SearchDroplist extends DroplistForm implements HibernateSessionFact
 		prevPage = currPage - 1;
 		nextPage = currPage + 1;
 		if(resultRows % maxRowPerPage == 0) maxPage = maxPage - 1;
-		setNames((List<GXDroplistName>)crit.addOrder(Order.asc(orderBy))
+		setNames((List<GxDroplistName>)crit.addOrder(Order.asc(orderBy))
 				.setFirstResult(currPage*maxRowPerPage)
 				.setMaxResults(maxRowPerPage)
 				.list());
