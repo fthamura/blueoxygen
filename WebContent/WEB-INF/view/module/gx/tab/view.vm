@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Gxform Detail</title>
+<title>Tab Detail</title>
  <link rel="stylesheet" type="text/css" href="../../style.css">
   <style type="text/css">
 <!--
@@ -13,38 +13,43 @@
   </style>
 </head>
 
-#if (!$gxgreenator.actionErrors.isEmpty())
+<body>
+#if (!$actionErrors.isEmpty())
+			<div class="errorMessage">Errors</div>
 			<ul class="errorMessage">
-			#foreach( $gxgreenatorerror in $gxgreenator.actionErrors )
-				<li>$gxgreenator.error</li>
+			#foreach( $error in $actionErrors )
+				<li>$error</li>
 			#end
 			</ul>
 		#end
-
-<body onload="HTMLArea.replaceAll();"><Br>
-<form method="post" action="../gxgreenator/add.action">
-<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
-  <tbody>
-	<tr bgcolor="#8FEC13">
-    	<td colspan="2" bgcolor="#333366" id="tableHeader1"><span class="style1">Gxform - Form Detail</span></td>
-  	</tr>
-    <tr bgcolor="#ffffff">
-     	<td align="right" width="40%" id="tableHeader2">Name    :</td>
-     	<td>$!gxform.name  </td>
-    </tr bgcolor="#ffffff">
-	<tr bgcolor="#ffffff">
-		<td align="right" id="tableHeader2">Gxform Name  : </td>
-		<td>$!gxform.gxformName</td>
-	</tr>
-	<tr bgcolor="#ffffff">
-		<td align="right" id="tableHeader2">Table Name  : </td>
-		<td>$!gxform.table.name</td>
-	</tr>
-	<tr bgcolor="#A8FF93">
-		<td colspan="2" align="right" bgcolor="#CFE9EB" id="tableHeader2"><a href="../generate/edit.action?id=$!gxform.id">Edit</a> <b>|</b><a href="../generate/confirm.action?id=$gxform.Id">Delete</a> <b>|</b> 
-		<a href="../generate/gen.action?id=$!gxform.id"><b><font color="red">Generate</font></b></a>    </tr>
-  </tbody>
-</table>
+		
+		<form method="get" action="add.action">
+			<table align="center" border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+				<tr>
+					<td colspan="2" bgcolor="#333366"><span class="style1">Add / Edit Gxform</span></td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td align="right" width="40%">Name<font color="red">*</font>:</td>
+					<td><input name="tab.name" value="$!tab.name"/></td>
+				</tr>
+				<tr bgcolor="#ffffff">
+				    <td align="right">Description:</td>
+				    <td><input name="tab.description" value="$!tab.description"/></td>
+			    </tr>
+				<tr bgcolor="#ffffff">
+					<td align="right">Table name<font color="red">*</font> :</td>
+					<td><input type="textfield" id="tableDescription" value="$!tab.table.description" size="24" disabled="true" onfocus="this.blur()"/>
+					<input type="hidden" id="tableId" name="table.id" value="$!tab.table.id">
+				    <label><input type="button" value="Change" onclick="javascript:window.open('../gx-table/listTable.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></label></td>
+				</tr>
+				<tr bgcolor="#A8FF93">
+                    <td colspan="2" align="right" bgcolor="#CFE9EB">
+                    	<input name="tab.id" type="hidden" value="$!tab.id"/>
+                    	<input name="submit" onclick="return checkfields(this);" type="submit" value="Next &gt;&gt;">
+                    </td>
+				</tr>
+			</table>
+		</form>
   	<br>
 <table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
 	<tbody>
@@ -55,11 +60,11 @@
 			<td><span class="style1">Default Value</span></td>
 			<td><span class="style1">Field Type</span></td>
 		</tr>
-		<form action="../gxgreenator/add.action" method="post">
-		#foreach($c in $gxform.table.columns)
+		<form action="../field/add.action" method="post">
+		#foreach($c in $tab.table.columns)
 			<tr bgcolor="#ffffff">
-				<td>$c.name</td>
-				<td>$c.dataType.value</td>
+				<td>$!c.name</td>
+				<td>$!c.element.value</td>
 				<td><input id="name" name="names" value=""/></td>
 				<td><input id="defaultValue" name="defaultValues" value=""/></td>
 				<td>
@@ -74,7 +79,7 @@
 		#end
 		<tr bgcolor="#A8FF93">
 			<td colspan="6" align="right" bgcolor="#CFE9EB" id=tableHeader1>
-				<input type="hidden" name="gxform.id" value="$!gxform.id">
+				<input type="hidden" name="tab.id" value="$!tab.id">
 	      		<input type="submit" value="Submit"> 
 	      		<input type="reset" value="Reset"> 
 	      		
@@ -85,7 +90,7 @@
 </table>
 <br>
 	
-#if(!$gxform.greenators.isEmpty())
+#if(!$tab.fields)
 <table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
 	<tbody>
 		<tr bgcolor="#333366">
@@ -95,10 +100,10 @@
 			<td><span class="style1">Default Value</span></td>
 			<td><span class="style1">Field Type</span></td>
 		</tr>
-		#foreach($c in $gxform.greenators)
+		#foreach($c in $tab.fields)
 			<tr bgcolor="#ffffff">
 				<td>$!c.column.name</td>
-				<td>$!c.column.dataType.value</td>
+				<td>$!c.column.element.value</td>
 				<td>$!c.name</td>
 				<td>$!c.gxgreenatorName</td>
 				<td>$!c.type.value</td>

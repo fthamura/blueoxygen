@@ -31,9 +31,9 @@ public class TabForm extends ActionSupport implements PersistenceAware{
 	
 	public String execute(){
 		if (!getId().equalsIgnoreCase("")){
-			tab = (GxTab)manager.getById(GxTab.class, getId());
-			String query = "FROM "+ GxField.class.getName() +" AS tc WHERE tc.thinGxform.id='"+ tab.getId() +"'";
-			fields = (ArrayList<GxField>)manager.getList(query, null, null);
+			setTab((GxTab)manager.getById(GxTab.class, getId()));
+			getTab().getFields();
+			getTab().getTable().getColumns();
 		}
 		fieldTypes = (List<GxDroplistValue>)manager.getList("FROM " + GxDroplistValue.class.getName() + 
 				" v WHERE v.name.id='ff80808115422db9011542327c580001'", null, null);

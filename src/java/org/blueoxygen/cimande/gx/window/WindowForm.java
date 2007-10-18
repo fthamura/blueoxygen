@@ -3,6 +3,7 @@ package org.blueoxygen.cimande.gx.window;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.blueoxygen.cimande.gx.entity.GxDroplistName;
 import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
@@ -17,6 +18,7 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 	protected GxWindow temp = new GxWindow();
 	private String id = "";
 	private String report = "";
+	private GxDroplistName name=new GxDroplistName();
 	
 	public String execute(){
 		if (!getId().equalsIgnoreCase("")){
@@ -24,6 +26,7 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 //			String query = "FROM "+ Tab.class.getName() + " AS tc WHERE tc.window.id='"+window.getId()+"'";
 //			tabs = (ArrayList<Tab>)manager.getList(query, null, null);
 		}
+		setName((GxDroplistName) manager.getById(GxDroplistName.class, "ff80808115ace81f0115acef78020002"));
 		return SUCCESS;
 	}
 	
@@ -40,16 +43,11 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 	}
 
 	/**
-	 * @param window The window to set.
+	 * @param  The window to set.
 	 */
 	public void setWindow(GxWindow window) {
 		this.window = window;
 	}
-
-//	public List getTabs() {
-//		return tabs;
-//	}
-
 	/**
 	 * @return Returns the id.
 	 */
@@ -104,6 +102,14 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 	 */
 	public void setWindows(List<GxWindow> windows) {
 		this.windows = windows;
+	}
+
+	public GxDroplistName getName() {
+		return name;
+	}
+
+	public void setName(GxDroplistName name) {
+		this.name = name;
 	}
 
 //	/**

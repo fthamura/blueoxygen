@@ -1,9 +1,11 @@
 package org.blueoxygen.cimande.gx.field;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.beanutils.PropertyUtils;
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.gx.entity.GxColumn;
 import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
@@ -24,11 +26,11 @@ public class SaveField extends FieldForm implements SessionCredentialsAware {
 	
 	public String execute() {
 		int columnCount = 0;
-		if(getGxform().getId() == null || "".equalsIgnoreCase(getGxform().getId())){
+		if(getTab().getId() == null || "".equalsIgnoreCase(getTab().getId())){
 			addActionError("Please select a tab first");
 		} else {
-			setGxform((GxTab) manager.getById(GxTab.class, getGxform().getId()));
-			columnCount = getGxform().getTable().getColumns().size();
+			setTab((GxTab) manager.getById(GxTab.class, getTab().getId()));
+			columnCount = getTab().getTable().getColumns().size();
 		}
 		
 		if(hasActionErrors()){
@@ -36,43 +38,37 @@ public class SaveField extends FieldForm implements SessionCredentialsAware {
 		}
 		
 		LogInformation log;
-		GxColumn c;
-		
-		for(int i = 0; i < columnCount; i ++){
-			setGx(new GxField());
-			if(names.get(i) != null && !"".equalsIgnoreCase(names.get(i))){
-				c = (GxColumn) manager.getById(GxColumn.class, columnIds.get(i));
-				if(!getGxform().getTable().equals(c.getTable())){
-					addActionError("Column " + c.getName() + " is not property of table " + tab.getTable().getName());
-				}
-				if(getGx().getId() == null){
-					log = new LogInformation();
-					log.setCreateBy(sessionCredentials.getCurrentUser().getId());
-					log.setCreateDate(new Timestamp(System.currentTimeMillis()));
-				} else if(getGx().getId() != null && "".equalsIgnoreCase(getGx().getId())){
-					log = new LogInformation();
-					log.setCreateBy(sessionCredentials.getCurrentUser().getId());
-					log.setCreateDate(new Timestamp(System.currentTimeMillis()));
-					getGx().setId(null);
-				} else {
-					field = getGx();
-					setGx((GxField)manager.getById(GxField.class, getGx().getId()));
-					log = getGx().getLogInformation();
-				}
-				log.setActiveFlag(1);
-				log.setLastUpdateBy(sessionCredentials.getCurrentUser().getId());
-				log.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
-				getGx().setLogInformation(log);
-				
-				getGx().setColumn(c);
-				getGx().setName(names.get(i));
-//				getGx().setValue(defaultValues.get(i));
-//				getGx().setType((GxDroplistValue) manager.getById(GxDroplistValue.class, fieldTypes.get(i)));
-//				getGx().setThinGxform(getGxform());
-				manager.save(gx);
+		if(getField().getId() == null){
+			log = new LogInformation();
+			log.setCreateBy(sessionCredentials.getCurrentUser().getId());
+			log.setCreateDate(new Timestamp(System.currentTimeMillis()));
+		} else if(getField().getId() != null && "".equalsIgnoreCase(getField().getId())){
+			log = new LogInformation();
+			log.setCreateBy(sessionCredentials.getCurrentUser().getId());
+			log.setCreateDate(new Timestamp(System.currentTimeMillis()));
+			getTab().setId(null);
+		} else {
+			GxTab temp = getTab();
+			setField((GxField)manager.getById(GxField.class, getField().getId()));
+			log = getField().getLogInformation();
+			try {
+				PropertyUtils.copyProperties(getField(), temp);
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				e.printStackTrace();
+			} catch (NoSuchMethodException e) {
+				e.printStackTrace();
 			}
 		}
-		setReport("Add GxField success");
+		log.setActiveFlag(1);
+		log.setLastUpdateBy(sessionCredentials.getCurrentUser().getId());
+		log.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
+
+		getField().setLogInformation(log);
+		getField().setTab(getTab());
+		manager.save(getTab());
+		setReport("Save Success");
 		return SUCCESS;
 	}
 

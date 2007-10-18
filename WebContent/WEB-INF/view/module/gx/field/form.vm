@@ -1,48 +1,44 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
-<html>
-	<head>
-		<title>Form - Gxgreenator</title>
-		<link rel="stylesheet" type="text/css" href="../../style.css">
-	</head>
-	<body>
-		#if (!$actionErrors.isEmpty())
-			<div class="errorMessage">Errors</div>
-			<ul class="errorMessage">
-			#foreach( $error in $actionErrors )
-				<li>$error</li>
-			#end
-			</ul>
-		#end
-		
-		<form method="get" action="add.action">
-			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
-				<tr bgcolor="#d0dcff">
-					<td colspan="2">Add / Edit Gxgreenator</td>
-				</tr>
-				<tr bgcolor="#ffffff">
-					<td>Name : <font color="red">*</font></td>
-					<td>
-						<input name="gxgreenator.name" value="$!gxgreenator.name"/>
-					</td>
-				</tr>
-				
-				<tr bgcolor="#ffffff">
-					<td>Gxform id : <font color="red">*</font></td>
-					<td>
-						<input name="gxgreenator.gxform_id" value="$!gxgreenator.gxform_id"/>
-					</td>
-				</tr>
-				<tr bgcolor="#e4e4e4">
-					<td colspan="2">
-						<input type="submit" value="Submit"/>
-						<input name="id" type="hidden" value="$!gxgreenator.id"/>
-					</td>
-				</tr>
-				<tr bgcolor="#ffffff">
-					<td colspan="2"><a href="../form.action">Home</a></td>
-				</tr>
-			</table>
+<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+	<tbody>
+		<tr>
+			<td colspan="2" bgcolor="#333366"><span class="style1">Field</span></td>
+		</tr>
+		<tr bgcolor="#ffffff">
+			<td>Name:</td>
+			<td><input name="field.name" value="$!field.name"/></td>
+		</tr>
+		<tr bgcolor="#ffffff">
+			<td>Description:</td>
+			<td><input name="field.description" value="$!field.description"/></td>
+		</tr>
+		<tr bgcolor="#ffffff">
+			<td>Field Type</td>
+			<td>
+				<select name="fieldType.id">
+				#foreach($f in $fieldTypes)
+					<option value="$!f.id">$!f.value</option>
+				#end		
+				</select>
+			</td>
+		</tr>
+		<tr bgcolor="#ffffff">
+			<td>Column</td>
+			<td>
+				<select name="column.id">
+				#foreach($f in $tab.table.columns)
+					<option value="$!f.id">$!f.name</option>
+				#end		
+				</select>
+			</td>
+		</tr>
+		<tr bgcolor="#A8FF93">
+			<td colspan="2" align="right" bgcolor="#CFE9EB" id=tableHeader1>
+				<input type="hidden" name="field.id" value="$field.id">
+				<input type="hidden" name="tab.id" value="$!tab.id">
+	      		<input type="submit" value="Submit"> 
+	      		<input type="reset" value="Reset"> 
+		  </td>
+		</tr>
 		</form>
-	</body>
-</html>
+	</tbody>
+</table>

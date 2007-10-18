@@ -1,12 +1,17 @@
 package org.blueoxygen.cimande.gx.tab;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Timestamp;
 
+import org.apache.commons.beanutils.PropertyUtils;
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.gx.entity.GxTable;
 import org.blueoxygen.cimande.gx.entity.GxTab;
+import org.blueoxygen.cimande.security.SessionCredentials;
+import org.blueoxygen.cimande.security.SessionCredentialsAware;
 
-public class SaveTab extends TabForm {
+public class SaveTab extends TabForm implements SessionCredentialsAware {
+	private SessionCredentials sessionCredentials;
 	
 	public String execute() {
 		if (getTab().getName().equalsIgnoreCase("")){
@@ -23,25 +28,44 @@ public class SaveTab extends TabForm {
 			return INPUT;
 		}
 		
-		LogInformation logInfo = new LogInformation();
-		if(getId().equalsIgnoreCase("")){
-			logInfo.setCreateDate(new Timestamp(System.currentTimeMillis()));
+		LogInformation log;
+		if(getTab().getId() == null){
+			log = new LogInformation();
+			log.setCreateBy(sessionCredentials.getCurrentUser().getId());
+			log.setCreateDate(new Timestamp(System.currentTimeMillis()));
+		} else if(getTab().getId() != null && "".equalsIgnoreCase(getTab().getId())){
+			log = new LogInformation();
+			log.setCreateBy(sessionCredentials.getCurrentUser().getId());
+			log.setCreateDate(new Timestamp(System.currentTimeMillis()));
+			getTab().setId(null);
 		} else {
-			temp = (GxTab)manager.getById(GxTab.class, getId());
-			logInfo.setCreateDate(temp.getLogInformation().getCreateDate());
+			GxTab temp = getTab();
+			setTab((GxTab)manager.getById(GxTab.class, getTab().getId()));
+			log = getTab().getLogInformation();
+			try {
+				PropertyUtils.copyProperties(getTab(), temp);
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				e.printStackTrace();
+			} catch (NoSuchMethodException e) {
+				e.printStackTrace();
+			}
 		}
-		logInfo.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
-		logInfo.setActiveFlag(1);
-		
-		temp.setName(tab.getName());
-		temp.setTable(getTable());
-		
-		temp.setLogInformation(logInfo);
-		
-		manager.save(temp);
-		setReport("Add tab succes");
+		log.setActiveFlag(1);
+		log.setLastUpdateBy(sessionCredentials.getCurrentUser().getId());
+		log.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
+
+		getTab().setLogInformation(log);
+		getTab().setTable(getTable());
+		manager.save(getTab());
+		setReport("Save Success");
 		setId(temp.getId());
 		return SUCCESS;
+	}
+
+	public void setSessionCredentials(SessionCredentials sessionCredentials) {
+		this.sessionCredentials = sessionCredentials;
 	}
 
 

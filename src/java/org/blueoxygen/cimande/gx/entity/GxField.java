@@ -1,5 +1,6 @@
 package org.blueoxygen.cimande.gx.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -82,6 +83,7 @@ public class GxField extends DefaultPersistent {
 	/**
 	 * @return the displayedFlag
 	 */
+	@Column(name="displayed_flag")
 	public int getDisplayedFlag() {
 		return displayedFlag;
 	}
@@ -94,6 +96,7 @@ public class GxField extends DefaultPersistent {
 	/**
 	 * @return the displayLength
 	 */
+	@Column(name="displayed_length")
 	public int getDisplayLength() {
 		return displayLength;
 	}
@@ -118,6 +121,8 @@ public class GxField extends DefaultPersistent {
 	/**
 	 * @return the entityType
 	 */
+	@ManyToOne
+	@JoinColumn(name="entity_type_id")
 	public GxDroplistValue getEntityType() {
 		return entityType;
 	}

@@ -1,0 +1,25 @@
+  ##if(!$tab.fields.isEmpty())
+  <table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+    <tbody>
+		<tr>
+			<td colspan="3" bgcolor="#333366"><span class="style1">Field</span></td>
+		</tr>
+	<tr id="tableHeader1" bgcolor="#d0dcff"> 
+    	<td>Name</td>
+    	<td>Description</td>
+    	<td>Action</td>
+  	</tr>
+  #foreach ($de in $tab.fields) 
+  <tr valign="top" bgcolor="#ffffff"> 
+    <td>$!de.name</td>
+    <td>$!de.description</td>
+    <td>
+    	<a href="../gx-table/edit.action?table.id=$!table.id&column.id=$!de.id">Edit</a> 
+        <a href="../gx-column/delete.action?column.id=$de.id&table.id=$!table.id">Delete</a>
+    </td>
+  </tr>
+  #end 
+  </tbody>
+  </table>
+  ##end
+  

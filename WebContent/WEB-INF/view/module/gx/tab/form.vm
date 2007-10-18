@@ -23,9 +23,9 @@
 		#end
 		
 		<form method="get" action="add.action">
-			<table align="center" border="0" cellpadding="5" cellspacing="1" width="70%" bgcolor="#000000">
+			<table align="center" border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
 				<tr>
-					<td colspan="2" bgcolor="#333366"><span class="style1">Add / Edit Gxform</span></td>
+					<td colspan="2" bgcolor="#333366"><span class="style1">Tab</span></td>
 				</tr>
 				<tr bgcolor="#ffffff">
 					<td align="right" width="40%">Name<font color="red">*</font>:</td>
@@ -36,18 +36,24 @@
 				    <td><input name="tab.description" value="$!tab.description"/></td>
 			    </tr>
 				<tr bgcolor="#ffffff">
-					<td align="right">Table name  <font color="red">*</font> :</td>
-					<td><input type="textfield" id="tableDescription" value="Table Name" size="24" disabled="true" onfocus="this.blur()"/>
+					<td align="right">Table name<font color="red">*</font> :</td>
+					<td><input type="textfield" id="tableDescription" value="$!tab.table.description" size="24" disabled="true" onfocus="this.blur()"/>
 					<input type="hidden" id="tableId" name="table.id" value="$!tab.table.id">
 				    <label><input type="button" value="Change" onclick="javascript:window.open('../gx-table/listTable.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></label></td>
 				</tr>
 				<tr bgcolor="#A8FF93">
                     <td colspan="2" align="right" bgcolor="#CFE9EB">
-                    	<input name="id" type="hidden" value="$!tab.id"/>
+                    	<input name="tab.id" type="hidden" value="$!tab.id"/>
                     	<input name="submit" onclick="return checkfields(this);" type="submit" value="Next &gt;&gt;">
                     </td>
 				</tr>
 			</table>
 		</form>
+		<br>
+		#if($tab.id)
+			#saction("name=edit" "namespace=/module/field" "executeResult=true")
+		#end
+		<br>
+		#saction("name=listdetail" "namespace=/module/field" "executeResult=true")
 	</body>
 </html>
