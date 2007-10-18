@@ -68,7 +68,7 @@
 					<td>$!dl.value</td>
 					<td>$!dl.description</td>
 					<td>
-						<a href="editvalue.action?name.id=$!name.id&value.id=$!dl.id">Edit</a>
+						<a href="editvalue.action?name.id=$!name.id&value.id=$!dl.id"><img src="../../images/silk/page_edit.png" border="0"></a>
 					</td>
 				</tr>
 				#else

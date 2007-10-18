@@ -33,8 +33,8 @@
 				<td>$!ct.name</td>
 				<td>$!ct.description</td>
     				<td>
-				    <a href="edit.action?name.id=$ct.id">Edit</a>
-				    <a href="delete.action?name.id=$ct.id">Delete</a>
+				    <a href="edit.action?name.id=$ct.id"><img src="../../images/silk/page_edit.png" border="0"></a>
+				    <a href="delete.action?name.id=$ct.id"><img src="../../images/silk/delete.png" border="0"></a>
 				    <!--a href="detail.action?name.id=$ct.id">Detail</a-->
 				</td>
 			</tr>

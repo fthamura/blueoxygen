@@ -43,7 +43,7 @@
   	<br-->
   	<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
     <tr bgcolor="#ffff00">
-      <td id="tableHeader2" colspan="2"><b>Window    : $!window.name</b>  <a href="../window/edit.action?id=$!window.id">Edit</a></td>    
+      <td id="tableHeader2" colspan="2"><b>Window    : $!window.name</b>  <a href="../window/edit.action?id=$!window.id"><img src="../../images/silk/page_edit.png" border="0"></a></td>    
 	</tr>
     <tr bgcolor="#d0dcff">
     <td id="tableHeader1" colspan="2">Tab</td>
@@ -80,7 +80,7 @@
   <tr valign="top" bgcolor="#ffffff"> 
     <td>$!de.name</td>
     <td>$!de.description</td>
-    <td><a href="../tab/edit.action?id=$de.Id">Edit</a> <a href="../tab/delete.action?id=$de.id&windowId=$!window.id">Delete</a></td>
+    <td><a href="../tab/edit.action?id=$de.Id"><img src="../../images/silk/page_edit.png" border="0"></a> <a href="../tab/delete.action?id=$de.id&windowId=$!window.id"><img src="../../images/silk/delete.png" border="0"></a></td>
   </tr>
   #end 
 </table>

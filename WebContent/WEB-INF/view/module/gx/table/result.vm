@@ -32,8 +32,8 @@
 				<td>$!de.name</td>
 				<td>$!de.description</td>
 				<td>
-					<a href="edit.action?table.id=$de.Id">Edit</a>
-					<a href="delete.action?table.id=$de.Id">Delete</a>
+					<a href="edit.action?table.id=$de.Id"><img src="../../images/silk/page_edit.png" border="0"></a>
+					<a href="delete.action?table.id=$de.Id"><img src="../../images/silk/delete.png" border="0"></a>
 				</td>
 			</tr>
 			#end

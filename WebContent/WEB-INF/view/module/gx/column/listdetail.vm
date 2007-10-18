@@ -19,8 +19,8 @@
     <td><input type="checkbox" #if($de.encryptedFlag == 1)checked #end disabled="true"/></td>
     <td><input type="checkbox" #if($de.keyColumnFlag == 1)checked #end disabled="true"/></td>
     <td>
-    	<a href="../gx-table/edit.action?table.id=$!table.id&column.id=$!de.id">Edit</a> 
-        <a href="../gx-column/delete.action?column.id=$de.id&table.id=$!table.id">Delete</a>
+    	<a href="../gx-table/edit.action?table.id=$!table.id&column.id=$!de.id"><img src="../../images/silk/page_edit.png" border="0"></a> 
+        <a href="../gx-column/delete.action?column.id=$de.id&table.id=$!table.id"><img src="../../images/silk/delete.png" border="0"></a>
     </td>
   </tr>
   #end 

@@ -40,8 +40,8 @@
 				<td>$!de.description</td>
 				<td>$!de.table.name</td>
 				<td>
-					<a href="edit.action?id=$de.Id">Edit</a>
-					<a href="confirm.action?id=$de.Id">Del</a>
+					<a href="edit.action?id=$de.Id"><img src="../../images/silk/page_edit.png" border="0"></a>
+					<a href="confirm.action?id=$de.Id"><img src="../../images/silk/delete.png" border="0"></a>
 				</td>
 			</tr>
 			#end
