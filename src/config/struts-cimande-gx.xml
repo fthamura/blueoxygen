@@ -125,6 +125,9 @@
 		<action name="list" class="org.blueoxygen.cimande.gx.window.ListWindow">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/window/list.vm</result>
 		</action>
+		<action name="overview" class="org.blueoxygen.cimande.gx.window.WindowForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/window/overview.vm</result>
+		</action>
 	</package>
 <!--GXFORM-->
 	<package name="tab" extends="default" namespace="/module/tab">

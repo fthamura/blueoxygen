@@ -27,7 +27,7 @@
 			<td>
 				<select name="fieldType.id">
 				#foreach($f in $fieldTypes.values)
-					<option value="$!f.id">$!f.value</option>
+					<option value="$!f.id" #if($!f.id.equals($!field.fieldType.id))selected #end>$!f.value</option>
 				#end		
 				</select>
 			</td>
@@ -37,7 +37,7 @@
 			<td>
 				<select name="column.id">
 				#foreach($f in $tab.table.columns)
-					<option value="$!f.id">$!f.name</option>
+					<option value="$!f.id" #if($!f.id.equals($!field.column.id))selected #end>$!f.name</option>
 				#end		
 				</select>
 			</td>

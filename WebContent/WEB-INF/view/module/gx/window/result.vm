@@ -4,6 +4,14 @@
 	<head>
 		<title>Search Result - Window</title>
 		<link rel="stylesheet" type="text/css" href="../../style.css">
+		<style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+-->
+        </style>
 	</head>
 	<body>
 		<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
@@ -35,6 +43,7 @@
 				<td>
 					<a href="edit.action?window.id=$de.Id"><img src="../../images/silk/page_edit.png" border="0"></a>
 					<a href="delete.action?window.id=$de.Id"><img src="../../images/silk/delete.png" border="0"></a>
+					<a href="overview.action?window.id=$de.Id"><img src="../../images/silk/application_view_list.png" alt="Form Field" border="0">
 				</td>
 			</tr>
 			#end
