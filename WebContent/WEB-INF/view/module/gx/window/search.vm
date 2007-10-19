@@ -42,7 +42,7 @@
 				</tr>
 				<tr bgcolor="#e4e4e4">
 					<td colspan="2" align="right" bgcolor="#CFE9EB" id=tableHeader1>
-						<input type="submit" value="Submit"/>
+						<input type="submit" value="Search"/>
 					</td>
 				</tr>
 			</table>

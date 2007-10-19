@@ -32,7 +32,7 @@
 				</tr>
 				<tr bgcolor="#A8FF93">
 					<td colspan="2" align="right" bgcolor="#CFE9EB">
-						<input type="submit" value="Submit"/>
+						<input type="submit" value="Search"/>
 				  </td>
 				</tr>
 			</table>

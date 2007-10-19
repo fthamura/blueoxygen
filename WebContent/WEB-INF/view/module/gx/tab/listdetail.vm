@@ -11,11 +11,13 @@
   	</tr>
   #foreach ($de in $window.tabs) 
   <tr valign="top" bgcolor="#ffffff"> 
-    <td><a href="../tab/edit.action?window.id=$!window.id&tab.id=$!de.id">$!de.name</a></td>
+    <td>$!de.name</td>
     <td>$!de.description</td>
     <td>
-    	<a href="edit.action?window.id=$!window.id&tab.id=$!de.id"><img src="../../images/silk/page_edit.png" border="0"></a> 
-        <a href="delete.action?window.id=$!window.id&tab.id=$!de.id"><img src="../../images/silk/delete.png" border="0"></a>
+
+    	<a href="edit.action?window.id=$!window.id&tab.id=$!de.id"><img src="../../images/silk/page_edit.png" alt="Edit Tab Record" border="0"></a> 
+        <a href="delete.action?window.id=$!window.id&tab.id=$!de.id"><img src="../../images/silk/delete.png" alt="Delete Tab Record" border="0"></a>
+          <a href="../tab/edit.action?window.id=$!window.id&tab.id=$!de.id"><img src="../../images/silk/application_view_list.png" alt="Form Field" border="0"></a>
     </td>
   </tr>
   #end 
