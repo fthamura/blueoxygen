@@ -3,10 +3,12 @@ package org.blueoxygen.cimande.gx.tab;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.blueoxygen.cimande.gx.entity.GxDroplistName;
 import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
 import org.blueoxygen.cimande.gx.entity.GxTable;
 import org.blueoxygen.cimande.gx.entity.GxField;
 import org.blueoxygen.cimande.gx.entity.GxTab;
+import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 
@@ -18,25 +20,25 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class TabForm extends ActionSupport implements PersistenceAware{
 	protected PersistenceManager manager;
-	protected List<GxField> fields = new ArrayList<GxField>();
-	protected List<GxTab> tabs = new ArrayList<GxTab>();
-	protected GxTab tab = new GxTab();
-//	protected GxField gx2 = new GxField();
-	protected GxTab temp = new GxTab();
+	private GxWindow window = new GxWindow();
+	private GxTab tab = new GxTab();
 	private GxTable table = new GxTable();
-	private String id = "";
 	private String report = "";
-	private List<GxDroplistValue> fieldTypes = new ArrayList<GxDroplistValue>();
+	private GxDroplistName fieldTypes = new GxDroplistName();
 	private GxDroplistValue fieldType = new GxDroplistValue();
 	
 	public String execute(){
-		if (!getId().equalsIgnoreCase("")){
-			setTab((GxTab)manager.getById(GxTab.class, getId()));
+		if (getTab().getId() != null && !"".equalsIgnoreCase(getTab().getId())){
+			setTab((GxTab)manager.getById(GxTab.class, getTab().getId()));
 			getTab().getFields();
 			getTab().getTable().getColumns();
 		}
-		fieldTypes = (List<GxDroplistValue>)manager.getList("FROM " + GxDroplistValue.class.getName() + 
-				" v WHERE v.name.id='ff80808115422db9011542327c580001'", null, null);
+		if (getWindow().getId() != null && !"".equalsIgnoreCase(getWindow().getId())){
+			setWindow((GxWindow)manager.getById(GxWindow.class, getWindow().getId()));
+			getWindow().getTabs();
+		}
+		setFieldTypes((GxDroplistName) manager.getById(GxDroplistName.class, "ff80808115422db9011542327c580001"));
+		getFieldTypes().getValues();
 		return SUCCESS;
 	}
 
@@ -58,42 +60,14 @@ public class TabForm extends ActionSupport implements PersistenceAware{
 	 * @return Returns the tabs.
 	 */
 	public List<GxTab> getTabs() {
-		return tabs;
-	}
-
-	/**
-	 * @param tabs The tabs to set.
-	 */
-	public void setTabs(List<GxTab> tabs) {
-		this.tabs = tabs;
+		return getWindow().getTabs();
 	}
 
 	/**
 	 * @return Returns the fields.
 	 */
 	public List<GxField> getFields() {
-		return fields;
-	}
-
-	/**
-	 * @param fields The fields to set.
-	 */
-	public void setFields(List<GxField> fields) {
-		this.fields = fields;
-	}
-
-	/**
-	 * @return Returns the id.
-	 */
-	public String getId() {
-		return id;
-	}
-
-	/**
-	 * @param id The id to set.
-	 */
-	public void setId(String id) {
-		this.id = id;
+		return getTab().getFields();
 	}
 
 	/**
@@ -124,23 +98,8 @@ public class TabForm extends ActionSupport implements PersistenceAware{
 		this.report = report;
 	}
 
-	/**
-	 * @return Returns the temp.
-	 */
-	public GxTab getTemp() {
-		return temp;
-	}
-
-	/**
-	 * @param temp The temp to set.
-	 */
-	public void setTemp(GxTab temp) {
-		this.temp = temp;
-	}
-
 	public void setPersistenceManager(PersistenceManager persistenceManager) {
 		this.manager = persistenceManager;
-		
 	}
 
 	public GxTable getTable() {
@@ -151,14 +110,6 @@ public class TabForm extends ActionSupport implements PersistenceAware{
 		this.table = table;
 	}
 
-	public List<GxDroplistValue> getFieldTypes() {
-		return fieldTypes;
-	}
-
-	public void setFieldTypes(List<GxDroplistValue> fieldTypes) {
-		this.fieldTypes = fieldTypes;
-	}
-
 	public GxDroplistValue getFieldType() {
 		return fieldType;
 	}
@@ -167,19 +118,19 @@ public class TabForm extends ActionSupport implements PersistenceAware{
 		this.fieldType = fieldType;
 	}
 
-//	/**
-//	 * @return the gx2
-//	 */
-//	public GxField getGx2() {
-//		return gx2;
-//	}
-//
-//	/**
-//	 * @param gx2 the gx2 to set
-//	 */
-//	public void setGx2(GxField gx2) {
-//		this.gx2 = gx2;
-//	}
+	public GxDroplistName getFieldTypes() {
+		return fieldTypes;
+	}
 
+	public void setFieldTypes(GxDroplistName fieldTypes) {
+		this.fieldTypes = fieldTypes;
+	}
 
+	public GxWindow getWindow() {
+		return window;
+	}
+
+	public void setWindow(GxWindow window) {
+		this.window = window;
+	}
 }

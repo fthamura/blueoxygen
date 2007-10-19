@@ -24,8 +24,8 @@ public class SearchTab extends TabForm implements HibernateSessionFactoryAware {
 	public String execute(){
 		sess = hsf.createSession();
 		Criteria crit = sess.createCriteria(GxTab.class);
-		if (!tab.getName().equalsIgnoreCase("")){
-			crit.add(Expression.like("name", "%"+ tab.getName()+ "%"));
+		if (!getTab().getName().equalsIgnoreCase("")){
+			crit.add(Expression.like("name", "%"+ getTab().getName()+ "%"));
 		}
 		resultRows = crit.list().size();
 		maxPage = resultRows / maxRowPerPage;
@@ -33,10 +33,10 @@ public class SearchTab extends TabForm implements HibernateSessionFactoryAware {
 		nextPage = currPage + 1;
 		page = currPage + 1;
 		if (resultRows % maxRowPerPage == 0) maxPage = maxPage -1;
-		tabs = (ArrayList<GxTab>)crit.addOrder(Order.asc(orderBy))
+		getWindow().setTabs((ArrayList<GxTab>)crit.addOrder(Order.asc(orderBy))
 			.setFirstResult(currPage*maxRowPerPage)
 			.setMaxResults(maxRowPerPage)
-			.list();
+			.list());
 		
 		try {
 			hsf.endSession((sess));

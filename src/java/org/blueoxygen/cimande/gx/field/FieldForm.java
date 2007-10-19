@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.blueoxygen.cimande.gx.entity.GxField;
 import org.blueoxygen.cimande.gx.entity.GxTab;
+import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 
@@ -12,15 +13,24 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class FieldForm extends ActionSupport implements PersistenceAware {
 	protected PersistenceManager manager;
-	protected List<GxField> fields = new ArrayList<GxField>();
-	protected GxField field = new GxField();
-	protected GxTab tab = new GxTab();
+	private List<GxField> fields = new ArrayList<GxField>();
+	private GxField field = new GxField();
+	private GxTab tab = new GxTab();
+	private GxWindow window = new GxWindow();
 	private String report = "";
 
 	public String execute() {
-		if(tab.getId() != null && !"".equalsIgnoreCase(tab.getId())){
-			setTab((GxTab) manager.getById(GxTab.class, getTab().getId()));
-			
+		if(getField().getId() != null && !"".equalsIgnoreCase(getField().getId())){
+			setField((GxField) manager.getById(GxField.class, getField().getId()));
+		}
+		if (getTab().getId() != null && !"".equalsIgnoreCase(getTab().getId())){
+			setTab((GxTab)manager.getById(GxTab.class, getTab().getId()));
+			getTab().getFields();
+			getTab().getTable().getColumns();
+		}
+		if (getWindow().getId() != null && !"".equalsIgnoreCase(getWindow().getId())){
+			setWindow((GxWindow)manager.getById(GxWindow.class, getWindow().getId()));
+			getWindow().getTabs();
 		}
 		return SUCCESS;
 	}
@@ -85,6 +95,14 @@ public class FieldForm extends ActionSupport implements PersistenceAware {
 
 	public void setTab(GxTab tab) {
 		this.tab = tab;
+	}
+
+	public GxWindow getWindow() {
+		return window;
+	}
+
+	public void setWindow(GxWindow window) {
+		this.window = window;
 	}
 
 }

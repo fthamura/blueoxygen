@@ -25,11 +25,11 @@ public class SearchWindow extends WindowForm implements HibernateSessionFactoryA
 	public String execute() {
 		sess = hsf.createSession();
 		Criteria crit = sess.createCriteria(GxWindow.class);
-		if (!window.getName().equalsIgnoreCase("")){
-			crit.add(Expression.like("name", "%"+window.getName()+"%"));
+		if (!getWindow().getName().equalsIgnoreCase("")){
+			crit.add(Expression.like("name", "%"+getWindow().getName()+"%"));
 		}
-		if (!window.getDescription().equalsIgnoreCase("")){
-			crit.add(Expression.like("description", "%"+window.getDescription()+"%"));
+		if (!getWindow().getDescription().equalsIgnoreCase("")){
+			crit.add(Expression.like("description", "%"+getWindow().getDescription()+"%"));
 		}
 		resultRows = crit.list().size();
 		maxPage = resultRows / maxRowPerPage;
@@ -37,10 +37,11 @@ public class SearchWindow extends WindowForm implements HibernateSessionFactoryA
 		nextPage = currPage + 1;
 		page = currPage + 1;
 		if (resultRows % maxRowPerPage == 0) maxPage = maxPage - 1;
-		windows = (ArrayList<GxWindow>)crit.addOrder(Order.asc(orderBy))
+		
+		setWindows((ArrayList<GxWindow>)crit.addOrder(Order.asc(orderBy))
 					.setFirstResult(currPage*maxRowPerPage)
 					.setMaxResults(maxRowPerPage)
-					.list();
+					.list());
 		
 		try {
 			hsf.endSession(sess);

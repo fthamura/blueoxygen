@@ -5,9 +5,9 @@ import org.blueoxygen.cimande.gx.entity.GxField;
 public class DeleteField extends FieldForm {
 	
 	public String execute(){
-		if (!tab.getId().equalsIgnoreCase("")){
-			field = (GxField)manager.getById(GxField.class, tab.getId());
-			manager.remove(field);
+		if (!getTab().getId().equalsIgnoreCase("")){
+			setField((GxField)manager.getById(GxField.class, getField().getId()));
+			manager.remove(getField());
 			setReport("Delete field success.");
 		} else {
 			setReport("Delete field failed.");

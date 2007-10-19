@@ -22,8 +22,9 @@
         <default-interceptor-ref name="adminStack"/>
         
     </package>
-	<include file="struts-gx.xml"/>	
+	
 	<include file="struts-cimande-gx.xml"/>	
+	
 	<package name="tree" extends="default" namespace="/backend">
 		<action name="code" class="org.blueoxygen.cimande.sitemanager.NavigationTree">
 			<result name="success" type="velocity">hibernateTree.vm</result>

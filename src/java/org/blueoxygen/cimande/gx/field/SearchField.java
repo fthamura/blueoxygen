@@ -1,6 +1,7 @@
 package org.blueoxygen.cimande.gx.field;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.blueoxygen.cimande.gx.entity.GxField;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
@@ -23,8 +24,8 @@ public class SearchField extends FieldForm implements HibernateSessionFactoryAwa
 	public String execute() {
 		sess = hsf.createSession();
 		Criteria crit = sess.createCriteria(GxField.class);
-		if (!field.getName().equalsIgnoreCase("")){
-			crit.add(Expression.like("name", "%"+ field.getName()+"%"));
+		if (!getField().getName().equalsIgnoreCase("")){
+			crit.add(Expression.like("name", "%"+ getField().getName()+"%"));
 		}
 //		if (!field.getValue().equalsIgnoreCase("")){
 //			crit.add(Expression.like("name", "%"+ field.getValue()+"%"));
@@ -40,10 +41,10 @@ public class SearchField extends FieldForm implements HibernateSessionFactoryAwa
 		page = currPage + 1;
 		
 		if (resultRows % maxRowPerPage == 0) maxPage = maxPage - 1;
-		fields = crit.addOrder(Order.asc(orderBy))
+		getTab().setFields((ArrayList<GxField>)crit.addOrder(Order.asc(orderBy))
 			.setFirstResult(currPage*maxRowPerPage)
 			.setMaxResults(maxRowPerPage)
-			.list();
+			.list());
 		
 		try{
 			hsf.endSession(sess);

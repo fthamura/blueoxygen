@@ -103,19 +103,9 @@
 		<action name="create" class="org.blueoxygen.cimande.gx.window.WindowForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/window/form.vm</result>
 		</action>
-		<action name="add" class="org.blueoxygen.cimande.gx.window.AddWindow">
-			<result name="success" type="redirect">view.action?id=${Id}</result>
+		<action name="save" class="org.blueoxygen.cimande.gx.window.SaveWindow">
+			<result name="success" type="redirect">edit.action?window.id=${window.id}</result>
 			<result name="input" type="velocity">/WEB-INF/view/module/gx/window/form.vm</result>
-		</action>
-		<action name="addtab" class="org.blueoxygen.cimande.gx.window.AddTab">
-			<result name="success" type="redirect">view.action?id=${window.id}</result>
-			<result name="input" type="redirect">view.action?id=${Id}</result>
-		</action>
-		<action name="removetab" class="org.blueoxygen.cimande.gx.window.RemoveTab">
-			<result name="success" type="redirect">view.action?id=${window.id}</result>
-		</action>
-		<action name="view" class="org.blueoxygen.cimande.gx.window.WindowForm">
-			<result name="success" type="velocity">/WEB-INF/view/module/gx/window/form.vm</result>
 		</action>
 		<action name="filter" class="org.blueoxygen.cimande.gx.window.WindowForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/window/search.vm</result>
@@ -124,12 +114,12 @@
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/window/result.vm</result>
 		</action>
 		<action name="edit" class="org.blueoxygen.cimande.gx.window.WindowForm">
-			<result name="success" type="velocity">/WEB-INF/view/module/gx/window/form.vm</result>
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/window/view.vm</result>
 		</action>
-		<action name="confirm" class="org.blueoxygen.cimande.gx.window.WindowForm">
+		<action name="delete" class="org.blueoxygen.cimande.gx.window.WindowForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/window/delete.vm</result>
 		</action>
-		<action name="delete" class="org.blueoxygen.cimande.gx.window.DeleteWindow">
+		<action name="confirm" class="org.blueoxygen.cimande.gx.window.DeleteWindow">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/window/report.vm</result>
 		</action>
 		<action name="list" class="org.blueoxygen.cimande.gx.window.ListWindow">
@@ -141,18 +131,9 @@
 		<action name="create" class="org.blueoxygen.cimande.gx.tab.TabForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/tab/form.vm</result>
 		</action>
-		<action name="add" class="org.blueoxygen.cimande.gx.tab.SaveTab">
-			<result name="success" type="redirect">view.action?id=${tab.id}</result>
+		<action name="save" class="org.blueoxygen.cimande.gx.tab.SaveTab">
+			<result name="success" type="redirect">../window/edit.action?window.id=${window.id}</result>
 			<result name="input" type="velocity">/WEB-INF/view/module/gx/tab/form.vm</result>
-		</action>
-		<action name="view" class="org.blueoxygen.cimande.gx.tab.TabForm">
-			<result name="success" type="velocity">/WEB-INF/view/module/gx/tab/form.vm</result>
-		</action>
-		<action name="filter" class="org.blueoxygen.cimande.gx.tab.TabForm">
-			<result name="success" type="velocity">/WEB-INF/view/module/gx/tab/search.vm</result>
-		</action>
-		<action name="search" class="org.blueoxygen.cimande.gx.tab.SearchTab">
-			<result name="success" type="velocity">/WEB-INF/view/module/gx/tab/result.vm</result>
 		</action>
 		<action name="edit" class="org.blueoxygen.cimande.gx.tab.TabForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/tab/form.vm</result>
@@ -163,11 +144,8 @@
 		<action name="delete" class="org.blueoxygen.cimande.gx.tab.DeleteTab">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/tab/report.vm</result>
 		</action>
-		<action name="gen" class="org.blueoxygen.cimande.gx.tab.TabForm">
-			<result name="success" type="velocity">/WEB-INF/view/module/gx/tab/view_gx.vm</result>
-		</action>
-		<action name="list" class="org.blueoxygen.cimande.gx.tab.ListTab">
-			<result name="success" type="velocity">/WEB-INF/view/module/gx/tab/list.vm</result>
+		<action name="listdetail" class="org.blueoxygen.cimande.gx.tab.TabForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/tab/listdetail.vm</result>
 		</action>
 	</package>
 <!--GXGREENATOR-->

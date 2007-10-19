@@ -1,54 +1,48 @@
-package org.blueoxygen.cimande.gx.tab;
+package org.blueoxygen.cimande.gx.window;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Timestamp;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.blueoxygen.cimande.LogInformation;
-import org.blueoxygen.cimande.gx.entity.GxTable;
-import org.blueoxygen.cimande.gx.entity.GxTab;
+import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
 import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 
-public class SaveTab extends TabForm implements SessionCredentialsAware {
+
+public class SaveWindow extends WindowForm implements SessionCredentialsAware {
 	private SessionCredentials sessionCredentials;
 	
 	public String execute() {
-		if (getTab().getName().equalsIgnoreCase("")){
+		if(getWindow().getName() == null || "".equalsIgnoreCase(getWindow().getName())){
 			addActionError("Name can not be empty");
 		}
-		if (getWindow().getId() == null || "".equalsIgnoreCase(getWindow().getId())) {
-			addActionError("Select the window first");
-		} else {
-			setWindow((GxWindow) manager.getById(GxWindow.class, getWindow().getId()));
-		}
-		if (getTable().getId() == null || "".equalsIgnoreCase(getTable().getId())) {
-			addActionError("Table can not be empty");
-		} else {
-			setTable((GxTable) manager.getById(GxTable.class, getTable().getId()));
-		}
-		
-		if (hasActionErrors()){
+		if(hasActionErrors()){
 			return INPUT;
+		}
+		if(getWindowType().getId() != null && !"".equalsIgnoreCase(getWindowType().getId())){
+			setWindowType((GxDroplistValue) manager.getById(GxDroplistValue.class, getWindowType().getId()));
+		} else {
+			setWindowType(null);
 		}
 		
 		LogInformation log;
-		if(getTab().getId() == null){
+		if(getWindow().getId() == null){
 			log = new LogInformation();
 			log.setCreateBy(sessionCredentials.getCurrentUser().getId());
 			log.setCreateDate(new Timestamp(System.currentTimeMillis()));
-		} else if(getTab().getId() != null && "".equalsIgnoreCase(getTab().getId())){
+		} else if(getWindow().getId() != null && "".equalsIgnoreCase(getWindow().getId())){
 			log = new LogInformation();
 			log.setCreateBy(sessionCredentials.getCurrentUser().getId());
 			log.setCreateDate(new Timestamp(System.currentTimeMillis()));
-			getTab().setId(null);
+			getWindow().setId(null);
 		} else {
-			GxTab temp = getTab();
-			setTab((GxTab)manager.getById(GxTab.class, getTab().getId()));
-			log = getTab().getLogInformation();
+			GxWindow temp = getWindow();
+			setWindow((GxWindow)manager.getById(GxWindow.class, getWindow().getId()));
+			log = getWindow().getLogInformation();
 			try {
-				PropertyUtils.copyProperties(getTab(), temp);
+				PropertyUtils.copyProperties(getWindow(), temp);
 			} catch (IllegalAccessException e) {
 				e.printStackTrace();
 			} catch (InvocationTargetException e) {
@@ -61,10 +55,9 @@ public class SaveTab extends TabForm implements SessionCredentialsAware {
 		log.setLastUpdateBy(sessionCredentials.getCurrentUser().getId());
 		log.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
 
-		getTab().setLogInformation(log);
-		getTab().setTable(getTable());
-		getTab().setWindow(getWindow());
-		manager.save(getTab());
+		getWindow().setLogInformation(log);
+		getWindow().setWindowType(getWindowType());
+		manager.save(getWindow());
 		setReport("Save Success");
 		return SUCCESS;
 	}
@@ -72,6 +65,5 @@ public class SaveTab extends TabForm implements SessionCredentialsAware {
 	public void setSessionCredentials(SessionCredentials sessionCredentials) {
 		this.sessionCredentials = sessionCredentials;
 	}
-
 
 }

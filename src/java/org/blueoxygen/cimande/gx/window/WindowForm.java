@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.blueoxygen.cimande.gx.entity.GxDroplistName;
+import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
 import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
@@ -12,21 +13,18 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class WindowForm extends ActionSupport implements PersistenceAware {
 	protected PersistenceManager manager;
-//	protected List<Tab> tabs = new ArrayList<Tab>();
-	protected List<GxWindow> windows = new ArrayList<GxWindow>();
-	protected GxWindow window = new GxWindow();
-	protected GxWindow temp = new GxWindow();
-	private String id = "";
+	private List<GxWindow> windows = new ArrayList<GxWindow>();
+	private GxWindow window = new GxWindow();
 	private String report = "";
-	private GxDroplistName name=new GxDroplistName();
+	private GxDroplistName windowTypes = new GxDroplistName();
+	private GxDroplistValue windowType = new GxDroplistValue();
 	
 	public String execute(){
-		if (!getId().equalsIgnoreCase("")){
-			window = (GxWindow)manager.getById(GxWindow.class, getId());
-//			String query = "FROM "+ Tab.class.getName() + " AS tc WHERE tc.window.id='"+window.getId()+"'";
-//			tabs = (ArrayList<Tab>)manager.getList(query, null, null);
+		if (getWindow().getId() != null && !"".equalsIgnoreCase(getWindow().getId())){
+			setWindow((GxWindow)manager.getById(GxWindow.class, getWindow().getId()));
+			getWindow().getTabs();
 		}
-		setName((GxDroplistName) manager.getById(GxDroplistName.class, "ff80808115ace81f0115acef78020002"));
+		setWindowTypes((GxDroplistName) manager.getById(GxDroplistName.class, "ff80808115ace81f0115acef78020002"));
 		return SUCCESS;
 	}
 	
@@ -48,20 +46,7 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 	public void setWindow(GxWindow window) {
 		this.window = window;
 	}
-	/**
-	 * @return Returns the id.
-	 */
-	public String getId() {
-		return id;
-	}
-
-	/**
-	 * @param id The id to set.
-	 */
-	public void setId(String id) {
-		this.id = id;
-	}
-
+	
 	/**
 	 * @return Returns the report.
 	 */
@@ -74,20 +59,6 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 	 */
 	public void setReport(String report) {
 		this.report = report;
-	}
-
-	/**
-	 * @return Returns the temp.
-	 */
-	public GxWindow getTemp() {
-		return temp;
-	}
-
-	/**
-	 * @param temp The temp to set.
-	 */
-	public void setTemp(GxWindow temp) {
-		this.temp = temp;
 	}
 
 	/**
@@ -104,12 +75,20 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 		this.windows = windows;
 	}
 
-	public GxDroplistName getName() {
-		return name;
+	public GxDroplistName getWindowTypes() {
+		return windowTypes;
 	}
 
-	public void setName(GxDroplistName name) {
-		this.name = name;
+	public void setWindowTypes(GxDroplistName name) {
+		this.windowTypes = name;
+	}
+
+	public GxDroplistValue getWindowType() {
+		return windowType;
+	}
+
+	public void setWindowType(GxDroplistValue windowType) {
+		this.windowType = windowType;
 	}
 
 //	/**

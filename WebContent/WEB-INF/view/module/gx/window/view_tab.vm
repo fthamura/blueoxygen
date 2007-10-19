@@ -1,37 +1,74 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>View Tab</title>
-	
-	<LINK href="/cimande/style.css" rel="stylesheet" type="text/css">
+  <title>Window Detail</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script language="JavaScript">
+  	function newTab(){
+  		id = document.getElementById("tabId");
+  		name = document.getElementById("tabName");
+  		description = document.getElementById("tabDesc");
+  		tabName = document.getElementById("tabTabName");
+  		id.value = "";
+  		name.value = "";
+  		description.value = "";
+  		tabName.value = "";
+  	}
+  </script>
 </head>
-<body bgcolor="lightyellow" leftmargin="0" topmargin="0">
-<CENTER>
-<table cellpadding="3" width="100%">
-	<tr><td><br>
-    <br> 
-  <table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="98%">
-    	<tr bgcolor="eeeeee"><td align="center">&nbsp;</td><td align="center"><b>Name</b></td><td align="center"><b>Address</b></td><td align="center"><b>Window Id</b></td></tr>
+<body onload="HTMLArea.replaceAll();">
+<form method="post" action="../tab/add.action">
 
-<tr bgcolor="#ffffff" valign="top">
-		
-    <td><a href="javascript:Update('$!de.name','$!de.description','$!de.window_id');"><img src="/cimande/images/right-arrow.gif" border="0"></a></td>
-		<td>$!de.name</td>
-		<td>$!de.description</td>
-		<td>$!de.window_id</td>
-		</tr>
+  	<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+    <tr bgcolor="#ffff00">
+      <td id="tableHeader2" colspan="2"><b>Window    : $!window.name</b>  <a href="../window/edit.action?id=$!window.id">Edit</a></td>    
+	</tr>
+    <tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="2">Tab</td>
+  	</tr>
+  	 <tr bgcolor="#ffffff">
+    <td>Name</td>
+  <td>  <input id="tabName" name="tab.name" value="$!tab.name"/> 
+    
+	 <tr bgcolor="#ffffff">
+    <td>Description</td>
+  <td>  <input id="tabDesc" name="tab.description" value="$!tab.description"/> 
+  	</td>
+	 <tr bgcolor="#ffffff">
+  <td>Table Name</td>
+  <td>  <input id="tabTabName" name="tab.tabName" value="$!tab.tabName"/></td> 
+  </tr>
+
+    <tr bgcolor="#d0dcff">
+  <td id=tableHeader1 colspan="2"><input type="hidden" id="tabId" name="id" value="$!tab.id">
+      <input type="submit" value="Submit"> <input type="reset" value="Reset"> <input type="button" value="Clear" onClick="newTab()">
+      <input type="hidden" name="windowId" value="$!window.id">
+  </td>
+  </tr>
+ </table>
+  <br>$!report
+  #if(!$tabs.isEmpty())
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  <tr id="tableHeader1" bgcolor="#d0dcff"> 
+    <td>Name</td>
+    <td>Description</td>
+	<td>Action</td>
+  </tr>
+  #foreach ($de in $tabs) 
+  <tr valign="top" bgcolor="#ffffff"> 
+    <td>$!de.name</td>
+    <td>$!de.description</td>
+    <td><a href="../tab/edit.action?id=$de.Id">Edit</a> <a href="../tab/delete.action?id=$de.id&windowId=$!window.id">Delete</a></td>
+  </tr>
+  #end 
 </table>
-<p align="center"><input TYPE="button" VALUE="Close Window" onClick="window.close();"></p>
-
-<script language="JavaScript">
-<!--
-	function Update(var1,var2)
-	{
-		window.opener.document.form2.vm.column_id.value = var1; 
-		window.opener.document.form2.vm.column_name.value = var2; 
-		window.close();
-	}
-//-->
-</script>
-
+#end
+<br>
+<!--table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  	<tr bgcolor="#ffffff">
+		<td align="center"><a href="../form.action">Home</a></td>
+	</tr>
+</table-->
+</body>
+</html>
+    

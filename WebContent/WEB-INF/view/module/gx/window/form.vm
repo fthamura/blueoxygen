@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
 <html>
 	<head>
 		<title>Form - Window</title>
@@ -15,14 +14,11 @@
 			</ul>
 		#end
 		
-		<form method="get" action="add.action">
+		<form method="get" action="save.action">
 			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
 				<tr bgcolor="#d0dcff">
 					<td colspan="2"><b>Window</b></td>
 				</tr>
-				<!--tr bgcolor="#ffff00">
-					<td colspan="2">&nbsp;</td>
-				</tr-->
 				<tr bgcolor="#ffffff">
 					<td>Name: <font color="red">*</font></td>
 					<td>
@@ -38,9 +34,9 @@
 				<tr bgcolor="#ffffff">
 					<td>Window Type:</td>
 					<td>
-						<select name="$!name.name">
+						<select name="$!windowType.id">
 							<option value="">Not Define</option>
-							#foreach($dl in $name.values)
+							#foreach($dl in $windowTypes.values)
 							<option value="$!dl.value">$!dl.description</option>
 							#end
 						</select>
@@ -55,55 +51,11 @@
 				</tr>
 				<tr bgcolor="#e4e4e4">	
 			      <td colspan="2"> 
-			        <input name="id" type="hidden" value="$!window.id"/>
+			        <input name="window.id" type="hidden" value="$!window.id"/>
 					<input name="submit" type="submit" value="Submit">
 				  </td>
 				</tr>
 			</table>
 		</form>
-		<br>
-		#if($window.id)
-			<form action="addtab.action">
-			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
-				<tr bgcolor="#d0dcff">
-					<td colspan="2"><b>Tab</b></td>
-				</tr>
-				<tr bgcolor="#ffffff">
-  					<td><b>Tab</b></td>
-  					<td>
-  						<input type="textfield" id="tabDescription" value="$!tab.description" size="35" disabled="true" onfocus="this.blur()"/>
-    					<input type="hidden" id="tabId" name="tab.id" value="$!tab.id"/>
-    					&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../tab/list.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>    					
-  					</td>
-				</tr>
-				<tr bgcolor="#d0dcff">
-					<td colspan="2">
-						<input type="hidden" name="window.id" value="$!window.id"/>
-						<input type="submit" value="Submit">
-						<input type="reset" value="Reset">
-					</td>
-  				</tr>
-			</table>
-			</form>
-			$!report
-  		<br>
-  			#if(!$window.tabs.isEmpty())
-			<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
-			  <tr id="tableHeader1" bgcolor="#e4e4e4"> 
-			    <td>Name</td>
-			    <td>Description</td>
-				<td>Action</td>
-			  </tr>
-		  #foreach ($de in $window.tabs) 
-			  <tr valign="top" bgcolor="#ffffff"> 
-			    <td>$!de.name</td>
-			    <td>$!de.description</td>
-			    <td width=50><a href="../tab/edit.action?id=$de.Id"><img src="../../images/silk/page_edit.png" border="0"></a> <a href="remove.action?tab.id=$de.id&window.id=$!window.id"><img src="../../images/silk/delete.png" border="0"></a></td>
-			  </tr>
-		  #end 
-			</table>
-			#end
-		#end
-		<br>
 	</body>
 </html>

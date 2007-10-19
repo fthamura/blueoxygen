@@ -22,7 +22,7 @@
 			</ul>
 		#end
 		
-		<form method="get" action="add.action">
+		<form method="get" action="../tab/save.action">
 			<table align="center" border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
 				<tr>
 					<td colspan="2" bgcolor="#333366"><span class="style1">Tab</span></td>
@@ -44,6 +44,7 @@
 				<tr bgcolor="#A8FF93">
                     <td colspan="2" align="right" bgcolor="#CFE9EB">
                     	<input name="tab.id" type="hidden" value="$!tab.id"/>
+                    	<input name="window.id" type="hidden" value="$!window.id"/>
                     	<input name="submit" onclick="return checkfields(this);" type="submit" value="Next &gt;&gt;">
                     </td>
 				</tr>

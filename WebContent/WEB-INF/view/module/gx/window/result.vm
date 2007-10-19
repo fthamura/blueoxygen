@@ -17,7 +17,7 @@
 			#else 
 			<tr bgcolor="yellow">
 				<td colspan="5" align="right">
-					Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) Modules #else Module #end
+					Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) Windows #else Window #end
 				</td>
 			</tr>
 			
@@ -33,27 +33,22 @@
 				<td>$!de.name</td>
 				<td>$!de.description</td>
 				<td>
-					<a href="edit.action?id=$de.Id"><img src="../../images/silk/page_edit.png" border="0"></a>
-					<a href="confirm.action?id=$de.Id"><img src="../../images/silk/delete.png" border="0"></a>
+					<a href="edit.action?window.id=$de.Id"><img src="../../images/silk/page_edit.png" border="0"></a>
+					<a href="confirm.action?window.id=$de.Id"><img src="../../images/silk/delete.png" border="0"></a>
 				</td>
 			</tr>
 			#end
 			<tr bgcolor="#e4e4e4">
 				<td align="right" colspan="5">
-					#if ($currPage > 0) <a href="search.action?window.name=$!window.name&window.description=$!window.description&window.windowName=$!window.windowName&orderBy=$!orderBy&currPage=0">&lt;&lt;</a>&nbsp;#end
-					#if ($currPage > 0) <a href="search.action?window.name=$!window.name&window.description=$!window.description&window.windowName=$!window.windowName&orderBy=$!orderBy&currPage=$prevPage">&lt;</a>&nbsp;#end
+					#if ($currPage > 0) <a href="search.action?window.name=$!window.name&window.description=$!window.description&orderBy=$!orderBy&currPage=0">&lt;&lt;</a>&nbsp;#end
+					#if ($currPage > 0) <a href="search.action?window.name=$!window.name&window.description=$!window.description&orderBy=$!orderBy&currPage=$prevPage">&lt;</a>&nbsp;#end
 					[page $page]
-					#if ($currPage < $maxPage) <a href="search.action?window.name=$!window.name&window.description=$!window.description&window.windowName=$!window.windowName&orderBy=$!orderBy&currPage=$nextPage">&gt;</a>&nbsp;#end
-					#if ($currPage < $maxPage) <a href="search.action?window.name=$!window.name&window.description=$!window.description&window.windowName=$!window.windowName&orderBy=$!orderBy&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+					#if ($currPage < $maxPage) <a href="search.action?window.name=$!window.name&window.description=$!window.description&orderBy=$!orderBy&currPage=$nextPage">&gt;</a>&nbsp;#end
+					#if ($currPage < $maxPage) <a href="search.action?window.name=$!window.name&window.description=$!window.description&orderBy=$!orderBy&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
 				</td>
 			</tr>
 			#end
 		</table>
 		<br>
-		<!--table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
-		  	<tr bgcolor="#ffffff">
-				<td align="center"><a href="../../thin/form.action">Home</a></td>
-			</tr>
-		</table-->
 	</body>
 </html>
