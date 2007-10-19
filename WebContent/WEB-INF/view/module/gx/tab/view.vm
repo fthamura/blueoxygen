@@ -13,18 +13,9 @@
         </style>
 </head>
 	<body>
-		<table align="center" border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
-			<tr>
-				<td bgcolor="#333366"><span class="style1">Window</span></td>
-			</tr>
-			<tr bgcolor="#ffffff">
-				<td>
-					<a href="../window/edit.action?window.id=$!window.id"><img src="../../images/silk/page_edit.png" border="0"></a>
-					<a href="../window/delete.action?window.id=$!window.id"><img src="../../images/silk/delete.png" border="0"></a>
-					$!window.name
-				</td>
-			</tr>
-		</table>
+		<b>GX > <a href="../window/edit.action?window.id=$!window.id">$!window.name</a> > Tab </b>
+		<br>
+				
 		<br>
 		#if (!$actionErrors.isEmpty())
 			<div class="errorMessage">Errors</div>
