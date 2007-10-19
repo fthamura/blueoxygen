@@ -182,13 +182,15 @@
 
 	
     <target name="config" depends="build" description="Generate and assemble configuration">
+    	<!--
         <taskdef name="hibernatedoclet" classpathref="classpath" classname="xdoclet.modules.hibernate.HibernateDocletTask" />
         <hibernatedoclet destDir="${build.dest.dir}" force="true" mergeDir="${src.java.dir}">
             <fileset dir="${src.java.dir}">
                 <include name="**/*.java"/>
             </fileset>
             <hibernate destDir="${build.dest.dir}" version="3.0"/>
-        </hibernatedoclet>
+        </hibernatedoclet
+        -->
         <copy todir="${build.dest.dir}">
             <fileset dir="${src.config.dir}" includes="*"/>
         </copy>

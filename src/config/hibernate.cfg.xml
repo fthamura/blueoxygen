@@ -21,42 +21,40 @@
 		<property name="connection.autoReconnectForPools">true</property>
 		<property name="connection.is-connection-validation-required">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
         <property name="hibernate.cache.use_query_cache">true</property>
         <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
         
-        <!-- mapping files -->
-        <mapping resource="org/blueoxygen/cimande/security/User.hbm.xml"/>
-        <mapping resource="org/blueoxygen/cimande/role/Role.hbm.xml"/>
-        <mapping resource="org/blueoxygen/cimande/role/RolePrivilage.hbm.xml"/>
-        <mapping resource="org/blueoxygen/cimande/site/Site.hbm.xml"/>
-		<mapping resource="org/blueoxygen/cimande/descriptors/Collection.hbm.xml"/>
-		<mapping resource="org/blueoxygen/cimande/descriptors/Descriptor.hbm.xml"/>
-		<mapping resource="org/blueoxygen/cimande/descriptors/DescriptorGroup.hbm.xml"/>
-		<mapping resource="org/blueoxygen/cimande/descriptors/Wizard.hbm.xml"/>
-        
-		<mapping resource="org/blueoxygen/cimande/modulefunction/ModuleFunction.hbm.xml"/>	
-		<mapping resource="org/blueoxygen/cimande/category/Category.hbm.xml"/>	
-		<mapping resource="org/blueoxygen/cimande/section/Section.hbm.xml"/>	
-		<mapping resource="org/blueoxygen/cimande/jobdescription/JobDesc.hbm.xml"/>	
 
-		<mapping resource="org/blueoxygen/cimande/company/Company.hbm.xml"/>
-		<mapping resource="org/blueoxygen/cimande/skin/Skin.hbm.xml"/>
-   		
-   		<mapping resource="org/blueoxygen/cimande/theme/Theme.hbm.xml"/>	
-		<mapping resource="org/blueoxygen/cimande/template/TemplateObject.hbm.xml"/>
-		<mapping resource="org/blueoxygen/cimande/template/TemplateObjectDetail.hbm.xml"/>	
-		<mapping resource="org/blueoxygen/cimande/template/Template.hbm.xml"/>
-     	<mapping class="org.blueoxygen.cimande.gx.droplistname.DroplistName"/>		
-		<mapping class="org.blueoxygen.cimande.gx.droplistvalue.DroplistValue"/>
-		<mapping class="org.blueoxygen.cimande.gx.droplist.Droplist"/>
-		<mapping class="org.blueoxygen.cimande.gx.table.DBTable"/>
-		<mapping class="org.blueoxygen.cimande.gx.column.DBColumn"/>
-		<mapping class="org.blueoxygen.cimande.gx.field.Field"/>
-		<mapping class="org.blueoxygen.cimande.gx.window.Window"/>
-		<mapping class="org.blueoxygen.cimande.gx.tab.Tab"/>
-		<mapping class="org.blueoxygen.cimande.gx.references.References"/>
-		<mapping class="org.blueoxygen.cimande.gx.references.RefType"/>
+   				<mapping class="org.blueoxygen.cimande.security.User"/>
+                <mapping class="org.blueoxygen.cimande.role.Role"/>
+                <mapping class="org.blueoxygen.cimande.role.RolePrivilage"/>
+                <mapping class="org.blueoxygen.cimande.site.Site"/>
+                <mapping class="org.blueoxygen.cimande.role.RoleSite"/>
+                <mapping class="org.blueoxygen.cimande.descriptors.Collection"/>
+                <mapping class="org.blueoxygen.cimande.descriptors.Descriptor"/>
+                <mapping class="org.blueoxygen.cimande.descriptors.DescriptorGroup"/>
+                <mapping class="org.blueoxygen.cimande.descriptors.Wizard"/>
+                <mapping class="org.blueoxygen.cimande.modulefunction.ModuleFunction"/>
+                <mapping class="org.blueoxygen.cimande.category.Category"/>
+                <mapping class="org.blueoxygen.cimande.section.Section"/>
+                <mapping class="org.blueoxygen.cimande.jobdescription.JobDesc"/>
+                <mapping class="org.blueoxygen.cimande.company.Company"/>
+                <mapping class="org.blueoxygen.cimande.skin.Skin"/>
+                <mapping class="org.blueoxygen.cimande.theme.Theme"/>
+                <mapping class="org.blueoxygen.cimande.template.TemplateObject"/>
+                <mapping class="org.blueoxygen.cimande.template.TemplateObjectDetail"/>
+                <mapping class="org.blueoxygen.cimande.template.Template"/>
+                
+                <mapping class="org.blueoxygen.cimande.gx.entity.GxTab"/>
+                <mapping class="org.blueoxygen.cimande.gx.entity.GxField"/>
+                <mapping class="org.blueoxygen.cimande.gx.entity.GxTable"/>
+                <mapping class="org.blueoxygen.cimande.gx.entity.GxColumn"/>
+                <mapping class="org.blueoxygen.cimande.gx.entity.GxDroplistName"/>
+                <mapping class="org.blueoxygen.cimande.gx.entity.GxDroplistValue"/>
+                <mapping class="org.blueoxygen.cimande.gx.entity.GxWindow"/>
+
+
 		
 	</session-factory>
 
