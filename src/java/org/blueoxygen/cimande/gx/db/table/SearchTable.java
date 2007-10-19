@@ -16,7 +16,7 @@ import org.hibernate.criterion.Order;
 public class SearchTable extends TableForm implements HibernateSessionFactoryAware {
 	private HibernateSessionFactory hsf;
 	private Session sess;
-	private int maxPage = 1; 
+	private int maxPage = 0; 
 	private int currPage = 0;
 	private int nextPage; 
 	private int prevPage;

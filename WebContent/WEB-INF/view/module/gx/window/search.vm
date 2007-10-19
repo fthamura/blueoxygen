@@ -4,6 +4,14 @@
 	<head>
 		<title>Search - Window</title>
 		<link rel="stylesheet" type="text/css" href="../../style.css">
+	    <style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+-->
+        </style>
 	</head>
 	<body>
 		#if (!$actionErrors.isEmpty())
@@ -16,9 +24,9 @@
 		#end
 		
 		<form method="get" action="search.action">
-			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+			<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
 				<tr bgcolor="#d0dcff">
-					<td colspan="2"><b>Search Window</b></td>
+					<td colspan="2" bgcolor="#333366"><span class="style1">Search Window</span></td>
 				</tr>
 				<tr bgcolor="#ffffff">
 					<td>Name :</td>
@@ -33,7 +41,7 @@
 					</td>
 				</tr>
 				<tr bgcolor="#e4e4e4">
-					<td colspan="2">
+					<td colspan="2" align="right" bgcolor="#CFE9EB" id=tableHeader1>
 						<input type="submit" value="Submit"/>
 					</td>
 				</tr>

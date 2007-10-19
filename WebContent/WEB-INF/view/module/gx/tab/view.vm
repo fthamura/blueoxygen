@@ -1,20 +1,32 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Tab Detail</title>
- <link rel="stylesheet" type="text/css" href="../../style.css">
-  <style type="text/css">
+<title>Form - Tab</title>
+<link rel="stylesheet" type="text/css" href="../../style.css">
+	    <style type="text/css">
 <!--
 .style1 {
 	color: #FFFFFF;
 	font-weight: bold;
 }
 -->
-  </style>
+        </style>
 </head>
-
-<body>
-#if (!$actionErrors.isEmpty())
+	<body>
+		<table align="center" border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+			<tr>
+				<td bgcolor="#333366"><span class="style1">Window</span></td>
+			</tr>
+			<tr bgcolor="#ffffff">
+				<td>
+					<a href="../window/edit.action?window.id=$!window.id"><img src="../../images/silk/page_edit.png" border="0"></a>
+					<a href="../window/delete.action?window.id=$!window.id"><img src="../../images/silk/delete.png" border="0"></a>
+					$!window.name
+				</td>
+			</tr>
+		</table>
+		<br>
+		#if (!$actionErrors.isEmpty())
 			<div class="errorMessage">Errors</div>
 			<ul class="errorMessage">
 			#foreach( $error in $actionErrors )
@@ -22,96 +34,10 @@
 			#end
 			</ul>
 		#end
-		
-		<form method="get" action="add.action">
-			<table align="center" border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
-				<tr>
-					<td colspan="2" bgcolor="#333366"><span class="style1">Add / Edit Gxform</span></td>
-				</tr>
-				<tr bgcolor="#ffffff">
-					<td align="right" width="40%">Name<font color="red">*</font>:</td>
-					<td><input name="tab.name" value="$!tab.name"/></td>
-				</tr>
-				<tr bgcolor="#ffffff">
-				    <td align="right">Description:</td>
-				    <td><input name="tab.description" value="$!tab.description"/></td>
-			    </tr>
-				<tr bgcolor="#ffffff">
-					<td align="right">Table name<font color="red">*</font> :</td>
-					<td><input type="textfield" id="tableDescription" value="$!tab.table.description" size="24" disabled="true" onfocus="this.blur()"/>
-					<input type="hidden" id="tableId" name="table.id" value="$!tab.table.id">
-				    <label><input type="button" value="Change" onclick="javascript:window.open('../gx-table/listTable.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></label></td>
-				</tr>
-				<tr bgcolor="#A8FF93">
-                    <td colspan="2" align="right" bgcolor="#CFE9EB">
-                    	<input name="tab.id" type="hidden" value="$!tab.id"/>
-                    	<input name="submit" onclick="return checkfields(this);" type="submit" value="Next &gt;&gt;">
-                    </td>
-				</tr>
-			</table>
-		</form>
-  	<br>
-<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
-	<tbody>
-		<tr bgcolor="#333366">
-			<td><span class="style1">Column Name</span></td>
-			<td><span class="style1">Data Type</span></td>
-			<td><span class="style1">Label</span></td>
-			<td><span class="style1">Default Value</span></td>
-			<td><span class="style1">Field Type</span></td>
-		</tr>
-		<form action="../field/add.action" method="post">
-		#foreach($c in $tab.table.columns)
-			<tr bgcolor="#ffffff">
-				<td>$!c.name</td>
-				<td>$!c.element.value</td>
-				<td><input id="name" name="names" value=""/></td>
-				<td><input id="defaultValue" name="defaultValues" value=""/></td>
-				<td>
-					<select id="fieldType" name="fieldTypes">
-					#foreach($f in $fieldTypes)
-						<option value="$!f.id">$!f.value</option>
-					#end		
-					</select>
-					<input type="hidden" id="columnId" name="columnIds" value="$c.id">
-				</td>
-			</tr>
+		#saction("name=create" "namespace=/module/tab" "executeResult=true")
+		#if($tab.id)
+		#saction("name=edit" "namespace=/module/field" "executeResult=true")
 		#end
-		<tr bgcolor="#A8FF93">
-			<td colspan="6" align="right" bgcolor="#CFE9EB" id=tableHeader1>
-				<input type="hidden" name="tab.id" value="$!tab.id">
-	      		<input type="submit" value="Submit"> 
-	      		<input type="reset" value="Reset"> 
-	      		
-		  </td>
-		</tr>
-		</form>
-	</tbody>
-</table>
-<br>
-	
-#if(!$tab.fields)
-<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
-	<tbody>
-		<tr bgcolor="#333366">
-			<td><span class="style1">Column Name</span></td>
-			<td><span class="style1">Data Type</span></td>
-			<td><span class="style1">Label</span></td>
-			<td><span class="style1">Default Value</span></td>
-			<td><span class="style1">Field Type</span></td>
-		</tr>
-		#foreach($c in $tab.fields)
-			<tr bgcolor="#ffffff">
-				<td>$!c.column.name</td>
-				<td>$!c.column.element.value</td>
-				<td>$!c.name</td>
-				<td>$!c.gxgreenatorName</td>
-				<td>$!c.type.value</td>
-			</tr>
-		#end
-	</tbody>
-</table>
-#end
-</body>
+		#saction("name=listdetail" "namespace=/module/field" "executeResult=true")
+	</body>
 </html>
-    

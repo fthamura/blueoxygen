@@ -6,17 +6,17 @@
 		<link rel="stylesheet" type="text/css" href="../../style.css">
 	</head>
 	<body>
-		<form method="get" action="delete.action">
+		<form method="get" action="confirm.action">
 			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
 				<tr bgcolor="#d0dcff">
-					<td><b>Delete Window</b></td>
+					<td bgcolor="#333366"><span class="style1">Delete Window</span></td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td>Delete window $window.name??</td> 
+					<td>Delete window $!window.name?</td> 
 				</tr>
-				<tr bgcolor="#e4e4e4">
-					<td>
-						<input name="id" type="hidden" value="$window.id"/>
+				<tr>
+					<td align="right" bgcolor="#CFE9EB">
+						<input name="window.id" type="hidden" value="$window.id"/>
 						<input name="confirm" type="submit" value="Yes"/>
 						<input name="confirm" type="submit" value="No"/>
 					</td>
@@ -24,10 +24,5 @@
 			</table>
 		</form>
 		<br>
-		<!--table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="100%">
-		  	<tr bgcolor="#ffffff">
-				<td align="center"><a href="../form.action">Home</a></td>
-			</tr>
-		</table-->
 	</body>
 </html>

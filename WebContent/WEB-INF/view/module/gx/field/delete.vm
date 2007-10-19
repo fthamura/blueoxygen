@@ -2,17 +2,17 @@
 <!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
 <html>
 	<head>
-		<title>Delete - Gxgreenator</title>
+		<title>Delete - Field</title>
 		<link rel="stylesheet" type="text/css" href="../../style.css">
 	</head>
 	<body>
-		<form method="get" action="delete.action">
+		<form method="get" action="confirm.action">
 			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
 				<tr bgcolor="#d0dcff">
-					<td><b>Delete Gxgreenator</b></td>
+					<td><b>Delete Field</b></td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td>Delete Gxgreenator $gxgreenator.name??</td> 
+					<td>Delete field $field.name??</td> 
 				</tr>
 				<tr bgcolor="#e4e4e4">
 					<td>

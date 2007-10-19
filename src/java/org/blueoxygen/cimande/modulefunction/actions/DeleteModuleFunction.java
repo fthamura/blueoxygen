@@ -6,6 +6,8 @@
  */
 package org.blueoxygen.cimande.modulefunction.actions;
 
+import org.blueoxygen.cimande.modulefunction.ModuleFunction;
+
 /**
  * @author Amelia
  *
@@ -13,29 +15,22 @@ package org.blueoxygen.cimande.modulefunction.actions;
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
 public class DeleteModuleFunction extends ViewModuleFunction{
-	public String execute ()
-	{
+	public String execute () {
 		String result = super.execute();
 		
-		
-		if (result.equalsIgnoreCase(SUCCESS))
-		{		
-			if(moduleFunction.getModuleFunction()==null)
-			{
-				pm.remove(moduleFunction);
-				return SUCCESS;
+		if (result.equalsIgnoreCase(SUCCESS)) {		
+			moduleFunction.setModuleFunction(null);
+			pm.save(moduleFunction);
+			for(ModuleFunction m : moduleFunction.getModuleFunctions()){
+				m.setModuleFunction(null);
+				pm.save(m);
 			}
-				
-			else
-			{
-				moduleFunction.setModuleFunction(null);
-				return INPUT;
-			}
-		}
-		else
-		{
+			pm.remove(moduleFunction);
+			return SUCCESS;
+			
+		} else {
 			addActionError("No Module Function");
-			return ERROR;
+			return INPUT;
 		}
 		
 	}

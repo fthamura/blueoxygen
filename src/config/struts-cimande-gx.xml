@@ -136,7 +136,7 @@
 			<result name="input" type="velocity">/WEB-INF/view/module/gx/tab/form.vm</result>
 		</action>
 		<action name="edit" class="org.blueoxygen.cimande.gx.tab.TabForm">
-			<result name="success" type="velocity">/WEB-INF/view/module/gx/tab/form.vm</result>
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/tab/view.vm</result>
 		</action>
 		<action name="confirm" class="org.blueoxygen.cimande.gx.tab.TabForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/tab/delete.vm</result>
@@ -150,12 +150,15 @@
 	</package>
 <!--GXGREENATOR-->
 	<package name="field" extends="default" namespace="/module/field">
-		<action name="add" class="org.blueoxygen.cimande.gx.field.SaveField"  >
-			<result name="success" type="redirect">../tab/view.action?field.id=${gxformId}</result>
-			<result name="input" type="redirect">../tab/view.action?field.id=${gxformId}</result>
+		<action name="save" class="org.blueoxygen.cimande.gx.field.SaveField"  >
+			<result name="success" type="redirect">../tab/edit.action?window.id=${window.id}&amp;tab.id=${tab.id}</result>
+			<result name="input" type="redirect">../tab/edit.action?window.id=${window.id}&amp;tab.id=${tab.id}&amp;actionErrors=${actionErrors}</result>
 		</action>
 		<action name="delete" class="org.blueoxygen.cimande.gx.field.DeleteField">
-			<result name="success" type="redirect">../tab/view.action?id=${gxformId}</result>
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/field/delete.vm</result>
+		</action>
+		<action name="confirm" class="org.blueoxygen.cimande.gx.field.DeleteField">
+			<result name="success" type="redirect">../tab/edit.action?window.id=${window.id}&amp;tab.id=${tab.id}</result>
 		</action>
 		<action name="edit" class="org.blueoxygen.cimande.gx.field.FieldForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/field/form.vm</result>

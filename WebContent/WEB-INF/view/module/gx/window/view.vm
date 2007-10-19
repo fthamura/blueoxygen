@@ -17,7 +17,7 @@
 #saction("name=create" "namespace=/module/window" "executeResult=true")
 		<br>
 #if($window.id)
-#saction("name=edit" "namespace=/module/tab" "executeResult=true")
+#saction("name=create" "namespace=/module/tab" "executeResult=true")
 <br>$!report
 #saction("name=listdetail" "namespace=/module/tab" "executeResult=true")
 #end

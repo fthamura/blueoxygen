@@ -29,14 +29,12 @@ public class ViewModuleFunction extends ActionSupport implements PersistenceAwar
 	private List mfs;
 	public String execute()
 	{
-		String query = " FROM module_function in " + ModuleFunction.class + " WHERE module_function.moduleFunction.id='" + getId() + "'";
 
 		if (!id.equalsIgnoreCase(""))
 		{
 			
 			moduleFunction = (ModuleFunction) pm.getById(ModuleFunction.class, getId());
-			mfs= pm.find(query,null,null);
-			
+			mfs = moduleFunction.getModuleFunctions();
 			return SUCCESS;
 		}
 		else

@@ -7,15 +7,15 @@
 	<body>
 		<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
 			<tr bgcolor="#d0dcff">
-				<td colspan="5"><b>Search Table</b></td>
+				<td colspan="5" bgcolor="#333366"><span class="style1">Search Table</span></td>
 			</tr>
 			#if ($tables.isEmpty()) 
 			<tr bgcolor="yellow">
-				<td colspan="5" align="right">No such data found</td>
+				<td colspan="5" align="right" bgcolor="#CFE9EB">No such data found</td>
 			</tr>
 			#else 
 			<tr bgcolor="yellow">
-				<td colspan="5" align="right">
+				<td colspan="5" align="right" bgcolor="#CFE9EB">
 					Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) Tables #else Table #end
 				</td>
 			</tr>
