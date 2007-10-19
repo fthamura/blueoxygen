@@ -7,6 +7,7 @@ import org.apache.commons.beanutils.PropertyUtils;
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.gx.entity.GxField;
 import org.blueoxygen.cimande.gx.entity.GxTab;
+import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 
@@ -18,6 +19,12 @@ public class SaveField extends FieldForm implements SessionCredentialsAware {
 			addActionError("Please select a tab first");
 		} else {
 			setTab((GxTab) manager.getById(GxTab.class, getTab().getId()));
+		}
+		if(getWindow().getId() != null && !"".equalsIgnoreCase(getWindow().getId())){
+			setWindow((GxWindow) manager.getById(GxWindow.class, getWindow().getId()));
+		}
+		if(getField().getName() == null || "".equalsIgnoreCase(getField().getName())){
+			addActionError("Name cannot be empty");
 		}
 		if(hasActionErrors()){
 			return INPUT;
@@ -53,7 +60,7 @@ public class SaveField extends FieldForm implements SessionCredentialsAware {
 
 		getField().setLogInformation(log);
 		getField().setTab(getTab());
-		manager.save(getTab());
+		manager.save(getField());
 		setReport("Save Success");
 		return SUCCESS;
 	}

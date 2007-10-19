@@ -7,14 +7,7 @@
 }
 -->
         </style>
-#if (!$actionErrors.isEmpty())
-			<div class="errorMessage">Error</div>
-			<ul class="errorMessage">
-			#foreach( $error in $actionErrors )
-				<li>$error</li>
-			#end
-			</ul>
-		#end
+
 <table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
 	<tbody>
 		<form action="../field/save.action" method="get">
@@ -53,6 +46,7 @@
 			<td colspan="2" align="right" bgcolor="#CFE9EB">
 				<input type="hidden" name="field.id" value="$!field.id">
 				<input type="hidden" name="tab.id" value="$!tab.id">
+				<input type="hidden" name="window.id" value="$!window.id">
 	      		<input type="submit" value="Submit"> 
 	      		<input type="reset" value="Reset"> 
 		  </td>

@@ -9,13 +9,17 @@
 	color: #FFFFFF;
 	font-weight: bold;
 }
+.errorMessage {
+	color: #FF0000;
+	font-weight: bold;
+}
 -->
         </style>
 </head>
 	<body>
 		<b>GX > <a href="../window/edit.action?window.id=$!window.id">$!window.name</a> > Tab </b>
 		<br>
-				
+
 		<br>
 		#if (!$actionErrors.isEmpty())
 			<div class="errorMessage">Errors</div>
@@ -29,6 +33,7 @@
 		#if($tab.id)
 		#saction("name=edit" "namespace=/module/field" "executeResult=true")
 		#end
+		<br>
 		#saction("name=listdetail" "namespace=/module/field" "executeResult=true")
 	</body>
 </html>

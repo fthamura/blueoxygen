@@ -7,14 +7,7 @@
 }
 -->
         </style>
-		#if (!$actionErrors.isEmpty())
-			<div class="errorMessage">Error</div>
-			<ul class="errorMessage">
-			#foreach( $error in $actionErrors )
-				<li>$error</li>
-			#end
-			</ul>
-		#end
+		
 		<form method="get" action="save.action">
 			<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
   				<tr bgcolor="#d0dcff">

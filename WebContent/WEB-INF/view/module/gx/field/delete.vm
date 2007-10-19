@@ -16,7 +16,9 @@
 				</tr>
 				<tr bgcolor="#e4e4e4">
 					<td>
-						<input name="id" type="hidden" value="$gxgreenator.id"/>
+						<input name="field.id" type="hidden" value="$!field.id"/>
+						<input name="tab.id" type="hidden" value="$!tab.id"/>
+						<input name="window.id" type="hidden" value="$!window.id"/>
 						<input name="confirm" type="submit" value="Yes"/>
 						<input name="confirm" type="submit" value="No"/>
 					</td>
