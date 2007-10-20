@@ -27,7 +27,7 @@ while (myResultSet.next()){
 %>
 <tr bgcolor="#ffffff" valign="top">
 		
-    <td><a href="javascript:Update('<%= myResultSet.getString("id") %>','<%= myResultSet.getString("name") %>');"><img src="/cimande/images/right-arrow.gif" border="0"></a></td>
+    <td><a href="javascript:Update('<%= myResultSet.getString("id") %>','<%= myResultSet.getString("name") %>');"><img src="../../images/silk/application_put.png" border="0"></a></td>
 		<td><% out.println(myResultSet.getString("name")); %></td>
 		<td><% out.println(myResultSet.getString("address")); %><br>
 			<% out.println(myResultSet.getString("zip_number")); %>&nbsp;<% out.println(myResultSet.getString("state")); %><br>

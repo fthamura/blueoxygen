@@ -6,7 +6,6 @@ package org.blueoxygen.cimande.site.actions;
 import java.sql.Timestamp;
 
 
-import org.blueoxygen.cimande.theme.Theme;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 import org.blueoxygen.cimande.site.Site;
@@ -34,9 +33,7 @@ public class UpdateSite extends SiteForm implements SessionCredentialsAware {
 			return INPUT;
 		} else {
 			site = (Site) persistenceManager.getById(Site.class, getId());
-
-			theme = (Theme) persistenceManager.getById(Theme.class, getTheme_id());
-			
+		
 			site.setName(getName());
 			site.setDescription(getDescription());
 			site.setTitle(getTitle());
@@ -48,8 +45,6 @@ public class UpdateSite extends SiteForm implements SessionCredentialsAware {
 			site.setUrl_branding(getUrl_branding());
 			site.setSite_headline(getSite_headline());
 			site.setSite_url(getSite_url());
-			site.setTheme(theme);
-			
 			logInfo = site.getLogInformation();
 			logInfo.setLastUpdateBy(sess.getCurrentUser().getId());
 			logInfo.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));	

@@ -16,7 +16,6 @@ import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 import org.blueoxygen.cimande.site.Site;
-import org.blueoxygen.cimande.theme.Theme;
 
 /**
  * @author frans
@@ -43,7 +42,6 @@ public class AddSite extends SiteForm implements SessionCredentialsAware {
 		}
 		if (hasErrors()) {return INPUT;} else {
 
-		theme = (Theme) persistenceManager.getById(Theme.class, getTheme_id());
 			
 		Site newSite = new Site();
 
@@ -58,7 +56,6 @@ public class AddSite extends SiteForm implements SessionCredentialsAware {
 		newSite.setNotify_from(getNotify_from());
 		newSite.setNotify_message(getNotify_message());
 		newSite.setSite_headline(getSite_headline());
-		newSite.setTheme(theme);
 
 		LogInformation log = new LogInformation();
 

@@ -6,7 +6,7 @@
 <struts>
     <include file="struts-default.xml"/>
 	
-    <package name="default" extends="struts-default">
+   <package name="default" extends="struts-default">
         <interceptors>
             <!--<interceptor name="hibernate" class="org.hibernate.admin.interceptor.HibernateInterceptor"/>-->
             <!-- Basic stack -->

@@ -13,7 +13,7 @@ package org.blueoxygen.cimande.site.actions;
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
-import org.blueoxygen.cimande.theme.Theme;
+
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -38,9 +38,6 @@ public class SiteForm extends ActionSupport implements PersistenceAware
  	private String notify_from="";
  	private String notify_message="";
  	private String site_headline="";
-
-	protected Theme theme;
-	
 	 
 	public int getActiveFlag() {
 		return activeFlag;
@@ -131,18 +128,6 @@ public class SiteForm extends ActionSupport implements PersistenceAware
 	}
 	public void setUrl_branding(String url_branding) {
 		this.url_branding = url_branding;
-	}
-	public Theme getTheme() {
-		return theme;
-	}
-	public void setTheme(Theme theme) {
-		this.theme = theme;
-	}
-	public LogInformation getLogInfo() {
-		return logInfo;
-	}
-	public void setLogInfo(LogInformation logInfo) {
-		this.logInfo = logInfo;
 	}
 	
 	

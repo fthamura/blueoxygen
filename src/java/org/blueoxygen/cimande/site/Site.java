@@ -17,7 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.blueoxygen.cimande.DefaultPersistent;
-import org.blueoxygen.cimande.theme.Theme;
+
 
  /**
   * @author Umar Khatab umar@intercitra.com
@@ -40,8 +40,6 @@ public class Site extends DefaultPersistent{
  	private String notify_from = "";
  	private String notify_message = "";
  	private String site_headline = "";
-
- 	private Theme theme;
 
  	/**
 	 * @hibernate.property
@@ -79,19 +77,6 @@ public class Site extends DefaultPersistent{
 	 */
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	/**
-	 * 
-	 * @hibernate.many-to-one column="theme_id"
-	 */
-	@ManyToOne
-	public Theme getTheme() {
-		return theme;
-	}
-	
-	public void setTheme(Theme theme) {
-		this.theme = theme;
 	}
 	
 	/**

@@ -15,25 +15,36 @@
 	</head>
 	<body>
 		GX > Window <br><br>
-		$!window.name<br>
+	 <br>
+		<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  			
+  				<tr bgcolor="#333366">
+					<td colspan="2" bgcolor="#333366">
+						<span class="style1">Window Information</span>
+					</td>
+				</tr>
+	<tr bgcolor="#ffffff">
+		<td>
+			
+				
+		$!window.name<br> 
 		$!window.description<br>
         <br>
 		<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
-  			<tbody>
+  			
   				<tr bgcolor="#333366">
 					<td colspan="2" bgcolor="#333366">
-						<span class="style1">Tab</span>
+						<span class="style1">Tab Information</span>
 					</td>
 				</tr>
 				#foreach($t in $window.tabs)
 				<tr bgcolor="#ffffff">
 					<td rowspan="2" valign="top">
 						$!velocityCount 
-						<div style="text-align: right;">
-							<a href="edit.action?window.id=$!window.id&tab.id=$!t.id">
+						<a href="edit.action?window.id=$!window.id&tab.id=$!t.id">
 								<img src="../../images/silk/page_edit.png" alt="Edit Tab Record" border="0">
 							</a>
-						</div>
+						
 					</td>
 					<td>
 						$!t.name<br>
@@ -43,22 +54,27 @@
 				<tr bgcolor="#ffffff">
 					<td>
 						<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="100%">
-				  			<tbody>
+				  			
 				  				<tr>
-									<td colspan="3" bgcolor="#333366"><span class="style1">Field</span></td>
+									<td colspan="3" bgcolor="#333366"><span class="style1">Field Information</span></td>
 								</tr>
 								#foreach($f in $t.fields)
 								<tr bgcolor="#ffffff">
-									<td>$!velocityCount</td>
+									<td>$!velocityCount <a href="../tab/edit.action?window.id=$!window.id&tab.id=$!t.id&field.id=$!f.id">
+								<img src="../../images/silk/page_edit.png" alt="Edit Field" border="0">
+							</a></td>
 									<td>$f.name</td>
 									<td>$f.description</td>
 								</tr>
 								#end
-							</tbody>
+							
 						</table>
 					</td>
 				</tr>
 				#end
-			</tbody>
+			
 		</table>
+		</td>
+	</tr>
+	</table>
 	</body>
