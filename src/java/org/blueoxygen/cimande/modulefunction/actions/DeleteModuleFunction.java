@@ -18,9 +18,15 @@ public class DeleteModuleFunction extends ViewModuleFunction{
 	public String execute () {
 		String result = super.execute();
 		
-		if (result.equalsIgnoreCase(SUCCESS)) {		
-			moduleFunction.setModuleFunction(null);
+		if (result.equalsIgnoreCase(SUCCESS)) {
+			ModuleFunction mf = moduleFunction.getModuleFunction();
+			if(mf != null) {
+				mf.getModuleFunctions().remove(moduleFunction);
+				moduleFunction.setModuleFunction(null);
+				pm.save(mf);
+			}
 			pm.save(moduleFunction);
+			moduleFunction = (ModuleFunction) pm.getById(ModuleFunction.class, moduleFunction.getId());
 			for(ModuleFunction m : moduleFunction.getModuleFunctions()){
 				m.setModuleFunction(null);
 				pm.save(m);

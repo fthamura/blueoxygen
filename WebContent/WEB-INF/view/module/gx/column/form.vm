@@ -1,12 +1,4 @@
-	#if (!$actionErrors.isEmpty())
-			<div class="errorMessage">Error</div>
-			<ul class="errorMessage">
-			#foreach( $error in $actionErrors )
-				<li>$error</li>
-			#end
-			</ul>
-		#end
-			<form method="get" action="../gx-column/save.action">
+		<form method="get" action="../gx-column/save.action">
 			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
 				<tr bgcolor="#d0dcff">
 					<td colspan="2"><b>Column</b></td>
@@ -37,22 +29,27 @@
 					<td>
 						<select name="dataType.id">
 							#foreach($dt in $dataTypes)
-								<option value="$dt.id" #if($column.dataType.id.equals($dt.id)) selected #end>$dt.value</option>
+								<option value="$dt.id" #if($column.element.id.equals($dt.id)) selected #end>$dt.value</option>
 							#end
 						</select>
 					</td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td>Length:</td>
+					<td>Size:</td>
 					<td>
 						<input name="column.length" value="$!column.length" size="4"/>
 					</td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td>Reference:</td>
+					<td>Minimum Length:</td>
 					<td>
-						<input type="radio" name="column.referenceFlag" value="1" #if($column.referenceFlag == 1) checked #end/> Table
-						<input type="radio" name="column.referenceFlag" value="2" #if($column.referenceFlag == 2) checked #end/> Droplist
+						<input name="column.minLength" value="$!column.minLength" size="4"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Maximum Length:</td>
+					<td>
+						<input name="column.maxLength" value="$!column.maxLength" size="4"/>
 					</td>
 				</tr>
 				<tr bgcolor="#ffffff">

@@ -22,6 +22,8 @@ public class GxColumn extends DefaultPersistent {
 	private String description;
 	private String dbColumn;
 	private int length;
+	private int minLength;
+	private int maxLength;
 	private int mandatoryFlag;
 	private int keyColumnFlag;
 	private int parentLinkColumnFlag;
@@ -124,6 +126,20 @@ public class GxColumn extends DefaultPersistent {
 	}
 	public void setElement(GxDroplistValue element) {
 		this.element = element;
+	}
+	@Column(name="min_length")
+	public int getMinLength() {
+		return minLength;
+	}
+	public void setMinLength(int minLength) {
+		this.minLength = minLength;
+	}
+	@Column(name="max_length")
+	public int getMaxLength() {
+		return maxLength;
+	}
+	public void setMaxLength(int maxLength) {
+		this.maxLength = maxLength;
 	}
 	
 	

@@ -36,24 +36,23 @@ public class SaveColumn extends ColumnForm implements SessionCredentialsAware {
 		}
 		// reference
 		if(getDataType().getId() != null && "ff808081153c724b01153c7430e70001".equalsIgnoreCase(getDataType().getId())){
-			if(getColumn().getReferenceFlag() == 1){ 
-				if(getReferenceTable().getId() == null || "".equalsIgnoreCase(getReferenceTable().getId())){
-					addActionError("Reference Table is required if reference type is table");
-				} else {
-					setReferenceTable((GxTable) manager.getById(GxTable.class, getReferenceTable().getId()));
-					getColumn().setReferenceTable(getReferenceTable());
-				}
-			} else if(getColumn().getReferenceFlag() == 2) {
-				if(getReferenceDroplist().getId() == null || "".equalsIgnoreCase(getReferenceDroplist().getId())){
-					addActionError("Reference Droplist is required if reference type is droplist");
-				} else {
-					setReferenceDroplist((GxDroplistName) manager.getById(GxDroplistName.class, getReferenceDroplist().getId()));
-					getColumn().setReferenceDroplist(getReferenceDroplist());
-				}
+			if(getReferenceTable().getId() == null || "".equalsIgnoreCase(getReferenceTable().getId())){
+				addActionError("Reference Table is required if data type is Table");
 			} else {
-				addActionError("Reference data type required reference type");
+				setReferenceTable((GxTable) manager.getById(GxTable.class, getReferenceTable().getId()));
+				getColumn().setReferenceTable(getReferenceTable());
 			}
+		} else if(getDataType().getId() != null && "ff80808115cc81140115cc8a8dbe0001".equalsIgnoreCase(getDataType().getId())) {
+			if(getReferenceDroplist().getId() == null || "".equalsIgnoreCase(getReferenceDroplist().getId())){
+				addActionError("Reference Droplist is required if Data type is Droplist");
+			} else {
+				setReferenceDroplist((GxDroplistName) manager.getById(GxDroplistName.class, getReferenceDroplist().getId()));
+				getColumn().setReferenceDroplist(getReferenceDroplist());
+			}
+		} else {
+			addActionError("Reference data type required reference type");
 		}
+		
 		// has error
 		if(hasActionErrors()){
 			setReport("Save Failed");
