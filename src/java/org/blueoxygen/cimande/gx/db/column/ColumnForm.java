@@ -3,8 +3,6 @@ package org.blueoxygen.cimande.gx.db.column;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.blueoxygen.cimande.gx.db.GXDBAccessor;
-import org.blueoxygen.cimande.gx.db.GXDBAccessorImpl;
 import org.blueoxygen.cimande.gx.entity.GxColumn;
 import org.blueoxygen.cimande.gx.entity.GxDroplistName;
 import org.blueoxygen.cimande.gx.entity.GxDroplistValue;

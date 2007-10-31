@@ -47,7 +47,16 @@
   	<td style="font-weight: bold;" align="right" valign="top">Type Flag:</td>
   	<td><input type="radio" name="typeFlag" value=2 #if ($typeFlag == 2) checked #end>WebWork<br>
   		<input type="radio" name="typeFlag" value=1 #if ($typeFlag == 1) checked #end>Action<br>
-  	    <input type="radio" name="typeFlag" value=0 #if ($typeFlag == 0) checked #end>CDML
+  	    <input type="radio" name="typeFlag" value=0 #if ($typeFlag == 0) checked #end>CDML<br>
+  	    <input type="radio" name="typeFlag" value=3 #if ($typeFlag == 3) checked #end>Gx Window
+  	</td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Window:</td>
+    <td>
+		<input type="textfield" id="windowDescription" value="$!descr.window.description" size="15" disabled="true" onfocus="this.blur()"/>
+	    <input type="hidden" id="windowId" name="windowId" value="$!descr.window.id"/>
+	    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../window/list.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
   	</td>
   </tr>
   <tr bgcolor="#ffffff">

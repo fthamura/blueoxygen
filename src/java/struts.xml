@@ -30,7 +30,7 @@
 			<result name="success" type="velocity">hibernateTree.vm</result>
 			<result name="error">login.jsp</result>
 		</action>
-			<action name="yuitree" class="org.blueoxygen.cimande.sitemanager.YUIExtNavTree">
+		<action name="yuitree" class="org.blueoxygen.cimande.sitemanager.YUIExtNavTree">
 			<result name="success" type="velocity">yuiexttree.vm</result>
 			<result name="error">/backend/user/login.jsp</result>
 		</action>

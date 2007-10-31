@@ -12,11 +12,11 @@ package org.blueoxygen.cimande.descriptors.actions;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.descriptors.Descriptor;
+import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 
@@ -41,16 +41,19 @@ public class EditDescriptor extends DescriptorForm implements SessionCredentials
 		if (descr == null) {
 			addActionError("Cannot find such descriptor");
 			return ERROR;
-
 		} else {
-
 			if (getName().equalsIgnoreCase("")) {
 				addActionError("Name can't be empty");
 			}
 			if (getDescription().equalsIgnoreCase("")) {
 				addActionError("Description can't be empty");
 			}
-
+			GxWindow window;
+			if(!getWindowId().equalsIgnoreCase("")){
+				window = (GxWindow) pm.getById(GxWindow.class, getWindowId());
+				descr.setWindow(window);
+			}
+			
 			descr.setName(getName());
 			descr.setDescription(getDescription());
 			descr.setUrlAction(getUrlAction());
@@ -106,12 +109,10 @@ public class EditDescriptor extends DescriptorForm implements SessionCredentials
 				return SUCCESS;
 			}
 		}
-
 	}
 
 	public void setSessionCredentials(SessionCredentials sessionCredentials) {
 		this.sessCredentials = sessionCredentials;
-
 	}
 
 }

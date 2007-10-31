@@ -1,5 +1,12 @@
 package org.blueoxygen.cimande.role;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 import org.blueoxygen.cimande.modulefunction.ModuleFunction;
 import org.blueoxygen.cimande.site.Site;
@@ -9,6 +16,9 @@ import org.blueoxygen.cimande.site.Site;
  * @hibernate.class table="role_site_privilage"
  *
  */
+@Entity()
+@Table(name="role_site_privilage")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class RoleSitePrivilage extends DefaultPersistent{
 	
 	private RoleSite roleSite;
@@ -16,7 +26,7 @@ public class RoleSitePrivilage extends DefaultPersistent{
 	private ModuleFunction moduleFunction;
 	private int privilage_flag;
 	private String url_xml;
-	private String rs_site_id;
+//	private String rs_site_id;
 	
 	/**
 	 * @return Returns the privilage_flag.
@@ -35,6 +45,8 @@ public class RoleSitePrivilage extends DefaultPersistent{
 	 * @return Returns the roleSite.
 	 * @hibernate.many-to-one column="role_site_id"
 	 */
+	@ManyToOne
+	@JoinColumn(name="role_site_id")
 	public RoleSite getRoleSite() {
 		return roleSite;
 	}
@@ -62,6 +74,8 @@ public class RoleSitePrivilage extends DefaultPersistent{
 	 * @hibernate.many-to-one column="module_function_id"
 	 * @return Returns the moduleFunction.
 	 */
+	@ManyToOne
+	@JoinColumn(name="module_function_id")
 	public ModuleFunction getModuleFunction() {
 		return moduleFunction;
 	}
@@ -76,6 +90,8 @@ public class RoleSitePrivilage extends DefaultPersistent{
 	 * 
 	 * @hibernate.many-to-one column="site_id"
 	 */
+	@ManyToOne
+	@JoinColumn(name="rs_site_id")
 	public Site getSite() {
 		return site;
 	}
@@ -83,16 +99,16 @@ public class RoleSitePrivilage extends DefaultPersistent{
 		this.site = site;
 	}
 	
-	/**
-	 * @return Returns the rs_site_id.
-	 * @hibernate.property
-	 */
-	public String getRs_site_id() {
-		return rs_site_id;
-	}
-	public void setRs_site_id(String rs_site_id) {
-		this.rs_site_id = rs_site_id;
-	}
+//	/**
+//	 * @return Returns the rs_site_id.
+//	 * @hibernate.property
+//	 */
+//	public String getRs_site_id() {
+//		return rs_site_id;
+//	}
+//	public void setRs_site_id(String rs_site_id) {
+//		this.rs_site_id = rs_site_id;
+//	}
 	
 	
 }

@@ -14,6 +14,7 @@ import java.sql.Timestamp;
 
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.descriptors.Descriptor;
+import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 
@@ -37,44 +38,48 @@ public class AddDescriptor extends DescriptorForm implements SessionCredentialsA
 		}
 
 		if (hasErrors()) {
-				return INPUT;
-		
+			return INPUT;
+
 		} else {
+			GxWindow window;
+			if(!getWindowId().equalsIgnoreCase("")){
+				window = (GxWindow) pm.getById(GxWindow.class, getWindowId());
+				descr.setWindow(window);
+			}
+			descr.setName(getName());
+			descr.setDescription(getDescription());
+			descr.setUrlAction(getUrlAction());
+			descr.setUrlDescriptor(getUrlDescriptor());
 			
-				descr.setName(getName());
-				descr.setDescription(getDescription());
-				descr.setUrlAction(getUrlAction());
-				descr.setUrlDescriptor(getUrlDescriptor());
-		
-				descr.setDescriptorFlag(getDescriptorFlag());
-				descr.setTypeFlag(getTypeFlag());
-		
-				LogInformation log = new LogInformation();
-				
-				/* must be fixed!!!
-				 * 
-				*/
-				
-				if (sessCredentials.getCurrentUser()!= null){
+			descr.setDescriptorFlag(getDescriptorFlag());
+			descr.setTypeFlag(getTypeFlag());
+
+			LogInformation log = new LogInformation();
+
+			/* must be fixed!!!
+			 * 
+			 */
+
+			if (sessCredentials.getCurrentUser()!= null){
 				log.setCreateBy(sessCredentials.getCurrentUser().getId());
 				log.setLastUpdateBy(sessCredentials.getCurrentUser().getId());
-				}
-		
-				log.setCreateDate(new Timestamp(System.currentTimeMillis()));
-				log.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
-				log.setActiveFlag(getActiveFlag());
-				
-				if (getActiveFlag() == -1) {
-					log.setActiveFlag(LogInformation.INACTIVE);
-				} else {
-					log.setActiveFlag(getActiveFlag());
-				}
-		
-				
-				descr.setLogInformation(log);
+			}
 
-				pm.save(descr);
-				return SUCCESS;
+			log.setCreateDate(new Timestamp(System.currentTimeMillis()));
+			log.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
+			log.setActiveFlag(getActiveFlag());
+
+			if (getActiveFlag() == -1) {
+				log.setActiveFlag(LogInformation.INACTIVE);
+			} else {
+				log.setActiveFlag(getActiveFlag());
+			}
+
+
+			descr.setLogInformation(log);
+
+			pm.save(descr);
+			return SUCCESS;
 		}
 
 	}

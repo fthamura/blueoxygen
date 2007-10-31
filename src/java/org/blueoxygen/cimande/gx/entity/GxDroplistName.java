@@ -2,6 +2,7 @@ package org.blueoxygen.cimande.gx.entity;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -25,6 +26,7 @@ public class GxDroplistName extends DefaultPersistent {
 	private List<GxDroplistName> childs;
 	private String description;
 	
+	@Column(unique=true, nullable=false)
 	public String getName() {
 		return name;
 	}

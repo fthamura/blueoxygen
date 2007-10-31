@@ -37,8 +37,9 @@ public class EditDescriptorLoad extends DescriptorForm {
 	protected HibernateSessionFactory hsf;
 	protected List tmp = new ArrayList();
 	
+	
 	public String execute() {
-		Descriptor descr = (Descriptor) pm.getById(Descriptor.class, getId());
+		descr  = (Descriptor) pm.getById(Descriptor.class, getId());
 		/*Descriptor descr = new Descriptor();
 		String query = " FROM org.blueoxygen.cimande.descriptors.Descriptor WHERE id ='" + getId()+ "'";
 		tmp = pm.find(query,null,null);
@@ -46,7 +47,7 @@ public class EditDescriptorLoad extends DescriptorForm {
 			descr = (Descriptor)it.next();
 		}*/
 		if (descr == null) {
-			System.out.println("EEDDDDDDDDDDIIIIITTTT");
+			System.out.println("EDIT");
 			addActionError("Cannot find such descriptor");
 			return ERROR;
 		} else {
@@ -58,7 +59,7 @@ public class EditDescriptorLoad extends DescriptorForm {
 			setTypeFlag(descr.getTypeFlag());
 			setDescriptorFlag(descr.getDescriptorFlag());
 			setActiveFlag(descr.getLogInformation().getActiveFlag());
-
+			setWindowId(descr.getWindow().getId());
 			return SUCCESS;
 		}
 

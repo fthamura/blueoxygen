@@ -120,14 +120,12 @@ public class GxTab extends DefaultPersistent {
 		this.fields = fields;
 	}
 	
-	public String fgenerate(){
+	public String generate(){
 		String result = "<form action='saveform.action' method='post'> " 
 			+ "<tr bgcolor='#b8dde0'><td colspan='2' align='center'><font size='2'><b>.:: "
 			+ getName() +
 			" Form ::.</b></font></td></tr>";
-			//<tr bgcolor='#ffffff'><td align='center' width='30%'><b>tyas</b></td><td>"
-			//+ getName() +"</td><tr>";
-	
+		result = result + "</form>";
 		return result;
 	}
 

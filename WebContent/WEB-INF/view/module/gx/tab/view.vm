@@ -29,6 +29,7 @@
 			</ul>
 		#end
 		#saction("name=create" "namespace=/module/tab" "executeResult=true")
+		<br>
 		#if($tab.id)
 		#saction("name=edit" "namespace=/module/field" "executeResult=true")
 		#end

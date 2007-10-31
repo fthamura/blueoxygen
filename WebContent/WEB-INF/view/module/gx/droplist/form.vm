@@ -41,6 +41,10 @@
 							<option value="$!ct.id" #if($ct.id == $name.parent.id)selected#end>$!ct.description</option>
 							#end
 						</select>
+						#if($name.parent)
+						<a href="edit.action?name.id=$!name.parent.id"><img src="../../images/silk/page_edit.png" border="0"></a>	
+						#end
+						
 					</td>
 					</tr>
 					<tr bgcolor="#e4e4e4">
@@ -104,6 +108,28 @@
 					</td>
 				</tr>
 			</form>
+			#end
+		</table>
+		#end
+		<br>
+		#if(!$name.childs.isEmpty())
+		<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+			<tr bgcolor="#d0dcff">
+				<td colspan="3"><b>Droplist Child</b></td>
+			</tr>
+			<tr bgcolor="#ffff00">
+				<td>Name</td>
+				<td>Description</td>
+				<td>Action</td>
+			</tr>
+			#foreach($dl in $name.childs)
+				<tr bgcolor="#ffffff">
+					<td>$!dl.name</td>
+					<td>$!dl.description</td>
+					<td>
+						<a href="edit.action?name.id=$!dl.id"><img src="../../images/silk/page_edit.png" border="0"></a>
+					</td>
+				</tr>
 			#end
 		</table>
 		#end

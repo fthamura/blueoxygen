@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.blueoxygen.cimande.LogInformation;
-import org.blueoxygen.cimande.gx.db.GXDBAccessorImpl;
 import org.blueoxygen.cimande.gx.entity.GxColumn;
 import org.blueoxygen.cimande.gx.entity.GxDroplistName;
 import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
@@ -54,7 +53,7 @@ public class SaveColumn extends ColumnForm implements SessionCredentialsAware {
 				}
 			}
 		} else {
-			addActionError("Reference data type required reference type");
+			addActionError("Select the data type");
 		}
 		
 		// has error

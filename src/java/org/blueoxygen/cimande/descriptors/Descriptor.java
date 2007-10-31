@@ -14,9 +14,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.gx.entity.GxWindow;
 
 
 
@@ -33,13 +36,14 @@ public class Descriptor extends DefaultPersistent {
 	private String description;
 	private String urlDescriptor = "";
 	private String urlAction = "";
+	private GxWindow window;
 	private int descriptorFlag = DESCRIPTOR_YES;
 	private int typeFlag = TYPE_ACTION;
 
 //	private DescriptorGroup descriptorGroup = new DescriptorGroup();
 //	private Collection collectionDefault = new Collection();
 //	private Wizard wizard = new Wizard();
-	
+	public final static int TYPE_WINDOW = 3;
 	public final static int TYPE_WW = 2;
 	public final static int TYPE_ACTION = 1;
 	public final static int TYPE_CDML = 0;
@@ -131,5 +135,14 @@ public class Descriptor extends DefaultPersistent {
 	 */
 	public void setTypeFlag(int typeFlag) {
 		this.typeFlag = typeFlag;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name="window_id")
+	public GxWindow getWindow() {
+		return window;
+	}
+	public void setWindow(GxWindow window) {
+		this.window = window;
 	}
 }

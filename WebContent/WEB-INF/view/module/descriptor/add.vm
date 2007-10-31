@@ -55,13 +55,23 @@ Add a new Descriptor</title>
         <td> 
         	<input type="radio" name="typeFlag" value="2" checked="checked">WebWork MVC<br>
         	<input type="radio" name="typeFlag" value="1">Action<br>
-        	<input type="radio" name="typeFlag" value="0">CDML
+        	<input type="radio" name="typeFlag" value="0">CDML<br>
+        	<input type="radio" name="typeFlag" value="3">Gx Window
         </td>
         <td align="right" valign="top">
         	<img alt="Descriptor Type, Choose One!!" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;">
         </td>
       </tr>
       <tr bgcolor="#ffffff">
+	    <td style="font-weight: bold;" align="right" valign="top">Window:</td>
+	    <td>
+			<input type="textfield" id="windowDescription" value="None" size="15" disabled="true" onfocus="this.blur()"/>
+		    <input type="hidden" id="windowId" name="windowId" value=""/>
+		    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../window/list.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+	  	</td>
+	  	<td align="right" width="3%" valign="center"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
+	  </tr>
+	  <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">Active:</td>
         <td><input name="activeFlag" value="1" checked="checked" type="radio">Yes<br><input name="activeFlag" value="0" type="radio">No
         </td>

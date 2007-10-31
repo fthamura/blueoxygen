@@ -24,8 +24,10 @@
                 <value>org.blueoxygen.cimande.security.User</value>
                 <value>org.blueoxygen.cimande.role.Role</value>
                 <value>org.blueoxygen.cimande.role.RolePrivilage</value>
-                <value>org.blueoxygen.cimande.site.Site</value>
                 <value>org.blueoxygen.cimande.role.RoleSite</value>
+                <value>org.blueoxygen.cimande.role.RoleSitePrivilage</value>
+                <value>org.blueoxygen.cimande.role.UserRole</value>
+                <value>org.blueoxygen.cimande.site.Site</value>
                 <value>org.blueoxygen.cimande.descriptors.Collection</value>
                 <value>org.blueoxygen.cimande.descriptors.Descriptor</value>
 
@@ -34,7 +36,6 @@
                 <value>org.blueoxygen.cimande.section.Section</value>
                 <value>org.blueoxygen.cimande.jobdescription.JobDesc</value>
                 <value>org.blueoxygen.cimande.company.Company</value>
-
                 
                 <value>org.blueoxygen.cimande.gx.entity.GxTab</value>
                 <value>org.blueoxygen.cimande.gx.entity.GxField</value>

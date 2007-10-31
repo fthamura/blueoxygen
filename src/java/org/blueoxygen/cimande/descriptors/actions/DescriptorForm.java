@@ -10,6 +10,7 @@
 
 package org.blueoxygen.cimande.descriptors.actions;
 
+import org.blueoxygen.cimande.descriptors.Descriptor;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 
@@ -18,8 +19,7 @@ import com.opensymphony.xwork2.ActionSupport;
 /**
  * @author Umar Khatab umar@intercitra.com
  */
-public class DescriptorForm extends ActionSupport implements PersistenceAware
-{
+public class DescriptorForm extends ActionSupport implements PersistenceAware {
 	protected PersistenceManager pm;
 	private String id;
 	private String name="";
@@ -31,14 +31,13 @@ public class DescriptorForm extends ActionSupport implements PersistenceAware
 	private int typeFlag = -1;
 	private String collectionDefaultId = "";
 	private String wizardId = "";
+	private String windowId = "";
 	private int activeFlag = -1;
+	protected Descriptor descr = new Descriptor();
 
 	public void setPersistenceManager(PersistenceManager persistenceManager) {
 		this.pm = persistenceManager;
-		
 	}
-	
-	
 	
 	public String getCollectionDefaultId() {
 		return collectionDefaultId;
@@ -124,5 +123,21 @@ public class DescriptorForm extends ActionSupport implements PersistenceAware
 	}
 	public void setActiveFlag(int activeFlag) {
 		this.activeFlag = activeFlag;
+	}
+
+	public String getWindowId() {
+		return windowId;
+	}
+
+	public void setWindowId(String windowId) {
+		this.windowId = windowId;
+	}
+
+	public Descriptor getDescr() {
+		return descr;
+	}
+
+	public void setDescr(Descriptor descr) {
+		this.descr = descr;
 	}
 }
