@@ -173,5 +173,29 @@
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/field/listdetail.vm</result>
 		</action>
 	</package>
-	
+	<package name="window_role" extends="default" namespace="/module/windowrole">
+		<action name="create" class="org.blueoxygen.cimande.gx.access.WindowRoleForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/access/form.vm</result>
+		</action>
+		<action name="save" class="org.blueoxygen.cimande.gx.access.SaveWindowRole">
+			<result name="success" type="redirect">../window/edit.action?window.id=${window.id}</result>
+			<result name="input" type="velocity">/WEB-INF/view/module/gx/access/form.vm</result>
+		</action>
+		<action name="edit" class="org.blueoxygen.cimande.gx.access.WindowRoleForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/access/form.vm</result>
+		</action>
+		<action name="delete" class="org.blueoxygen.cimande.gx.access.WindowRoleForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/access/delete.vm</result>
+		</action>
+		<action name="confirm" class="org.blueoxygen.cimande.gx.access.DeleteWindowRole">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/access/report.vm</result>
+		</action>
+		<action name="listdetail" class="org.blueoxygen.cimande.gx.access.ListWindowRole">
+			<param name="window.id">${window.id}</param>
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/access/listdetail.vm</result>
+		</action>
+		<action name="listrole" class="org.blueoxygen.cimande.gx.access.RoleList">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/access/listrole.vm</result>
+		</action>
+	</package>
 </struts>

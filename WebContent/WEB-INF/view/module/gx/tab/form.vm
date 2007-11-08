@@ -30,7 +30,7 @@
                     <td colspan="2" align="right" bgcolor="#CFE9EB">
                     	<input name="tab.id" type="hidden" value="$!tab.id"/>
                     	<input name="window.id" type="hidden" value="$!window.id"/>
-                    	<input name="submit" onclick="return checkfields(this);" type="submit" value="Next &gt;&gt;">
+                    	<input name="submit" onclick="return checkfields(this);" type="submit" value="Submit">
                     </td>
 				</tr>
 			</table>

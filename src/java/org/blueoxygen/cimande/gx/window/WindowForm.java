@@ -23,6 +23,7 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 		if (getWindow().getId() != null && !"".equalsIgnoreCase(getWindow().getId())){
 			setWindow((GxWindow)manager.getById(GxWindow.class, getWindow().getId()));
 			getWindow().getTabs();
+			getWindow().getAccessRoles();
 		}
 		setWindowTypes((GxDroplistName) manager.getById(GxDroplistName.class, "ff80808115ace81f0115acef78020002"));
 		return SUCCESS;

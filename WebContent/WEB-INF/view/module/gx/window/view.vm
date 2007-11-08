@@ -21,6 +21,9 @@
 <br>$!report
 #saction("name=listdetail" "namespace=/module/tab" "executeResult=true")
 #end
-		<br>
+<br>
+#saction("name=create" "namespace=/module/windowrole" "executeResult=true")
+<br>
+#saction("name=listdetail" "namespace=/module/windowrole" "executeResult=true")
 	</body>
 </html>

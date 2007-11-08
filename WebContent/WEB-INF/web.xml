@@ -168,11 +168,11 @@
     </taglib>
 
     <taglib>
-        <taglib-uri>webwork</taglib-uri>
-        <taglib-location>/WEB-INF/tld/webwork-2.0.tld</taglib-location>
+        <taglib-uri>struts-tags</taglib-uri>
+        <taglib-location>/WEB-INF/tld/struts-tags.tld</taglib-location>
     </taglib>
-
-    <taglib>
+  
+	<taglib>
         <taglib-uri>http://jsptags.com/tags/navigation/pager</taglib-uri>
         <taglib-location>/WEB-INF/tld/pager-taglib.tld</taglib-location>
     </taglib>

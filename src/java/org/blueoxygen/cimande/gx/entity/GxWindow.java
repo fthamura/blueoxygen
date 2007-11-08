@@ -27,6 +27,7 @@ public class GxWindow extends DefaultPersistent {
 	private GxDroplistValue entityType;
 	private GxDroplistValue windowType;
 	private List<GxTab> tabs = new ArrayList<GxTab>();
+	private List<GxWindowRole> accessRoles = new ArrayList<GxWindowRole>();
 	@Column
 	public String getDescription() {
 		return description;
@@ -82,6 +83,13 @@ public class GxWindow extends DefaultPersistent {
 	}
 	public void setTabs(List<GxTab> tabs) {
 		this.tabs = tabs;
+	}
+	@OneToMany(mappedBy="window")
+	public List<GxWindowRole> getAccessRoles() {
+		return accessRoles;
+	}
+	public void setAccessRoles(List<GxWindowRole> accessRoles) {
+		this.accessRoles = accessRoles;
 	}
 	
 }

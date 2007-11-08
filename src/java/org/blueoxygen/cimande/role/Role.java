@@ -36,7 +36,7 @@ public class Role extends DefaultPersistent {
 	private String name;
 	private String description;
 	private List<RolePrivilage> rolePrivilage = new ArrayList<RolePrivilage>();
-	private String site_id;
+	//private String site_id;
 	
 	
 	/**
@@ -84,15 +84,15 @@ public class Role extends DefaultPersistent {
 	public void setRolePrivilage(List<RolePrivilage> rolePrivilage) {
 		this.rolePrivilage = rolePrivilage;
 	}
-	/**
-	 * 
-	 * @hibernate.property
-	 */
-	public String getSite_id() {
-		return site_id;
-	}
-	public void setSite_id(String site_id) {
-		this.site_id = site_id;
-	}
+//	/**
+//	 * 
+//	 * @hibernate.property
+//	 */
+//	public String getSite_id() {
+//		return site_id;
+//	}
+//	public void setSite_id(String site_id) {
+//		this.site_id = site_id;
+//	}
 	
 }

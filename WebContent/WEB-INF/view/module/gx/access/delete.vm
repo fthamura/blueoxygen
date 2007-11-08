@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Delete - Access Role</title>
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	</head>
+	<body>
+		<form method="get" action="confirm.action">
+			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+				<tr bgcolor="#d0dcff">
+					<td><b>Delete Access Role</b></td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Delete Access Role $windowRole.role.description??</td> 
+				</tr>
+				<tr bgcolor="#e4e4e4">
+					<td>
+						<input name="window.id" type="hidden" value="$!window.id"/>
+						<input name="windowRole.id" type="hidden" value="$!windowRole.id"/>
+						<input name="confirm" type="submit" value="Yes"/>
+						<input name="confirm" type="submit" value="No"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<br>
+	</body>
+</html>

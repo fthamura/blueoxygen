@@ -45,7 +45,8 @@
                 <value>org.blueoxygen.cimande.gx.entity.GxDroplistName</value>
                 <value>org.blueoxygen.cimande.gx.entity.GxDroplistValue</value>
                 <value>org.blueoxygen.cimande.gx.entity.GxWindow</value>
-                
+                <value>org.blueoxygen.cimande.gx.entity.GxWindowRole</value>
+                <value>org.blueoxygen.cimande.gx.entity.GxWindowRoleAccess</value>
             </list>
         </property>
         <property name="hibernateProperties">
