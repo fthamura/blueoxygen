@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title>Workspace Management - Result of Search User Role</title>
+  	<link type="text/css" rel="stylesheet" href="../../style.css">
+    <style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+-->
+    </style>
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="5"><b>Search Result</b></td>
+      </tr>
+
+#if ($index.isEmpty()) 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right" bgcolor="#0000CC"><span class="style1">No such data found</span></td>
+      	</tr>
+#else 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right" bgcolor="#FFFFFF">
+        	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) index #else index</td>
+       	</tr>
+#end
+<tr bgcolor="#e4e4e4" width="98%">
+	
+	<td width="17%"><b>Login</b></td>
+	<td width="19%"><b>Name</b></td>
+	<td width="28%"><b>Company</b></td>
+	<td width="24%"><b><strong>Position</strong></b></td>
+	<td width="12%"><div align="center"><b>Action</b></div></td>
+</tr>
+
+#foreach ($u in $users)
+
+	<tr valign="top" bgcolor="white">
+		<td>$!u.username</td>
+		<td>$!u.name.first</td>
+		<td>$!u.company.name</td>
+		<td>$!u.job.name</td>
+		<td>
+			<div align="center"><a href="edit.action?user.id=$!u.Id">Edit</a>&nbsp;
+			<a href="confirmDelete.action?user.id=$!u.Id">Delete</a></div>
+		</td>
+	</tr>
+#end
+	<tr bgcolor="#e4e4e4">
+		<td align="right" colspan="5">
+			#if ($currPage > 0) <a href="search.action?name=   &currPage=0">&lt;&lt;</a>&nbsp;#end
+			#if ($currPage > 0) <a href="search.action?name=$name&description=$description&currPage=$prevPage">&lt;</a>&nbsp;#end
+			[page $page]
+			#if ($currPage < $maxPage) <a href="search.action?name=$name&username=$username&name.first=$name.first&company.name=$company.name&job.name=$job.name&currPage=$nextPage">&gt;</a>&nbsp;#end
+			#if ($currPage < $maxPage) <a href="search.action?name=$$name&username=$username&name.first=$name.first&company.name=$company.name&job.name=$job.name&&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+		</td>
+     </tr>
+</table>
+
+#end
+
+</body>
+</html>

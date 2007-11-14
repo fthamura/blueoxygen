@@ -58,7 +58,7 @@ public class YUIExtNavTree extends ActionSupport implements PersistenceAware
 					.getAttribute(LoginFilter.LOGIN_CIMANDE_USER));
 			User us = new User();
 			us = (User)pm.getById(User.class,user_id);
-			this.roleId=us.getRole_id();
+			this.roleId=us.getRole().getId();
 			this.siteId = (String)ServletActionContext.getRequest().getSession().getAttribute("GS_USER");
 			mySQL = "SELECT COUNT(tmp.id) as total from " + RoleSite.class.getName() + " as tmp WHERE tmp.role.id='"+this.roleId+"' AND tmp.site.id='"+this.siteId+"'";
 			List temp = new ArrayList();

@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>list - Thread Number</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="AUTHOR" content="Alex">
+<link rel="stylesheet" type="text/css" href="../../decorators/tables.css">
+
+</head>
+<body>
+<h3>Thread Number List Company</h3>
+#if ($perusahaan.isEmpty()) No Company available yet
+#else
+
+<table width=100% border="0">
+<tr>
+	<td width=60%>None</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('companyId').value='';window.opener.document.getElementById('companyId').value='None';window.close();" value="Set"></td>
+</tr>
+#foreach ($p in $perusahaan)
+<tr>
+	<td width=60%>$p.name</td>	
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('companyId').value='$p.id';window.opener.document.getElementById('perusahaanName').value='$p.name';window.close();" value="Set"></td>
+</tr>
+#end
+</table>
+#end
+</body>
+</html>

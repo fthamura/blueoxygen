@@ -1,0 +1,84 @@
+<head>
+  <title>Workspace Management - Add a new Section</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+
+
+ <form method="post" action="adduserrole.action">
+ <tbody><tr bgcolor="#ffffff" valign="top"><td bgcolor="#ffccff">&nbsp;</td>
+      	</tr>
+      	<tr bgcolor="#ffffff" valign="top"> 
+      	<td bgcolor="#ffffff">
+      	
+
+<table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="100%">
+
+	<tbody><tr bgcolor="#ffffff" valign="top"> 
+      	<td colspan="3" bgcolor="#d0dcff">LOGIN :  $!user.username</td>
+      	</tr>
+
+
+  </tbody></table></td>
+      	</tr><tr bgcolor="#ffffff" valign="top"> 
+
+      	<td colspan="10" bgcolor="white">
+<table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="100%">
+    	<tbody><tr bgcolor="#ffffff" valign="top"> 
+      	<td colspan="10" bgcolor="#0000FF"><b> </b>
+      	  <b><font color="#FFFFFF">Add User Role</font></b></td>
+        </tr>    	     	
+
+
+
+  </tbody></table><table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="100%">
+
+    <tbody><tr bgcolor="#ffffff" valign="top"> 
+      <td width="33%"> 
+        <div align="right"><font color="#ff0000">*</font> Role ID:</div>
+      </td>
+      <td width="67%"> 
+        <input type="textfield" id="lihatroleName" value="None" size="15" disabled="true" onfocus="this.blur()"/><input type="hidden" id="viewroleId" name="role.id" value="0"/>
+        <input type="button" value="View Role" onclick="javascript:window.open('../user_mvc/viewRole.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+      </td>
+      
+    </tr>
+      
+    
+    <tr bgcolor="#ffffff" valign="top">
+    <td align="right" width="25%">&nbsp;</td>
+    <td colspan="2">
+    	<p>
+    	  <input type="submit" name="Submit" value="Add Workflow Role">
+<input name="user.id" value="$!user.id" type="hidden"/>		  
+    	  </p>
+    	</td></tr>
+  </tbody></table>
+
+ 
+ </form>
+<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tbody>
+	  <tr bgcolor="#0000CC">
+	    <td><strong><font color="#FFFFFF">Role</font></strong></td>
+	    <td><strong><font color="#FFFFFF">Description</font></strong></td>
+	    <td><strong><font color="#FFFFFF">Action</font></strong></td>
+	  </tr>
+	  #foreach($ur in $userRoles)
+	  <tr bgcolor="#FFFFFF">
+	    <td>$!ur.role.name</td>
+	    <td>$!ur.role.description</td>
+	    <td><a href="confirmDelete.action?userRole.id=$!ur.Id">Delete</a>
+	    	
+	    </td>
+	  </tr>
+	  #end
+	</tbody>
+</table>
+<div align="right">
+  <input value="Next" type="button" onClick="javascript:location.href='usersite.action?user.id=$!user.id'"> 
+</div>
+ 

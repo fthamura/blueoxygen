@@ -15,9 +15,14 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.company.Company;
+import org.blueoxygen.cimande.jobdescription.JobDesc;
+import org.blueoxygen.cimande.role.Role;
 /**
  * A very simple user. 
  * @hibernate.class table="backend_user"
@@ -28,9 +33,13 @@ import org.blueoxygen.cimande.DefaultPersistent;
 public class User extends DefaultPersistent {
 	private String username;
 	private String password;
-	private String role_id;
 	private Name name = new Name();
 	private Address address = new Address();
+	private Company company;
+	private JobDesc job;
+	private Role role;
+	private String email;
+	private String description;
 	
 	public User(){
 	    
@@ -78,11 +87,41 @@ public class User extends DefaultPersistent {
 	/**
 	 * @hibernate.property
 	 */
-	public String getRole_id() {
-		return role_id;
+	@ManyToOne()
+	@JoinColumn(name="role_id")
+	public Role getRole() {
+		return role;
 	}
-	public void setRole_id(String role_id) {
-		this.role_id = role_id;
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	@ManyToOne
+	@JoinColumn(name="company_id")
+	public Company getCompany() {
+		return company;
+	}
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+	@ManyToOne
+	@JoinColumn(name="job_position_id")
+	public JobDesc getJob() {
+		return job;
+	}
+	public void setJob(JobDesc job) {
+		this.job = job;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	

@@ -77,7 +77,7 @@ public class NavigationTree extends ActionSupport implements PersistenceAware
 					.getAttribute(LoginFilter.LOGIN_CIMANDE_USER));
 	    	User us = new User();
 	    	us = (User)pm.getById(User.class,user_id);
-	    	this.roleId=us.getRole_id();
+	    	this.roleId=us.getRole().getId();
 		   	this.siteId = (String)ServletActionContext.getRequest().getSession().getAttribute("GS_USER");
                 // mySQL="SELECT DISTINCT module_function_id from module_function, role_privilage where module_function.id=role_privilage.module_function_id AND role_privilage.role_id='"+this.roleId+"' AND role_privilage.active_flag='1' AND module_function.active_flag='1' ORDER BY module_function.description";
                 

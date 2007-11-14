@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management -
+Add a new Company</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body>
+
+
+<table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="98%">
+<tr bgcolor="#ffffff" valign="top"> 
+<form name="filterDescriptor" method="post" action="search.action">
+        <td bgcolor="#D0DCFF" colspan="9"><b>Search
+        </b></td>
+    </tr>
+    <tr bgcolor="#ffffff"> 
+      
+  </tr>      
+    <tr bgcolor="#ffffff"> 
+      <td width="25%" align="right"> Login<font color="red"> contains:</font> </td>
+      <td><input maxlength="128" name="user.username" size="24" value="$!username">
+      &nbsp; 
+      </td>
+      
+    </tr>
+    
+    <tr bgcolor="#ffffff"> 
+      <td width="25%" align="right"> 
+        First Name<font color="red"> 
+          contains: </font>
+      </td>
+      <td>
+        <input name="name.first" size="24" type="text" value="$!first_name">
+      </td>         
+    </tr>
+    
+	<tr bgcolor="#ffffff"><td width="25%"><div align="right">Company<font color="red"> contains: </font></div></td><td><input type="textfield" id="perusahaanName" value="None" size="15" disabled="true" onfocus="this.blur()"/>&nbsp;
+        <input type="hidden" id="companyId" name="company.id" value="0"/>
+        <input type="button" value="View Company" onclick="javascript:window.open('../user_mvc/viewCompany.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></td>
+	</tr>	    
+
+	<tr bgcolor="#ffffff"><td width="25%"><div align="right">Position<font color="red"> contains: </font></div></td><td><input type="textfield" id="jabatanName" value="None" size="15" disabled="true" onfocus="this.blur()"/>&nbsp;
+<input type="hidden" id="viewjobId" name="job.id" value=""/>	<input type="button" value="View Position" onclick="javascript:window.open('../user_mvc/viewJob.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></td>
+	</tr>	 
+
+	<tr bgcolor="#ffffff"> 
+      <td width="25%" align="right"> 
+        Email<font color="red"> 
+          contains: </font>
+      </td>
+      <td>
+        <input name="user.email" size="24" type="text" value="$!email">
+      </td>
+		 </tr>    
+    <tr bgcolor="#ffffff"> 
+      <td width="25%" align="right"> Address<font color="red"> contains:</font> </td>
+      <td><input name="address.street1" size="24" type="text" value="$!address1"> 
+      </td>
+      
+    </tr>
+    <tr bgcolor="#ffffff"> 
+      <td width="25%" align="right"> 
+        City<font color="red"> 
+          contains: </font>
+      </td>
+    <td>
+        <input name="address.city" size="24" type="text" value="$!city">
+      </tr>       
+    <tr bgcolor="#ffffff"> 
+      <td width="25%" align="right"> 
+        Description<font color="red"> contains:</font>
+      </td>
+      <td> 
+        <input maxlength="28" name="user.description" size="24" type="text" value="$!description">
+      </td>
+     
+    </tr>
+
+	<tr bgcolor="#ffffff"> 
+      <td width="25%" align="right">&nbsp;
+      </td>
+      
+    <td> 
+      <div align="right"> 
+        
+        <input type="submit" name="submit" value="Search">
+      </div>
+    </td>
+     </form>
+    </tr>
+ </table>
+
+</body>
+</html>

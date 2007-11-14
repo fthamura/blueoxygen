@@ -77,6 +77,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xml-apis.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xmlrpc-2.0-a1-dev.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xstream-0.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-email-1.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v6.0"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-beanutils.jar"/>

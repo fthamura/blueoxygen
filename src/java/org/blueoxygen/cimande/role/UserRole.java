@@ -10,6 +10,15 @@
 
 package org.blueoxygen.cimande.role;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import org.blueoxygen.cimande.DefaultPersistent;
 import org.blueoxygen.cimande.security.User;
 
@@ -20,6 +29,9 @@ import org.blueoxygen.cimande.security.User;
  * Window - Preferences - Java - Code Style - Code Templates
  * @hibernate.class table="user_role"
  */
+@Entity()
+@Table(name="user_role")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class UserRole extends DefaultPersistent {
 	
 	private User user = new User();
@@ -30,6 +42,7 @@ public class UserRole extends DefaultPersistent {
 	 * @return Returns the defaultRole.
 	 * @hibernate.property type="yes_no"
 	 */
+	@Column(name="default_role")
 	public boolean getDefaultRole() {
 		return defaultRole;
 	}
@@ -44,6 +57,8 @@ public class UserRole extends DefaultPersistent {
 	 * @return Returns the role.
 	 * @hibernate.many-to-one column="role_id"
 	 */
+	@ManyToOne
+	@JoinColumn(name="role_id")
 	public Role getRole() {
 		return role;
 	}
@@ -57,6 +72,8 @@ public class UserRole extends DefaultPersistent {
 	 * @return Returns the user.
 	 * @hibernate.many-to-one column="user_id"
 	 */
+	@ManyToOne
+	@JoinColumn(name="user_id")
 	public User getUser() {
 		return user;
 	}
@@ -67,6 +84,7 @@ public class UserRole extends DefaultPersistent {
 		this.user = user;
 	}
 	
+	@Transient
 	public boolean isDefaultRole() {
 		
 	 return (defaultRole == true);

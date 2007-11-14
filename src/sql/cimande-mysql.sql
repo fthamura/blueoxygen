@@ -19,28 +19,28 @@
 
 DROP TABLE IF EXISTS `backend_user`;
 CREATE TABLE `backend_user` (
-  `id` varchar(28) NOT NULL default '',
+  `id` varchar(32) NOT NULL default '',
   `username` varchar(128) NOT NULL default '',
   `password` varchar(30) NOT NULL default '',
   `first_name` varchar(128) default NULL,
   `last_name` varchar(128) default NULL,
-  `company_id` varchar(28) default NULL,
-  `job_position_id` varchar(28) default NULL,
+  `company_id` varchar(32) default NULL,
+  `job_position_id` varchar(32) default NULL,
   `email` varchar(128) default NULL,
   `address1` varchar(255) default NULL,
   `address2` varchar(255) default NULL,
   `city` varchar(128) default NULL,
   `description` varchar(255) default NULL,
-  `role_id` varchar(28) default '0',
+  `role_id` varchar(32) default '0',
   `calendar_flag` tinyint(1) NOT NULL default '1',
   `project_flag` tinyint(1) NOT NULL default '0',
-  `create_by` varchar(28) default NULL,
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `active_flag` tinyint(1) NOT NULL default '1',
   `status_id` char(2) NOT NULL default 'ic',
-  `site_id` varchar(28) default NULL,
+  `site_id` varchar(32) default NULL,
   `reward_point` int(11) default NULL,
   `name_visible` tinyint(1) default NULL,
   `email_visible` tinyint(1) default NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `backend_user` (
 
 /*!40000 ALTER TABLE `backend_user` DISABLE KEYS */;
 LOCK TABLES `backend_user` WRITE;
-INSERT INTO `backend_user` VALUES ('1','admin','YWRtaW4=','Administrator','Workspace','F337B149F1D7EB47954BF7EF7','F2E8E299E96959106BE15AF29B','admin@intercitra.com','Jl. Cempaka Putih Tengah II','Blok C No. 21 Jak-Pus','Jakarta','','1',1,1,NULL,'2005-08-12 11:28:20','1','2003-09-27 10:27:35',1,'ip','EE185CE0B82B41C1724F284685',NULL,NULL,NULL,1),('96f673bc-283e-4b75-b63d-6edc','gxadmin','Z3hhZG1pbg==','GX','Admin','F337B149F1D7EB47954BF7EF7','402881ed066f41ff01066f531b76','','','','','','ff808081151cf62001151cfc5907',1,0,'1','2007-09-19 16:04:47',NULL,'0000-00-00 00:00:00',1,'ic','EE185CE0B82B41C1724F284685',NULL,NULL,NULL,4);
+INSERT INTO `backend_user` VALUES ('1','admin','YWRtaW4=','Administrator','Workspace','F337B149F1D7EB47954BF7EF7','402881ed066f41ff01066f531b76','admin@intercitra.com','Jl. Cempaka Putih Tengah II','Blok C No. 21 Jak-Pus','Jakarta','','1',1,1,NULL,'2005-08-12 11:28:20','1','2007-11-14 17:47:17',1,'ip','EE185CE0B82B41C1724F284685',NULL,NULL,NULL,1),('96f673bc-283e-4b75-b63d-6edc','gxadmin','Z3hhZG1pbg==','GX','Admin','F337B149F1D7EB47954BF7EF7','402881ed066f41ff01066f531b76','','','','','','ff808081151cf62001151cfc5907',1,0,'1','2007-09-19 16:04:47',NULL,'0000-00-00 00:00:00',1,'ic','EE185CE0B82B41C1724F284685',NULL,NULL,NULL,4);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `backend_user` ENABLE KEYS */;
 
@@ -70,20 +70,20 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
-  `id` varchar(28) NOT NULL default '',
-  `descriptor_id` varchar(28) default NULL,
+  `id` varchar(32) NOT NULL default '',
+  `descriptor_id` varchar(32) default NULL,
   `code` char(3) NOT NULL default '',
-  `iparentcode` varchar(28) default NULL,
+  `iparentcode` varchar(32) default NULL,
   `url_category_image` varchar(255) default NULL,
   `description` varchar(125) NOT NULL default '',
   `active_flag` tinyint(1) default '1',
-  `create_by` varchar(28) default NULL,
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `osml_id` varchar(28) default '0',
-  `status_id` varchar(28) default 'ic',
-  `site_id` varchar(28) default NULL,
+  `osml_id` varchar(32) default '0',
+  `status_id` varchar(32) default 'ic',
+  `site_id` varchar(32) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -104,19 +104,19 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `collection`;
 CREATE TABLE `collection` (
-  `id` varchar(28) NOT NULL default '',
-  `site_id` varchar(28) NOT NULL default '',
+  `id` varchar(32) NOT NULL default '',
+  `site_id` varchar(32) NOT NULL default '',
   `name` varchar(128) NOT NULL default '',
   `description` varchar(255) NOT NULL default '',
-  `skin_id` varchar(28) NOT NULL default '',
+  `skin_id` varchar(32) NOT NULL default '',
   `status` tinyint(1) NOT NULL default '0',
   `active_flag` tinyint(1) NOT NULL default '1',
-  `create_by` varchar(28) default NULL,
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `osml_id` varchar(28) default '0',
-  `status_id` varchar(28) default 'ic',
+  `osml_id` varchar(32) default '0',
+  `status_id` varchar(32) default 'ic',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -138,7 +138,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
   `active_flag` tinyint(1) NOT NULL default '0',
-  `id` varchar(28) NOT NULL default '',
+  `id` varchar(32) NOT NULL default '',
   `name` varchar(128) NOT NULL default '',
   `address` text,
   `state` varchar(128) default NULL,
@@ -147,13 +147,13 @@ CREATE TABLE `company` (
   `faximile` varchar(128) default NULL,
   `website` varchar(128) default NULL,
   `email` varchar(128) default NULL,
-  `create_by` varchar(28) default NULL,
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `osml_id` varchar(28) default '0',
-  `status_id` varchar(28) default 'ic',
-  `site_id` varchar(28) default NULL,
+  `osml_id` varchar(32) default '0',
+  `status_id` varchar(32) default 'ic',
+  `site_id` varchar(32) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -174,11 +174,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `descriptor`;
 CREATE TABLE `descriptor` (
-  `id` varchar(28) NOT NULL default '',
-  `descriptor_group_id` varchar(28) NOT NULL default '0',
-  `create_by` varchar(28) default NULL,
+  `id` varchar(32) NOT NULL default '',
+  `descriptor_group_id` varchar(32) NOT NULL default '0',
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `name` varchar(128) NOT NULL default '',
   `description` varchar(255) default NULL,
@@ -188,8 +188,8 @@ CREATE TABLE `descriptor` (
   `url_action` varchar(255) default NULL,
   `type_flag` char(1) NOT NULL default '1',
   `window_id` varchar(32) default '',
-  `wizard_id` varchar(28) default NULL,
-  `site_id` varchar(28) default NULL,
+  `wizard_id` varchar(32) default NULL,
+  `site_id` varchar(32) default NULL,
   `collection_default` varchar(128) default 'description',
   PRIMARY KEY  (`id`),
   KEY `update_by` (`update_by`),
@@ -203,7 +203,7 @@ CREATE TABLE `descriptor` (
 
 /*!40000 ALTER TABLE `descriptor` DISABLE KEYS */;
 LOCK TABLES `descriptor` WRITE;
-INSERT INTO `descriptor` VALUES ('1','0',NULL,'2005-08-05 17:09:15','1','2007-10-30 12:26:19','descriptor','Descriptor','descriptor.xml',1,1,NULL,'2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('6','0',NULL,'2005-08-05 17:17:33','1','2007-10-30 12:26:19','category','Category','category.xml',1,1,'http://www.test.com?action=test','2',NULL,'','EE185CE0B82B41C1724F284685',''),('7','0',NULL,'2002-05-29 00:00:00','1','2007-10-30 12:26:19','section','Section','section.xml',1,1,'','2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('13','0',NULL,'2002-08-29 00:00:00','1','2007-10-30 12:26:19','backend_user','User Profile','backend_user.xml',1,0,'','0',NULL,'','EE185CE0B82B41C1724F284685',''),('14','0',NULL,'2005-08-19 10:08:57','1','2007-10-30 12:26:19','workflow_role','Workflow Role','workflow_role.xml',1,1,'','2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('22','0',NULL,'2005-09-19 23:49:01','1','2007-10-30 12:26:19','template','Template','template.xml',1,1,NULL,'2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('25','0',NULL,'2002-05-29 00:00:00','1','2007-10-30 12:26:19','ads_banner','Ads Banner\r\n		','ads_banner.xml',1,1,'','0',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('31','0',NULL,'2005-08-12 11:31:40','1','2007-10-30 12:26:19','module_function','Module Function','module_function.xml',1,1,NULL,'2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('32','0','','2002-05-29 00:00:00','1','2007-10-30 12:26:19','role_privilage','Role Privilage','role_privilage.xml',1,1,'','2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('2','0',NULL,'2005-08-05 17:10:38','1','2007-10-30 12:26:19','site','Site','site.xml',1,1,'','2',NULL,'','EE185CE0B82B41C1724F284685',''),('EACA4B7F9596396050B73AB5EF','0','1','2005-09-19 23:49:51','1','2007-10-30 12:26:19','descriptor_group','Descriptor Group','descriptor_group.xml',0,1,NULL,'2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('EE187CB92554E9877310D9041D','0','1','2002-06-27 00:00:00','1','2007-10-30 12:26:19','assign_user_site','Assign User to a Site','EE188C8D1BCFFF7C61672BFA2Cassign_user_site.xml',0,0,'','0',NULL,'','EE185CE0B82B41C1724F284685',''),('F332B5D5577E444B78297AFE84','0','1','2005-09-19 23:48:08','1','2007-10-30 12:26:19','company','Company','F33682657AE8F60C0818178F40company.xml',0,1,'','2',NULL,'','EE185CE0B82B41C1724F284685','name'),('EE8C6A49BC200D77F9DD3F92AA','0','1','2002-06-27 00:00:00','1','2007-10-30 12:26:19','user_site','User Manager','EE8C72398F20734B22553E88D6user_site.xml',0,1,'../module/user_site/index.jsp?','1',NULL,'','EE185CE0B82B41C1724F284685',''),('EE399186B35C580610D4EDD7A3','0','1','2002-06-10 00:00:00','1','2007-10-30 12:26:19','collection_descriptor','Collection Content','EE39A7FDB43CDFD00B21EA6672coll_desc.xml',0,1,'../module/collection_content/first.jsp?','1',NULL,'','EE185CE0B82B41C1724F284685',NULL),('EE39DC68885D4E61299258E68D','0','1','2005-09-19 23:49:11','1','2007-10-30 12:26:19','theme','Theme','EED8830E5DF4DF47FBE1F6926theme.xml',0,1,'','2',NULL,'','EE185CE0B82B41C1724F284685',''),('EE39EDBA36471BA27231DAFF78','0','1','2005-09-19 23:49:04','1','2007-10-30 12:26:19','template_object','Template Object','EE39F3ECCA8734EFBD690B00F3template_object.xml',0,1,'','2',NULL,'','EE185CE0B82B41C1724F284685',NULL),('EE39EDFFA5C0438D014F92A9A3','0','1','2005-09-19 23:49:06','1','2007-10-30 12:26:19','template_object_detail','Template Object Detail','EE39F3CD5646776D7FAE7F49C6template_object_detail.xml',0,1,'','2',NULL,'','EE185CE0B82B41C1724F284685',NULL),('EEB49F22144357635AD6A684B6','0','1','2002-07-19 00:00:00','1','2007-10-30 12:26:19','role_manager','Role Manager','EEB4A290413F69DA2284F97F7Arole_site.xml',0,1,'../module/role_site/index.jsp?','1',NULL,'','EE185CE0B82B41C1724F284685',''),('EED88F7EFBC8DFF1C5A048C73D','0','1','2005-09-19 23:48:55','1','2007-10-30 12:26:19','skin','Skin','EED93484525906F379F20E6364skin.xml',0,1,'','2',NULL,'','EE185CE0B82B41C1724F284685',''),('EF1F0CD62F63F3B0A7205D5BC4','0','1','2002-07-19 00:00:00','1','2007-10-30 12:26:19','role_site_privilage','Role Site Privilage','EF1F0E578F1ACE31ADF87291DBrole_site_privilage.xml',0,1,'../module/role_site_privilage/index.jsp?','1',NULL,'','EE185CE0B82B41C1724F284685',''),('EFE457F0C2A80EC35CC399876D','0','1','2002-08-26 00:00:00','1','2007-10-30 12:26:19','client_survey','Client Survey','EFE5BF784720189D6C04750567client_survey.xml',0,1,'','0',NULL,'','EE185CE0B82B41C1724F284685',''),('F2E587923AC44C8979FBF2F26C','0','1','2005-09-19 23:48:26','1','2007-10-30 12:26:19','job_position','Job Position','F2E59F1CD7D0A8F31C1B034C4Bjob_position.xml',0,1,'','2',NULL,'','EE185CE0B82B41C1724F284685',''),('F76A9583B418F4FB3D261C1D53','0','1','2003-09-04 10:13:28',NULL,'2007-10-30 12:26:19','usersite_v2.0','User Manager ver.2.0',NULL,0,1,'../module/usersite_v2.0/index.jsp?','1',NULL,'','EE185CE0B82B41C1724F284685',''),('ff808081153a8e6301153a90b1e9','0','1','2007-09-25 09:48:22','1','2007-10-30 12:26:19','gx-droplist','Droplist GX2','',-1,1,'','2',NULL,NULL,NULL,'description'),('ff808081152136f101152137b298','0','1','2007-09-20 11:40:39','1','2007-10-30 12:26:19','gx-table','GX2-Table','',-1,1,'','2',NULL,NULL,NULL,'description'),('ff808081153595fc011535976dd3','0','1','2007-09-24 10:37:37','1','2007-10-30 12:26:19','tab','Tab Form','',-1,1,'','2',NULL,NULL,NULL,'description'),('ff808081151cf62001151cf94fb0','0','1','2007-09-19 15:54:01','1','2007-10-30 12:26:19','window','GXWindow','',-1,1,'','2',NULL,NULL,NULL,'description'),('ff80808115f05f2f0115f05ff322','0','1','2007-10-30 17:06:00','1','2007-10-30 17:06:00','test','test','',-1,1,'','3','ff80808115b6b1dd0115b6f2f4ae0009',NULL,NULL,'description');
+INSERT INTO `descriptor` VALUES ('1','0',NULL,'2005-08-05 17:09:15','1','2007-10-30 12:26:19','descriptor','Descriptor','descriptor.xml',1,1,NULL,'2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('6','0',NULL,'2005-08-05 17:17:33','1','2007-10-30 12:26:19','category','Category','category.xml',1,1,'http://www.test.com?action=test','2',NULL,'','EE185CE0B82B41C1724F284685',''),('7','0',NULL,'2002-05-29 00:00:00','1','2007-10-30 12:26:19','section','Section','section.xml',1,1,'','2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('14','0',NULL,'2005-08-19 10:08:57','1','2007-10-30 12:26:19','workflow_role','Workflow Role','workflow_role.xml',1,1,'','2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('22','0',NULL,'2005-09-19 23:49:01','1','2007-10-30 12:26:19','template','Template','template.xml',1,1,NULL,'2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('25','0',NULL,'2002-05-29 00:00:00','1','2007-10-30 12:26:19','ads_banner','Ads Banner\r\n		','ads_banner.xml',1,1,'','0',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('31','0',NULL,'2005-08-12 11:31:40','1','2007-10-30 12:26:19','module_function','Module Function','module_function.xml',1,1,NULL,'2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('32','0','','2002-05-29 00:00:00','1','2007-10-30 12:26:19','role_privilage','Role Privilage','role_privilage.xml',1,1,'','2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('2','0',NULL,'2005-08-05 17:10:38','1','2007-10-30 12:26:19','site','Site','site.xml',1,1,'','2',NULL,'','EE185CE0B82B41C1724F284685',''),('EACA4B7F9596396050B73AB5EF','0','1','2005-09-19 23:49:51','1','2007-10-30 12:26:19','descriptor_group','Descriptor Group','descriptor_group.xml',0,1,NULL,'2',NULL,NULL,'EE185CE0B82B41C1724F284685',NULL),('EE187CB92554E9877310D9041D','0','1','2002-06-27 00:00:00','1','2007-10-30 12:26:19','assign_user_site','Assign User to a Site','EE188C8D1BCFFF7C61672BFA2Cassign_user_site.xml',0,0,'','0',NULL,'','EE185CE0B82B41C1724F284685',''),('F332B5D5577E444B78297AFE84','0','1','2005-09-19 23:48:08','1','2007-10-30 12:26:19','company','Company','F33682657AE8F60C0818178F40company.xml',0,1,'','2',NULL,'','EE185CE0B82B41C1724F284685','name'),('EE8C6A49BC200D77F9DD3F92AA','0','1','2002-06-27 00:00:00','1','2007-10-30 12:26:19','user_site','User Manager','EE8C72398F20734B22553E88D6user_site.xml',0,1,'../module/user_site/index.jsp?','1',NULL,'','EE185CE0B82B41C1724F284685',''),('EE399186B35C580610D4EDD7A3','0','1','2002-06-10 00:00:00','1','2007-10-30 12:26:19','collection_descriptor','Collection Content','EE39A7FDB43CDFD00B21EA6672coll_desc.xml',0,1,'../module/collection_content/first.jsp?','1',NULL,'','EE185CE0B82B41C1724F284685',NULL),('EE39DC68885D4E61299258E68D','0','1','2005-09-19 23:49:11','1','2007-10-30 12:26:19','theme','Theme','EED8830E5DF4DF47FBE1F6926theme.xml',0,1,'','2',NULL,'','EE185CE0B82B41C1724F284685',''),('EE39EDBA36471BA27231DAFF78','0','1','2005-09-19 23:49:04','1','2007-10-30 12:26:19','template_object','Template Object','EE39F3ECCA8734EFBD690B00F3template_object.xml',0,1,'','2',NULL,'','EE185CE0B82B41C1724F284685',NULL),('EE39EDFFA5C0438D014F92A9A3','0','1','2005-09-19 23:49:06','1','2007-10-30 12:26:19','template_object_detail','Template Object Detail','EE39F3CD5646776D7FAE7F49C6template_object_detail.xml',0,1,'','2',NULL,'','EE185CE0B82B41C1724F284685',NULL),('EEB49F22144357635AD6A684B6','0','1','2002-07-19 00:00:00','1','2007-10-30 12:26:19','role_manager','Role Manager','EEB4A290413F69DA2284F97F7Arole_site.xml',0,1,'../module/role_site/index.jsp?','1',NULL,'','EE185CE0B82B41C1724F284685',''),('EED88F7EFBC8DFF1C5A048C73D','0','1','2005-09-19 23:48:55','1','2007-10-30 12:26:19','skin','Skin','EED93484525906F379F20E6364skin.xml',0,1,'','2',NULL,'','EE185CE0B82B41C1724F284685',''),('EF1F0CD62F63F3B0A7205D5BC4','0','1','2002-07-19 00:00:00','1','2007-10-30 12:26:19','role_site_privilage','Role Site Privilage','EF1F0E578F1ACE31ADF87291DBrole_site_privilage.xml',0,1,'../module/role_site_privilage/index.jsp?','1',NULL,'','EE185CE0B82B41C1724F284685',''),('F2E587923AC44C8979FBF2F26C','0','1','2005-09-19 23:48:26','1','2007-10-30 12:26:19','job_position','Job Position','F2E59F1CD7D0A8F31C1B034C4Bjob_position.xml',0,1,'','2',NULL,'','EE185CE0B82B41C1724F284685',''),('F76A9583B418F4FB3D261C1D53','0','1','2003-09-04 10:13:28',NULL,'2007-10-30 12:26:19','usersite_v2.0','User Manager ver.2.0',NULL,0,1,'../module/usersite_v2.0/index.jsp?','1',NULL,'','EE185CE0B82B41C1724F284685',''),('ff808081153a8e6301153a90b1e9','0','1','2007-09-25 09:48:22','1','2007-10-30 12:26:19','gx-droplist','Droplist GX2','',-1,1,'','2',NULL,NULL,NULL,'description'),('ff808081152136f101152137b298','0','1','2007-09-20 11:40:39','1','2007-10-30 12:26:19','gx-table','GX2-Table','',-1,1,'','2',NULL,NULL,NULL,'description'),('ff808081151cf62001151cf94fb0','0','1','2007-09-19 15:54:01','1','2007-10-30 12:26:19','window','GXWindow','',-1,1,'','2',NULL,NULL,NULL,'description'),('ff808081163cbe8a01163cc1db2f0001','0','1','2007-11-14 13:04:05','1','2007-11-14 13:04:05','user_mvc','user_mvc','',-1,1,'','2',NULL,NULL,NULL,'description');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `descriptor` ENABLE KEYS */;
 
@@ -434,7 +434,7 @@ CREATE TABLE `gx_form_window` (
 
 /*!40000 ALTER TABLE `gx_form_window` DISABLE KEYS */;
 LOCK TABLES `gx_form_window` WRITE;
-INSERT INTO `gx_form_window` VALUES ('ff80808115b6b1dd0115b6f2f4ae0009','2007-10-19 13:28:36','96f673bc-283e-4b75-b63d-6edc','2007-10-19 13:28:36','96f673bc-283e-4b75-b63d-6edc',1,'Purchasing','Purchasing Window',NULL,NULL,NULL,100,100);
+INSERT INTO `gx_form_window` VALUES ('ff80808115b6b1dd0115b6f2f4ae0009','2007-10-19 13:28:36','96f673bc-283e-4b75-b63d-6edc','2007-11-13 18:43:21','96f673bc-283e-4b75-b63d-6edc',1,'Purchasing','Purchasing Window',NULL,NULL,NULL,100,100);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `gx_form_window` ENABLE KEYS */;
 
@@ -502,16 +502,16 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `job_position`;
 CREATE TABLE `job_position` (
   `active_flag` tinyint(1) NOT NULL default '0',
-  `id` varchar(28) NOT NULL default '',
+  `id` varchar(32) NOT NULL default '',
   `name` varchar(150) NOT NULL default '',
   `description` varchar(255) default NULL,
-  `create_by` varchar(28) default NULL,
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `osml_id` varchar(28) default '0',
-  `status_id` varchar(28) default 'ic',
-  `site_id` varchar(28) default NULL,
+  `osml_id` varchar(32) default '0',
+  `status_id` varchar(32) default 'ic',
+  `site_id` varchar(32) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -522,7 +522,7 @@ CREATE TABLE `job_position` (
 
 /*!40000 ALTER TABLE `job_position` DISABLE KEYS */;
 LOCK TABLES `job_position` WRITE;
-INSERT INTO `job_position` VALUES (0,'402881ed066f41ff01066f531b76','manager','manager','1','2005-09-19 23:59:09','1','2005-09-19 23:59:09','0','ic',NULL);
+INSERT INTO `job_position` VALUES (0,'402881ed066f41ff01066f531b76','manager','Manager','1','2005-09-19 23:59:09','1','2007-11-14 15:26:48','0','ic',NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `job_position` ENABLE KEYS */;
 
@@ -532,20 +532,20 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `module_function`;
 CREATE TABLE `module_function` (
-  `id` varchar(28) NOT NULL default '',
+  `id` varchar(32) NOT NULL default '',
   `name` varchar(128) NOT NULL default '',
   `description` varchar(255) default NULL,
-  `descriptor_id` varchar(28) default NULL,
-  `iparent` varchar(28) default NULL,
+  `descriptor_id` varchar(32) default NULL,
+  `iparent` varchar(32) default NULL,
   `ref_desc` varchar(255) default 'id',
   `viewall_flag` tinyint(1) default '1',
   `active_flag` tinyint(1) default '1',
-  `create_by` varchar(28) default NULL,
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `status_id` char(2) NOT NULL default 'ic',
-  `site_id` varchar(28) default NULL,
+  `site_id` varchar(32) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -556,7 +556,7 @@ CREATE TABLE `module_function` (
 
 /*!40000 ALTER TABLE `module_function` DISABLE KEYS */;
 LOCK TABLES `module_function` WRITE;
-INSERT INTO `module_function` VALUES ('ff80808105a3a8ed0105a3b185a9','Site Manager','Site Manager','25','0','id',0,1,'1','2005-08-11 11:30:23','','0000-00-00 00:00:00','ic','EE185CE0B82B41C1724F284685'),('ff80808105a3a8ed0105a3b4137b','User Management','User Management','25','ff80808105a3a8ed0105a3b185a9','id',1,1,'1','2005-08-11 11:22:37','','0000-00-00 00:00:00','ic','EE185CE0B82B41C1724F284685'),('ff80808105a3b96f0105a3ba792c','Content Manager','Content Manager','25','0','id',1,1,'1','2005-08-11 11:30:28','','0000-00-00 00:00:00','ic','EE185CE0B82B41C1724F284685'),('ff80808105a3b96f0105a3bdf32c','Workflow Designer','Workflow Designer','25','0','id',1,1,'1','2005-08-11 11:30:31','','0000-00-00 00:00:00','ic','EE185CE0B82B41C1724F284685'),('0','Master','Master','25',NULL,'id',1,1,NULL,'2006-02-22 11:02:51',NULL,'0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a3db794e','User Manager Ver.2.0','User Manager Ver.2.0','F76A9583B418F4FB3D261C1D53','ff80808105a3a8ed0105a3b4137b','id',1,1,'1','2005-08-11 11:45:33','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a3e1e581','Company','Company','F332B5D5577E444B78297AFE84','ff80808105a3a8ed0105a3b4137b','id',1,1,'1','2005-08-11 11:52:34','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a3e418bd','Job Position','Job Position','F2E587923AC44C8979FBF2F26C','ff80808105a3a8ed0105a3b4137b','id',1,1,'1','2005-08-11 11:54:59','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a3e67dfa','Client Survey','Client Survey','EFE457F0C2A80EC35CC399876D','ff80808105a3a8ed0105a3b4137b','id',1,1,'1','2005-08-11 11:57:35','1','2005-08-11 12:03:01','ic',NULL),('ff80808105a3b96f0105a3e9fb88','User Site','User Site','EE8C6A49BC200D77F9DD3F92AA','ff80808105a3a8ed0105a3b4137b','id',1,1,'1','2005-08-11 12:01:24','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a3ef0442','User Role','User Role','14','ff80808105a3a8ed0105a3b4137b','name',1,1,'1','2005-08-11 12:06:54','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a3f0abbd','Backend User','Backend User','13','ff80808105a3a8ed0105a3b4137b','first_name',1,1,'1','2005-08-11 12:08:43','1','2006-03-03 09:40:35','ic',NULL),('ff80808105a3b96f0105a402cfe0','Multi Site','Multi Site','2','ff80808105a3a8ed0105a3b185a9','id',0,1,'1','2005-08-11 12:28:31','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a403f9f1','Module Manager','Module Manager','25','ff80808105a3a8ed0105a3b185a9','id',0,1,'1','2005-08-11 12:29:48','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4083f82','Descriptor Manager','Descriptor Manager','1','ff80808105a3a8ed0105a3b185a9','description',0,1,'1','2005-08-11 12:34:28','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a40b7e1b','Site','Site','2','ff80808105a3b96f0105a402cfe0','id',0,1,'1','2005-08-11 12:38:00','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a41d0113','Role Site Privilage','Role Site Privilage','EF1F0CD62F63F3B0A7205D5BC4','ff80808105a3b96f0105a403f9f1','id',1,1,'1','2005-08-11 12:57:08','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a41e79a7','Role Manager','Role Manager','EEB49F22144357635AD6A684B6','ff80808105a3b96f0105a403f9f1','id',1,1,'1','2005-08-11 12:58:44','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4206208','User Site','User Site','EE187CB92554E9877310D9041D','ff80808105a3b96f0105a403f9f1','id',0,1,'1','2005-08-11 13:00:49','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a426ac13','Role Privilage','Role Privilage','32','ff80808105a3b96f0105a403f9f1','role_id',0,1,'1','2005-08-11 13:07:42','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4279ca8','Module Function','Module Function','31','ff80808105a3b96f0105a403f9f1','description',0,1,'1','2005-08-11 13:08:43','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a42cc3a5','Descriptor Group','Descriptor Group','EACA4B7F9596396050B73AB5EF','ff80808105a3b96f0105a4083f82','id',0,1,'1','2005-08-11 13:14:21','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a431a20c','Descriptor','Descriptor','1','ff80808105a3b96f0105a4083f82','description',0,1,'1','2005-08-11 13:19:40','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a43279d2','Category','Category','6','ff80808105a3b96f0105a4083f82','description',0,1,'1','2005-08-11 13:20:35','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a43388fd','Section','Section','7','ff80808105a3b96f0105a4083f82','description',0,1,'1','2005-08-11 13:21:45','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a43cacec','Theme Management','Theme Management','25','ff80808105a3b96f0105a3ba792c','id',0,1,'1','2005-08-11 13:31:44','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a43df897','Collection Descriptor','Collection Descriptor','EE399186B35C580610D4EDD7A3','ff80808105a3b96f0105a3ba792c','id',0,1,'1','2005-08-11 13:33:09','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a43ef71d','Category','Category','6','ff80808105a3b96f0105a3ba792c','description',0,1,'1','2005-08-11 13:34:14','1','2006-02-28 16:54:47','ic',NULL),('ff80808105a3b96f0105a43fb0f4','Section','Section','7','ff80808105a3b96f0105a3ba792c','description',0,1,'1','2005-08-11 13:35:01','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4432933','Skin','Skin','EED88F7EFBC8DFF1C5A048C73D','ff80808105a3b96f0105a43cacec','id',1,1,'1','2005-08-11 13:38:49','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4442643','Theme','Theme','EE39DC68885D4E61299258E68D','ff80808105a3b96f0105a43cacec','id',1,1,'1','2005-08-11 13:39:53','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4450f7b','Template Object Detail','Template Object Detail','EE39EDFFA5C0438D014F92A9A3','ff80808105a3b96f0105a43cacec','id',0,1,'1','2005-08-11 13:40:53','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4461c54','Template Object','Template Object','EE39EDBA36471BA27231DAFF78','ff80808105a3b96f0105a43cacec','id',0,1,'1','2005-08-11 13:42:02','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a447249e','Template','Template','22','ff80808105a3b96f0105a43cacec','name',0,1,'1','2005-08-11 13:43:10','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a451002d','WF Role','WF Role','14','ff80808105a3b96f0105a3bdf32c','name',1,1,'1','2005-08-11 13:53:56','','0000-00-00 00:00:00','ic',NULL),('ff808081153a8e6301153a926a5c','GX2Droplist','Droplist','ff808081153a8e6301153a90b1e9','ff808081151cf62001151cfd6d90','',1,1,'1','2007-10-11 11:46:40','','0000-00-00 00:00:00','ic',NULL),('ff808081152136f1011521388462','GX2Table','Table','ff808081152136f101152137b298','ff808081151cf62001151cfd6d90','',1,1,'1','2007-10-11 11:46:45','','0000-00-00 00:00:00','ic',NULL),('ff808081151cf62001151cfedc84','window','Window','ff808081151cf62001151cf94fb0','ff808081151cf62001151cfd6d90','',1,1,'1','2007-09-19 16:00:05','','0000-00-00 00:00:00','ic',NULL),('ff808081151cf62001151cfd6d90','GXAdmin','GX Admin','EE187CB92554E9877310D9041D','0','',1,1,'1','2007-09-19 15:58:31','','0000-00-00 00:00:00','ic',NULL),('ff80808115f05f2f0115f0606540','test','test','ff80808115f05f2f0115f05ff322','ff80808105a3b96f0105a403f9f1','',1,1,'1','2007-10-30 17:06:30','','0000-00-00 00:00:00','ic',NULL);
+INSERT INTO `module_function` VALUES ('ff80808105a3a8ed0105a3b185a9','Site Manager','Site Manager','25','0','id',0,1,'1','2005-08-11 11:30:23','','0000-00-00 00:00:00','ic','EE185CE0B82B41C1724F284685'),('ff80808105a3a8ed0105a3b4137b','User Management','User Management','25','ff80808105a3a8ed0105a3b185a9','id',1,1,'1','2005-08-11 11:22:37','','0000-00-00 00:00:00','ic','EE185CE0B82B41C1724F284685'),('ff80808105a3b96f0105a3ba792c','Content Manager','Content Manager','25','0','id',1,1,'1','2005-08-11 11:30:28','','0000-00-00 00:00:00','ic','EE185CE0B82B41C1724F284685'),('ff80808105a3b96f0105a3bdf32c','Workflow Designer','Workflow Designer','25','0','id',1,1,'1','2005-08-11 11:30:31','','0000-00-00 00:00:00','ic','EE185CE0B82B41C1724F284685'),('0','Master','Master','25',NULL,'id',1,1,NULL,'2006-02-22 11:02:51',NULL,'0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a3db794e','User Manager Ver.2.0','User Manager Ver.2.0','F76A9583B418F4FB3D261C1D53','ff80808105a3a8ed0105a3b4137b','id',1,1,'1','2005-08-11 11:45:33','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a3e1e581','Company','Company','F332B5D5577E444B78297AFE84','ff80808105a3a8ed0105a3b4137b','id',1,1,'1','2005-08-11 11:52:34','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a3e418bd','Job Position','Job Position','F2E587923AC44C8979FBF2F26C','ff80808105a3a8ed0105a3b4137b','id',1,1,'1','2005-08-11 11:54:59','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a3e9fb88','User Site','User Site','EE8C6A49BC200D77F9DD3F92AA','ff80808105a3a8ed0105a3b4137b','id',1,1,'1','2005-08-11 12:01:24','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a3ef0442','User Role','User Role','14','ff80808105a3a8ed0105a3b4137b','name',1,1,'1','2005-08-11 12:06:54','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a402cfe0','Multi Site','Multi Site','2','ff80808105a3a8ed0105a3b185a9','id',0,1,'1','2005-08-11 12:28:31','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a403f9f1','Module Manager','Module Manager','25','ff80808105a3a8ed0105a3b185a9','id',0,1,'1','2005-08-11 12:29:48','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4083f82','Descriptor Manager','Descriptor Manager','1','ff80808105a3a8ed0105a3b185a9','description',0,1,'1','2005-08-11 12:34:28','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a40b7e1b','Site','Site','2','ff80808105a3b96f0105a402cfe0','id',0,1,'1','2005-08-11 12:38:00','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a41d0113','Role Site Privilage','Role Site Privilage','EF1F0CD62F63F3B0A7205D5BC4','ff80808105a3b96f0105a403f9f1','id',1,1,'1','2005-08-11 12:57:08','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a41e79a7','Role Manager','Role Manager','EEB49F22144357635AD6A684B6','ff80808105a3b96f0105a403f9f1','id',1,1,'1','2005-08-11 12:58:44','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4206208','User Site','User Site','EE187CB92554E9877310D9041D','ff80808105a3b96f0105a403f9f1','id',0,1,'1','2005-08-11 13:00:49','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a426ac13','Role Privilage','Role Privilage','32','ff80808105a3b96f0105a403f9f1','role_id',0,1,'1','2005-08-11 13:07:42','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4279ca8','Module Function','Module Function','31','ff80808105a3b96f0105a403f9f1','description',0,1,'1','2005-08-11 13:08:43','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a42cc3a5','Descriptor Group','Descriptor Group','EACA4B7F9596396050B73AB5EF','ff80808105a3b96f0105a4083f82','id',0,1,'1','2005-08-11 13:14:21','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a431a20c','Descriptor','Descriptor','1','ff80808105a3b96f0105a4083f82','description',0,1,'1','2005-08-11 13:19:40','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a43279d2','Category','Category','6','ff80808105a3b96f0105a4083f82','description',0,1,'1','2005-08-11 13:20:35','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a43388fd','Section','Section','7','ff80808105a3b96f0105a4083f82','description',0,1,'1','2005-08-11 13:21:45','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a43cacec','Theme Management','Theme Management','25','ff80808105a3b96f0105a3ba792c','id',0,1,'1','2005-08-11 13:31:44','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a43df897','Collection Descriptor','Collection Descriptor','EE399186B35C580610D4EDD7A3','ff80808105a3b96f0105a3ba792c','id',0,1,'1','2005-08-11 13:33:09','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a43ef71d','Category','Category','6','ff80808105a3b96f0105a3ba792c','description',0,1,'1','2005-08-11 13:34:14','1','2006-02-28 16:54:47','ic',NULL),('ff80808105a3b96f0105a43fb0f4','Section','Section','7','ff80808105a3b96f0105a3ba792c','description',0,1,'1','2005-08-11 13:35:01','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4432933','Skin','Skin','EED88F7EFBC8DFF1C5A048C73D','ff80808105a3b96f0105a43cacec','id',1,1,'1','2005-08-11 13:38:49','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4442643','Theme','Theme','EE39DC68885D4E61299258E68D','ff80808105a3b96f0105a43cacec','id',1,1,'1','2005-08-11 13:39:53','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4450f7b','Template Object Detail','Template Object Detail','EE39EDFFA5C0438D014F92A9A3','ff80808105a3b96f0105a43cacec','id',0,1,'1','2005-08-11 13:40:53','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a4461c54','Template Object','Template Object','EE39EDBA36471BA27231DAFF78','ff80808105a3b96f0105a43cacec','id',0,1,'1','2005-08-11 13:42:02','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a447249e','Template','Template','22','ff80808105a3b96f0105a43cacec','name',0,1,'1','2005-08-11 13:43:10','','0000-00-00 00:00:00','ic',NULL),('ff80808105a3b96f0105a451002d','WF Role','WF Role','14','ff80808105a3b96f0105a3bdf32c','name',1,1,'1','2005-08-11 13:53:56','','0000-00-00 00:00:00','ic',NULL),('ff808081153a8e6301153a926a5c','GX2Droplist','Droplist','ff808081153a8e6301153a90b1e9','ff808081151cf62001151cfd6d90','',1,1,'1','2007-10-11 11:46:40','','0000-00-00 00:00:00','ic',NULL),('ff808081152136f1011521388462','GX2Table','Table','ff808081152136f101152137b298','ff808081151cf62001151cfd6d90','',1,1,'1','2007-10-11 11:46:45','','0000-00-00 00:00:00','ic',NULL),('ff808081151cf62001151cfedc84','window','Window','ff808081151cf62001151cf94fb0','ff808081151cf62001151cfd6d90','',1,1,'1','2007-09-19 16:00:05','','0000-00-00 00:00:00','ic',NULL),('ff808081151cf62001151cfd6d90','GXAdmin','GX Admin','EE187CB92554E9877310D9041D','0','',1,1,'1','2007-09-19 15:58:31','','0000-00-00 00:00:00','ic',NULL),('ff808081163cbe8a01163cc2c2280002','user_mvc','User Manager Ver.2.1','ff808081163cbe8a01163cc1db2f0001','ff80808105a3a8ed0105a3b4137b','',1,1,'1','2007-11-14 13:05:04','','0000-00-00 00:00:00','ic',NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `module_function` ENABLE KEYS */;
 
@@ -566,18 +566,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `role_privilage`;
 CREATE TABLE `role_privilage` (
-  `id` varchar(28) NOT NULL default '',
-  `role_id` varchar(28) default NULL,
-  `module_function_id` varchar(28) default NULL,
+  `id` varchar(32) NOT NULL default '',
+  `role_id` varchar(32) default NULL,
+  `module_function_id` varchar(32) default NULL,
   `privilage_flag` tinyint(1) default '0',
   `url_xml` varchar(255) default NULL,
-  `create_by` varchar(28) default NULL,
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `status_id` char(2) NOT NULL default 'ic',
   `active_flag` tinyint(1) NOT NULL default '1',
-  `site_id` varchar(28) default NULL,
+  `site_id` varchar(32) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -588,7 +588,7 @@ CREATE TABLE `role_privilage` (
 
 /*!40000 ALTER TABLE `role_privilage` DISABLE KEYS */;
 LOCK TABLES `role_privilage` WRITE;
-INSERT INTO `role_privilage` VALUES ('ff80808105a521520105a5222233','1','ff80808105a3b96f0105a3ba792c',1,NULL,'','0000-00-00 00:00:00','','0000-00-00 00:00:00','ic',0,NULL),('ff80808105a521520105a52239c8','1','ff80808105a3b96f0105a3bdf32c',1,NULL,'','0000-00-00 00:00:00','','0000-00-00 00:00:00','ic',0,NULL),('ff80808105a8de2e0105a8e066ce','1','ff80808105a3a8ed0105a3b185a9',1,NULL,'','0000-00-00 00:00:00','','0000-00-00 00:00:00','ic',0,NULL),('ff80808105bd64ad0105bd67821b','2','ff80808105a3a8ed0105a3b185a9',1,NULL,'','0000-00-00 00:00:00','','0000-00-00 00:00:00','ic',0,NULL),('ff808081151cf62001151d01a98b','ff808081151cf62001151cfc5907','ff808081151cf62001151cfd6d90',1,NULL,'','0000-00-00 00:00:00','','0000-00-00 00:00:00','ic',0,NULL);
+INSERT INTO `role_privilage` VALUES ('ff80808105a521520105a5222233','1','ff80808105a3b96f0105a3ba792c',1,NULL,'','0000-00-00 00:00:00','','0000-00-00 00:00:00','ic',0,NULL),('ff80808105a521520105a52239c8','1','ff80808105a3b96f0105a3bdf32c',1,NULL,'','0000-00-00 00:00:00','','0000-00-00 00:00:00','ic',0,NULL),('ff80808105a8de2e0105a8e066ce','1','ff80808105a3a8ed0105a3b185a9',1,NULL,'','0000-00-00 00:00:00','','0000-00-00 00:00:00','ic',0,NULL),('ff808081151cf62001151d01a98b','ff808081151cf62001151cfc5907','ff808081151cf62001151cfd6d90',1,NULL,'','0000-00-00 00:00:00','','0000-00-00 00:00:00','ic',0,NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `role_privilage` ENABLE KEYS */;
 
@@ -598,17 +598,17 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `role_site`;
 CREATE TABLE `role_site` (
-  `id` varchar(28) NOT NULL default '',
-  `role_id` varchar(28) NOT NULL default '',
-  `rsite_id` varchar(28) NOT NULL default '',
-  `create_by` varchar(28) default NULL,
+  `id` varchar(32) NOT NULL default '',
+  `role_id` varchar(32) NOT NULL default '',
+  `rsite_id` varchar(32) NOT NULL default '',
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `active_flag` int(11) default '1',
-  `osml_id` varchar(28) default '0',
-  `status_id` varchar(28) default 'ic',
-  `site_id` varchar(28) default NULL,
+  `osml_id` varchar(32) default '0',
+  `status_id` varchar(32) default 'ic',
+  `site_id` varchar(32) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -619,7 +619,7 @@ CREATE TABLE `role_site` (
 
 /*!40000 ALTER TABLE `role_site` DISABLE KEYS */;
 LOCK TABLES `role_site` WRITE;
-INSERT INTO `role_site` VALUES ('F199E8F90A87DB35EAA0B810B8','3','F199E755B97B662FC248CAC80',NULL,'2002-11-19 08:28:32',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F186BF7B53F10B7406CB96A1DD','3','F185BD3FDC5CC7989A3CED51A1',NULL,'2002-11-15 15:10:20',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F186BF656B571EA0CD8A1D6BCC','3','F185C29BDFC64CD3D08E1A15E8',NULL,'2002-11-15 15:10:20',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F186BF5394823B80AD8D6364FF','3','F185C351B2FAC396169017978F',NULL,'2002-11-15 15:10:20',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F74B6B78EBE6BDDAB1FEA8DF3F','3','F74B696E86AA0CA5819A4FB36C',NULL,'2003-08-29 08:57:53',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F78E9C6F2288CD721B04670153','3','F78E9748E9F76ABD233C5EAD39',NULL,'2003-09-11 10:06:04',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F9A20322793136B6AFD2F8C7AE','F9A202E61CD5BE6BE70F60BC30','F9A2020F6D2B0CA30F3A1C8745',NULL,'2003-12-23 14:36:24',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('1234','1','F199E755B97B662FC248CAC80',NULL,'2005-08-22 14:10:53',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('5678','1','ff80808106526f200106527a6431',NULL,'2005-09-14 09:37:21',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('0123','1','ff80808106586e0a0106587570a2',NULL,'2005-08-22 14:10:53',NULL,'0000-00-00 00:00:00',1,'0','ic',NULL),('0f83b41d-b7fd-4386-bf73-36d1','ff8080810b835c2b010b836c06c7','ff8080810b835c2b010b836b4937',NULL,'2006-05-30 10:55:18',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('24f24762-d28b-4303-977a-5002','ff8080810b835c2b010b8377ec34','ff8080810b835c2b010b8376e649',NULL,'2006-05-30 11:08:10',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('d4333902-30d1-40d0-adac-c864','ff8080810b835c2b010b8380be29','ff8080810b835c2b010b8380660e',NULL,'2006-05-30 11:15:39',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('dd61a2a7-103e-4959-8529-5341','ff8080810b7e4736010b7e6d3be5','ff8080810b835c2b010b8380660e',NULL,'2006-05-30 11:19:24',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('363e6556-ce84-4081-848c-4d7d','ff808081104d995b01104da90177','ff808081104d995b01104da84e0e',NULL,'2007-01-23 13:37:50',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('8fc36dc6-4cdd-430c-b8a1-2a52','ff80808113bece750113bed0f44c','ff80808113bece750113bed05611',NULL,'2007-07-13 16:05:16',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('e1802384-1353-49c3-9651-bab3','ff808081151cf62001151cfc5907','ff808081151cf62001151cfc0584',NULL,'2007-09-19 16:02:51',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685');
+INSERT INTO `role_site` VALUES ('F186BF7B53F10B7406CB96A1DD','3','F185BD3FDC5CC7989A3CED51A1',NULL,'2002-11-15 15:10:20',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F186BF656B571EA0CD8A1D6BCC','3','F185C29BDFC64CD3D08E1A15E8',NULL,'2002-11-15 15:10:20',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F186BF5394823B80AD8D6364FF','3','F185C351B2FAC396169017978F',NULL,'2002-11-15 15:10:20',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F74B6B78EBE6BDDAB1FEA8DF3F','3','F74B696E86AA0CA5819A4FB36C',NULL,'2003-08-29 08:57:53',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('363e6556-ce84-4081-848c-4d7d','ff808081104d995b01104da90177','ff808081104d995b01104da84e0e',NULL,'2007-01-23 13:37:50',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('8fc36dc6-4cdd-430c-b8a1-2a52','ff80808113bece750113bed0f44c','ff80808113bece750113bed05611',NULL,'2007-07-13 16:05:16',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('e1802384-1353-49c3-9651-bab3','ff808081151cf62001151cfc5907','ff808081151cf62001151cfc0584',NULL,'2007-09-19 16:02:51',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `role_site` ENABLE KEYS */;
 
@@ -629,19 +629,19 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `role_site_privilage`;
 CREATE TABLE `role_site_privilage` (
-  `id` varchar(28) NOT NULL default '',
-  `role_site_id` varchar(28) default NULL,
-  `module_function_id` varchar(28) default NULL,
+  `id` varchar(32) NOT NULL default '',
+  `role_site_id` varchar(32) default NULL,
+  `module_function_id` varchar(32) default NULL,
   `privilage_flag` tinyint(1) default '1',
   `url_xml` varchar(255) default NULL,
-  `rs_site_id` varchar(28) NOT NULL default '',
-  `create_by` varchar(28) default NULL,
+  `rs_site_id` varchar(32) NOT NULL default '',
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `status_id` char(2) NOT NULL default 'ic',
   `active_flag` tinyint(1) NOT NULL default '1',
-  `site_id` varchar(28) default NULL,
+  `site_id` varchar(32) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -652,7 +652,7 @@ CREATE TABLE `role_site_privilage` (
 
 /*!40000 ALTER TABLE `role_site_privilage` DISABLE KEYS */;
 LOCK TABLES `role_site_privilage` WRITE;
-INSERT INTO `role_site_privilage` VALUES ('2','1','2',1,NULL,'EE185CE0B82B41C1724F284685',NULL,'2002-07-09 09:44:30',NULL,'2002-07-09 08:17:53','ic',1,'EE185CE0B82B41C1724F284685'),('1','1','1',1,NULL,'EE185CE0B82B41C1724F284685',NULL,'2002-07-09 09:45:03',NULL,'2002-07-09 09:45:03','ic',1,'EE185CE0B82B41C1724F284685'),('F1868AC0C6C48059DFA7CB8FB6','EF201F06FE6D8F2B1E1754401A','F15DB4CB9E88FF3BD7726BFC44',1,NULL,'EF62687CC1170D25FC73E0051C',NULL,'2002-11-15 14:44:53',NULL,'0000-00-00 00:00:00','ic',1,'EE185CE0B82B41C1724F284685'),('F186B7E27F6534C0FFB92A8E6B','F186816737F04F453D615080A3','F15DB4CB9E88FF3BD7726BFC44',1,NULL,'F185C351B2FAC396169017978F',NULL,'2002-11-15 15:02:04',NULL,'0000-00-00 00:00:00','ic',1,'EE185CE0B82B41C1724F284685'),('F186B7BB1A72061092EBC71BED','F186816737F04F453D615080A3','F1158BCC10255DDC5563C9DC07',1,NULL,'F185C351B2FAC396169017978F',NULL,'2002-11-15 15:02:04',NULL,'0000-00-00 00:00:00','ic',1,'EE185CE0B82B41C1724F284685'),('F33663953B4902CDFB5A3F49C5','F199E8F90A87DB35EAA0B810B8','F33661890F73F3C0A23436294A',1,NULL,'F199E755B97B662FC248CAC80',NULL,'2003-02-07 10:46:07',NULL,'0000-00-00 00:00:00','ic',1,'EE185CE0B82B41C1724F284685'),('F9A203A43A378BC1AD30EF3787','F9A20322793136B6AFD2F8C7AE','E8D32F8713656B89EF6796025F',1,NULL,'F9A2020F6D2B0CA30F3A1C8745',NULL,'2003-12-23 14:36:53',NULL,'0000-00-00 00:00:00','ic',1,'EE185CE0B82B41C1724F284685'),('sasasa','1234','ff80808105cd16d80105cd220368',1,NULL,'',NULL,'2005-08-22 14:13:23',NULL,'0000-00-00 00:00:00','ic',1,''),('1234567890','5678','ff80808106526f2001065274d581',1,NULL,'',NULL,'2005-09-14 09:27:00',NULL,'0000-00-00 00:00:00','ic',1,'EE185CE0B82B41C1724F284685'),('321345','0123','ff80808106586e0a0106586f0a6e',1,NULL,'',NULL,'2005-09-14 09:27:00',NULL,'0000-00-00 00:00:00','ic',1,NULL),('a4f31018-afd6-4a20-b39e-dc5e','0f83b41d-b7fd-4386-bf73-36d1','ff8080810b835c2b010b837162c6',1,NULL,'ff8080810b835c2b010b836b4937',NULL,'2006-05-30 11:00:43',NULL,'0000-00-00 00:00:00','ic',1,'EE185CE0B82B41C1724F284685'),('3a825413-d535-4220-b519-7ea0','dd61a2a7-103e-4959-8529-5341','ff8080810b835c2b010b837162c6',1,NULL,'ff8080810b835c2b010b8380660e',NULL,'2006-05-30 11:19:36',NULL,'0000-00-00 00:00:00','ic',1,'EE185CE0B82B41C1724F284685'),('0dc0c122-9112-4a24-95d1-00ad','8fc36dc6-4cdd-430c-b8a1-2a52','ff80808113bece750113bed1fa0c',1,NULL,'ff80808113bece750113bed05611',NULL,'2007-07-13 16:06:54',NULL,'0000-00-00 00:00:00','ic',1,'EE185CE0B82B41C1724F284685'),('a372f809-a96d-4ec5-a05e-d83c','e1802384-1353-49c3-9651-bab3','ff808081151cf62001151cfd6d90',1,NULL,'ff808081151cf62001151cfc0584',NULL,'2007-09-19 16:03:32',NULL,'0000-00-00 00:00:00','ic',1,'EE185CE0B82B41C1724F284685');
+INSERT INTO `role_site_privilage` VALUES ('0dc0c122-9112-4a24-95d1-00ad','8fc36dc6-4cdd-430c-b8a1-2a52','ff80808113bece750113bed1fa0c',1,NULL,'ff80808113bece750113bed05611',NULL,'2007-07-13 16:06:54',NULL,'0000-00-00 00:00:00','ic',1,'EE185CE0B82B41C1724F284685'),('a372f809-a96d-4ec5-a05e-d83c','e1802384-1353-49c3-9651-bab3','ff808081151cf62001151cfd6d90',1,NULL,'ff808081151cf62001151cfc0584',NULL,'2007-09-19 16:03:32',NULL,'0000-00-00 00:00:00','ic',1,'EE185CE0B82B41C1724F284685');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `role_site_privilage` ENABLE KEYS */;
 
@@ -662,8 +662,8 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `section`;
 CREATE TABLE `section` (
-  `id` varchar(28) NOT NULL default '',
-  `descriptor_id` varchar(28) default NULL,
+  `id` varchar(32) NOT NULL default '',
+  `descriptor_id` varchar(32) default NULL,
   `code` char(3) NOT NULL default '',
   `url_section` varchar(255) default NULL,
   `description` varchar(125) NOT NULL default '',
@@ -672,7 +672,7 @@ CREATE TABLE `section` (
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
   `update_by` varchar(15) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `site_id` varchar(28) default NULL
+  `site_id` varchar(32) default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -692,10 +692,10 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `site`;
 CREATE TABLE `site` (
-  `id` varchar(28) NOT NULL default '',
+  `id` varchar(32) NOT NULL default '',
   `name` varchar(64) NOT NULL default '',
   `description` varchar(255) default NULL,
-  `theme_id` varchar(28) NOT NULL default '',
+  `theme_id` varchar(32) NOT NULL default '',
   `title` varchar(255) default NULL,
   `site_headline` text,
   `url_branding` varchar(255) default NULL,
@@ -706,13 +706,13 @@ CREATE TABLE `site` (
   `notify_from` varchar(255) default NULL,
   `notify_message` varchar(255) default NULL,
   `active_flag` tinyint(1) NOT NULL default '1',
-  `create_by` varchar(28) default NULL,
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `osml_id` varchar(28) default '0',
-  `status_id` varchar(28) default 'ic',
-  `site_id` varchar(28) default NULL,
+  `osml_id` varchar(32) default '0',
+  `status_id` varchar(32) default 'ic',
+  `site_id` varchar(32) default NULL,
   PRIMARY KEY  (`id`),
   KEY `update_by` (`update_by`),
   KEY `create_by` (`create_by`),
@@ -736,17 +736,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role` (
-  `id` varchar(28) NOT NULL default '',
-  `user_id` varchar(28) NOT NULL default '',
-  `role_id` varchar(28) NOT NULL default '0',
+  `id` varchar(32) NOT NULL default '',
+  `user_id` varchar(32) NOT NULL default '',
+  `role_id` varchar(32) NOT NULL default '0',
   `default_role` tinyint(1) NOT NULL default '0',
-  `create_by` varchar(15) default NULL,
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(15) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `active_flag` int(11) default '1',
   `osml_id` varchar(28) default '0',
-  `status_id` varchar(28) default 'ic',
-  `site_id` varchar(28) default NULL,
+  `status_id` varchar(32) default 'ic',
+  `site_id` varchar(32) default NULL,
   PRIMARY KEY  (`id`),
   KEY `role_id` (`role_id`),
   KEY `user_id` (`user_id`)
@@ -759,7 +760,7 @@ CREATE TABLE `user_role` (
 
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
 LOCK TABLES `user_role` WRITE;
-INSERT INTO `user_role` VALUES ('F78504D16152CEEA643E886D12','F36F96E4EA83CB95AC4DC601F2','ff808081059f9f5e01059f9fbc3e',0,'F36F96E4EA83CB9','2005-08-10 16:07:31',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F78A4F806ED6607BFD6D540A4E','1','ff808081059f9f5e01059f9fbc3e',1,'1','2005-08-10 16:12:49',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F8154AEBCF7217F34B7C689C91','F501555A2ECD5AC8FCC32F4DD6','ff808081059f9f5e01059f9fbc3e',0,'1','2005-08-10 16:31:30',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('FAF5F932667792F8F16C3F5A8A','FAF5F729BB986D84D965E8C0F4','3',1,'1','2004-02-27 15:04:02',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('FAF5FA32FB59AFE9FEBB615518','FAF5F729BB986D84D965E8C0F4','FA84B7C4A3DA2013FA2CEA182B',0,'1','2004-02-27 15:04:02',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('FABD26F9D5C4D3E32E4BFFAC523','1','ff808081059f9f5e01059fa3482b',0,NULL,'2005-08-10 16:41:45',NULL,'0000-00-00 00:00:00','0','ic',NULL),('FAA39A4195CE64EF0E058B0968','F36F8BFFF97F8A16505B8305F7','2',0,'1','2004-03-29 12:41:17',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('FABD26F9D5C4D3E32E4BFFAC522','F53FAAF09AB84F412CDA27FF72','3',0,NULL,'2004-02-16 14:07:52',NULL,'0000-00-00 00:00:00','0','ic',NULL),('FAA399FA12BCA7098B1CC597F3','F36F8BFFF97F8A16505B8305F7','3',1,'1','2004-03-29 12:41:17',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('FA89280AA024785E951B6236130','FA89238CD9BCDF331DF9B845EB','4',0,NULL,'2004-02-06 11:48:46',NULL,'0000-00-00 00:00:00','0','ic',NULL),('FA8923EB70976CA5ABB7E6FD7D','FA89238CD9BCDF331DF9B845EB','FA84B7C4A3DA2013FA2CEA182B',1,'1','2004-02-06 11:47:35',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('FA8916B91AECAF9B13474EEA390','F501555A2ECD5AC8FCC32F4DD6','FA84B7C4A3DA2013FA2CEA182B',0,NULL,'2004-02-06 11:29:51',NULL,'0000-00-00 00:00:00','0','ic',NULL),('FA892427F4A288E5756BF19A75','FA89238CD9BCDF331DF9B845EB','3',0,'1','2004-02-06 11:47:35',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('50b9e43a-e5bc-4af4-be1c-d858','03ca5f54-b6d3-43f4-909c-2539','5',1,'1','2005-09-19 23:55:07',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('db0e696e-b717-4ceb-950b-08bc','08ede5a1-b12e-4e0a-b344-e284','ff8080810671953c01067197fcee',1,'1','2005-09-20 10:36:43',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('d007beef-de46-48c9-b660-1ae9','7435cf87-127d-4e0b-8aa1-8263','402881b709aed4560109aed582e7',1,'1','2006-02-28 11:09:08',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('44e9837b-90a2-41ca-a40e-ade6','5fb2c218-3431-491d-9498-0827','4028818d09f6c2df0109f6c45d6a',1,'1','2006-03-14 10:23:30',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('ad762492-3d63-47d5-b375-c49d','a462f3f1-4e3e-4d9f-ad09-9927','ff8080810b7e4736010b7e6d3be5',1,'1','2006-05-31 13:59:09',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('92147f5a-d405-4ef1-b810-989f','3ed0e190-55e9-4237-aa65-5bff','ff808081104d995b01104da90177',1,'1','2007-01-23 13:48:49',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('592aa083-6dfc-4deb-8ecc-8420','225077bd-b7a4-4a69-8479-4066','ff80808113bece750113bed0f44c',1,'1','2007-07-13 16:08:43',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('adaa9b6c-4f3a-489e-836a-179a','96f673bc-283e-4b75-b63d-6edc','ff808081151cf62001151cfc5907',1,'1','2007-09-19 16:04:47',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685');
+INSERT INTO `user_role` VALUES ('d2e559f6-b0aa-4671-9499-ebbc49fd','278e6e67-8b0e-431b-bd17-ca91cc93','1',1,'1','2007-11-14 15:05:14',NULL,'2007-11-14 15:05:14',1,'0','ic','EE185CE0B82B41C1724F284685'),('ff808081163da2ed01163da3eb960002','ff808081163da2ed01163da3d04b0001','1',1,'','1970-01-01 07:00:00','','0000-00-00 00:00:00',0,'0','ic',NULL),('ff808081163da2ed01163da5c9000004','ff808081163da2ed01163da3d04b0001','1',1,'','1970-01-01 07:00:00','','0000-00-00 00:00:00',0,'0','ic',NULL),('ff808081163dbc9001163dbd54820001','1','1',1,'','1970-01-01 07:00:00','','0000-00-00 00:00:00',0,'0','ic',NULL),('adaa9b6c-4f3a-489e-836a-179a','96f673bc-283e-4b75-b63d-6edc','ff808081151cf62001151cfc5907',1,'1','2007-09-19 16:04:47',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('ff808081163cee0c01163cee305b0001','ff808081163ce80a01163ce8bc970001','1',0,'','1970-01-01 07:00:00','','0000-00-00 00:00:00',0,'0','ic',NULL),('ff808081163cee0c01163cee71ef0002','ff808081163ce80a01163ce8bc970001','ff808081151cf62001151cfc5907',0,'','1970-01-01 07:00:00','','0000-00-00 00:00:00',0,'0','ic',NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 
@@ -769,17 +770,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user_site`;
 CREATE TABLE `user_site` (
-  `id` varchar(28) NOT NULL default '',
-  `user_id` varchar(28) NOT NULL default '',
-  `user_site_id` varchar(28) NOT NULL default '',
-  `module_function_id` varchar(28) NOT NULL default '',
-  `create_by` varchar(28) default NULL,
+  `id` varchar(32) NOT NULL default '',
+  `user_id` varchar(32) NOT NULL default '',
+  `user_site_id` varchar(32) NOT NULL default '',
+  `module_function_id` varchar(32) NOT NULL default '',
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `osml_id` varchar(28) default '0',
-  `status_id` varchar(28) default 'ic',
-  `site_id` varchar(28) default NULL,
+  `active_flag` int(11) default '1',
+  `osml_id` varchar(32) default '0',
+  `status_id` varchar(32) default 'ic',
+  `site_id` varchar(32) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -790,7 +792,7 @@ CREATE TABLE `user_site` (
 
 /*!40000 ALTER TABLE `user_site` DISABLE KEYS */;
 LOCK TABLES `user_site` WRITE;
-INSERT INTO `user_site` VALUES ('EEB0BB5046410D02A6CE7ACF65','EEB0B93A1B6402AF681315D441','EE185CE0B82B41C1724F284685','',NULL,'2002-06-27 15:41:45',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('EEB0BAE43A4263DAED44E63E2C','EEB0B93A1B6402AF681315D441','EDDCA9DCE41A14EE5D5ABE7E3C','',NULL,'2002-06-27 15:41:45',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F185CFA73ECFB1AD36B2903150','F162B448063A847319E641EF7D','F185BD3FDC5CC7989A3CED51A1','','1','2003-09-27 14:46:12',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F74B6ABBA98BA2CB244E682174','F162B448063A847319E641EF7D','F74B696E86AA0CA5819A4FB36C','','1','2003-09-27 14:46:12',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F199E877AC273113D0FA8A3F1F','F162B448063A847319E641EF7D','F199E755B97B662FC248CAC80','','1','2003-09-27 14:46:12',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F369EA9AE7DA283CDE99D7A274','F369EA124E984A9790A43C14B1','EE185CE0B82B41C1724F284685','',NULL,'2003-02-18 10:27:03',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F369EB3439B0BBB2BBD1E9E41A','F369EA124E984A9790A43C14B1','F199E755B97B662FC248CAC80','',NULL,'2003-02-18 10:27:03',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F36EFB4E1A2F77BB20AF829316','F36EFAE07C9722187EB9F5E3D3','EE185CE0B82B41C1724F284685','',NULL,'2003-02-18 10:30:23',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F185D188037C8F3BC5807927F0','F162B448063A847319E641EF7D','F185C351B2FAC396169017978F','','1','2003-09-27 14:46:12',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F7E118762EE8790C80C4A1923F','F3FB0D6714905E04E2586A8E1A','F78E9748E9F76ABD233C5EAD39','','1','2003-11-11 16:28:18',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F8EE490696FC6ED025A4C4DD20','F36F8BFFF97F8A16505B8305F7','F8EE4789BA9DC24BAD1ECD597D','','1','2004-02-11 15:04:20',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F4D30893462F2C792DB4185F95','F36F8BFFF97F8A16505B8305F7','F4D30718756B8401E43FD2AAE6','','1','2004-02-11 15:04:20',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F50155FC3216ED4114889E41C1','F501555A2ECD5AC8FCC32F4DD6','F4D30718756B8401E43FD2AAE6','','1','2003-11-11 16:28:35',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F50155E55F8EDDC8BCB3A9EBF0','F501555A2ECD5AC8FCC32F4DD6','F4E6A635A8AC141BAE7F98504','','1','2003-11-11 16:28:35',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F50155CF326EFD2295732FE25D','F501555A2ECD5AC8FCC32F4DD6','F4DD64134EC050E3D0A256EA0D','','1','2003-11-11 16:28:35',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F53FABB5EDFA9FFA635D4F13B2','F53FAAF09AB84F412CDA27FF72','F4D30718756B8401E43FD2AAE6','','1','2003-09-10 11:38:48',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('EEB0B1C4E117F2EBC107D7E03A','1','EE185CE0B82B41C1724F284685','','1','2003-09-27 10:27:35',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F185CF82299CD400D6344EC11C','F162B448063A847319E641EF7D','F185C29BDFC64CD3D08E1A15E8','','1','2003-09-27 14:46:12',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F78504E9CA6B87DFD26F26A198','F36F96E4EA83CB95AC4DC601F2','EE185CE0B82B41C1724F284685','','F36F96E4EA83CB95AC4DC601F2','2003-10-01 13:39:58',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F8A07899371FBFC29CD9A655CF','F36F8BFFF97F8A16505B8305F7','F185C351B2FAC396169017978F','','1','2004-02-11 15:04:20',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F7E1176BD2F22E8D87F4FC1984','F36F96E4EA83CB95AC4DC601F2','F74B696E86AA0CA5819A4FB36C','','F36F96E4EA83CB95AC4DC601F2','2003-10-01 13:39:58',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F7E11861C3B616E56BD4F59606','F3FB0D6714905E04E2586A8E1A','F4E6A635A8AC141BAE7F98504','','1','2003-11-11 16:28:18',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F7E11850AACA9728DC1C44D550','F3FB0D6714905E04E2586A8E1A','F4DD64134EC050E3D0A256EA0D','','1','2003-11-11 16:28:18',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F7E118398CBBE3BDD35A7A88BC','F3FB0D6714905E04E2586A8E1A','F4D30718756B8401E43FD2AAE6','','1','2003-11-11 16:28:18',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F7DD5471E74DAACCF5C6AF2C8F','F36F8BFFF97F8A16505B8305F7','F74B696E86AA0CA5819A4FB36C','','1','2004-02-11 15:04:20',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F8C9C0D7F3766F540CAC2C827E','F501555A2ECD5AC8FCC32F4DD6','EE185CE0B82B41C1724F284685','','1','2003-11-11 16:28:35',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F8C9C17C35BC3070349F969EE9','F501555A2ECD5AC8FCC32F4DD6','F74B696E86AA0CA5819A4FB36C','','1','2003-11-11 16:28:35',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F8CA1E5F6435F95FE1841F5E56','F3FB0D6714905E04E2586A8E1A','F74B696E86AA0CA5819A4FB36C','','1','2003-11-11 16:28:18',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F4DD65DF494F8DAFF30D612131','F36F8BFFF97F8A16505B8305F7','F4DD64134EC050E3D0A256EA0D','','1','2004-02-11 15:04:20',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F4E6AF2191AD16BED7A4EB7C4A','F36F8BFFF97F8A16505B8305F7','F4E6A635A8AC141BAE7F98504','','1','2004-02-11 15:04:20',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('F9A20532CF58D9C5F170229724','F9A204566AA30595ACD597D51E','F9A2020F6D2B0CA30F3A1C8745','','1','2003-12-23 14:38:41',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('FA89248E72953C4C73DFA64111','FA89238CD9BCDF331DF9B845EB','F74B696E86AA0CA5819A4FB36C','','1','2004-02-06 11:47:35',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('FAF5FAF8EC2CB834BE217641D1','FAF5F729BB986D84D965E8C0F4','F74B696E86AA0CA5819A4FB36C','','1','2004-02-27 15:04:02',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('FAF5FB2E8DF3DC2618FEC102C8','FAF5F729BB986D84D965E8C0F4','F185C351B2FAC396169017978F','','1','2004-02-27 15:04:02',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('a06fced3-a105-4ab8-ba55-55f1','03ca5f54-b6d3-43f4-909c-2539','F199E755B97B662FC248CAC80','','1','2005-09-19 23:55:07',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('50ca4dda-46dd-46e0-9990-70bb','08ede5a1-b12e-4e0a-b344-e284','ff8080810671953c01067197a0f0','','1','2005-09-20 10:36:43',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('1b69f0af-4448-4e20-b355-a939','7435cf87-127d-4e0b-8aa1-8263','402881b709aed4560109aed7ae52','','1','2006-02-28 11:09:08',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('5fd4634c-d0c6-47a9-af37-f135','5fb2c218-3431-491d-9498-0827','4028818d09f6c2df0109f6c4ae3a','','1','2006-03-14 10:23:30',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('ece6359d-dc58-4de9-a1a9-d777','a462f3f1-4e3e-4d9f-ad09-9927','ff8080810b7e4736010b7e711229','','1','2006-05-31 13:59:09',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('8ce4d9f6-df0e-4f2b-be8f-5de8','3ed0e190-55e9-4237-aa65-5bff','ff808081104d995b01104da84e0e','','1','2007-01-23 13:48:49',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('37ed1ffe-37b2-4ebb-9930-0f56','225077bd-b7a4-4a69-8479-4066','ff80808113bece750113bed05611','','1','2007-07-13 16:08:43',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685'),('2e660f2f-499b-4eb3-b05c-5699','96f673bc-283e-4b75-b63d-6edc','ff808081151cf62001151cfc0584','','1','2007-09-19 16:04:47',NULL,'0000-00-00 00:00:00','0','ic','EE185CE0B82B41C1724F284685');
+INSERT INTO `user_site` VALUES ('EEB0BB5046410D02A6CE7ACF65','EEB0B93A1B6402AF681315D441','EE185CE0B82B41C1724F284685','',NULL,'2002-06-27 15:41:45',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('EEB0BAE43A4263DAED44E63E2C','EEB0B93A1B6402AF681315D441','EDDCA9DCE41A14EE5D5ABE7E3C','',NULL,'2002-06-27 15:41:45',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F185CFA73ECFB1AD36B2903150','F162B448063A847319E641EF7D','F185BD3FDC5CC7989A3CED51A1','','1','2003-09-27 14:46:12',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F74B6ABBA98BA2CB244E682174','F162B448063A847319E641EF7D','F74B696E86AA0CA5819A4FB36C','','1','2003-09-27 14:46:12',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F199E877AC273113D0FA8A3F1F','F162B448063A847319E641EF7D','F199E755B97B662FC248CAC80','','1','2003-09-27 14:46:12',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F369EA9AE7DA283CDE99D7A274','F369EA124E984A9790A43C14B1','EE185CE0B82B41C1724F284685','',NULL,'2003-02-18 10:27:03',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F369EB3439B0BBB2BBD1E9E41A','F369EA124E984A9790A43C14B1','F199E755B97B662FC248CAC80','',NULL,'2003-02-18 10:27:03',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F36EFB4E1A2F77BB20AF829316','F36EFAE07C9722187EB9F5E3D3','EE185CE0B82B41C1724F284685','',NULL,'2003-02-18 10:30:23',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F185D188037C8F3BC5807927F0','F162B448063A847319E641EF7D','F185C351B2FAC396169017978F','','1','2003-09-27 14:46:12',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F7E118762EE8790C80C4A1923F','F3FB0D6714905E04E2586A8E1A','F78E9748E9F76ABD233C5EAD39','','1','2003-11-11 16:28:18',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F8EE490696FC6ED025A4C4DD20','F36F8BFFF97F8A16505B8305F7','F8EE4789BA9DC24BAD1ECD597D','','1','2004-02-11 15:04:20',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F4D30893462F2C792DB4185F95','F36F8BFFF97F8A16505B8305F7','F4D30718756B8401E43FD2AAE6','','1','2004-02-11 15:04:20',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F50155FC3216ED4114889E41C1','F501555A2ECD5AC8FCC32F4DD6','F4D30718756B8401E43FD2AAE6','','1','2003-11-11 16:28:35',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F50155E55F8EDDC8BCB3A9EBF0','F501555A2ECD5AC8FCC32F4DD6','F4E6A635A8AC141BAE7F98504','','1','2003-11-11 16:28:35',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F50155CF326EFD2295732FE25D','F501555A2ECD5AC8FCC32F4DD6','F4DD64134EC050E3D0A256EA0D','','1','2003-11-11 16:28:35',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F53FABB5EDFA9FFA635D4F13B2','F53FAAF09AB84F412CDA27FF72','F4D30718756B8401E43FD2AAE6','','1','2003-09-10 11:38:48',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('EEB0B1C4E117F2EBC107D7E03A','1','EE185CE0B82B41C1724F284685','','1','2003-09-27 10:27:35',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F185CF82299CD400D6344EC11C','F162B448063A847319E641EF7D','F185C29BDFC64CD3D08E1A15E8','','1','2003-09-27 14:46:12',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F78504E9CA6B87DFD26F26A198','F36F96E4EA83CB95AC4DC601F2','EE185CE0B82B41C1724F284685','','F36F96E4EA83CB95AC4DC601F2','2003-10-01 13:39:58',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F8A07899371FBFC29CD9A655CF','F36F8BFFF97F8A16505B8305F7','F185C351B2FAC396169017978F','','1','2004-02-11 15:04:20',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F7E1176BD2F22E8D87F4FC1984','F36F96E4EA83CB95AC4DC601F2','F74B696E86AA0CA5819A4FB36C','','F36F96E4EA83CB95AC4DC601F2','2003-10-01 13:39:58',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F7E11861C3B616E56BD4F59606','F3FB0D6714905E04E2586A8E1A','F4E6A635A8AC141BAE7F98504','','1','2003-11-11 16:28:18',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F7E11850AACA9728DC1C44D550','F3FB0D6714905E04E2586A8E1A','F4DD64134EC050E3D0A256EA0D','','1','2003-11-11 16:28:18',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F7E118398CBBE3BDD35A7A88BC','F3FB0D6714905E04E2586A8E1A','F4D30718756B8401E43FD2AAE6','','1','2003-11-11 16:28:18',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F7DD5471E74DAACCF5C6AF2C8F','F36F8BFFF97F8A16505B8305F7','F74B696E86AA0CA5819A4FB36C','','1','2004-02-11 15:04:20',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F8C9C0D7F3766F540CAC2C827E','F501555A2ECD5AC8FCC32F4DD6','EE185CE0B82B41C1724F284685','','1','2003-11-11 16:28:35',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F8C9C17C35BC3070349F969EE9','F501555A2ECD5AC8FCC32F4DD6','F74B696E86AA0CA5819A4FB36C','','1','2003-11-11 16:28:35',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F8CA1E5F6435F95FE1841F5E56','F3FB0D6714905E04E2586A8E1A','F74B696E86AA0CA5819A4FB36C','','1','2003-11-11 16:28:18',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F4DD65DF494F8DAFF30D612131','F36F8BFFF97F8A16505B8305F7','F4DD64134EC050E3D0A256EA0D','','1','2004-02-11 15:04:20',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F4E6AF2191AD16BED7A4EB7C4A','F36F8BFFF97F8A16505B8305F7','F4E6A635A8AC141BAE7F98504','','1','2004-02-11 15:04:20',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('F9A20532CF58D9C5F170229724','F9A204566AA30595ACD597D51E','F9A2020F6D2B0CA30F3A1C8745','','1','2003-12-23 14:38:41',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('FA89248E72953C4C73DFA64111','FA89238CD9BCDF331DF9B845EB','F74B696E86AA0CA5819A4FB36C','','1','2004-02-06 11:47:35',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('FAF5FAF8EC2CB834BE217641D1','FAF5F729BB986D84D965E8C0F4','F74B696E86AA0CA5819A4FB36C','','1','2004-02-27 15:04:02',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('FAF5FB2E8DF3DC2618FEC102C8','FAF5F729BB986D84D965E8C0F4','F185C351B2FAC396169017978F','','1','2004-02-27 15:04:02',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('a06fced3-a105-4ab8-ba55-55f1','03ca5f54-b6d3-43f4-909c-2539','F199E755B97B662FC248CAC80','','1','2005-09-19 23:55:07',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('50ca4dda-46dd-46e0-9990-70bb','08ede5a1-b12e-4e0a-b344-e284','ff8080810671953c01067197a0f0','','1','2005-09-20 10:36:43',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('1b69f0af-4448-4e20-b355-a939','7435cf87-127d-4e0b-8aa1-8263','402881b709aed4560109aed7ae52','','1','2006-02-28 11:09:08',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('5fd4634c-d0c6-47a9-af37-f135','5fb2c218-3431-491d-9498-0827','4028818d09f6c2df0109f6c4ae3a','','1','2006-03-14 10:23:30',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('ece6359d-dc58-4de9-a1a9-d777','a462f3f1-4e3e-4d9f-ad09-9927','ff8080810b7e4736010b7e711229','','1','2006-05-31 13:59:09',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('8ce4d9f6-df0e-4f2b-be8f-5de8','3ed0e190-55e9-4237-aa65-5bff','ff808081104d995b01104da84e0e','','1','2007-01-23 13:48:49',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('37ed1ffe-37b2-4ebb-9930-0f56','225077bd-b7a4-4a69-8479-4066','ff80808113bece750113bed05611','','1','2007-07-13 16:08:43',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('2e660f2f-499b-4eb3-b05c-5699','96f673bc-283e-4b75-b63d-6edc','ff808081151cf62001151cfc0584','','1','2007-09-19 16:04:47',NULL,'0000-00-00 00:00:00',1,'0','ic','EE185CE0B82B41C1724F284685'),('ff808081163cee0c01163ceea7410003','ff808081163ce80a01163ce8bc970001','EE185CE0B82B41C1724F284685','','','1970-01-01 07:00:00','','0000-00-00 00:00:00',0,'0','ic',NULL),('ff808081163cee0c01163ceec5ff0004','ff808081163ce80a01163ce8bc970001','ff808081151cf62001151cfc0584','','','1970-01-01 07:00:00','','0000-00-00 00:00:00',0,'0','ic',NULL),('69a5ab23-b524-4876-8b24-0ceb6ede','278e6e67-8b0e-431b-bd17-ca91cc93','EE185CE0B82B41C1724F284685','','1','2007-11-14 15:05:14',NULL,'2007-11-14 15:05:14',1,'0','ic','EE185CE0B82B41C1724F284685'),('ff808081163da2ed01163da420ad0003','ff808081163da2ed01163da3d04b0001','EE185CE0B82B41C1724F284685','','','1970-01-01 07:00:00','','0000-00-00 00:00:00',0,'0','ic',NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `user_site` ENABLE KEYS */;
 
@@ -800,16 +802,16 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `workflow_role`;
 CREATE TABLE `workflow_role` (
-  `id` varchar(28) NOT NULL default '',
-  `create_by` varchar(28) default NULL,
+  `id` varchar(32) NOT NULL default '',
+  `create_by` varchar(32) default NULL,
   `create_date` datetime NOT NULL default '0000-00-00 00:00:00',
-  `update_by` varchar(28) default NULL,
+  `update_by` varchar(32) default NULL,
   `update_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `name` varchar(50) NOT NULL default '',
   `description` varchar(125) default NULL,
   `active_flag` tinyint(1) default '0',
-  `site_id` varchar(28) default NULL,
-  `id_parent` varchar(28) NOT NULL default '0',
+  `site_id` varchar(32) default NULL,
+  `id_parent` varchar(32) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `create_by` (`create_by`),
   KEY `update_by` (`update_by`)
@@ -822,7 +824,7 @@ CREATE TABLE `workflow_role` (
 
 /*!40000 ALTER TABLE `workflow_role` DISABLE KEYS */;
 LOCK TABLES `workflow_role` WRITE;
-INSERT INTO `workflow_role` VALUES ('3','','2004-02-04 14:42:16','1','2006-03-15 14:15:02','Journalist','Create the document',0,'EE185CE0B82B41C1724F284685','1'),('2','','2004-02-04 14:42:14','1','2007-11-07 16:08:08','Editor','\r\n        	Edit the document 	',0,'EE185CE0B82B41C1724F284685','1'),('1','','2003-09-03 15:40:41','1','2006-03-15 14:15:39','Gods','Gods',1,'EE185CE0B82B41C1724F284685','0'),('4','','2003-09-03 15:41:43','1','2005-09-20 00:14:33','Approver','Approve the document',0,'EE185CE0B82B41C1724F284685','0'),('5','','2003-09-03 15:41:43','1','2001-07-13 18:34:12','Publisher','Publish the document',0,'EE185CE0B82B41C1724F284685','0'),('E8615A12EE2ABB0357752928E5','1','2003-09-03 15:41:43','1','2001-08-17 23:29:31','Content Editor','Content Editor',1,'EE185CE0B82B41C1724F284685','0'),('E8615AC4915CA30C4B13A7A1C0','1','2003-09-03 15:41:43','1','2005-08-22 16:42:28','Element Editor','Element Editor',1,'EE185CE0B82B41C1724F284685','0'),('ff808081104d995b01104da90177','1','2007-01-23 13:33:46','1','2007-11-07 16:08:24','Training','Training',1,NULL,'0'),('ff80808113bece750113bed0f44c','1','2007-07-13 16:02:51','1','2007-11-07 16:08:29','TestRole','TestRole',1,NULL,'0'),('ff808081151cf62001151cfc5907','1','2007-09-19 15:57:20','1','2007-09-19 15:57:20','GXAdmin','GXAdmin Role',1,NULL,'0');
+INSERT INTO `workflow_role` VALUES ('1','','2003-09-03 15:40:41','1','2006-03-15 14:15:39','Gods','Gods',1,'EE185CE0B82B41C1724F284685','0'),('ff808081151cf62001151cfc5907','1','2007-09-19 15:57:20','1','2007-09-19 15:57:20','GXAdmin','GXAdmin Role',1,NULL,'0');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `workflow_role` ENABLE KEYS */;
 
