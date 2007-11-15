@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.blueoxygen.cimande.security.mvc.actions;
+package org.blueoxygen.cimande.security.usermanager.actions;
 
 import java.util.ArrayList;
 import java.util.List;

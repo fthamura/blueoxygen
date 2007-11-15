@@ -4,7 +4,7 @@
  * TODO To change the template for this generated file go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-package org.blueoxygen.cimande.security.mvc.actions;
+package org.blueoxygen.cimande.security.usermanager.actions;
 
 import java.util.ArrayList;
 import java.util.List;

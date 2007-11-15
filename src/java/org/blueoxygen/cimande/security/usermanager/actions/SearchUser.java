@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.blueoxygen.cimande.security.mvc.actions;
+package org.blueoxygen.cimande.security.usermanager.actions;
 
 /**
  * @author Abdul Rizal Adompo
@@ -19,6 +19,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.classic.Session;
 import org.hibernate.criterion.Expression;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 
 public class SearchUser extends UserForm implements HibernateSessionFactoryAware {
@@ -42,7 +43,7 @@ public class SearchUser extends UserForm implements HibernateSessionFactoryAware
 			Criteria crit = sess.createCriteria(User.class);
 
 			if (!getUser().getUsername().equalsIgnoreCase("")) {
-				crit.add(Expression.like("username", "%" + getUser().getUsername() + "%"));
+				crit.add(Expression.like("username", getUser().getUsername(), MatchMode.ANYWHERE));
 			}
 			resultRows = crit.list().size();
 			

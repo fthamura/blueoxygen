@@ -1,15 +1,12 @@
 /**
  * 
  */
-package org.blueoxygen.cimande.security.mvc.actions;
+package org.blueoxygen.cimande.security.usermanager.actions;
 
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 import org.blueoxygen.cimande.security.User;
-import org.blueoxygen.cimande.security.mvc.UserSite;
 import org.blueoxygen.cimande.site.Site;
-
-import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author Abdul Rizal Adompo

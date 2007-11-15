@@ -36,9 +36,7 @@
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">Description:</td>
         <td>
-        	<textarea id="description" name="description" style="width: 110%" rows="15" cols="80">
-        	$!description
-        	</textarea>
+        	<textarea id="description" name="description" style="width: 90%" rows="15" cols="80">$!description</textarea>
          </td>
       </tr>
       <tr bgcolor="#ffffff">

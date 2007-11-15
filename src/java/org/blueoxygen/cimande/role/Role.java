@@ -74,7 +74,7 @@ public class Role extends DefaultPersistent {
 	 * @hibernate.collection-one-to-many class="org.blueoxygen.cimande.role.RolePrivilage"
 	 * @hibernate.collection-key column="role_id"
 	 */
-	@OneToMany(mappedBy="role", fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	@OneToMany(mappedBy="role", cascade={CascadeType.ALL})
 	public List<RolePrivilage> getRolePrivilage() {
 		return rolePrivilage;
 	}

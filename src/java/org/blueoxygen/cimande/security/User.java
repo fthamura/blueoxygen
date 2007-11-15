@@ -9,8 +9,6 @@
  *******************************************************************************/
 package org.blueoxygen.cimande.security;
 
-
-
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
@@ -25,7 +23,6 @@ import org.blueoxygen.cimande.jobdescription.JobDesc;
 import org.blueoxygen.cimande.role.Role;
 /**
  * A very simple user. 
- * @hibernate.class table="backend_user"
  */
 @Entity()
 @Table(name="backend_user")
@@ -41,14 +38,7 @@ public class User extends DefaultPersistent {
 	private String email;
 	private String description;
 	
-	public User(){
-	    
-	}
-	/**
-	 * @hibernate.property length="128"
-	 */
 	public String getUsername() {
-	   
 		return username;
 	}
 	public void setUsername(String username) {
@@ -56,7 +46,6 @@ public class User extends DefaultPersistent {
 	}
 	/**
 	 * Password of user 
-	 * @hibernate.property length="30"
 	 */
 	public String getPassword() {
 		return password;
@@ -65,7 +54,7 @@ public class User extends DefaultPersistent {
 		this.password = password;
 	}
 	/**
-	 * @hibernate.component
+	 * 
 	 */
 	@Embedded
 	public Name getName() {
@@ -75,7 +64,7 @@ public class User extends DefaultPersistent {
 		this.name = name;
 	}
 	/**
-	 * @hibernate.component
+	 * 
 	 */
 	@Embedded
 	public Address getAddress() {
@@ -85,7 +74,7 @@ public class User extends DefaultPersistent {
 		this.address = address;
 	}
 	/**
-	 * @hibernate.property
+	 * 
 	 */
 	@ManyToOne()
 	@JoinColumn(name="role_id")
@@ -123,6 +112,4 @@ public class User extends DefaultPersistent {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	
 }

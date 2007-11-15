@@ -25,7 +25,7 @@ Add a new Company</title>
   </tr>      
     <tr bgcolor="#ffffff"> 
       <td width="25%" align="right"> Login<font color="red"> contains:</font> </td>
-      <td><input maxlength="128" name="user.username" size="24" value="$!username">
+      <td><input maxlength="128" name="user.username" size="24" value="$!user.username">
       &nbsp; 
       </td>
       
@@ -56,12 +56,12 @@ Add a new Company</title>
           contains: </font>
       </td>
       <td>
-        <input name="user.email" size="24" type="text" value="$!email">
+        <input name="user.email" size="24" type="text" value="$!user.email">
       </td>
 		 </tr>    
     <tr bgcolor="#ffffff"> 
       <td width="25%" align="right"> Address<font color="red"> contains:</font> </td>
-      <td><input name="address.street1" size="24" type="text" value="$!address1"> 
+      <td><input name="address.street1" size="24" type="text" value="$!address.street1"> 
       </td>
       
     </tr>
@@ -71,14 +71,14 @@ Add a new Company</title>
           contains: </font>
       </td>
     <td>
-        <input name="address.city" size="24" type="text" value="$!city">
+        <input name="address.city" size="24" type="text" value="$!address.city">
       </tr>       
     <tr bgcolor="#ffffff"> 
       <td width="25%" align="right"> 
         Description<font color="red"> contains:</font>
       </td>
       <td> 
-        <input maxlength="28" name="user.description" size="24" type="text" value="$!description">
+        <input maxlength="28" name="user.description" size="24" type="text" value="$!user.description">
       </td>
      
     </tr>

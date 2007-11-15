@@ -22,7 +22,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>org.blueoxygen.cimande.security.User</value>
-                <value>org.blueoxygen.cimande.security.mvc.UserSite</value>
+                <value>org.blueoxygen.cimande.security.usermanager.UserSite</value>
                 <value>org.blueoxygen.cimande.role.Role</value>
                 <value>org.blueoxygen.cimande.role.RolePrivilage</value>
                 <value>org.blueoxygen.cimande.role.RoleSite</value>

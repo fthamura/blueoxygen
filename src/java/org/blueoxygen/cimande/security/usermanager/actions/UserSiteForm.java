@@ -1,4 +1,4 @@
-package org.blueoxygen.cimande.security.mvc.actions;
+package org.blueoxygen.cimande.security.usermanager.actions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 import org.blueoxygen.cimande.security.User;
-import org.blueoxygen.cimande.security.mvc.UserSite;
+import org.blueoxygen.cimande.security.usermanager.UserSite;
 import org.blueoxygen.cimande.site.Site;
 
 import com.opensymphony.xwork2.ActionSupport;

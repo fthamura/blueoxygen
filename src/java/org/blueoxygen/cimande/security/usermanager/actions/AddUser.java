@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.blueoxygen.cimande.security.mvc.actions;
+package org.blueoxygen.cimande.security.usermanager.actions;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Timestamp;
@@ -29,8 +29,8 @@ public class AddUser extends UserForm implements SessionCredentialsAware {
 		if (getUser().getUsername().equalsIgnoreCase(""))
 			addActionError("Username can't be empty.");
 
-		if(getUser().getPassword() != null && !"".equalsIgnoreCase(getUser().getPassword())){
-			if (getUser().getPassword().equalsIgnoreCase(""))
+		if(getUser().getId() == null || "".equalsIgnoreCase(getUser().getId())){
+			if (getUser().getPassword() == null || "".equalsIgnoreCase(getUser().getPassword()))
 			addActionError("Password can't be empty.");
 
 			if(getUser().getPassword().length()<3){

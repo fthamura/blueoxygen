@@ -562,9 +562,7 @@
 				/WEB-INF/view/module/module_function/listModuleDescriptor.vm
 			</result>
 		</action>
-
 		<!-- End Descriptor -->
-
 
 		<action name="create"
 			class="org.blueoxygen.cimande.modulefunction.actions.ModuleFunctionForm">
@@ -911,10 +909,6 @@
 			</result>
 		</action>
 	</package>
-
-
-
-
 
 	<package name="category" extends="default"
 		namespace="/module/category">
@@ -1438,72 +1432,72 @@
 		</action>
 	</package>
 	<!--  USER MANAGEMEN MVC  -->
-	<package name="usermanager" extends="default" namespace="/module/user_mvc">
-	    <action name="create" class="org.blueoxygen.cimande.security.mvc.actions.UserForm">
-        	<result name="success" type="velocity">/WEB-INF/view/module/user_mvc/index.vm</result>
+	<package name="usermanager" extends="default" namespace="/module/user">
+	    <action name="create" class="org.blueoxygen.cimande.security.usermanager.actions.UserForm">
+        	<result name="success" type="velocity">/WEB-INF/view/module/user/index.vm</result>
         	<result name="error" type="velocity">/errors/notfound.jsp</result>
         </action>
-        <action name="filter" class="org.blueoxygen.cimande.security.mvc.actions.UserForm">
-            <result name="success" type="velocity">/WEB-INF/view/module/user_mvc/search.vm</result>
+        <action name="filter" class="org.blueoxygen.cimande.security.usermanager.actions.UserForm">
+            <result name="success" type="velocity">/WEB-INF/view/module/user/search.vm</result>
             <result name="error" type="velocity">/errors/notfound.jsp</result>
         </action>
-        <action name="search" class="org.blueoxygen.cimande.security.mvc.actions.SearchUser">
-			<result name="success" type="velocity">/WEB-INF/view/module/user_mvc/result.vm</result>
+        <action name="search" class="org.blueoxygen.cimande.security.usermanager.actions.SearchUser">
+			<result name="success" type="velocity">/WEB-INF/view/module/user/result.vm</result>
 			<result name="error">/errors/notfound.jsp</result>
 		</action>
-        <action name="viewCompany" class="org.blueoxygen.cimande.security.mvc.actions.ViewListCompany">
-            <result name="success" type="velocity">/WEB-INF/view/module/user_mvc/viewCompany.vm</result>
+        <action name="viewCompany" class="org.blueoxygen.cimande.security.usermanager.actions.ViewListCompany">
+            <result name="success" type="velocity">/WEB-INF/view/module/user/viewCompany.vm</result>
         </action>
-         <action name="viewJob" class="org.blueoxygen.cimande.security.mvc.actions.ViewJob">
-            <result name="success" type="velocity">/WEB-INF/view/module/user_mvc/viewJob.vm</result>
+         <action name="viewJob" class="org.blueoxygen.cimande.security.usermanager.actions.ViewJob">
+            <result name="success" type="velocity">/WEB-INF/view/module/user/viewJob.vm</result>
         </action>
-        <action name="viewRole" class="org.blueoxygen.cimande.security.mvc.actions.ViewRole">
-            <result name="success" type="velocity">/WEB-INF/view/module/user_mvc/viewRole.vm</result>
+        <action name="viewRole" class="org.blueoxygen.cimande.security.usermanager.actions.ViewRole">
+            <result name="success" type="velocity">/WEB-INF/view/module/user/viewRole.vm</result>
         </action>
-        <action name="viewSite" class="org.blueoxygen.cimande.security.mvc.actions.ViewSite">
-            <result name="success" type="velocity">/WEB-INF/view/module/user_mvc/viewSite.vm</result>
+        <action name="viewSite" class="org.blueoxygen.cimande.security.usermanager.actions.ViewSite">
+            <result name="success" type="velocity">/WEB-INF/view/module/user/viewSite.vm</result>
         </action>
-        <action name="add" class="org.blueoxygen.cimande.security.mvc.actions.AddUser">
+        <action name="add" class="org.blueoxygen.cimande.security.usermanager.actions.AddUser">
 			<result name="success" type="redirect">userrole.action?user.id=${user.id}</result>
-			<result name="input" type="velocity">/WEB-INF/view/module/user_mvc/index.vm</result>
+			<result name="input" type="velocity">/WEB-INF/view/module/user/index.vm</result>
 			<result name="error" type="velocity">/errors/errors.vm</result>
 		</action>
-		<action name="userrole" class="org.blueoxygen.cimande.security.mvc.actions.UserRoleForm">
-			<result name="success" type="velocity">/WEB-INF/view/module/user_mvc/AddUserRole.vm</result>
+		<action name="userrole" class="org.blueoxygen.cimande.security.usermanager.actions.UserRoleForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/user/AddUserRole.vm</result>
 		</action>
-		<action name="adduserrole" class="org.blueoxygen.cimande.security.mvc.actions.AddUserRole">
+		<action name="adduserrole" class="org.blueoxygen.cimande.security.usermanager.actions.AddUserRole">
 			<result name="success" type="redirect">userrole.action?user.id=${user.id}</result>
 			<result name="error" type="velocity">/errors/errors.vm</result>
 		</action>
-		<action name="usersite" class="org.blueoxygen.cimande.security.mvc.actions.UserSiteForm">
-			<result name="success" type="velocity">/WEB-INF/view/module/user_mvc/AddUserSite.vm</result>
+		<action name="usersite" class="org.blueoxygen.cimande.security.usermanager.actions.UserSiteForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/user/AddUserSite.vm</result>
 		</action>
-		<action name="addusersite" class="org.blueoxygen.cimande.security.mvc.actions.AddUserSite">
+		<action name="addusersite" class="org.blueoxygen.cimande.security.usermanager.actions.AddUserSite">
 			<result name="success" type="redirect">usersite.action?user.id=${user.id}</result>
 			<result name="error" type="velocity">/errors/errors.vm</result>
 		</action>
-		<action name="savesucces" class="org.blueoxygen.cimande.security.mvc.actions.UserForm">
-			<result name="success" type="velocity">/WEB-INF/view/module/user_mvc/Success.vm</result>
+		<action name="savesucces" class="org.blueoxygen.cimande.security.usermanager.actions.UserForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/user/Success.vm</result>
 		</action>
-		<action name="confirmDelete" class="org.blueoxygen.cimande.security.mvc.actions.UserForm">
-			<result name="success" type="velocity">/WEB-INF/view/module/user_mvc/confirmDelete.vm</result>
+		<action name="confirmDelete" class="org.blueoxygen.cimande.security.usermanager.actions.UserForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/user/confirmDelete.vm</result>
 			<result name="error" type="velocity">/errors/errors.vm</result>
 		</action>
-		<action name="delete" class="org.blueoxygen.cimande.security.mvc.actions.DeleteUser">
-			<result name="success" type="velocity">/WEB-INF/view/module/user_mvc/deleteSuccess.vm</result>
+		<action name="delete" class="org.blueoxygen.cimande.security.usermanager.actions.DeleteUser">
+			<result name="success" type="velocity">/WEB-INF/view/module/user/deleteSuccess.vm</result>
 			<result name="error" type="velocity">/errors/errors.vm</result>
 		</action>
-        <action name="view" class="org.blueoxygen.cimande.security.mvc.actions.UserForm">
-			<result name="success" type="velocity">/WEB-INF/view/module/user_mvc/view.vm</result>
+        <action name="view" class="org.blueoxygen.cimande.security.usermanager.actions.UserForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/user/view.vm</result>
 			<result name="error" type="velocity">/errors/errors.vm</result>
 		</action>
-		<action name="edit" class="org.blueoxygen.cimande.security.mvc.actions.UserForm">
-			<result name="success" type="velocity">/WEB-INF/view/module/user_mvc/index2.vm</result>
+		<action name="edit" class="org.blueoxygen.cimande.security.usermanager.actions.UserForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/user/edit.vm</result>
 			<result name="error" type="velocity">/errors/errors.vm</result>
 		</action>
-		<action name="update" class="org.blueoxygen.cimande.security.mvc.actions.AddUser">
+		<action name="update" class="org.blueoxygen.cimande.security.usermanager.actions.AddUser">
 			<result name="success" type="redirect">view.action?id=${id}</result>
-			<result name="input" type="velocity">/WEB-INF/view/module/user_mvc/edit.vm</result>
+			<result name="input" type="velocity">/WEB-INF/view/module/user/edit.vm</result>
 			<result name="error" type="velocity">/errors/errors.vm</result>
 		</action>
 	</package>

@@ -36,8 +36,7 @@
 	<td width="12%"><div align="center"><b>Action</b></div></td>
 </tr>
 
-#foreach ($u in $users)
-
+#foreach($u in $users)
 	<tr valign="top" bgcolor="white">
 		<td>$!u.username</td>
 		<td>$!u.name.first</td>

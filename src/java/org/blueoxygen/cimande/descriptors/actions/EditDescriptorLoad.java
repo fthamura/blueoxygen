@@ -59,7 +59,9 @@ public class EditDescriptorLoad extends DescriptorForm {
 			setTypeFlag(descr.getTypeFlag());
 			setDescriptorFlag(descr.getDescriptorFlag());
 			setActiveFlag(descr.getLogInformation().getActiveFlag());
-			setWindowId(descr.getWindow().getId());
+			if(descr.getWindow() != null){
+				setWindowId(descr.getWindow().getId());
+			}
 			return SUCCESS;
 		}
 

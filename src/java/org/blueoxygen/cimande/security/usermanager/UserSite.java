@@ -8,7 +8,7 @@
  *     BlueOxygen Team - initial API and implementation
  *******************************************************************************/
 
-package org.blueoxygen.cimande.security.mvc;
+package org.blueoxygen.cimande.security.usermanager;
 
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;

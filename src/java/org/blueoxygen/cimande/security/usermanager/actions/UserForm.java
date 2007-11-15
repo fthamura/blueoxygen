@@ -1,5 +1,5 @@
 
-package org.blueoxygen.cimande.security.mvc.actions;
+package org.blueoxygen.cimande.security.usermanager.actions;
 
 import org.blueoxygen.cimande.company.Company;
 import org.blueoxygen.cimande.jobdescription.JobDesc;
