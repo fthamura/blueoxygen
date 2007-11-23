@@ -23,7 +23,7 @@ public class UserSiteForm extends ActionSupport implements PersistenceAware {
 			setUser((User) manager.getById(User.class, getUser().getId()));
 			setUserSites(manager.getList("FROM " + UserSite.class.getName() + 
 					" ur WHERE ur.user.id='" + getUser().getId() + "'", null, null));
-			System.out.println(getUserSites().size());
+//			System.out.println(getUserSites().size());
 		}
 		return SUCCESS;
 	}

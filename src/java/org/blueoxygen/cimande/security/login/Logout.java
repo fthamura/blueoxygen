@@ -8,7 +8,11 @@
  *     BlueOxygen Team - initial API and implementation
  *******************************************************************************/
 
-package org.blueoxygen.cimande.security;
+package org.blueoxygen.cimande.security.login;
+
+import org.blueoxygen.cimande.security.LoginFilter;
+import org.blueoxygen.cimande.security.UserAccessor;
+import org.blueoxygen.cimande.security.UserAccessorAware;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;

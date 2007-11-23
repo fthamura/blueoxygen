@@ -22,6 +22,7 @@ public class LoginFilter implements Filter {
     public static String LOGIN_KEY = "loggedIn";
     public static String LOGIN_USER = "user";
     public static String LOGIN_CIMANDE_USER = "GA_USER";
+	public static String LOGIN_CIMANDE_SITE = "GS_USER";
 
     private Set extensions;
     private String loginAction;
@@ -44,7 +45,7 @@ public class LoginFilter implements Filter {
             System.out.println("loginAction");
         } else if (req.getSession(true).getAttribute(LOGIN_CIMANDE_USER) == null) {
             System.out.println("redirecting");
-            res.sendRedirect(contextPath + loginPage + "?redirectUri=" + uri);
+            res.sendRedirect(contextPath + loginPage + "?redirectUri=" + servletPath);
             
             return;
         } else {

@@ -38,14 +38,14 @@ Add a new Company</title>
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red">*</font>Company: 
 					</div></td><td><input type="textfield" id="perusahaanName" size="15" disabled="true" onfocus="this.blur()" value="$!user.company.name"/>&nbsp;
 					  <input type="hidden" id="companyId" name="company.id" value="$!user.company.id"/>&nbsp;
-					  <input type="button" value="View Company" onclick="javascript:window.open('../user_mvc/viewCompany.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></td>
+					  <input type="button" value="View Company" onclick="javascript:window.open('../user/viewCompany.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></td>
 					 <td>&nbsp;</td></tr>
 
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red">* </font>Position: 
 					</div></td>
 	  <td>  <input type="textfield" id="jabatanName" size="15" disabled="true" onfocus="this.blur()" value="$!user.job.name"/>   
 	  <input type="hidden" id="viewjobId" name="job.id" value="$!user.job.id"/>&nbsp;&nbsp;
-	    <input type="button" value="View Position " onclick="javascript:window.open('../user_mvc/viewJob.action','cats','scrollbars=yes,status=no,width=300,height=300')"/> </td>
+	    <input type="button" value="View Position " onclick="javascript:window.open('../user/viewJob.action','cats','scrollbars=yes,status=no,width=300,height=300')"/> </td>
 	  <td>&nbsp;</td></tr>
 
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>Email: 

@@ -150,7 +150,7 @@ public class YUINavTreeLeaf extends ActionSupport {
 				} else if (sActionFlag.equals("2")) {
 					sUrlAction = "../module/"+mf.getModuleDescriptor().getName()+"/";
 				} else if (sActionFlag.equals("3")){
-					sUrlAction = "../module/gx/window/gen.action?window.id="+mf.getModuleDescriptor().getWindow().getId()+"&";
+					sUrlAction = "../module/window/genform.action?window.id="+mf.getModuleDescriptor().getWindow().getId()+"&";
 				} else {
 					sUrlAction = "../descriptor/"+mf.getModuleDescriptor().getUrlDescriptor()+"?";
 				}

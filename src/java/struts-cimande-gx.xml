@@ -128,6 +128,9 @@
 		<action name="overview" class="org.blueoxygen.cimande.gx.window.WindowForm">
 			<result name="success" type="velocity">/WEB-INF/view/module/gx/window/overview.vm</result>
 		</action>
+		<action name="genform" class="org.blueoxygen.cimande.gx.window.WindowForm">
+			<result name="success" type="velocity">/WEB-INF/view/module/gx/template/form.vm</result>
+		</action>
 	</package>
 <!--GXFORM-->
 	<package name="tab" extends="default" namespace="/module/tab">

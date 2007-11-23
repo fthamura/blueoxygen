@@ -16,9 +16,6 @@ import org.blueoxygen.cimande.persistence.PersistenceManager;
 public class DefaultUserAccessor implements UserAccessor, PersistenceAware {
 	private PersistenceManager pm;
 	public boolean authenticate(String username, String password) {
-		
-		List users = pm.findUserbyName(username);
-		
 		User user = getUserName(username);
 
 		if (user == null || !user.getPassword().equals(password)) {

@@ -44,16 +44,16 @@
 
         <init-param>
             <param-name>loginPage</param-name>
-            <param-value>/backend/user/login.jsp</param-value>
+            <param-value>/backend/user/index.action</param-value>
         </init-param>
         <init-param>
             <param-name>siteSelection</param-name>
-            <param-value>/backend/user/site.jsp</param-value>
+            <param-value>/backend/user/site.action</param-value>
         </init-param>
         
         <init-param>
             <param-name>loginAction</param-name>
-            <param-value>/security/login.action</param-value>
+            <param-value>/backend/user/index.action</param-value>
         </init-param>
         <init-param>
             <param-name>ignoreExtensions</param-name>

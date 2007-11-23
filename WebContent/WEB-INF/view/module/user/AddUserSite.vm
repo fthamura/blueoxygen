@@ -41,7 +41,7 @@
         <div align="right"><font color="#ff0000">*</font> Site ID:</div>
       </td>
       <td width="67%"><input type="textfield" id="lihatsiteName" value="None" size="15" disabled="true" onfocus="this.blur()"/>&nbsp; <input type="hidden" id="viewsiteId" name="site.id" value="0"/> 
-      <input type="button" value="View Site" onclick="javascript:window.open('../user_mvc/viewSite.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>          </td>
+      <input type="button" value="View Site" onclick="javascript:window.open('../user/viewSite.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>          </td>
       
     </tr>
       
@@ -70,7 +70,7 @@
 	    <td>$!us.site.name</td>
 	    <td>$!us.site.description</td>
 	    <td>
-	      <div align="center"><a href="confirmDelete.action?user.id=$!us.Id">Delete</a></div></td>
+	      <div align="center"><a href="deletesite.action?user.id=$!user.id&userSite.id=$!us.Id">Delete</a></div></td>
 	  </tr>
 	  #end
 	</tbody>

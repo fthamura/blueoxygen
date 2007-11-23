@@ -23,7 +23,6 @@ public class UserRoleForm extends ActionSupport implements PersistenceAware {
 			setUser((User) manager.getById(User.class, getUser().getId()));
 			setUserRoles(manager.getList("FROM " + UserRole.class.getName() + 
 					" ur WHERE ur.user.id='" + getUser().getId() + "'", null, null));
-			System.out.println(getUserRoles().size());
 		}
 		return SUCCESS;
 	}
@@ -62,6 +61,10 @@ public class UserRoleForm extends ActionSupport implements PersistenceAware {
 
 	public void setUserRoles(List<UserRole> userRoles) {
 		this.userRoles = userRoles;
+	}
+
+	public PersistenceManager getManager() {
+		return manager;
 	}
 	
 }

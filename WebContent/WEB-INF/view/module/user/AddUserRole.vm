@@ -42,7 +42,7 @@
       </td>
       <td width="67%"> 
         <input type="textfield" id="lihatroleName" value="None" size="15" disabled="true" onfocus="this.blur()"/><input type="hidden" id="viewroleId" name="role.id" value="0"/>
-        <input type="button" value="View Role" onclick="javascript:window.open('../user_mvc/viewRole.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+        <input type="button" value="View Role" onclick="javascript:window.open('../user/viewRole.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
       </td>
       
     </tr>
@@ -71,7 +71,7 @@
 	  <tr bgcolor="#FFFFFF">
 	    <td>$!ur.role.name</td>
 	    <td>$!ur.role.description</td>
-	    <td><a href="confirmDelete.action?userRole.id=$!ur.Id">Delete</a>
+	    <td><a href="deleterole.action?user.id=$!user.id&userRole.id=$!ur.Id">Delete</a>
 	    	
 	    </td>
 	  </tr>

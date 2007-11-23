@@ -1,0 +1,65 @@
+<html><head>
+<title>BlueOxygen Cimande Workspace Framework</title>
+	
+</head>
+<link href="/cimeng/style.css" rel="stylesheet" type="text/css"/>
+<body bgcolor="white">
+	<form name="form1" method="post" action="site.action">
+		<input type="hidden" name="redirectUri" value="$!redirectUri">
+	  <table border=0 cellpadding=0 cellspacing=0>
+	    <tr> 
+	      <td><img border=0 height=50 src="../../images/empty.gif" width=150></td>
+	      <td></td>
+	    </tr>
+	    <tr> 
+	      <td></td>
+	      <td> 
+	        <table border=0 cellpadding=0 cellspacing=5 width="279">
+	          <tr> 
+	            <td colspan=2><img border=0 
+	            src="../../images/e-business-suite.gif"></td>
+	          </tr>
+	          <tr> 
+	            <td colspan=2><img border=0 height=5 
+	            src="../../images/empty.gif" 
+	        width=1></td>
+	          </tr>
+	          <tr> 
+	            <td colspan="2">
+	            <font color="blue">
+	            Name: <b>$!user.name.first</b><br/>
+	            Role: <b>$!user.role.description</b><br/>
+	            </font>
+	            </td>
+	          </tr>
+	          <tr> 
+	            <td colspan="2"><b>Site Selection:</b></td>
+	          </tr>
+	          #foreach($us in $userSites)
+	          <tr> 
+	            <td width="134" valign="top"> 
+	              <input type="radio" name="site.id" value="$!us.site.id" >
+	            </td>
+	            <td width="233" nowrap><b>$!us.site.name</b><br>
+	            $!us.site.description
+	             </td>
+	          </tr>
+			  #end
+	          <tr> 
+	            <td width="134" ></td>
+	            <td width="233"> 
+	              <div align="right"> 
+	                <input type="submit" name="submit" value="Submit">
+	                <input type="reset" name="reset" value="Reset">
+	                <br><br>
+	              	<a href="logout.jsp"><b>Change User</b></a><br>
+	              </div>
+	            </td>
+	          </tr>
+	        </table>
+	      </td>
+	    </tr>
+	  </table>
+	</form>
+</body>
+</html>

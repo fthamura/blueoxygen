@@ -37,9 +37,6 @@ public class AddSite extends SiteForm implements SessionCredentialsAware {
 			addActionError("Description can't be empty.");
 		}
 		
-		if (getTheme_id().equalsIgnoreCase("")) {
-			addActionError("Theme ID can't be empty.");
-		}
 		if (hasErrors()) {return INPUT;} else {
 
 			

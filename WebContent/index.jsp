@@ -1,5 +1,9 @@
-<%@ include file="/include/global.inc.jsp" %>
+<% //@ include file="/include/global.inc.jsp" %>
 
 <%
-	response.sendRedirect(sURI+"/backend/index.jsp"); 
+	//out.println(request.getContextPath() + "<br>");
+	//out.println(request.getRequestURI() + "<br>");
+	//out.println(request.getServletPath() + "<br>");
+	//out.println(request.getRequestURL() + "<br>");
+	response.sendRedirect("backend/index.jsp"); 
 %>

@@ -7,7 +7,11 @@
  * Contributors:
  *     BlueOxygen Cimande Team - initial API and implementation
  *******************************************************************************/
-package org.blueoxygen.cimande.security;
+package org.blueoxygen.cimande.security.login;
+
+import org.blueoxygen.cimande.security.User;
+import org.blueoxygen.cimande.security.UserAccessor;
+import org.blueoxygen.cimande.security.UserAccessorAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
