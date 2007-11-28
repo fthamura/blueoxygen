@@ -24,8 +24,8 @@
 	<td><img src="../images/blueoxygen-logo.png" ></td>
 	<td align="right">
 		<a href="../module/password/edit.action" target="main" ><font size="1" color="white">Change Password</font></a>&nbsp;<font color="white">|</font>&nbsp;
-		<a href="../backend/user/change_site.jsp" target="_parent" ><font size="1" color="white">Change Site</font></a>&nbsp;<font color="white">|</font>&nbsp;
-		<a href="../backend/user/logout.jsp" target="_parent" ><font size="1" color="white">Sign Out</font>&nbsp;&nbsp;</a></td></tr>
+		<a href="../backend/user/site.action" target="_parent" ><font size="1" color="white">Change Site</font></a>&nbsp;<font color="white">|</font>&nbsp;
+		<a href="../backend/user/logout.action" target="_parent" ><font size="1" color="white">Sign Out</font>&nbsp;&nbsp;</a></td></tr>
 	</div>
   <div id="classes" class="ylayout-inactive-content">
 	  <!-- BEGIN TREE -->

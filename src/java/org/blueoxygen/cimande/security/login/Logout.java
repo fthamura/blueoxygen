@@ -23,7 +23,8 @@ public class Logout implements Action, UserAccessorAware {
     public String execute() {
         //ActionContext.getContext().getSession().put(LoginFilter.LOGIN_KEY, null);
         //ActionContext.getContext().getSession().put(LoginFilter.LOGIN_USER, null);
-        ActionContext.getContext().getSession().put(LoginFilter.LOGIN_CIMANDE_USER, null);
+        ActionContext.getContext().getSession().remove(LoginFilter.LOGIN_CIMANDE_USER);
+        ActionContext.getContext().getSession().remove(LoginFilter.LOGIN_CIMANDE_SITE);
         return SUCCESS;
     }
 

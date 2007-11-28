@@ -30,7 +30,7 @@ public class Login extends LoginForm implements UserAccessorAware {
             return SUCCESS;
         } else {
             addFieldError("username", "Invalid username or password");
-            return ERROR;
+            return INPUT;
         }
     }
 

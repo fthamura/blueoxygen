@@ -34,8 +34,8 @@ while (myResultSet.next()){
 		<td><% out.println(myResultSet.getString("description")); %></td>
 		
 		
-<td align="center"> <a href="act_index.jsp?id=<% out.println(myResultSet.getString("id")); %>&site=<% out.println(myResultSet.getString("site_id")); %>&workflow_name=<% out.println(myResultSet.getString("name")); %> &workflow_desc=<% out.println(myResultSet.getString("description")); %>&code=del"><font color="blue">Delete</font></a></td>
-<td align="center"> <a href="act_index.jsp?id=<% out.println(myResultSet.getString("id")); %>&site=<% out.println(myResultSet.getString("site_id")); %>&workflow_name=<% out.println(myResultSet.getString("name")); %> &workflow_desc=<% out.println(myResultSet.getString("description")); %>&code=add"><font color="blue">Add</font></a></td>
+<td align="center"> <a href="act_index.jsp?id=<% out.println(myResultSet.getString("id")); %>&site=<% out.println(myResultSet.getString("site_id")); %>&workflow_name=<% out.println(myResultSet.getString("name")); %>&workflow_desc=<% out.println(myResultSet.getString("description")); %>&code=del"><font color="blue">Delete</font></a></td>
+<td align="center"> <a href="act_index.jsp?id=<% out.println(myResultSet.getString("id")); %>&site=<% out.println(myResultSet.getString("site_id")); %>&workflow_name=<% out.println(myResultSet.getString("name")); %>&workflow_desc=<% out.println(myResultSet.getString("description")); %>&code=add"><font color="blue">Add</font></a></td>
 </tr>
 <%
 }

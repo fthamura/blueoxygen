@@ -1,0 +1,53 @@
+<table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="98%">
+    <tr> 
+      <td bgcolor="#d0dcff" colspan="3"><b>Role</b></td>
+    </tr>
+    <tr bgcolor="#ffffff" valign="top">
+    	<td>Role: $!role.name</td>
+    </tr>
+    <tr bgcolor="#ffffff" valign="top">
+    	<td>Descrition: $!role.description</td>
+    </tr>
+</table>
+<br>
+<form method="post" action="save.action">
+  <table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="100%">
+    <tr> 
+      	<td colspan="2" bgcolor="#0000FF"><b><font color="#FFFFFF">Add Role Site </font></b></td>
+    </tr>    	     	
+    <tr bgcolor="#ffffff" valign="top"> 
+      <td> 
+        <div align="right"><font color="#ff0000">*</font> Site:</div>
+      </td>
+      <td>
+      	<input type="textfield" id="lihatsiteName" value="None" size="15" disabled="true" onfocus="this.blur()"/>&nbsp; 
+      	<input type="hidden" id="viewsiteId" name="site.id" value=""/>
+      	<input type="button" value="View Site" onclick="javascript:window.open('../user/viewSite.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+      </td>
+    </tr>
+    <tr bgcolor="#ffffff" valign="top">
+      <td colspan="2">
+    	<input type="submit" name="Submit" value="Submit">
+		<input name="role.id" value="$!role.id" type="hidden"/>		  
+      </td>
+    </tr>
+  </table>
+</form>
+<br>
+<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#000000">
+  <tr bgcolor="#0000CC">
+    <td width="23%"><strong><font color="#FFFFFF">Site</font></strong></td>
+
+    <td width="58%"><strong><font color="#FFFFFF">Description</font></strong></td>
+    <td width="19%"><strong><font color="#FFFFFF">Action</font></strong></td>
+  </tr>
+  #foreach($rs in $rolesites)
+  <tr bgcolor="#ffffff">
+  	<td>$!rs.site.name</td>
+  	<td>$!rs.site.description</td>
+  	<td>
+  	  <a href="delete.action?rolesite.id=$!rs.id">Delete</a>
+	</td>
+  </tr>
+  #end
+</table>

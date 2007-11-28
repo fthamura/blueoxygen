@@ -22,9 +22,7 @@ import org.blueoxygen.cimande.role.RoleSite;
 public class RoleSite extends DefaultPersistent{
 	
 	private Role role;
-//	private String rsite_id;
 	private Site site;
-	
 	
 	/**
 	 * 
@@ -39,17 +37,6 @@ public class RoleSite extends DefaultPersistent{
 		this.role = role;
 	}
 
-//	/**
-//	 * 
-//	 * @hibernate.property
-//	 */
-//	public String getRsite_id() {
-//		return rsite_id;
-//	}
-//	public void setRsite_id(String rsite_id) {
-//		this.rsite_id = rsite_id;
-//	}
-	
 	/**
 	 * 
 	 * @hibernate.many-to-one column="site_id"

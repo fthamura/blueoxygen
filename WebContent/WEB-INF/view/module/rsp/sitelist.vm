@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Site List</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+<link type="text/css" rel="stylesheet" href="../../style.css">
+
+</head>
+<body>
+
+<form method="post" actions="Master.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+<tbody>
+	<tr bgcolor="#d0dcff">
+		<td colspan='3'><strong>Site List</strong></td>
+	</tr>
+	<tr bgcolor="#ffffff">
+		<td style="font-weight:  bold;" align="center">Name</td>
+		<td style="font-weight:  bold;" align="center">Description</td>
+		<td style="font-weight:  bold;" align="center">Status</td>
+	</tr>
+#foreach ($list in $roleSites)
+			<tr valign="top" bgcolor="white">
+				<td>$!list.site.name</a></td>
+				<td>$!list.site.description</a></td>
+				<td><a href="master.action?roleSite.id=$!list.id">Add Privilage</a></td>
+			</tr>
+			#end
+</tbody>
+</table>
+</html>
