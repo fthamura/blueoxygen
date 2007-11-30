@@ -16,7 +16,7 @@
 	<td width=60%>None</td>
 	<td><input type="button" onClick="javascript:window.opener.document.getElementById('viewmodulId').value='';window.opener.document.getElementById('viewmodulId').value='None';window.close();" value="Set"></td>
 </tr>
-#foreach ($p in $lihatmodul)
+#foreach ($p in $mfunctions)
 <tr>
 	<td width=60%>$p.name</td>	
 	<td><input type="button" onClick="javascript:window.opener.document.getElementById('viewmodulId').value='$p.id';window.opener.document.getElementById('lihatmodulName').value='$p.name';window.close();" value="Set"></td>

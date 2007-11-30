@@ -31,12 +31,11 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version   0.1
  * @author    <a href="mailto:frans@blueoxygen.org">Frans Thamura</a>
  */
-public class YUIExtNavTree extends ActionSupport implements PersistenceAware
-{	
+public class YUIExtNavTree extends ActionSupport implements PersistenceAware {	
 	private PersistenceManager pm;
-	private String roleId=null, siteId=null;
+	private String roleId = "";
+	private String siteId = "";
 	private String tree_script = "";
-	private List<ModuleFunction> modules = new ArrayList<ModuleFunction>();
 
 	/**
 	 * This function will get all the strings from NavigationTreeMenu and generate a treemenu.com's menu in javascript format
@@ -44,8 +43,8 @@ public class YUIExtNavTree extends ActionSupport implements PersistenceAware
 	 */
 	public String execute() {
 
-		String mySQL,			MTMJavaScript = "";       
-
+		String mySQL;
+		String MTMJavaScript = "";       
 		StringUtils stringUtils = new StringUtils();
 		int total_role_site = 0;
 		String variableNode="menu";
@@ -58,14 +57,12 @@ public class YUIExtNavTree extends ActionSupport implements PersistenceAware
 					.getAttribute(LoginFilter.LOGIN_CIMANDE_USER));
 			User us = new User();
 			us = (User)pm.getById(User.class,user_id);
-			this.roleId=us.getRole().getId();
-			this.siteId = (String)ServletActionContext.getRequest().getSession().getAttribute("GS_USER");
-			mySQL = "SELECT COUNT(tmp.id) as total from " + RoleSite.class.getName() + " as tmp WHERE tmp.role.id='"+this.roleId+"' AND tmp.site.id='"+this.siteId+"'";
-			List temp = new ArrayList();
+			this.roleId = us.getRole().getId();
+			this.siteId = (String)ServletActionContext.getRequest().getSession().getAttribute(LoginFilter.LOGIN_CIMANDE_SITE);
+			mySQL = "FROM " + RoleSite.class.getName() + " tmp WHERE tmp.role.id='"+this.roleId+"' AND tmp.site.id='"+this.siteId+"'";
+			List<RoleSite> temp = new ArrayList<RoleSite>();
 			temp = pm.getList(mySQL,null,null);
-			if(temp.size()>0){
-				total_role_site = Integer.parseInt(temp.get(0).toString());
-			}
+			total_role_site = temp.size();
 
 			int iFirstNode=0;
 			// Main menu. 
@@ -78,21 +75,8 @@ public class YUIExtNavTree extends ActionSupport implements PersistenceAware
 			 * </div></div>
 			 * 
 			 */
-			if (total_role_site<=0) {
-				// read all module function from role_privilage
-				mySQL = "FROM tmp in " + RolePrivilage.class + " WHERE tmp.role.id='" + this.roleId + "' ORDER BY (tmp.moduleFunction.description)";
-				List<RolePrivilage> rp = new ArrayList<RolePrivilage>();
-				rp = (List<RolePrivilage>)pm.getList(mySQL,null,null);
-				for(RolePrivilage tmp : rp){
-					dbTree = new YUINavTreeLeaf(tmp.getModuleFunction().getId(),variableNode,iFirstNode,pm);
-
-					MTMJavaScript = MTMJavaScript + "<div class=\"pkg\"><h3>"+tmp.getModuleFunction().getDescription()+"</h3><div class=\"pkg-body\">";
-					// check the child is > 0
-					MTMJavaScript = MTMJavaScript + dbTree.getMTMJavaScript();
-					MTMJavaScript = MTMJavaScript + "</div></div>";
-				}
-			} else {
-				// read all module funciton from role_site_privilage.
+			if (total_role_site > 0) {
+				// read all module function from role_site_privilage.
 
 				mySQL = "FROM tmp in " + RoleSitePrivilage.class + " WHERE tmp.roleSite.site.id = '" + this.siteId + "' AND tmp.roleSite.role.id = '" + this.roleId + "' ORDER BY (tmp.moduleFunction.description)";
 				List<RoleSitePrivilage> rsp = new ArrayList<RoleSitePrivilage>();
@@ -106,6 +90,19 @@ public class YUIExtNavTree extends ActionSupport implements PersistenceAware
 					MTMJavaScript = MTMJavaScript + dbTree.getMTMJavaScript();
 					MTMJavaScript = MTMJavaScript + "</div></div>";
 					iFirstNode++;
+				}
+			} else {
+				// read all module function from role_privilage
+				mySQL = "FROM tmp in " + RolePrivilage.class + " WHERE tmp.role.id='" + this.roleId + "' ORDER BY (tmp.moduleFunction.description)";
+				List<RolePrivilage> rp = new ArrayList<RolePrivilage>();
+				rp = (List<RolePrivilage>)pm.getList(mySQL,null,null);
+				for(RolePrivilage tmp : rp){
+					dbTree = new YUINavTreeLeaf(tmp.getModuleFunction().getId(),variableNode,iFirstNode,pm);
+
+					MTMJavaScript = MTMJavaScript + "<div class=\"pkg\"><h3>"+tmp.getModuleFunction().getDescription()+"</h3><div class=\"pkg-body\">";
+					// check the child is > 0
+					MTMJavaScript = MTMJavaScript + dbTree.getMTMJavaScript();
+					MTMJavaScript = MTMJavaScript + "</div></div>";
 				}
 			}
 			tree_script = MTMJavaScript;

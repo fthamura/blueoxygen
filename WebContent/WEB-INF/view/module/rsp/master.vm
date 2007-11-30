@@ -32,7 +32,7 @@
       </td>
       <td width="67%"> 
         <input type="textfield" id="lihatmodulName" value="None" size="15" disabled="true" onfocus="this.blur()" /><input name="mfunction.id" type="hidden" id="viewmodulId" value="0"/>
-        <input type="button" value="View Module Function" onclick="javascript:window.open('../rsp/viewmfuntion.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+        <input type="button" value="View Module Function" onclick="javascript:window.open('../rsp/viewmfuntion.action?roleSite.id=$!roleSite.id','cats','scrollbars=yes,status=no,width=300,height=300')"/>
       </td>
     </tr>
     <tr bgcolor="#ffffff" valign="top">

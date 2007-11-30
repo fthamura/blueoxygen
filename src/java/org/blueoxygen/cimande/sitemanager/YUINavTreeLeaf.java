@@ -10,25 +10,19 @@
 package org.blueoxygen.cimande.sitemanager;
 
 /**
- * $RCSfile: OldNavigationTreeMenu.java,v $
- * $Revision: 1.1 $
- * $Date: 2005/04/15 06:05:32 $
+ * $RCSfile: YUINavTreeLeaf.java,v $
+ * $Revision: 2.0 $
+ * $Date: 2007/11/30 06:05:32 $
  *
- * Copyright (C) 2002 Intecitra.com. All rights reserved.
- *
- * This software is the proprietary information of Thentra Gray Enterprise.
- * Use is subject to license terms.
+ * Copyright (C) 2007 BlueOxygen.org. All rights reserved.
  */
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.blueoxygen.cimande.modulefunction.ModuleFunction;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
-
-import com.opensymphony.xwork2.ActionSupport;
 
 /** Treemenu recursive function
  * This function will read the database module function and generate a linkedlist
@@ -38,18 +32,15 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author    <a href="mailto:frans@blueoxygen.org">Frans Thamura</a>
  */
 
-public class YUINavTreeLeaf extends ActionSupport {
+public class YUINavTreeLeaf {
 
-	private NavigationModuleFunction moduleFunction=null;
+	private ModuleFunction moduleFunction=null;
 	private String rootId="";
 	private String sId="";
 	private String MTMJavaScript="",variableNode="";
 	private int i, Node;
 	private PersistenceManager pm;
 	// default variable
-	private String sTable = "module_function";
-
-	ResultSet myResultSet = null;
 	String mySQL;       
 
 	/**
@@ -65,7 +56,7 @@ public class YUINavTreeLeaf extends ActionSupport {
 	public YUINavTreeLeaf ( String rootId , String variableNode, int Node,PersistenceManager manager) throws ClassNotFoundException, Exception  {
 		this.rootId = rootId;
 		this.sId = rootId;
-		this.moduleFunction = new NavigationModuleFunction(rootId,"");	
+		this.moduleFunction = (ModuleFunction) manager.getById(ModuleFunction.class, rootId);	
 		this.Node=Node;
 		this.variableNode=variableNode;
 		this.pm = manager;
@@ -74,45 +65,32 @@ public class YUINavTreeLeaf extends ActionSupport {
 	/**
 	 * return root id
 	 */
-
 	public String getRootId()  {
 		return this.rootId;
 	}
 
 	/**
-	 * return level value of this object
-	 * return a DbModule Object
+	 * return moduleFunction
 	 */
-	public NavigationModuleFunction getRoot() {
+	public ModuleFunction getRoot() {
 		return 	this.moduleFunction;
 	}
 
 	/**
-	 * return LinkedList that contains all downline in ordered level
+	 * return int that contains count all downline
 	 */	
-
 	public int getChildCount()throws ClassNotFoundException, SQLException, Exception {
-		int totalFields=0;
 		/**
 		 * modified in 24 july'06 using hibernate
 		 */
-
-		mySQL = "SELECT COUNT(mf.id) as total FROM "+ModuleFunction.class.getName()+" as mf WHERE mf.logInformation.activeFlag='1' AND mf.moduleFunction.id='"+this.sId+"' ORDER BY mf.description ASC";
+		mySQL = "FROM "+ModuleFunction.class.getName()+" mf WHERE mf.logInformation.activeFlag='1' AND mf.moduleFunction.id='"+this.sId+"'";
 		List temp = new ArrayList();
 		temp = pm.getList(mySQL,null,null);
-		if(temp.size()>0){
-			totalFields = Integer.parseInt(temp.get(0).toString());
-		}
-		return totalFields;
+		return temp.size();
 	}
-	/**
-	 * return LinkedList that contains all downline in ordered level
-	 */	
 
 	public String getMTMJavaScript()throws ClassNotFoundException, SQLException, Exception {
 		YUINavTreeLeaf dbTreeWalkerChild;
-
-		NavigationModuleFunction dbTreeChild;
 
 		String sParentId="";
 		i=0;
@@ -124,10 +102,10 @@ public class YUINavTreeLeaf extends ActionSupport {
 			sParentId = mf.getId();
 
 			// add to List
-			dbTreeChild = new NavigationModuleFunction( sParentId,"");
+			ModuleFunction mFunction = (ModuleFunction) pm.getById(ModuleFunction.class, sParentId);
 
 			int totalChild ;
-			dbTreeWalkerChild = new YUINavTreeLeaf(dbTreeChild.getId(),variableNode+"_"+Node,i,pm);
+			dbTreeWalkerChild = new YUINavTreeLeaf(mFunction.getId(), variableNode+"_"+Node, i, pm);
 
 			totalChild = dbTreeWalkerChild.getChildCount();	
 
