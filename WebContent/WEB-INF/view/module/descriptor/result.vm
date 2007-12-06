@@ -1,4 +1,8 @@
 <html>
+	
+
+	
+</html>
 <head>
 	<title>Workspace Management - Result of Search Descriptor </title>
   	<link type="text/css" rel="stylesheet" href="../../style.css">
@@ -10,17 +14,19 @@
       </tr>
 
 #if ($descriptors.isEmpty()) 
-	<tr bgcolor="yellow">
+	<tr bgcolor="#d0dcff">
         	<td colspan="5" align="right">No such data found</td>
       	</tr>
 #else 
-	<tr bgcolor="yellow">
+	<tr bgcolor="#d0dcff">
         	<td colspan="5" align="right">
         	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) descriptors #else descriptor 
         	</td>
       	</tr>
 #end
-<tr bgcolor="#e4e4e4" width="98%">
+</table><br>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+<tr align="center" bgcolor="#e4e4e4" width="98%">
 	
 	<td><b>Name</b></td>
 	<td><b>Description</b></td>
@@ -30,12 +36,12 @@
 #foreach ($moduleDescriptor in $descriptors)
 	<tr valign="top" bgcolor="white">
 	
-	<td><a href="edit.action?id=$moduleDescriptor.Id">$!moduleDescriptor.Name</a></td>
-	<td><a href="edit.action?id=$moduleDescriptor.Id">$!moduleDescriptor.Description</a></td>
+	<td>$!moduleDescriptor.Name</td>
+	<td>$!moduleDescriptor.Description</td>
 	
-	<td>
-		<a href="edit.action?id=$moduleDescriptor.Id">Edit</a>&nbsp;
-		<a href="confirmDelete.action?id=$moduleDescriptor.Id">Del</a>
+	<td align="center">
+		<a href="edit.action?id=$moduleDescriptor.Id" title="edit"><img src="../../images/silk/page_edit.png" border="0"></a>&nbsp;
+		<a href="confirmDelete.action?id=$moduleDescriptor.Id" title="delete"><img src="../../images/silk/delete.png" border="0"></a>
 	</td>
 	</tr>
 #end

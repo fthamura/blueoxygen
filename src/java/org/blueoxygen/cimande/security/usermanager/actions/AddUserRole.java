@@ -21,19 +21,23 @@ public class AddUserRole extends UserForm implements SessionCredentialsAware, Pe
 	protected PersistenceManager manager;
 	public String execute() {
 		UserRole ur = new UserRole();
-		setRole((Role)manager.getById(Role.class,getRole().getId()));
-		if(getUser().getId() != null && !"".equalsIgnoreCase(getUser().getId())){
-			setUser((User)manager.getById(User.class, getUser().getId()));
-			
-			if(getUser().getRole() == null){
-				getUser().setRole(role);
-				manager.save(getUser());
-				ur.setDefaultRole(true);
+		
+		if(getRole().getId() != null && !"".equalsIgnoreCase(getRole().getId())){
+			setRole((Role)manager.getById(Role.class,getRole().getId()));
+			if(getUser().getId() != null && !"".equalsIgnoreCase(getUser().getId())){
+				setUser((User)manager.getById(User.class, getUser().getId()));
+				
+				if(getUser().getRole() == null){
+					getUser().setRole(role);
+					manager.save(getUser());
+					ur.setDefaultRole(true);
+				}
+				
 			}
+			ur.setUser(getUser());
+			ur.setRole(role);
+			manager.save(ur);
 		}
-		ur.setUser(getUser());
-		ur.setRole(role);
-		manager.save(ur);
 		return SUCCESS;	
 	}
 	public void setSessionCredentials(SessionCredentials sessionCredentials) {

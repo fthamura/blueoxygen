@@ -77,7 +77,7 @@ Add a new Descriptor</title>
         </td>
         <td align="right" valign="top"><img alt="Status of Descriptor" src="../../images/help.gif"  style="border: 0px solid ; width: 16px; height: 16px;"></td>
       </tr>
-      <tr bgcolor="#d0dcff">
+      <tr bgcolor="#e4e4e4">
         <td colspan="3"><input name="Submit" value="Save" type="submit">&nbsp;&nbsp;
         <input name="Clear" value="Reset" type="reset"> </td>
       </tr>

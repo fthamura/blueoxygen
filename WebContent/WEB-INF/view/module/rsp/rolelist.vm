@@ -15,7 +15,7 @@
 	<tr bgcolor="#d0dcff">
 		<td colspan='3'><strong>Role Site List</strong></td>
 	</tr>
-	<tr bgcolor="#ffffff">
+	<tr bgcolor="#d0dcff">
 		<td style="font-weight:  bold;" align="center">Name</td>
 		<td style="font-weight:  bold;" align="center">Description</td>
 		<td style="font-weight:  bold;" align="center">Status</td>
@@ -24,7 +24,7 @@
 			<tr valign="top" bgcolor="white">
 				<td>$!list.Name</a></td>
 				<td>$!list.Description</a></td>
-				<td><a href="sitelist.action?role.id=$!list.id">View Role Site</a></td>
+				<td align="center"><a href="sitelist.action?role.id=$!list.id" title="View Role Site"><img src="../../images/silk/application_view_list.png" border="0"></a></td>
 			</tr>
 			#end
 </tbody>

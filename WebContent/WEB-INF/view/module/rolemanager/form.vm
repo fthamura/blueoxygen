@@ -13,11 +13,11 @@
 <form method="post" action="save.action">
   <table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="100%">
     <tr> 
-      	<td colspan="2" bgcolor="#0000FF"><b><font color="#FFFFFF">Add Role Site </font></b></td>
+      	<td colspan="2" bgcolor="#d0dcff"><b><font color="#000000">Add Role Site </font></b></td>
     </tr>    	     	
     <tr bgcolor="#ffffff" valign="top"> 
       <td> 
-        <div align="right"><font color="#ff0000">*</font> Site:</div>
+        <div align="right"><font color="#d0dcff">*</font> Site:</div>
       </td>
       <td>
       	<input type="textfield" id="lihatsiteName" value="None" size="15" disabled="true" onfocus="this.blur()"/>&nbsp; 
@@ -25,7 +25,7 @@
       	<input type="button" value="View Site" onclick="javascript:window.open('../user/viewSite.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
       </td>
     </tr>
-    <tr bgcolor="#ffffff" valign="top">
+    <tr bgcolor="#e4e4e4" valign="top">
       <td colspan="2">
     	<input type="submit" name="Submit" value="Submit">
 		<input name="role.id" value="$!role.id" type="hidden"/>		  
@@ -35,18 +35,18 @@
 </form>
 <br>
 <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#000000">
-  <tr bgcolor="#0000CC">
-    <td width="23%"><strong><font color="#FFFFFF">Site</font></strong></td>
+  <tr bgcolor="#d0dcff" align="center">
+    <td width="23%"><strong><font color="#000000">Site</font></strong></td>
 
-    <td width="58%"><strong><font color="#FFFFFF">Description</font></strong></td>
-    <td width="19%"><strong><font color="#FFFFFF">Action</font></strong></td>
+    <td width="58%"><strong><font color="#000000">Description</font></strong></td>
+    <td width="19%"><strong><font color="#000000">Action</font></strong></td>
   </tr>
   #foreach($rs in $rolesites)
   <tr bgcolor="#ffffff">
   	<td>$!rs.site.name</td>
   	<td>$!rs.site.description</td>
-  	<td>
-  	  <a href="delete.action?rolesite.id=$!rs.id">Delete</a>
+  	<td align="center">
+  	  <a href="delete.action?rolesite.id=$!rs.id" title="delete"><img src="../../images/silk/delete.png" border="0"></a>
 	</td>
   </tr>
   #end

@@ -12,8 +12,8 @@
     <tr bgcolor="#ffffff" valign="top"> 
 		<td>$!r.name</td>
 		<td>$!r.description</td>
-		<td>
-			<a href="view.action?role.id=$!r.id">View</a>
+		<td align="center">
+			<a href="view.action?role.id=$!r.id" title="view"><img src="../../images/silk/application_view_list.png" border="0"></a>
 		</td>
 	</tr>
 	#end

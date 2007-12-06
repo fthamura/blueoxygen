@@ -56,7 +56,7 @@
   <td style="font-weight: bold;" align="right" width="25%">Email:</td>
     <td><input type="text" name="email" value="$!email" maxlength="128">
   </tr>
-  <tr bgcolor="#d0dcff">
+  <tr bgcolor="#e4e4e4">
   	<td colspan="2">
   	<input type="hidden" name="id" value="$id">
   	<input type="submit" value="Update"><input type="reset" value="Reset">

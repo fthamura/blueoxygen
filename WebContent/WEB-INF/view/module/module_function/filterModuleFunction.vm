@@ -30,20 +30,17 @@
   <tr bgcolor="#ffffff">
     <td width="100">Name:<font color="RED">*</font></td>
     <td><input type="text" name="name" maxlength="30" value="$!name" size="30"></td>
-    <td align="right" width="3%" valign="center"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
   </tr>
   <tr bgcolor="#ffffff"> 
     <td width="100">Description:</td>
     <td><input type="text" name="description" maxlength="30" value="$!description" size="30"></td>
-  	<td align="right" width="3%" valign="center"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
   </tr>
   
   <tr bgcolor="#ffffff">
   	<td>Table References:</td>
     <td><input type="text" name="tableReferences" value="$!tableReferences" size="30"></td>
-  	<td align="right"width="3%" valign="center"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
   </tr>
-    <tr bgcolor="#d0dcff">
+    <tr bgcolor="#e4e4e4">
   <td colspan="3"><input type="submit" value="Search">&nbsp;&nbsp;<input type="reset" value="Reset"></td>
   </tr>
  

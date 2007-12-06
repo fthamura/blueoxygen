@@ -43,11 +43,11 @@ Add a new Company</title>
     
 	<tr bgcolor="#ffffff"><td width="25%"><div align="right">Company<font color="red"> contains: </font></div></td><td><input type="textfield" id="perusahaanName" value="None" size="15" disabled="true" onfocus="this.blur()"/>&nbsp;
         <input type="hidden" id="companyId" name="company.id" value="0"/>
-        <input type="button" value="View Company" onclick="javascript:window.open('../user_mvc/viewCompany.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></td>
+        <input type="button" value="View Company" onclick="javascript:window.open('../user/viewCompany.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></td>
 	</tr>	    
 
 	<tr bgcolor="#ffffff"><td width="25%"><div align="right">Position<font color="red"> contains: </font></div></td><td><input type="textfield" id="jabatanName" value="None" size="15" disabled="true" onfocus="this.blur()"/>&nbsp;
-<input type="hidden" id="viewjobId" name="job.id" value=""/>	<input type="button" value="View Position" onclick="javascript:window.open('../user_mvc/viewJob.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></td>
+<input type="hidden" id="viewjobId" name="job.id" value=""/>	<input type="button" value="View Position" onclick="javascript:window.open('../user/viewJob.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></td>
 	</tr>	 
 
 	<tr bgcolor="#ffffff"> 
@@ -83,15 +83,14 @@ Add a new Company</title>
      
     </tr>
 
-	<tr bgcolor="#ffffff"> 
-      <td width="25%" align="right">&nbsp;
-      </td>
+	<tr bgcolor="#e4e4e4"> 
+     
       
-    <td> 
-      <div align="right"> 
+    <td colspan="2"> 
+    
         
         <input type="submit" name="submit" value="Search">
-      </div>
+  
     </td>
      </form>
     </tr>

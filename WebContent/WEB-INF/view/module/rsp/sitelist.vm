@@ -15,16 +15,16 @@
 	<tr bgcolor="#d0dcff">
 		<td colspan='3'><strong>Site List</strong></td>
 	</tr>
-	<tr bgcolor="#ffffff">
+	<tr bgcolor="#d0dcff">
 		<td style="font-weight:  bold;" align="center">Name</td>
 		<td style="font-weight:  bold;" align="center">Description</td>
-		<td style="font-weight:  bold;" align="center">Status</td>
+		<td style="font-weight:  bold;" align="center">Action</td>
 	</tr>
 #foreach ($list in $roleSites)
 			<tr valign="top" bgcolor="white">
 				<td>$!list.site.name</a></td>
 				<td>$!list.site.description</a></td>
-				<td><a href="master.action?roleSite.id=$!list.id">Add Privilage</a></td>
+				<td align="center"><a href="master.action?roleSite.id=$!list.id" title="Add Privilage"><img src="../../images/silk/application_view_list.png" border="0"></a></td>
 			</tr>
 			#end
 </tbody>

@@ -69,7 +69,7 @@
   	<td><input type="radio" name="activeFlag" value=1 #if ($activeFlag == 1) checked #end> Yes<br><input type="radio" name="activeFlag" value=0 #if ($activeFlag == 0) checked #end> No
   	</td>
   </tr>
-  <tr bgcolor="#d0dcff">
+  <tr bgcolor="#e4e4e4">
   	<td colspan="2"><input type="submit" value="Update"><input type="reset" value="Reset">
 </td>
   	</td>

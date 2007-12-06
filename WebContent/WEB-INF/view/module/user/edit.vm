@@ -27,52 +27,51 @@ Add a new Company</title>
 </tr>
 
     <tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red">* </font>Login: 
-					</div></td><td><input maxlength="128" name="user.username" size="15" type="text" value="$!user.username"></td><td>&nbsp;</td></tr>
+					</div></td><td><input maxlength="128" name="user.username" size="15" type="text" value="$!user.username"></td></tr>
 	
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red">* </font>First Name: 
-					</div></td><td><input maxlength="128" name="name.first" size="15" type="text" value="$!user.name.first"></td><td>&nbsp;</td></tr>
+					</div></td><td><input maxlength="128" name="name.first" size="15" type="text" value="$!user.name.first"></td></tr>
 
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>Last Name: 
-					</div></td><td><input maxlength="128" name="name.last" size="15" type="text" value="$!user.name.last"></td><td>&nbsp;</td></tr>
+					</div></td><td><input maxlength="128" name="name.last" size="15" type="text" value="$!user.name.last"></td></tr>
 
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red">*</font>Company: 
 					</div></td><td><input type="textfield" id="perusahaanName" size="15" disabled="true" onfocus="this.blur()" value="$!user.company.name"/>&nbsp;
 					  <input type="hidden" id="companyId" name="company.id" value="$!user.company.id"/>&nbsp;
 					  <input type="button" value="View Company" onclick="javascript:window.open('../user/viewCompany.action','cats','scrollbars=yes,status=no,width=300,height=300')"/></td>
-					 <td>&nbsp;</td></tr>
+					 </tr>
 
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red">* </font>Position: 
 					</div></td>
 	  <td>  <input type="textfield" id="jabatanName" size="15" disabled="true" onfocus="this.blur()" value="$!user.job.name"/>   
 	  <input type="hidden" id="viewjobId" name="job.id" value="$!user.job.id"/>&nbsp;&nbsp;
 	    <input type="button" value="View Position " onclick="javascript:window.open('../user/viewJob.action','cats','scrollbars=yes,status=no,width=300,height=300')"/> </td>
-	  <td>&nbsp;</td></tr>
+	  </tr>
 
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>Email: 
-					</div></td><td><input maxlength="125" name="user.email" size="25" type="text" value="$!user.email"></td><td>&nbsp;</td></tr>
+					</div></td><td><input maxlength="125" name="user.email" size="25" type="text" value="$!user.email"></td></tr>
 
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>Address: 
-					</div></td><td><input maxlength="255" name="address.street1" size="35" type="text" value="$!user.address.street1"></td><td>&nbsp;</td></tr>
+					</div></td><td><input maxlength="255" name="address.street1" size="35" type="text" value="$!user.address.street1"></td></tr>
 
 
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>: 
-					</div></td><td><input maxlength="255" name="address.street2" size="35" type="text" value="$!user.address.street2"></td><td>&nbsp;</td></tr>
+					</div></td><td><input maxlength="255" name="address.street2" size="35" type="text" value="$!user.address.street2"></td></tr>
 
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>City: 
-					</div></td><td><input maxlength="128" name="address.city" size="15" type="text" value="$!user.address.city"></td><td>&nbsp;</td></tr>
+					</div></td><td><input maxlength="128" name="address.city" size="15" type="text" value="$!user.address.city"></td></tr>
 	
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>Description:
-						</div></td><td valign="top"><textarea cols="35" name="user.description" rows="5" value="$!user.description"></textarea></td><td>&nbsp;</td></tr>
+						</div></td><td valign="top"><textarea cols="35" name="user.description" rows="5" value="$!user.description"></textarea></td></tr>
 
-	<tr bgcolor="#ffffff" valign="top"><td colspan="2"><div align="right"><font color="red"></font></div>		    <br>
-	</td><td>&nbsp;</td></tr>
 	
-	<tr bgcolor="#ffffff" valign="top"><td align="right" width="25%">&nbsp;
+	<tr bgcolor="#e4e4e4" valign="top">
 										
-	</td><td colspan="2"><input value="Save" type="submit"> 
+	<td colspan="2">
+		<input value="Save" type="submit"> 
 	  <input value="Reset" type="reset">
 	  <input type="hidden" name="user.id" value="$!user.id"/>
-	  </td></tr></table>
+	  </td></table>
 	   </tr>
     </tbody>
   </table>

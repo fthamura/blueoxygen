@@ -39,7 +39,7 @@
 	<input type="textfield" id="moduleDescriptorDescription" value="$!moduleFunction.moduleDescriptor.description" size="35" disabled="true" onfocus="this.blur()"/>
     <input type="hidden" id="moduleDescriptorId" name="moduleDescriptorId" value="$!moduleFunction.moduleDescriptor.id"/>
     &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../module_function/listModuleDescriptor.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
-    &nbsp;&nbsp;&nbsp;<a href="../descriptor/edit.action?id=$moduleFunction.moduleDescriptor.Id">edit</a>
+    &nbsp;&nbsp;&nbsp;<a href="../descriptor/edit.action?id=$moduleFunction.moduleDescriptor.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a>
   	</td>
   
   </tr>
@@ -49,7 +49,7 @@
     <input type="textfield" id="moduleFunctionName" value="$!moduleFunction.moduleFunction.name" size="35" disabled="true" onfocus="this.blur()"/>
     <input type="hidden" id="moduleFunctionId" name="moduleFunctionId" value="$!moduleFunction.moduleFunction.id"/>
     &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../module_function/listThreadNumber.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
-    &nbsp;&nbsp;&nbsp;<a href="editModuleFunction.action?id=$moduleFunction.moduleFunction.Id">edit</a></td>
+    &nbsp;&nbsp;&nbsp;<a href="editModuleFunction.action?id=$moduleFunction.moduleFunction.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a></td>
    </tr>
   
   <tr bgcolor="#ffffff">
@@ -66,7 +66,7 @@
   
   </tr>
   
-  <tr bgcolor="#d0dcff">
+  <tr bgcolor="#e4e4e4">
   <td colspan="3"> 
   <input type="hidden" name="id" value="$id">
 	<input type="submit" name="Submit" value="Update" onClick="doUpload()">&nbsp;&nbsp;
@@ -83,12 +83,12 @@
       <tr bgcolor="#d0dcff">
         <td colspan="5"><b>Child Module Function</b></td>
       </tr>
-	<tr bgcolor="yellow">
+	<tr bgcolor="#d0dcff">
         	<td colspan="5" align="right">
         	Found ( <strong>$!moduleFunction.moduleFunctions.size()</strong> ) #if ($moduleFunction.moduleFunctions.size() > 1) moduleFunctions #else moduleFunction #end
         	</td>
       	</tr>
-<tr bgcolor="#e4e4e4">
+<tr bgcolor="#e4e4e4" align="center">
 <td>Name
 </td>
 <td>Description
@@ -103,7 +103,7 @@
 </td>
 <td>$!childModuleF.Description
 </td>
-<td><a href="editModuleFunction.action?id=$!childModuleF.Id">Edit</a> <a href="deleteModuleFunction.action?id=$!childModuleF.Id">Del</a>
+<td align="center"><a href="editModuleFunction.action?id=$!childModuleF.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a> <a href="deleteModuleFunction.action?id=$!childModuleF.Id" title="delete"><img src="../../images/silk/delete.png" border="0"></a></a>
 </td>
 </tr>
 #end

@@ -10,17 +10,19 @@
       </tr>
 
 #if ($roles.isEmpty()) 
-	<tr bgcolor="yellow">
+	<tr bgcolor="#d0dcff">
         	<td colspan="5" align="right">No such data found</td>
       	</tr>
 #else 
-	<tr bgcolor="yellow">
+	<tr bgcolor="#d0dcff">
         	<td colspan="5" align="right">
         	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) roles #else role 
         	</td>
       	</tr>
 #end
-<tr bgcolor="#e4e4e4" width="98%">
+</table><br>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+<tr bgcolor="#d0dcff" width="98%" align="center">
 	
 	<td><b>Name</b></td>
 	<td><b>Description</b></td>
@@ -30,12 +32,12 @@
 #foreach ($moduleRole in $roles)
 	<tr valign="top" bgcolor="white">
 	
-	<td><a href="edit.action?id=$moduleRole.Id">$!moduleRole.Name</a></td>
-	<td><a href="edit.action?id=$moduleRole.Id">$!moduleRole.Description</a></td>
+	<td>$!moduleRole.Name</td>
+	<td>$!moduleRole.Description</td>
 	
-	<td>
-		<a href="edit.action?id=$moduleRole.Id">Edit</a>&nbsp;
-		<a href="confirmDelete.action?id=$moduleRole.Id">Del</a>
+	<td align="center">
+		<a href="edit.action?id=$moduleRole.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a>&nbsp;
+		<a href="confirmDelete.action?id=$moduleRole.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a>
 	</td>
 	</tr>
 #end
@@ -43,7 +45,7 @@
 		<td align="right" colspan="5">
 			#if ($currPage > 0) <a href="search.action?name=$name&description=$description&parentId=$parentId&activeFlag=$activeFlag&currPage=0">&lt;&lt;</a>&nbsp;#end
 			#if ($currPage > 0) <a href="search.action?name=$name&description=$description&parentId=$parentId&activeFlag=$activeFlag&currPage=$prevPage">&lt;</a>&nbsp;#end
-			[page $page]
+			[page $nextPage]
 			#if ($currPage < $maxPage) <a href="search.action?name=$name&description=$description&parentId=$parentId&activeFlag=$activeFlag&currPage=$nextPage">&gt;</a>&nbsp;#end
 			#if ($currPage < $maxPage) <a href="search.action?name=$name&description=$description&parentId=$parentId&activeFlag=$activeFlag&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
 		</td>

@@ -6,6 +6,8 @@ package org.blueoxygen.cimande.security.usermanager.actions;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Timestamp;
 
+import javax.swing.JFrame;
+
 import org.apache.commons.beanutils.PropertyUtils;
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.company.Company;
@@ -44,9 +46,22 @@ public class AddUser extends UserForm implements SessionCredentialsAware {
 			if(getCompany().getId() != null && !"".equalsIgnoreCase(getCompany().getId())){
 				setCompany((Company) manager.getById(Company.class, getCompany().getId()));
 			}
+			else {
+				addActionError("Company can't be empty");
+				setUser(null);
+				return INPUT;
+			}
+		
 			if(getJob().getId() != null && !"".equalsIgnoreCase(getJob().getId())){
 				setJob((JobDesc) manager.getById(JobDesc.class, getJob().getId()));
+			}else {
+				addActionError("Position can't be empty");
+				setUser(null);
+				return INPUT;
+				
 			}
+			
+		
 			
 			LogInformation log;
 			if(getUser().getId() == null){
@@ -89,7 +104,14 @@ public class AddUser extends UserForm implements SessionCredentialsAware {
 			getUser().setCompany(getCompany());
 			getUser().setJob(getJob());
 			
-			manager.save(getUser());
+			try {
+				manager.save(getUser());
+				
+			} catch (Exception e) {
+				addActionError("user already exist");
+				setUser(null);
+				return INPUT;
+			}
 			return SUCCESS;
 		} 
 	}

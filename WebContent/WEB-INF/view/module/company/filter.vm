@@ -16,59 +16,52 @@
         	Name
         </td>
         <td width="75%"><input maxlength="128" name="name" size="25" value="$!name"></td>
-        <td align="right" valign="top"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" width="25%">
         	Address
         </td>
         <td width="75%"><input maxlength="128" name="address" size="25" value="$!address"></td>
-        <td align="right" valign="top"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" width="25%">
         	State
         </td>
         <td width="75%"><input maxlength="128" name="state" size="25" value="$!state"></td>
-        <td align="right" valign="top"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" width="25%">
         	Zip number
         </td>
         <td width="75%"><input maxlength="128" name="zip_number" size="25" value="$!zip_number"></td>
-        <td align="right" valign="top"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" width="25%">
         	Telephone
         </td>
         <td width="75%"><input maxlength="128" name="telephone" size="25" value="$!telephone"></td>
-        <td align="right" valign="top"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" width="25%">
         	Faximile
         </td>
         <td width="75%"><input maxlength="128" name="faximile" size="25" value="$!faximile"></td>
-        <td align="right" valign="top"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" width="25%">
         	Website
         </td>
         <td width="75%"><input maxlength="128" name="website" size="25" value="$!website"></td>
-        <td align="right" valign="top"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" width="25%">
         	Email
         </td>
         <td width="75%"><input maxlength="128" name="email" size="25" value="$!email"></td>
-        <td align="right" valign="top"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
       </tr>
-      <tr bgcolor="#d0dcff">
-        <td colspan="3"><input name="Submit" value="Search" type="submit">&nbsp;&nbsp;
+      <tr bgcolor="#e4e4e4">
+        <td colspan="3">
+        	<input name="Submit" value="Search" type="submit">&nbsp;&nbsp;
         <input name="Clear" value="Reset" type="reset"> </td>
       </tr>
   

@@ -34,7 +34,6 @@ public class UpDateModuleFunction extends ModuleFunctionForm implements SessionC
 
 	public String execute(){
 		String result = super.execute();
-		
 
 		if(getName().equalsIgnoreCase("")){
 			addActionError("please input name");
@@ -48,8 +47,16 @@ public class UpDateModuleFunction extends ModuleFunctionForm implements SessionC
 		
 		String query = " FROM module_function in " + ModuleFunction.class + " WHERE module_function.moduleFunction.id='" + getId() + "'";
 
-		moduleDescriptor = (Descriptor) pm.getById(Descriptor.class, getModuleDescriptorId());
-		mf = (ModuleFunction) pm.getById(ModuleFunction.class, getModuleFunctionId());
+		if(getModuleDescriptorId() != null && !"".equalsIgnoreCase(getModuleDescriptorId())){
+			moduleDescriptor = (Descriptor) pm.getById(Descriptor.class, getModuleDescriptorId());
+		} else {
+			moduleDescriptor = null;
+		}
+		if(getModuleFunctionId() != null && !"".equalsIgnoreCase(getModuleFunctionId())){
+			mf = (ModuleFunction) pm.getById(ModuleFunction.class, getModuleFunctionId());
+		} else {
+			mf = null;
+		}
 		
 		moduleFunction.setName(getName());
 		moduleFunction.setDescription(getDescription());

@@ -26,9 +26,7 @@ public class UpdateSite extends SiteForm implements SessionCredentialsAware {
 			addActionError("Name can't be empty.");
 		if (getDescription().equalsIgnoreCase(""))
 			addActionError("Description can't be empty.");
-		if (getTheme_id().equalsIgnoreCase(""))
-			addActionError("Theme ID can't be empty.");
-
+		
 		if (hasErrors()) {
 			return INPUT;
 		} else {

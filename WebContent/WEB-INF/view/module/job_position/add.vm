@@ -35,7 +35,6 @@ Add a new Job Description</title>
         	Name
         	</td>
         <td width="75%"><input maxlength="150" name="name" size="25" value="$!name"></td>
-        <td align="right" valign="top"><img alt="Name of The Job" src="../../images/help.gif" border="0"></td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">
@@ -45,15 +44,13 @@ Add a new Job Description</title>
         <td>
        <input maxlength="150" name="description" size="50" value="$!description">
          </td>
-        <td align="right" valign="top"><img alt="Description of The Job" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
       </tr>
 	   <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">Active:</td>
         <td><input name="activeFlag" value="1" checked="checked" type="radio">Yes<br><input name="activeFlag" value="0" type="radio">No
         </td>
-        <td align="right" valign="top"><img alt="Status of Job" src="../../images/help.gif"  style="border: 0px solid ; width: 16px; height: 16px;"></td>
       </tr>
-      <tr bgcolor="#d0dcff">
+      <tr bgcolor="#e4e4e4">
         <td colspan="3"><input name="Submit" value="Save" type="submit">&nbsp;&nbsp;
         <input name="Clear" value="Reset" type="reset"> </td>
       </tr>

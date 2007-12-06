@@ -43,13 +43,13 @@
     	  <input type="hidden" name="roleSite.id" value="$!roleSite.id">
     	  </p>
     	</td></tr>
-  </tbody></table>
+  </tbody></table><br>
 
  
  </form>
 <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#000000">
 	<tbody>
-	  <tr bgcolor="#d0dcff">
+	  <tr bgcolor="#d0dcff" align="center">
 	    <td><strong><font color="#000000">Module Function Name</font></strong></td>
 	    <td><strong><font color="#000000">Module Function Description</font></strong></td>
 	    <td><strong><font color="#000000">Action</font></strong></td>
@@ -58,7 +58,7 @@
 	  <tr bgcolor="#FFFFFF">
 	    <td>$!rs.moduleFunction.name</td>
 	    <td>$!rs.moduleFunction.description</td>
-	    <td><a href="delete.action?rsp.id=$!rs.id">Delete</a>
+	    <td align="center"><a href="delete.action?rsp.id=$!rs.id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a>
 	    	
 	    </td>
 	  </tr>

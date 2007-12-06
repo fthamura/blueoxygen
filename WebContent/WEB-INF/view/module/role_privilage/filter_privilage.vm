@@ -13,7 +13,7 @@
 <form method="get" action="filter.action">
 <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
   <tr bgcolor="#d0dcff">
-    <td id="tableHeader1" colspan=2>Cari Role</td>
+    <td id="tableHeader1" colspan=2>Search Role</td>
   </tr>
   <tr bgcolor="#ffffff">
     <td>Role Name:</td>
@@ -27,9 +27,9 @@
   </tr>
   
   
-  <tr id="tableHeader1" bgcolor="#d0dcff">
+  <tr id="tableHeader1" bgcolor="#e4e4e4">
   <td colspan="2">
- 	<input type="submit" value="cari">
+ 	<input type="submit" value="Search">
 	<input type="reset" name="reset">
 
   </td>
@@ -39,7 +39,7 @@
 	#else
 	<p><tr id="tableHeader2" bgcolor="#d0dcff">
 	<td colspan="6">
-	Found <strong>$!resultRows()</strong> #if ($resultRows > 1) Role #else Roles #end
+	Found <strong>$!resultRows</strong> #if ($resultRows > 1) Role #else Roles #end
 	</tr></p>
     <tr id="tableHeader2" bgcolor="#ffffff">
 	<td colspan="6">
@@ -53,10 +53,10 @@
 <p>
 
   <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
-<tr id="tableHeader1" bgcolor="#d0dcff">
-	<td>&nbsp;</td>
-	<td>Nama</td>
-	<td>Penjelasan</td>
+<tr align="center" id="tableHeader1" bgcolor="#d0dcff">
+	<td>Name</td>
+	<td>Description</td>
+	<td>Action</td>
 	 
 
 </tr>
@@ -64,9 +64,14 @@
 
 #foreach ($role in $roles)
 <tr valign="top" bgcolor="#ffffff">
-	<td><a href="view_privilage.action?id=$role.Id" name="View Detail">v</a>&nbsp;<a href="edit.action?id=$role.Id" name="Edit">e</a>&nbsp;<a href="confirmDelete.action?id=$role.Id" name="Delete">d</a></td>
+	
 	<td>$!role.name</td>
 	<td>$!role.description</td>
+	<td align="center">
+		<a href="view_privilage.action?id=$role.Id" title="View"><img src="../../images/silk/application_view_list.png" border="0"></a>
+		<a href="edit.action?id=$role.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a>
+		<a href="confirmDelete.action?id=$role.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a>
+	</td>
 </tr>
 
 #end

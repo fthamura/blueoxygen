@@ -24,6 +24,7 @@ public class UserRoleForm extends ActionSupport implements PersistenceAware {
 			setUserRoles(manager.getList("FROM " + UserRole.class.getName() + 
 					" ur WHERE ur.user.id='" + getUser().getId() + "'", null, null));
 		}
+		
 		return SUCCESS;
 	}
 	

@@ -34,7 +34,7 @@
         <input maxlength="150" name="description" size="50" value="$!description">
         </td>
   </tr>  
-  <tr bgcolor="#d0dcff">
+  <tr bgcolor="#e4e4e4">
   	<td colspan="2">
 	<input type="hidden" name="id" value="$id">
 	<input type="submit" value="Update"><input type="reset" value="Reset">

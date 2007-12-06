@@ -10,17 +10,20 @@
       </tr>
 
 #if ($!companies.isEmpty()) 
-	<tr bgcolor="yellow">
+	<tr bgcolor="#d0dcff">
         	<td colspan="9" align="right">No such data found</td>
       	</tr>
 #else 
-	<tr bgcolor="yellow">
+	<tr bgcolor="#d0dcff">
         	<td colspan="9" align="right">
         	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) companies #else company 
         	</td>
       	</tr>
 #end
-<tr bgcolor="#e4e4e4" width="98%">
+</table><br>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+
+<tr bgcolor="#d0dcff" width="98%" align="center">
 	
 	<td><b>Name</b></td>
 	<td><b>Address</b></td>
@@ -36,18 +39,18 @@
 #foreach ($company in $companies)
 	<tr valign="top" bgcolor="white">
 	
-	<td><a href="edit.action?id=$company.Id">$!company.Name</a></td>
-	<td><a href="edit.action?id=$company.Id">$!company.Address</a></td>
-	<td><a href="edit.action?id=$company.Id">$!company.State</a></td>
-	<td><a href="edit.action?id=$company.Id">$!company.Zip_number</a></td>
-	<td><a href="edit.action?id=$company.Id">$!company.Telephone</a></td>
-	<td><a href="edit.action?id=$company.Id">$!company.Faximile</a></td>
-	<td><a href="edit.action?id=$company.Id">$!company.Website</a></td>
-	<td><a href="edit.action?id=$company.Id">$!company.Email</a></td>
+	<td>$!company.Name</td>
+	<td>$!company.Address</a></td>
+	<td>$!company.State</a></td>
+	<td>$!company.Zip_number</a></td>
+	<td>$!company.Telephone</a></td>
+	<td>$!company.Faximile</a></td>
+	<td>$!company.Website</a></td>
+	<td>$!company.Email</a></td>
 	
-	<td>
-		<a href="edit.action?id=$company.Id">Edit</a>&nbsp;
-		<a href="confirmDelete.action?id=$company.Id">Del</a>
+	<td align="center">
+		<a href="edit.action?id=$company.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a>&nbsp;
+		<a href="confirmDelete.action?id=$company.Id" title="Delete"><img src="../../images/silk/page_delete.png" border="0"></a>
 	</td>
 	</tr>
 #end

@@ -29,48 +29,51 @@ public class AddModuleFunction extends ModuleFunctionForm implements SessionCred
 	private String moduleDescriptorId="";
 	private String moduleFunctionId="";
 	protected ModuleFunction mf = new ModuleFunction();
-	
-	public String execute()
-	{
-	
-		moduleDescriptor = (Descriptor) pm.getById(Descriptor.class, getModuleDescriptorId());
-		mf = (ModuleFunction) pm.getById(ModuleFunction.class, getModuleFunctionId());
+
+	public String execute(){
+		if(getModuleDescriptorId() != null && !"".equalsIgnoreCase(getModuleDescriptorId())){
+			moduleDescriptor = (Descriptor) pm.getById(Descriptor.class, getModuleDescriptorId());
+		} else {
+			moduleDescriptor = null;
+		}
+		if(getModuleFunctionId() != null && !"".equalsIgnoreCase(getModuleFunctionId())){
+			mf = (ModuleFunction) pm.getById(ModuleFunction.class, getModuleFunctionId());
+		} else {
+			mf = null;
+		}
 		if(getName().equalsIgnoreCase("")){
 			addActionError("please input name");
 			return INPUT;
 		}
-		
 		if(getDescription().equalsIgnoreCase("")){
 			addActionError("please input description");
 			return INPUT;
 		}
-		
-		
-				moduleFunction = new ModuleFunction();
-				moduleFunction.setName(getName());
-				moduleFunction.setDescription(getDescription());
-				moduleFunction.setViewActive(getViewActive());
-				moduleFunction.setTableReferences(getTableReferences());
-				moduleFunction.setModuleDescriptor(moduleDescriptor);
-				moduleFunction.setModuleFunction(mf);
-				
-		   
+
+		moduleFunction = new ModuleFunction();
+		moduleFunction.setName(getName());
+		moduleFunction.setDescription(getDescription());
+		moduleFunction.setViewActive(getViewActive());
+		moduleFunction.setTableReferences(getTableReferences());
+		moduleFunction.setModuleDescriptor(moduleDescriptor);
+		moduleFunction.setModuleFunction(mf);
+
 		logInfo = new LogInformation();
 		logInfo.setCreateBy(sess.getCurrentUser().getId());
 		logInfo.setCreateDate(new Timestamp(System.currentTimeMillis()));
 		logInfo.setActiveFlag(1);
 		moduleFunction.setLogInformation(logInfo);
-		
+
 		pm.save(moduleFunction);
 		moduleFunctionId = moduleFunction.getId(); 
 		return SUCCESS;
 	}
 	public void setSessionCredentials(SessionCredentials sessionCredentials) {
 		this.sess = sessionCredentials;
-		
+
 	}
-	
-	
+
+
 	/**
 	 * @return Returns the moduleFunctionId.
 	 */
@@ -83,8 +86,8 @@ public class AddModuleFunction extends ModuleFunctionForm implements SessionCred
 	public void setModuleFunctionId(String moduleFunctionId) {
 		this.moduleFunctionId = moduleFunctionId;
 	}
-	
-	
+
+
 	/**
 	 * @return Returns the moduleDescriptorId.
 	 */

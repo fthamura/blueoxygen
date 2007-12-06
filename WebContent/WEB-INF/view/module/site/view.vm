@@ -16,20 +16,20 @@
         	<td colspan="5" align="right">No such data found</td>
       	</tr>
 #else
-<tr bgcolor="#e4e4e4" width="98%">
+<tr bgcolor="#e4e4e4" width="98%" align="center">
 	<td>Name</td>
 	<td>Description</td>
 	<td>Tilte</td>
 	<td>URL Branding</td>
-	<td>&nbsp;</td>
+	<td>Action</td>
 </tr>
 <tr bgcolor="#ffffff" valign="top">
-	<td><a href="edit.action?id=$site.Id" name="Edit">$!site.Name</a></td>
-	<td><a href="edit.action?id=$site.Id" name="Edit">$!site.Description</a></td>
-	<td><a href="edit.action?id=$site.Id" name="Edit">$!site.Title</a></td>
-	<td><a href="edit.action?id=$site.Id" name="Edit">$!site.Url_branding</a></td>
-	<td><a href="edit.action?id=$site.Id" name="Edit">edit</a>&nbsp;
-	<a href="confirmDelete.action?id=$site.Id" name="Delete">del</a></td>	
+	<td>$!site.Name</a></td>
+	<td>$!site.Description</a></td>
+	<td>$!site.Title</a></td>
+	<td>$!site.Url_branding</a></td>
+	<td align="center"><a href="edit.action?id=$site.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a>&nbsp;
+	<a href="confirmDelete.action?id=$site.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a></td>	
 </tr>
 #end
 </table>

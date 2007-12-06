@@ -50,7 +50,7 @@
   	<td><input type="radio" name="activeFlag" size="50" value=1 #if ($activeFlag == 1) checked #end> Active<br><input type="radio" name="activeFlag" value=0 #if ($activeFlag == 0) checked #end> Inactive
   	</td>
   </tr>
-  <tr bgcolor="#d0dcff">
+  <tr bgcolor="#e4e4e4">
   	<td colspan="2"><input type="submit" value="Update"><input type="reset" value="Reset">
   	<input type="hidden" name="id" value="$id">
 </td>

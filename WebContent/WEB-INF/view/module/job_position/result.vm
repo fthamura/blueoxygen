@@ -10,17 +10,19 @@
       </tr>
 
 #if ($jobDescs.isEmpty()) 
-	<tr bgcolor="yellow">
+	<tr bgcolor="#d0dcff">
         	<td colspan="3" align="right">No such data found</td>
       	</tr>
 #else 
-	<tr bgcolor="yellow">
+	<tr bgcolor="#d0dcff">
         	<td colspan="3" align="right">
-        	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) Job Descriptions #else Job Description 
+        	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) Job Descriptions #else Job Description #end 
         	</td>
       	</tr>
-#end
-<tr bgcolor="#e4e4e4" width="98%">
+</table>
+<br>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+<tr bgcolor="#d0dcff" width="98%" align="center">
 	
 	<td><b>Name</b></td>
 	<td><b>Description</b></td>
@@ -30,15 +32,16 @@
 #foreach ($jobDesc in $jobDescs)
 	<tr valign="top" bgcolor="white">
 	
-	<td><a href="edit.action?id=$jobDesc.Id">$!jobDesc.Name</a></td>
-	<td><a href="edit.action?id=$jobDesc.Id">$!jobDesc.Description</a></td>
+	<td>$!jobDesc.Name</td>
+	<td>$!jobDesc.Description</td>
 	
-	<td>
-		<a href="edit.action?id=$jobDesc.Id">Edit</a>&nbsp;
-		<a href="confirmDelete.action?id=$jobDesc.Id">Del</a>
+	<td align="center">
+		<a href="edit.action?id=$jobDesc.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a>&nbsp;
+		<a href="confirmDelete.action?id=$jobDesc.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a>
 	</td>
 	</tr>
 #end
+
 	<tr bgcolor="#e4e4e4">
 		<td align="right" colspan="3">
 			#if ($currPage > 0) <a href="search.action?name=$name&description=$description&currPage=0">&lt;&lt;</a>&nbsp;#end

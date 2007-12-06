@@ -205,7 +205,9 @@
 			<result name="success" type="redirect">
 				view.action?id=${id}
 			</result>
-			<result name="input" type="velocity">edit.action</result>
+			<result name="input" type="velocity">
+			/WEB-INF/view/module/site/edit.vm
+			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
 			</result>

@@ -26,7 +26,11 @@ Ditemukan <strong>$roles.size()</strong> #if ($roles.size()>1) role #else role #
 
 #foreach ($role in $roles)
 <tr valign="top">
-	<td><a href="view_privilage.action?id=$role.Id" name="View Detail">v</a>&nbsp;<a href="edit.action?id=$role.Id" name="Edit">e</a>&nbsp;<a href="confirmDelete.action?id=$role.Id" name="Delete">d</a></td>
+	<td>
+		<a href="view_privilage.action?id=$role.Id" name="View Detail"><img src="../../images/silk/application_view_list.png" border="0"></a>
+		<a href="edit.action?id=$role.Id" name="Edit"><img src="../../images/silk/page_edit.png" border="0"></a>
+		<a href="confirmDelete.action?id=$role.Id" name="Delete" title="delete"><img src="../../images/silk/delete.png" border="0"></a>
+	</td>
 	<td>$!role.Name</td>
 	<td>$!role.Description</td>
 </tr>
