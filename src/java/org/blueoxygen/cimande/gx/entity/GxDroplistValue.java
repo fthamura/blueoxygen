@@ -7,7 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 
 /**
  * @author leo
@@ -16,7 +16,7 @@ import org.blueoxygen.cimande.DefaultPersistent;
 @Entity
 @Table(name="gx_droplist_value")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class GxDroplistValue extends DefaultPersistent {
+public class GxDroplistValue extends DefaultPersistence {
 	private GxDroplistName name;
 	private String value;
 	private String description;

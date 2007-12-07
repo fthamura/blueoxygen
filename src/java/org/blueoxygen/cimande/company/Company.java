@@ -6,7 +6,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 /**
  * 
  * @author gurki
@@ -15,7 +15,7 @@ import org.blueoxygen.cimande.DefaultPersistent;
 @Entity()
 @Table(name="company")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class Company extends DefaultPersistent{
+public class Company extends DefaultPersistence{
 	
 	private String name="";
 	private String address="";

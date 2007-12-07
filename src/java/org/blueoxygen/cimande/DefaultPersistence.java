@@ -26,7 +26,7 @@ import org.hibernate.annotations.GenericGenerator;
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
 @MappedSuperclass
-public abstract class DefaultPersistent implements Serializable {
+public abstract class DefaultPersistence implements Serializable {
 	private String id;
 	private LogInformation logInformation = new LogInformation();
 	

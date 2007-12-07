@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 
 /**
  * @author leo
@@ -21,7 +21,7 @@ import org.blueoxygen.cimande.DefaultPersistent;
 @Table(name="gx_droplist_name", 
 		uniqueConstraints = {@UniqueConstraint(columnNames="name")})
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class GxDroplistName extends DefaultPersistent {
+public class GxDroplistName extends DefaultPersistence {
 	private String name;
 	private GxDroplistName parent;
 	private List<GxDroplistValue> values;

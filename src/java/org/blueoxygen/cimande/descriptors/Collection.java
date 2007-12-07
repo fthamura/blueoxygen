@@ -15,7 +15,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 
 /**
  * @author frans
@@ -26,7 +26,7 @@ import org.blueoxygen.cimande.DefaultPersistent;
 @Entity()
 @Table(name="collection")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class Collection extends DefaultPersistent {
+public class Collection extends DefaultPersistence {
 
 	private String name;
 	private String description;

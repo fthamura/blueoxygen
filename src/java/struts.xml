@@ -18,11 +18,13 @@
 		</interceptors>
 
 		<default-interceptor-ref name="adminStack" />
-
+		<action name="index">
+			<result type="redirect">/backend/user/index.action</result>
+		</action>
 	</package>
 
 	<include file="struts-cimande-gx.xml" />
-	<!--	<include file="cimande-sample.xml" />-->
+<!--	<include file="cimande-sample.xml"/>-->
 	<!--Tree-->
 	<package name="tree" extends="default" namespace="/backend">
 		<action name="code"

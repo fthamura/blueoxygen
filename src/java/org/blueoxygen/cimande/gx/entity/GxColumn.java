@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 
 /**
  * @author leo
@@ -17,7 +17,7 @@ import org.blueoxygen.cimande.DefaultPersistent;
 @Entity
 @Table(name="gx_db_column")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class GxColumn extends DefaultPersistent {
+public class GxColumn extends DefaultPersistence {
 	private String name;
 	private String description;
 	private String dbColumn;

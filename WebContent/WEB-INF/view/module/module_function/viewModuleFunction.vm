@@ -23,13 +23,13 @@
 	<td id="tableHeader2"><b>Action</b></td>
 	</tr>
 	<tr bgcolor="white">
-      <td><a href="editModuleFunction.action?id=$moduleFunction.Id">$!moduleFunction.Name</a></td>
-      <td><a href="editModuleFunction.action?id=$moduleFunction.Id">$!moduleFunction.Description</a></td>
-      <td><a href="editModuleFunction.action?id=$moduleFunction.Id">$!moduleFunction.moduleDescriptor.Name</a></td>
-      <td><a href="editModuleFunction.action?id=$moduleFunction.Id">$!moduleFunction.TableReferences</a></td>
+      <td>$!moduleFunction.Name</a></td>
+      <td>$!moduleFunction.Description</a></td>
+      <td>$!moduleFunction.moduleDescriptor.Name</a></td>
+      <td>$!moduleFunction.TableReferences</a></td>
       <td><a href="editModuleFunction.action?id=$moduleFunction.Id">#if ($moduleFunction.ViewActive== 1) Yes #else No #end</a></td>
-	  <td id="tableHeader2" colspan="2"><a href="editModuleFunction.action?id=$moduleFunction.Id">Edit</a> &nbsp;
-		<a href="confirmDeleteModuleFunction.action?id=$moduleFunction.Id">Del</a></td>
+	  <td id="tableHeader2" colspan="2"><a href="editModuleFunction.action?id=$moduleFunction.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a> &nbsp;
+		<a href="confirmDeleteModuleFunction.action?id=$moduleFunction.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a></td>
 	
 	</tr>
     </tbody>

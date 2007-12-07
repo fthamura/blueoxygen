@@ -12,13 +12,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 import org.blueoxygen.cimande.role.Role;
 
 @Entity
 @Table(name="gx_window_role")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class GxWindowRole extends DefaultPersistent {
+public class GxWindowRole extends DefaultPersistence {
 	private Role role;
 	private GxWindow window;
 	private List<GxWindowRoleAccess> access = new ArrayList<GxWindowRoleAccess>();

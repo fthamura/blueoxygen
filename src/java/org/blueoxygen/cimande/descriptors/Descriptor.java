@@ -18,7 +18,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 import org.blueoxygen.cimande.gx.entity.GxWindow;
 
 
@@ -31,7 +31,7 @@ import org.blueoxygen.cimande.gx.entity.GxWindow;
 @Entity()
 @Table(name="descriptor")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class Descriptor extends DefaultPersistent {
+public class Descriptor extends DefaultPersistence {
 	private String name;
 	private String description;
 	private String urlDescriptor = "";

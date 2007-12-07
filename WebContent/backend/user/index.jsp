@@ -1,6 +1,3 @@
-<%@ include file="/include/global.inc.jsp" %>
-
 <%
-	response.sendRedirect(sURI+"/backend/user/index.action"); 
+	response.sendRedirect("index.action"); 
 %>
-Admin Area

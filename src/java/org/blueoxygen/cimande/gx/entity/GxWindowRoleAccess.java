@@ -7,12 +7,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 
 @Entity
 @Table(name="gx_window_role_access")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class GxWindowRoleAccess extends DefaultPersistent {
+public class GxWindowRoleAccess extends DefaultPersistence {
 	private GxDroplistValue accessName;
 	private GxWindowRole windowRole;
 	private boolean allowed;

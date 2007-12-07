@@ -23,21 +23,21 @@
 	<td id="tableHeader2"><b>Faximile</b></td>
 	<td id="tableHeader2"><b>Website</b></td>
 	<td id="tableHeader2"><b>Email</b></td>
-	<td id="tableHeader2">&nbsp;</td>
+	<td id="tableHeader2"><b>Action</b></td>
 	
 	</tr>
 	<tr bgcolor="white">
-      <td><a href="edit.action?id=$company.Id">$!company.Name</a></td>
-      <td><a href="edit.action?id=$company.Id">$!company.Address</a></td>
-      <td><a href="edit.action?id=$company.Id">$!company.State</a></td>
-      <td><a href="edit.action?id=$company.Id">$!company.Zip_number</a></td>
-      <td><a href="edit.action?id=$company.Id">$!company.Telephone</a></td>
-      <td><a href="edit.action?id=$company.Id">$!company.Faximile</a></td>
-      <td><a href="edit.action?id=$company.Id">$!company.Website</a></td>
-      <td><a href="edit.action?id=$company.Id">$!company.Email</a></td>
+      <td>$!company.Name</a></td>
+      <td>$!company.Address</a></td>
+      <td>$!company.State</a></td>
+      <td>$!company.Zip_number</a></td>
+      <td>$!company.Telephone</a></td>
+      <td>$!company.Faximile</a></td>
+      <td>$!company.Website</a></td>
+      <td>$!company.Email</a></td>
       
-	  <td id="tableHeader2"><a href="edit.action?id=$company.Id">Edit</a> &nbsp;
-		<a href="confirmDelete.action?id=$company.Id">Del</a></td>
+	  <td id="tableHeader2"><a href="edit.action?id=$company.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a> &nbsp;
+		<a href="confirmDelete.action?id=$company.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a></a></td>
 	
 	</tr>
     </tbody>

@@ -30,7 +30,6 @@ Add a new Descriptor</title>
         	Name
         	</td>
         <td width="75%"><input maxlength="128" name="name" size="25" value="$!name"></td>
-        <td align="right" valign="top">&nbsp;</td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">
@@ -38,17 +37,14 @@ Add a new Descriptor</title>
         Description:
         </td>
         <td><input maxlength="128" name="description" size="50" value=""></td>
-        <td align="right" valign="top"><img alt="Description of The Descriptor" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">URL Action:</td>
         <td> <input name="urlAction" value="$!urlAction" size="55" type="text" maxlength="255"> </td>
-        <td align="right" valign="top"><img alt="URL of the Module. Used by Action Type only" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">Descriptor File:</td>
         <td> <input name="urlDescriptor" value="$!urlDescriptor" size="35" type="text" maxlength="255"> </td>
-        <td align="right" valign="top"><img alt="Your CDML file, filename only!!" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;"></td>
       </tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">Type:</td>
@@ -58,9 +54,6 @@ Add a new Descriptor</title>
         	<input type="radio" name="typeFlag" value="0">CDML<br>
         	<input type="radio" name="typeFlag" value="3">Gx Window
         </td>
-        <td align="right" valign="top">
-        	<img alt="Descriptor Type, Choose One!!" src="../../images/help.gif" style="border: 0px solid ; width: 16px; height: 16px;">
-        </td>
       </tr>
       <tr bgcolor="#ffffff">
 	    <td style="font-weight: bold;" align="right" valign="top">Window:</td>
@@ -69,13 +62,11 @@ Add a new Descriptor</title>
 		    <input type="hidden" id="windowId" name="windowId" value=""/>
 		    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../window/list.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
 	  	</td>
-	  	<td align="right" width="3%" valign="center"><img alt="Name of The Descriptor" src="../../images/help.gif" border="0"></td>
 	  </tr>
 	  <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">Active:</td>
         <td><input name="activeFlag" value="1" checked="checked" type="radio">Yes<br><input name="activeFlag" value="0" type="radio">No
         </td>
-        <td align="right" valign="top"><img alt="Status of Descriptor" src="../../images/help.gif"  style="border: 0px solid ; width: 16px; height: 16px;"></td>
       </tr>
       <tr bgcolor="#e4e4e4">
         <td colspan="3"><input name="Submit" value="Save" type="submit">&nbsp;&nbsp;

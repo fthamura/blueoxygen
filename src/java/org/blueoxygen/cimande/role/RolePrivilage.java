@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 import org.blueoxygen.cimande.modulefunction.ModuleFunction;
 
 /**
@@ -26,7 +26,7 @@ import org.blueoxygen.cimande.modulefunction.ModuleFunction;
 @Entity()
 @Table(name="role_privilage")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class RolePrivilage extends DefaultPersistent{
+public class RolePrivilage extends DefaultPersistence{
 	
 	private Role role;
 	private ModuleFunction moduleFunction;

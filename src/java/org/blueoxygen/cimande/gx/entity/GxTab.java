@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 
 
 /**
@@ -21,7 +21,7 @@ import org.blueoxygen.cimande.DefaultPersistent;
 @Entity()
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @Table(name="gx_form_tab")
-public class GxTab extends DefaultPersistent {
+public class GxTab extends DefaultPersistence {
 
 	private String name;
 	private String description;

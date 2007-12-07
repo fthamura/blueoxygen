@@ -1,5 +1,0 @@
-        <!-- #EndEditable --> 
-        </TD>
-      </TR>
-    </TABLE>
- 

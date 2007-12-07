@@ -19,7 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 import org.blueoxygen.cimande.descriptors.Descriptor;
 
 /**
@@ -32,7 +32,7 @@ import org.blueoxygen.cimande.descriptors.Descriptor;
 @Entity()
 @Table(name="module_function")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class ModuleFunction extends DefaultPersistent{
+public class ModuleFunction extends DefaultPersistence{
 	
 	private String name;
 	private String description;

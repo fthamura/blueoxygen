@@ -17,7 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 import org.blueoxygen.cimande.company.Company;
 import org.blueoxygen.cimande.jobdescription.JobDesc;
 import org.blueoxygen.cimande.role.Role;
@@ -27,7 +27,7 @@ import org.blueoxygen.cimande.role.Role;
 @Entity()
 @Table(name="backend_user")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class User extends DefaultPersistent {
+public class User extends DefaultPersistence {
 	private String username;
 	private String password;
 	private Name name = new Name();

@@ -23,9 +23,9 @@
 	<div style="padding-top:0px;"><table width="100%"><tr width="100%">
 	<td><img src="../images/blueoxygen-logo.png" ></td>
 	<td align="right">
-		<a href="../module/password/edit.action" target="main" ><font size="1" color="white">Change Password</font></a>&nbsp;<font color="white">|</font>&nbsp;
-		<a href="../backend/user/site.action" target="_parent" ><font size="1" color="white">Change Site</font></a>&nbsp;<font color="white">|</font>&nbsp;
-		<a href="../backend/user/logout.action" target="_parent" ><font size="1" color="white">Sign Out</font>&nbsp;&nbsp;</a></td></tr>
+		<a href="../module/password/edit.action" target="main" ><font size="1" color="white" title="Change Password"><img src="../images/silk/key_add.png" border="0"></font></a>&nbsp;<font color="white"></font>&nbsp;
+		<a href="../backend/user/site.action" target="_parent" ><font size="1" color="white" title="Change Site"><img src="../images/silk/group_go.png" border="0"></font></a>&nbsp;<font color="white"></font>&nbsp;
+		<a href="../backend/user/logout.action" target="_parent" ><font size="1" color="white" title="Sign Out"><img src="../images/silk/delete.png" border="0"></font>&nbsp;&nbsp;</a></td></tr>
 	</div>
   <div id="classes" class="ylayout-inactive-content">
 	  <!-- BEGIN TREE -->
@@ -34,11 +34,12 @@
 		$tree_script
 		<!--finish-->
 		
-	  <a id="help-forums" href="http://www.blueoxygen.org/jiveforums/">Help Forums</a>      
-	  <!-- END TREE -->
+	  <a id="help-forums" href="http://www.blueoxygen.org/jiveforums/">Help Forums</a> 
+   	  <!-- END TREE -->
   </div>
   
   <iframe id="main" name="main" frameborder="no"></iframe>
   </body>
 </html>
+
 

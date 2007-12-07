@@ -48,6 +48,8 @@
                 <value>org.blueoxygen.cimande.gx.entity.GxWindow</value>
                 <value>org.blueoxygen.cimande.gx.entity.GxWindowRole</value>
                 <value>org.blueoxygen.cimande.gx.entity.GxWindowRoleAccess</value>
+                
+                <value>org.blueoxygen.training.item.Item</value>
             </list>
         </property>
         <property name="hibernateProperties">

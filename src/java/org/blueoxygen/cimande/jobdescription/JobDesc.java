@@ -5,7 +5,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 
 /**
  * 
@@ -16,7 +16,7 @@ import org.blueoxygen.cimande.DefaultPersistent;
 @Entity()
 @Table(name="job_position")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class JobDesc extends DefaultPersistent{
+public class JobDesc extends DefaultPersistence{
 
 	private String name;
 	private String description;

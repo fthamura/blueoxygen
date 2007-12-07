@@ -19,7 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 import org.blueoxygen.cimande.security.User;
 
 /**
@@ -32,7 +32,7 @@ import org.blueoxygen.cimande.security.User;
 @Entity()
 @Table(name="user_role")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class UserRole extends DefaultPersistent {
+public class UserRole extends DefaultPersistence {
 	
 	private User user = new User();
 	private Role role = new Role();

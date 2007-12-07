@@ -13,12 +13,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 
 @Entity
 @Table(name="gx_db_table")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class GxTable extends DefaultPersistent {
+public class GxTable extends DefaultPersistence {
 	private String name;
 	private String description;
 	private String dbTable;

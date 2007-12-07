@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 import org.blueoxygen.cimande.descriptors.Descriptor;
 
 /**
@@ -31,7 +31,7 @@ import org.blueoxygen.cimande.descriptors.Descriptor;
 @Entity()
 @Table(name="category")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class Category extends DefaultPersistent{
+public class Category extends DefaultPersistence{
 	
 	private String code;
 	private String description;

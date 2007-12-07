@@ -111,7 +111,7 @@
 
 	<!--  cimande end -->
 
-<!-- WEB SERVICE BEGIN-->
+<!-- WEB SERVICE BEGIN- ->
 	<servlet>
 		<servlet-name>AxisServlet</servlet-name>
 		<display-name>Apache-Axis Servlet</display-name>
@@ -148,13 +148,10 @@
 		<url-pattern>/SOAPMonitor</url-pattern>
 	</servlet-mapping>
 
-<!-- WEB SERVICE END -->
+<!- - WEB SERVICE END -->
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
-        <welcome-file>index.jspa</welcome-file>
-        <welcome-file>default.jsp</welcome-file>
-        <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
     <taglib>

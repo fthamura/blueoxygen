@@ -21,7 +21,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 
 
 /**
@@ -32,7 +32,7 @@ import org.blueoxygen.cimande.DefaultPersistent;
 @Entity()
 @Table(name="workflow_role")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class Role extends DefaultPersistent {
+public class Role extends DefaultPersistence {
 	private String name;
 	private String description;
 	private List<RolePrivilage> rolePrivilage = new ArrayList<RolePrivilage>();

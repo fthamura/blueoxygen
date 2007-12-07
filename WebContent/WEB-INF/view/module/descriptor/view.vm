@@ -24,14 +24,14 @@
 	<td id="tableHeader2"><b>Action</b></td>
 	</tr>
 	<tr bgcolor="white">
-      <td><a href="edit.action?id=$descriptor.Id">$!descriptor.Name</a></td>
-      <td><a href="edit.action?id=$descriptor.Id">$!descriptor.Description</a></td>
-      <td><a href="edit.action?id=$descriptor.Id">$!descriptor.UrlAction</a></td>
-      <td><a href="edit.action?id=$descriptor.Id">#if ($descriptor.LogInformation.ActiveFlag == 1) Yes #else No #end</a></td>
-	  <td><a href="edit.action?id=$descriptor.Id">#if ($descriptor.TypeFlag == 1) Yes #else No #end</a></td>
-	  <td><a href="edit.action?id=$descriptor.Id">#if ($descriptor.DescriptorFlag == 1) Yes #else No #end</a></td>
-	  <td id="tableHeader2" colspan="2"><a href="edit.action?id=$descriptor.Id">Edit</a> &nbsp;
-		<a href="confirmDelete.action?id=$descriptor.Id">Del</a></td>
+      <td>$!descriptor.Name</td>
+      <td>$!descriptor.Description</td>
+      <td>$!descriptor.UrlAction</td>
+      <td>#if ($descriptor.LogInformation.ActiveFlag == 1) Yes #else No #end</td>
+	  <td>#if ($descriptor.TypeFlag == 1) Yes #else No #end</td>
+	  <td>#if ($descriptor.DescriptorFlag == 1) Yes #else No #end</td>
+	  <td id="tableHeader2" colspan="2"><a href="edit.action?id=$descriptor.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a></a> &nbsp;
+		<a href="confirmDelete.action?id=$descriptor.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a></a></td>
 	
 	</tr>
     </tbody>

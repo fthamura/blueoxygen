@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.blueoxygen.cimande.DefaultPersistent;
+import org.blueoxygen.cimande.DefaultPersistence;
 
 /**
  * @author MeiyMeiy
@@ -18,7 +18,7 @@ import org.blueoxygen.cimande.DefaultPersistent;
 @Entity()
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @Table(name="gx_form_field")
-public class GxField extends DefaultPersistent {
+public class GxField extends DefaultPersistence {
 	private String name;
 	private String description;
 	private int displayedFlag;
