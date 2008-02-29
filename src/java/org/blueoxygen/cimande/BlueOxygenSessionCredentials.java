@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
-import org.blueoxygen.backoffice.account.Login;
+
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 import org.blueoxygen.util.StringUtils;
@@ -37,24 +37,7 @@ public class BlueOxygenSessionCredentials implements PersistenceAware {
         return user;
     }
     
-	public Login getLogin(){
-		String hashCode = (String ) getSession().getAttribute("GA_USER");
-		
-        Login login = new Login();
-		try {
-			login =  new Login(hashCode);
-		} catch (ClassNotFoundException e) {
-			// 
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// 
-			e.printStackTrace();
-		} catch (Exception e) {
-			// 
-			e.printStackTrace();
-		}
-		return login;
-	}
+
 	
     private HttpServletRequest getRequest() {
         return ServletActionContext.getRequest();

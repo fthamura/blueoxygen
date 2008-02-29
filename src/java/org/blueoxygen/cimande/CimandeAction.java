@@ -11,7 +11,6 @@
 package org.blueoxygen.cimande;
 
 
-import org.blueoxygen.backoffice.account.Login;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -31,8 +30,5 @@ public class CimandeAction extends ActionSupport implements BlueOxygenSessionCre
 	public BackendUser getBackendUser() {
        return sessionCredentials.getBackendUser();
     }
-    
-	public Login getLogin(){
-		return sessionCredentials.getLogin();
-	}
+
 }
