@@ -10,7 +10,7 @@
 			<!-- Basic stack -->
 			<interceptor-stack name="adminStack">
 				<interceptor-ref name="timer" />
-				<!-- <interceptor-ref name="logger"/> -->
+				<interceptor-ref name="logger"/>
 				<interceptor-ref name="static-params" />
 				<interceptor-ref name="params" />
 				<!-- <interceptor-ref name="hibernate"/>-->
@@ -27,13 +27,7 @@
 <!--	<include file="cimande-sample.xml"/>-->
 	<!--Tree-->
 	<package name="tree" extends="default" namespace="/backend">
-		<action name="code"
-			class="org.blueoxygen.cimande.sitemanager.NavigationTree">
-			<result name="success" type="velocity">
-				hibernateTree.vm
-			</result>
-			<result name="error">login.jsp</result>
-		</action>
+		
 		<action name="yuitree"
 			class="org.blueoxygen.cimande.sitemanager.YUIExtNavTree">
 			<result name="success" type="velocity">
