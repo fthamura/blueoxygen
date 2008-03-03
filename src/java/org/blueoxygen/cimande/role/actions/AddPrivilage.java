@@ -52,6 +52,9 @@ public class AddPrivilage extends ActionSupport implements PersistenceAware,Sess
 			logInfo.setActiveFlag(1);
 			logInfo.setCreateBy(sess.getCurrentUser().getId());
 			logInfo.setCreateDate(new Timestamp(System.currentTimeMillis()));
+			logInfo.setLastUpdateBy(sess.getCurrentUser().getId());
+			logInfo.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
+			
 			rolePrivilage.setLogInformation(logInfo);
 			pm.save(rolePrivilage);
 			role.getRolePrivilage().add(rolePrivilage);

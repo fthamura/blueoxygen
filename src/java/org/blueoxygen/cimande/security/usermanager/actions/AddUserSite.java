@@ -3,6 +3,9 @@
  */
 package org.blueoxygen.cimande.security.usermanager.actions;
 
+import java.sql.Timestamp;
+
+import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 import org.blueoxygen.cimande.security.User;
@@ -27,6 +30,13 @@ public class AddUserSite extends UserSiteForm implements SessionCredentialsAware
 			}
 			getUserSite().setUser(getUser());
 			getUserSite().setSite(getSite());
+			LogInformation logInfo = new LogInformation();
+			logInfo.setCreateBy(sessionCredentials.getCurrentUser().getId());
+			logInfo.setCreateDate(new Timestamp(System.currentTimeMillis()));
+			logInfo.setLastUpdateBy(sessionCredentials.getCurrentUser().getId());
+			logInfo.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
+			logInfo.setActiveFlag(1);
+			getUserSite().setLogInformation(logInfo);
 			manager.save(getUserSite());
 		}
 		return SUCCESS;	

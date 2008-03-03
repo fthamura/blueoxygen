@@ -61,6 +61,8 @@ public class AddModuleFunction extends ModuleFunctionForm implements SessionCred
 		logInfo = new LogInformation();
 		logInfo.setCreateBy(sess.getCurrentUser().getId());
 		logInfo.setCreateDate(new Timestamp(System.currentTimeMillis()));
+		logInfo.setLastUpdateBy(sess.getCurrentUser().getId());
+		logInfo.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
 		logInfo.setActiveFlag(1);
 		moduleFunction.setLogInformation(logInfo);
 

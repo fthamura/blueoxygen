@@ -3,6 +3,9 @@
  */
 package org.blueoxygen.cimande.security.usermanager.actions;
 
+import java.sql.Timestamp;
+
+import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 import org.blueoxygen.cimande.role.Role;
@@ -36,6 +39,13 @@ public class AddUserRole extends UserForm implements SessionCredentialsAware, Pe
 			}
 			ur.setUser(getUser());
 			ur.setRole(role);
+			LogInformation logInfo = new LogInformation();
+			logInfo.setCreateBy(sessionCredentials.getCurrentUser().getId());
+			logInfo.setCreateDate(new Timestamp(System.currentTimeMillis()));
+			logInfo.setLastUpdateBy(sessionCredentials.getCurrentUser().getId());
+			logInfo.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
+			logInfo.setActiveFlag(1);
+			ur.setLogInformation(logInfo);
 			manager.save(ur);
 		}
 		return SUCCESS;	
