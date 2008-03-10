@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Workspace Management - Edit Skin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+
+<body onload="HTMLArea.replaceAll();">
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors )
+<li>$error</li>
+ #end
+</ul>
+#end
+
+<form method="post" action="update.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  <tbody>
+  <tr bgcolor="#d0dcff">
+    <td colspan='3'><strong>edit Skin</strong></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+ <td style="font-weight: bold;" align="right" valign="top" width=25%><font color="RED">*</font>
+ Name</td>
+  <td><input type="text" name="name" value="$!skin.name">
+  </td>
+  <td align="right" valign="top">
+	<img alt="Name of The Skin" src="../../images/help.gif" border="0"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+ <td style="font-weight: bold;" align="right" valign="top" width=25%><font color="RED">*</font>
+ Description</td>
+  	<td><input type="text" name="description" value="$!skin.description"> 	
+  	</td>
+  <td align="right" valign="top">
+	<img alt="Description of The Skin" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+ <td style="font-weight: bold;" align="right" valign="top" width=25%><font color="RED">*</font>
+ Theme ID:</td>
+  <td>
+  <input type="textfield" id="themeName" value="$!skin.theme.name" size="15" disabled="true" onfocus="this.blur()"/>
+  <input type="hidden" id="theme_id" name="theme_id" value="$!skin.theme.id"/>
+  &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../skin/listTheme.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+  &nbsp;&nbsp;<a href="../theme/edit.action?id=$!skin.theme.id">edit</a>
+  </td>
+  <td align="right" valign="top">
+	<img alt="Theme ID of The Skin" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+ <td style="font-weight: bold;" align="right" valign="top" width=25%>
+ Url Theme : </td><td><input type="text" name="url_theme" value="$!skin.url_theme"> 	
+  	</td>
+  <td align="right" valign="top">
+	<img alt="URL Theme of The Skin" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+ <td style="font-weight: bold;" align="right" valign="top" width=25%>
+Status</td>
+  	<td><input type="radio" name="activeFlag" value=1 #if ($skin.logInformation.activeFlag == 1) checked #end> Active<br/><input type="radio" name="activeFlag" value=0 #if ($skin.logInformation.activeFlag == 0) checked #end> Inactive
+  	</td>
+  <td align="right" valign="top">
+	<img alt="Status of The Skin" src="../../images/help.gif" border="0"></td>
+  </tr>
+  <tr bgcolor="#d0dcff">
+    	<td colspan="3"><input type="submit" value="Update"><input type="reset" value="Reset">
+  	  <input type="hidden" name="id" value="$skin.id"></td>
+  </tr>
+
+</table>
+
+
+</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="98%">
+    <tr> 
+      <td bgcolor="#d0dcff" colspan="3"><b>Workflow Role List  
+        </b></td>
+    </tr>
+	<tr bgcolor="eeeeee">
+		<td align="center"><b>Name</b></td>
+		<td align="center"><b>Description</b></td>
+		<td align="center"><b>Action</b></td>
+	</tr>
+	#foreach($r in $roles)
+    <tr bgcolor="#ffffff" valign="top"> 
+		<td>$!r.name</td>
+		<td>$!r.description</td>
+		<td align="center">
+			<a href="view.action?role.id=$!r.id" title="view"><img src="../../images/silk/application_view_list.png" border="0"></a>
+		</td>
+	</tr>
+	#end
+</table>

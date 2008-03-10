@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Add a new Site</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+</head>
+<body>
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors )
+<li>$error</li>
+ #end
+</ul>
+#end
+
+<form method="post" action="add.action">
+<table border="0" cellspacing="0" cellpadding="3">
+  <tr>
+    <td>Name</td>
+    <td><input type="text" name="name" value="$!name">
+    </td>
+  </tr>
+  <tr>
+  	<td>Description</td>
+  	<td><input type="text" name="description" value="$!description">
+  	</td>
+  </tr>
+  <tr>
+  	<td>Theme Id</td>
+  	<td><input type="text" name="themeId" value="$!themeId">
+  	</td>
+  </tr>
+  <tr>
+  	<td>Title</td>
+  	<td><input type="text" name="title" value="$!title">
+  	</td>
+  </tr>
+  <tr>
+  	<td>URL Branding</td>
+  	<td><input type="text" name="urlBranding" value="$!urlBranding">
+  	</td>
+  </tr>
+  <tr>
+  	<td>Admin Email</td>
+  	<td><input type="text" name="adminEmail" value="$!adminEmail">
+  	</td>
+  </tr>
+  <tr>
+  	<td>Notify</td>
+  	<td><input type="radio" name="notifyFlag" value=1 #if ($notifyFlag == 1) checked #end>yes<br><input type="radio" name="notifyFlag" value=0 #if ($notifyFlag == 0) checked #end>no
+  	</td>
+  </tr>
+  <tr>
+  	<td>Notify Email</td>
+  	<td><input type="text" name="notifyEmail" value="$!notifyEmail">
+  	</td>
+  </tr>
+  <tr>
+  	<td>Notify From</td>
+  	<td><input type="text" name="notifyFrom" value="$!notifyFrom">
+  	</td>
+  </tr>
+  <tr>
+  	<td>Notify Message</td>
+  	<td><input type="text" name="notifyMessage" value="$!notifyMessage">
+  	</td>
+  </tr>
+  <tr>
+  	<td>Site Headline</td>
+  	<td><input type="text" name="siteHeadline" value="$!siteHeadline">
+  	</td>
+  </tr>
+  <tr>
+  	<td>Status Id</td>
+  	<td><input type="text" name="statusId" value="$!statusId">
+  	</td>
+  </tr>
+  <tr>
+  	<td>Active</td>
+  	<td><input type="radio" name="activeFlag" value=1 #if ($activeFlag == 1) checked #end>active<br><input type="radio" name="activeFlag" value=0 #if ($activeFlag == 0) checked #end>inactive
+  	</td>
+  </tr>
+  <tr>
+  	<td colspan="2"><input type="submit" value="Submit"><input type="reset" value="Clear"></td>
+  </tr>
+ </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Workspace Management - Search Role</title>
+
+</head>
+<body>
+<form method="get" action="search.action">
+<table border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <td>Name</td>
+    <td><input type="text" name="name" value="$!name">
+    </td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td><input type="text" name="description" value="$!description">
+    </td>
+  </tr>
+  <tr>
+    <td>Active Flag</td>
+    <td><input type="radio" name="activeFlag" value=1> active
+    <br><input type="radio" name="activeFlag" value=0> inactive
+    </td>
+  </tr>
+  
+ 
+</table>
+<input type="submit" value="Search">
+<input type="reset" name="Clear">
+</form>
+</body>
+</html>

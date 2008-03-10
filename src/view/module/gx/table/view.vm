@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Table Detail</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script language="JavaScript">
+  	function newColumn(){
+  		id = document.getElementById("columnId");
+  		name = document.getElementById("columnName");
+  		description = document.getElementById("columnDesc");
+  		id.value = "";
+  		name.value = "";
+  		description.value = "";
+  	}
+  </script>
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  <tbody>
+	<tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="2"><b>Table</b></td>
+  	</tr>
+	<tr bgcolor="#ffff00">
+	  <td id="tableHeader2" colspan="2"><b><a href="edit.action?table.id=$!table.id">Edit</a> | <a href="delete.action?table.id=$!table.Id">Delete</a></b>
+    </tr>
+    <tr bgcolor="#ffffff">
+      <td id="tableHeader2">Table :</td>
+      <td>$!table.name  </td>
+    </tr bgcolor="#ffffff">
+    <tr bgcolor="#ffffff">
+      <td id="tableHeader2">Description :   </td>
+      <td>$!table.description  </td>
+    </tr>
+	<tr bgcolor="#ffffff">
+      <td id="tableHeader2">Database Table :   </td>
+      <td>$!table.dbTable  </td>
+    </tr>
+    </tbody>
+	</table>
+  	<br>
+  
+#saction("name=create" "namespace=/module/gx-column" "executeResult=true")
+ <br>$!report
+#saction("name=listdetail" "namespace=/module/gx-column" "executeResult=true")
+</body>
+</html>
+    

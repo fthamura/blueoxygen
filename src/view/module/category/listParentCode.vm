@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>list - descriptors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="AUTHOR" content="mee_andto@yahoo.com">
+<link rel="stylesheet" type="text/css" href="../../decorators/tables.css">
+
+</head>
+<body>
+<h3>Categories List</h3>
+#if ($Categories.isEmpty()) No Category available yet
+#else
+
+<table width=100% border="0">
+<tr>
+	<td width=60%>None</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('iparentcode').value='0';window.opener.document.getElementById('parentcode').value='None';window.close();" value="Select"></td>
+</tr>
+#foreach ($Category in $Categories)
+<tr>
+	<td width=60%>$Category.code</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('iparentcode').value='$Category.id';window.opener.document.getElementById('parentcode').value='$Category.code';window.close();" value="Select"></td>
+</tr>
+#end
+</table>
+#end
+</body>
+</html>

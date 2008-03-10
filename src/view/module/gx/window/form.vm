@@ -1,0 +1,53 @@
+<link rel="stylesheet" type="text/css" href="../../style.css">
+	    <style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+-->
+        </style>
+		
+		<form method="get" action="save.action">
+			<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  				<tr bgcolor="#d0dcff">
+					<td colspan="2" bgcolor="#333366"><span class="style1">Window</span></td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td align="right"><font color="red">*</font>Name:</td>
+					<td>
+						<input name="window.name" value="$!window.name"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td align="right">Description:</td>
+					<td>
+						<input name="window.description" value="$!window.description"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td align="right">Window Type:</td>
+					<td>
+						<select name="$!windowType.id">
+							<option value="">Not Define</option>
+							#foreach($dl in $windowTypes.values)
+							<option value="$!dl.value">$!dl.description</option>
+							#end
+						</select>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td align="right">Dimension:</td>
+					<td>
+						<input name="window.height" value="$!window.height" size="3"/> H x 
+						<input name="window.width" value="$!window.width" size="3"/> W
+					</td>
+				</tr>
+				<tr bgcolor="#CFE9EB">	
+			      <td colspan="2" align="right" bgcolor="#CFE9EB">
+			        <input name="window.id" type="hidden" value="$!window.id"/>
+					<input name="submit" type="submit" value="Submit">
+				  </td>
+				</tr>
+			</table>
+		</form> 

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Search Descriptor</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<form name="filterDescriptor" method="post" action="search.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="3"><b>Search Descriptor</b></td>
+      </tr>
+
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" width="25%" >
+        	Name
+        </td>
+        <td width="75%"><input maxlength="128" name="name" size="25" value="$!name"></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">Description:</td>
+        <td>
+        	<input maxlength="128" name="description" size="50" >
+         </td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">URL Action:</td>
+        <td> <input name="urlAction" value="$!urlAction" size="55" type="text"> </td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">Type:</td>
+        <td> 
+        	<input type="radio" name="typeFlag" value="2">WebWork MVC<br>
+        	<input type="radio" name="typeFlag" value="1">Action<br>
+        	<input type="radio" name="typeFlag" value="0">CDML
+        </td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">Active:</td>
+        <td><input name="activeFlag" value="1" type="radio">Yes<br><input name="activeFlag" value="0" type="radio">No
+        </td>
+      </tr>
+      <tr bgcolor="#e4e4e4">
+        <td colspan="3"><input name="Submit" value="Search" type="submit">&nbsp;&nbsp;
+        <input name="Clear" value="Reset" type="reset"> </td>
+      </tr>
+  
+</table>
+	
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+  #if($window.accessRoles)
+  <table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+    <tbody>
+		<tr>
+			<td colspan="3" bgcolor="#333366"><span class="style1">Access Role</span></td>
+		</tr>
+	<tr id="tableHeader1" bgcolor="#CFE9EB"> 
+    	<td>Role</td>
+    	<td>Access</td>
+    	<td>Action</td>
+  	</tr>
+  #foreach ($de in $window.accessRoles) 
+  <tr valign="top" bgcolor="#ffffff"> 
+    <td>$!de.role.description ($!de.role.name)</td>
+    <td>
+    	#foreach($d in $de.access)
+    		$!d.accessName.value
+	    #end
+    </td>
+    <td>
+
+    	<a href="../windowrole/edit.action?window.id=$!window.id&windowRole.id=$!de.id"><img src="../../images/silk/page_edit.png" alt="Edit Tab Record" border="0"></a> 
+        <a href="../windowrole/delete.action?window.id=$!window.id&windowRole.id=$!de.id"><img src="../../images/silk/delete.png" alt="Delete Access Role Record" border="0"></a>
+          ##<a href="../tab/edit.action?window.id=$!window.id&tab.id=$!de.id"><img src="../../images/silk/application_view_list.png" alt="Form Field" border="0"></a>
+    </td>
+  </tr>
+  #end 
+  </tbody>
+  </table>
+  #end
+  

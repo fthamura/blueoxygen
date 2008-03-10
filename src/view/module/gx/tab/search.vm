@@ -1,0 +1,42 @@
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+	<head>
+		<title>Search - Tab</title>
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	    <style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+-->
+        </style>
+</head>
+	<body>
+		<form method="get" action="search.action">
+			<table align="center" border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+				<tr bgcolor="#8FEC13">
+					<td colspan="2" bgcolor="#333366"><span class="style1">Search Tab</span></td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td align="right" width="40%">Name:</td>
+					<td>
+						<input name="tab.name" value="$!tab.name"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td align="right">Description:</td>
+					<td>
+						<input name="tab.description" value="$!tab.description"/>
+					</td>
+				</tr>
+				<tr bgcolor="#A8FF93">
+					<td colspan="2" align="right" bgcolor="#CFE9EB">
+						<input type="submit" value="Search"/>
+				  </td>
+				</tr>
+			</table>
+		</form>
+		<br>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Ruang Kerja Warintek - Detail Module Function</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+  <link rel="stylesheet" type="text/css" href="../decorators/tables.css">
+</head>
+<body>
+
+
+<table border=0 cellspacing="0" cellpadding="5" valign="top" width="%70">
+
+<tr>
+	<td colspan=3 id="tableHeader1" width="442">Module Function Detail</td>
+</tr>
+<tr>
+	  <td id="tableHeader2" colspan="2"><b><a href="editModuleFunction.action?id=$moduleFunction.Id">[Edit]</a><a href="confirmDeleteModuleFunction.action?id=$moduleFunction.Id">[Delete]</a></b></td>
+</tr>
+
+<tr>
+	<td width="120">Name :</td>
+	<td width="170">$!moduleFunction.name</td>
+	
+</tr>
+
+<tr>
+	<td width="120">Description	:</td>
+	<td width="170">$!moduleFunction.description</td>
+</tr>
+
+
+<tr>
+	<td width="120">Table References :</td>
+	<td width="170">$!moduleFunction.tableReferences</td>	
+</tr>
+<tr>
+	<td width="120">Descriptor	:</td>
+	<td width="170"><b>$!moduleFunction.moduleDescriptor.name</b></td>
+</tr>
+
+
+
+
+</table>
+
+<table border="0" cellspacing="0" cellpadding="5">
+<tr id="tableHeader1">
+		<td>Module Function</td>
+		<td>Description</td>
+</tr>
+
+#foreach ($mf in $moduleFunction.moduleFunctions)
+
+<tr valign="top">
+	<td><strong><a href="viewModuleFunction.action?id=$mf.Id">$!mf.name</a></strong>&nbsp;</td>
+	<td>$!mf.description</td>
+</tr>
+#end
+</table>
+
+
+</body>
+</html>

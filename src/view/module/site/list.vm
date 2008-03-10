@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Workspace Management - Site List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+
+#if ($sites.isEmpty()) No such data found
+#else
+
+Found $sites.size() #if ($sites.size()>1) sites #else site #end
+<p>
+<table border="0" cellspacing="0" cellpadding="5">
+<tr id="tableHeader1">
+	<td>&nbsp;</td>
+	<td>Name</td>
+	<td>Description</td>
+
+</tr>
+
+
+#foreach ($site in $sites)
+<tr valign="top">
+	<td><a href="view.action?id=$site.Id" name="View Detail">v</a>&nbsp;<a href="edit.action?id=$site.Id" name="Edit">e</a>&nbsp;<a href="confirmDelete.action?id=$site.Id" name="Delete">d</a></td>
+	<td>$!site.Name</td>
+	<td>$!site.Description</td>
+</tr>
+
+#end
+</table>
+#end
+
+</body>
+</html>

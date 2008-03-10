@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Workspace Management - Descriptor List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="AUTHOR" content="Harry">
+</head>
+<body>
+
+#if ($descriptors.isEmpty()) No such data found
+#else Found <strong>$descriptors.size()</strong> #if ($descriptors.size()>1) descriptors #else descriptor #end
+
+
+<table border="0" cellspacing="0" cellpadding="5">
+<tr id="tableHeader1">
+	<td>&nbsp;</td>
+	<td>Name</td>
+	<td>Description</td>
+	<td>URL Action</td>
+</tr>
+
+#foreach ($moduleDescriptor in $descriptors)
+	<tr valign="top">
+	<td><strong><a href="view.action?id=$moduleDescriptor.Id">v</a></strong>&nbsp;<strong><a href="edit.action?id=$moduleDescriptor.Id">e</a></strong>&nbsp;<strong><a href="confirmDelete.action?id=$moduleDescriptor.Id">d</a></strong></td>
+	<td>$!moduleDescriptor.Name</td>
+	<td>$!moduleDescriptor.Description</td>
+	<td>$!moduleDescriptor.UrlAction</td>
+	</tr>
+#end
+</table>
+
+#end
+
+</body>
+</html>

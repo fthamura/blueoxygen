@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Edit a new Section</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+
+<body onload="HTMLArea.replaceAll();libinit()">
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors ) <li>$error</li>
+#end
+</ul>
+#end
+
+<form method="post" action="update.action" name="upload" enctype="multipart/form-data" > 
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  <tbody>
+  <tr bgcolor="#d0dcff">
+    <td colspan='3'><strong>Edit Section</strong></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top" width=25%><font color="RED">*</font>
+    Code:
+    </td>
+    <td><input type="text" name="code" maxlength="3" value="$!section.code" size="8%"></td>
+  	
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Descriptor:</td>
+    <td>
+	<input type="textfield" id="DescriptorDescription" value="$!section.sectionDescriptor.description" size="35" disabled="true" onfocus="this.blur()"/>
+    <input type="hidden" id="descriptor_id" name="descriptor_id" value="$!section.sectionDescriptor.id"/>
+    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listDescriptor.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+      &nbsp;&nbsp;&nbsp;<a href="../descriptor/edit.action?id=$section.sectionDescriptor.id">edit</a>
+  	</td>
+  	
+  </tr>
+  <tr bgcolor="#ffffff">
+  	<td style="font-weight: bold;" align="right" valign="top">Url Section Image:</td>
+    <td><input type="file" name="url_category_image" value="" size="30%"></td>
+    
+	</tr>
+
+  <tr bgcolor="#ffffff"> 
+    <td style="font-weight: bold;" align="right" valign="top"><font color="RED">*</font>
+    Description:
+    </td>
+    <td>
+  	<textarea name="description" style="width: 110%" rows="15" cols="80">$!section.description
+	</textarea>
+	</td>
+  	
+  </tr>
+    <tr bgcolor="#ffffff">
+  	<td style="font-weight: bold;" align="right" valign="top">Active:</td>
+  	<td><input type="radio" name="activeFlag" value=1 #if ($section.activeFlag == 1) checked #end> Yes<br><input type="radio" name="activeFlag" value=0 #if ($section.activeFlag == 0) checked #end> No
+  	</td>
+  </tr>
+  <tr bgcolor="#d0dcff">
+  <td colspan=3> 
+	<input type="hidden" name="id" value="$id">
+	<input type="submit" name="Submit" value="Update" onClick="doUpload()">&nbsp;&nbsp;
+	<input type="reset" name="Clear">
+  </td>
+  </tr>
+  </tbody>
+</table>
+</form>
+</body>
+</html>

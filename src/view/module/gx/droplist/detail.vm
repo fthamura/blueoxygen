@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+	<head>
+		<title>Droplist Detail</title>
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	</head>
+<body>
+<table border="0" cellpadding="5" cellspacing="1" width="30%" bgcolor="#000000" align="center">
+	<tr bgcolor="#d0dcff">
+		<td colspan="2"><b><strong>VIEW DROPLIST DETAIL</strong></b></td>
+	</tr>
+	<tr bgcolor="#FFFFFF">
+		<td width="31%">
+			Detail Name :				</td>
+		<td width="69%">
+		$!name.description				</td>
+	</tr>
+	<tr bgcolor="#CCCCCC" align="center">
+		<td colspan="2"><select name="$!name.name">
+			#foreach($dl in $name.values)
+			<option value="$!dl.value">$!dl.description</option>
+			#end
+		</select></td>
+	</tr>
+	<tr bgcolor="#FFFFFF" align="right">
+		<td colspan="2">
+			<input type="button" value="BACK" onClick="javascript:history.go(-1);">
+		</td>
+	</tr>
+</table>
+</body>
+</html>

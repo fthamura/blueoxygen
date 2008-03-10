@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Workspace Management - Search Site Result</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Quanta Plus">
+	<link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="5"><b>View Site</b></td>
+      </tr>
+	    
+#if ($site.isEmpty()) 
+		<tr bgcolor="yellow">
+        	<td colspan="5" align="right">No such data found</td>
+      	</tr>
+#else
+<tr bgcolor="#e4e4e4" width="98%" align="center">
+	<td>Name</td>
+	<td>Description</td>
+	<td>Tilte</td>
+	<td>URL Branding</td>
+	<td>Action</td>
+</tr>
+<tr bgcolor="#ffffff" valign="top">
+	<td>$!site.Name</a></td>
+	<td>$!site.Description</a></td>
+	<td>$!site.Title</a></td>
+	<td>$!site.Url_branding</a></td>
+	<td align="center"><a href="edit.action?id=$site.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a>&nbsp;
+	<a href="confirmDelete.action?id=$site.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a></td>	
+</tr>
+#end
+</table>
+
+</body>
+</html>

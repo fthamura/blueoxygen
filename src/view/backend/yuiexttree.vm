@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+  <title>JobMerv - People Service for Java and OSS</title>
+    <link rel="stylesheet" type="text/css" href="../jscript/ext/docs/resources/collapser.css"></link>
+	<link rel="stylesheet" type="text/css" href="../jscript/ext/docs/resources/docs.css"></link>
+</head>
+<body scroll="no" id="docs">
+
+      	<div id="loading-mask" style="width:100%;height:100%;background:#c3daf9;position:absolute;z-index:20000;left:0;top:0;">&#160;</div>
+  <div id="loading">
+    <div class="loading-indicator"><img src="../jscript/ext/resources/images/default/grid/loading.gif" style="width:16px;height:16px;" align="absmiddle">&#160;Loading...</div>
+  </div>
+  
+    <!-- include everything after the loading indicator -->
+    
+   <script type="text/javascript" src="../jscript/ext/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="../jscript/ext/ext-all.js"></script>
+    <link rel="stylesheet" type="text/css" href="../jscript/ext/resources/css/ext-all.css" />
+
+    <script type="text/javascript" src="resources/docs.js"></script>
+	
+  <div id="header" class="ylayout-inactive-content">
+	<div style="padding-top:0px;"><table width="100%"><tr width="100%">
+	<td><img src="../images/blueoxygen-logo.png" ></td>
+	<td align="right">
+		<span style="color: #ffffff;">$!user.name.first $!user.name.last</span> 
+		<a href="../module/password/edit.action" target="main" ><font size="1" color="white" title="Change Password"><img src="../images/silk/key_add.png" border="0"></font></a>&nbsp;<font color="white"></font>&nbsp;
+		<a href="../backend/user/site.action" target="_parent" ><font size="1" color="white" title="Change Site"><img src="../images/silk/group_go.png" border="0"></font></a>&nbsp;<font color="white"></font>&nbsp;
+		<a href="../backend/user/logout.action" target="_parent" ><font size="1" color="white" title="Sign Out"><img src="../images/silk/delete.png" border="0"></font>&nbsp;&nbsp;</a></td></tr>
+	</div>
+  <div id="classes" class="ylayout-inactive-content">
+	  <!-- BEGIN TREE -->
+      
+		<!--start-->
+		$tree_script
+		<!--finish-->
+		
+	  <a id="help-forums" href="http://www.blueoxygen.org/mervforum/">Help Forums</a> 
+   	  <!-- END TREE -->
+  </div>
+  
+  <iframe id="main" name="main" frameborder="no"></iframe>
+  </body>
+</html>
+
+

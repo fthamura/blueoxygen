@@ -1,0 +1,18 @@
+<form method="get" action="search.action">
+<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+    <tr bgcolor="#d0dcff"> 
+      <td colspan="2">Search Role</td>
+    </tr>
+    <tr bgcolor="#ffffff"> 
+      <td>Name:</td>
+      <td><input name="role.name"/> </td>
+    </tr>
+	<tr bgcolor="#ffffff"> 
+      <td>Description:</td>
+      <td><input name="role.description" value="$!name.description"/> </td>
+    </tr>
+    <tr  bgcolor="#e4e4e4"> 
+      <td align="right" height="35" colspan="2"> <input type="submit" value="Search"/> </td>
+    </tr>
+  </table>
+		</form>
