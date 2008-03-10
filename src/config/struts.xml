@@ -19,7 +19,7 @@
 
 		<default-interceptor-ref name="adminStack" />
 		<action name="index">
-			<result type="redirect">/backend/user/index.action</result>
+			<result type="redirect">/view/backend/user/index.action</result>
 		</action>
 	</package>
 
@@ -31,10 +31,10 @@
 		<action name="yuitree"
 			class="org.blueoxygen.cimande.sitemanager.YUIExtNavTree">
 			<result name="success" type="velocity">
-				yuiexttree.vm
+				/view/backend/yuiexttree.vm
 			</result>
 			<result name="error" type="redirect">
-				/backend/user/index.action
+				/view/backend/user/index.action
 			</result>
 		</action>
 	</package>
@@ -44,10 +44,10 @@
 		<action name="index"
 			class="org.blueoxygen.cimande.security.login.LoginForm">
 			<result name="login" type="velocity">
-				/WEB-INF/view/frontpage/login/login.vm
+				/view/frontpage/login/login.vm
 			</result>
 			<result name="site" type="velocity">
-				/WEB-INF/view/frontpage/login/site.vm
+				/view/frontpage/login/site.vm
 			</result>
 			<result name="continue" type="redirect">
 				../yuitree.action
@@ -62,10 +62,10 @@
 				index.action?redirectUri=${redirectUri}
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/frontpage/login/login.vm
+				/view/frontpage/login/login.vm
 			</result>
 			<result name="error" type="velocity">
-				/WEB-INF/view/frontpage/login/login.vm
+				/view/frontpage/login/login.vm
 			</result>
 		</action>
 		<action name="site"
@@ -77,7 +77,7 @@
 				../../${redirectUri}
 			</result>
 			<result name="input" type="redirect">
-				/WEB-INF/view/frontpage/login/site.vm
+				/view/frontpage/login/site.vm
 			</result>
 		</action>
 		<action name="logout"
@@ -96,36 +96,36 @@
 		<action name="create"
 			class="org.blueoxygen.cimande.role.actions.RoleForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role/add.vm
+				/view/module/role/add.vm
 			</result>
 		</action>
 		<action name="add"
 			class="org.blueoxygen.cimande.role.actions.AddRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role/addSuccess.vm
+				/view/module/role/addSuccess.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/role/add.vm
+				/view/module/role/add.vm
 			</result>
 		</action>
 		<action name="confirmDelete"
 			class="org.blueoxygen.cimande.role.actions.ViewRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role/confirmDelete.vm
+				/view/module/role/confirmDelete.vm
 			</result>
 			<result name="error">/errors/notfound.vm</result>
 		</action>
 		<action name="delete"
 			class="org.blueoxygen.cimande.role.actions.DeleteRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role/deleteSuccess.vm
+				/view/module/role/deleteSuccess.vm
 			</result>
 			<result name="error">/errors/notfound.vm</result>
 		</action>
 		<action name="edit"
 			class="org.blueoxygen.cimande.role.actions.EditRoleLoad">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role/edit.vm
+				/view/module/role/edit.vm
 			</result>
 			<result name="error">/errors/errors.vm</result>
 		</action>
@@ -135,28 +135,28 @@
 				view.action?id=${id}
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/role/edit.vm
+				/view/module/role/edit.vm
 			</result>
 			<result name="error">/errors/errors.vm</result>
 		</action>
 		<action name="view"
 			class="org.blueoxygen.cimande.role.actions.ViewRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role/view.vm
+				/view/module/role/view.vm
 			</result>
 			<result name="error">/errors/errors.vm</result>
 		</action>
 		<action name="filter"
 			class="org.blueoxygen.cimande.role.actions.RoleForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role/filter.vm
+				/view/module/role/filter.vm
 			</result>
 			<result name="error">/errors/errors.vm</result>
 		</action>
 		<action name="search"
 			class="org.blueoxygen.cimande.role.actions.SearchRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role/result.vm
+				/view/module/role/result.vm
 			</result>
 			<result name="error">/errors/errors.vm</result>
 		</action>
@@ -166,31 +166,31 @@
 		<action name="create"
 			class="org.blueoxygen.cimande.site.actions.SiteForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/site/add.vm
+				/view/module/site/add.vm
 			</result>
 			<result name="error">/errors/errors.vm</result>
 		</action>
 		<action name="add"
 			class="org.blueoxygen.cimande.site.actions.AddSite">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/site/addSuccess.vm
+				/view/module/site/addSuccess.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/site/add.vm
+				/view/module/site/add.vm
 			</result>
 			<result name="error">/errors/errors.vm</result>
 		</action>
 		<action name="view"
 			class="org.blueoxygen.cimande.site.actions.ViewSite">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/site/view.vm
+				/view/module/site/view.vm
 			</result>
 			<result name="error">/errors/errors.vm</result>
 		</action>
 		<action name="edit"
 			class="org.blueoxygen.cimande.site.actions.EditSite">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/site/edit.vm
+				/view/module/site/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -202,7 +202,7 @@
 				view.action?id=${id}
 			</result>
 			<result name="input" type="velocity">
-			/WEB-INF/view/module/site/edit.vm
+			/view/module/site/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -211,7 +211,7 @@
 		<action name="confirmDelete"
 			class="org.blueoxygen.cimande.site.actions.ViewSite">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/site/confirmDelete.vm
+				/view/module/site/confirmDelete.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -220,7 +220,7 @@
 		<action name="delete"
 			class="org.blueoxygen.cimande.site.actions.DeleteSite">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/site/deleteSuccess.vm
+				/view/module/site/deleteSuccess.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -229,13 +229,13 @@
 		<action name="filter"
 			class="org.blueoxygen.cimande.site.actions.SiteForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/site/filter.vm
+				/view/module/site/filter.vm
 			</result>
 		</action>
 		<action name="search"
 			class="org.blueoxygen.cimande.site.actions.SearchSite">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/site/result.vm
+				/view/module/site/result.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -249,16 +249,16 @@
 		<action name="create"
 			class="org.blueoxygen.cimande.descriptors.actions.DescriptorForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/descriptor/add.vm
+				/view/module/descriptor/add.vm
 			</result>
 		</action>
 		<action name="add"
 			class="org.blueoxygen.cimande.descriptors.actions.AddDescriptor">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/descriptor/addSuccess.vm
+				/view/module/descriptor/addSuccess.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/descriptor/add.vm
+				/view/module/descriptor/add.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -267,13 +267,13 @@
 		<action name="list"
 			class="org.blueoxygen.cimande.descriptors.actions.ListDescriptor">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/descriptor/list.vm
+				/view/module/descriptor/list.vm
 			</result>
 		</action>
 		<action name="view"
 			class="org.blueoxygen.cimande.descriptors.actions.ViewDescriptor">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/descriptor/view.vm
+				/view/module/descriptor/view.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -282,7 +282,7 @@
 		<action name="edit"
 			class="org.blueoxygen.cimande.descriptors.actions.EditDescriptorLoad">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/descriptor/edit.vm
+				/view/module/descriptor/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -294,7 +294,7 @@
 				view.action?id=${id}
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/descriptor/edit.vm
+				/view/module/descriptor/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -303,13 +303,13 @@
 		<action name="filter"
 			class="org.blueoxygen.cimande.descriptors.actions.DescriptorForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/descriptor/filter.vm
+				/view/module/descriptor/filter.vm
 			</result>
 		</action>
 		<action name="search"
 			class="org.blueoxygen.cimande.descriptors.actions.SearchDescriptor">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/descriptor/result.vm
+				/view/module/descriptor/result.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -318,7 +318,7 @@
 		<action name="delete"
 			class="org.blueoxygen.cimande.descriptors.actions.DeleteDescriptor">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/descriptor/deleteSuccess.vm
+				/view/module/descriptor/deleteSuccess.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -327,7 +327,7 @@
 		<action name="confirmDelete"
 			class="org.blueoxygen.cimande.descriptors.actions.ViewDescriptor">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/descriptor/confirmDelete.vm
+				/view/module/descriptor/confirmDelete.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -585,14 +585,14 @@
 		<action name="listModuleDescriptor"
 			class="org.blueoxygen.cimande.moduledescriptor.actions.ListModuleDescriptor">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/listModuleDescriptor.vm
+				/view/module/module_function/listModuleDescriptor.vm
 			</result>
 		</action>
 		<!-- End Descriptor -->
 		<action name="create"
 			class="org.blueoxygen.cimande.modulefunction.actions.ModuleFunctionForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/addModuleFunction.vm
+				/view/module/module_function/addModuleFunction.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -601,10 +601,10 @@
 		<action name="addModuleFunction"
 			class="org.blueoxygen.cimande.modulefunction.actions.AddModuleFunction">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/addSuccess.vm
+				/view/module/module_function/addSuccess.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/module_function/addModuleFunction.vm
+				/view/module/module_function/addModuleFunction.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -613,31 +613,31 @@
 		<action name="listModulePrivilage"
 			class="org.blueoxygen.cimande.modulefunction.actions.ListModulePrivilage">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/listModulePrivilage.vm
+				/view/module/module_function/listModulePrivilage.vm
 			</result>
 		</action>
 		<action name="listModuleFunction"
 			class="org.blueoxygen.cimande.modulefunction.actions.ListModuleFunction">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/listModuleFunction.vm
+				/view/module/module_function/listModuleFunction.vm
 			</result>
 		</action>
 		<action name="listThreadNumber"
 			class="org.blueoxygen.cimande.modulefunction.actions.ListModuleFunction">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/listThreadNumber.vm
+				/view/module/module_function/listThreadNumber.vm
 			</result>
 		</action>
 		<action name="filter"
 			class="org.blueoxygen.cimande.modulefunction.actions.ModuleFunctionForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/filterModuleFunction.vm
+				/view/module/module_function/filterModuleFunction.vm
 			</result>
 		</action>
 		<action name="searchModuleFunction"
 			class="org.blueoxygen.cimande.modulefunction.actions.SearchModuleFunction">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/resultModuleFunction.vm
+				/view/module/module_function/resultModuleFunction.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -646,7 +646,7 @@
 		<action name="viewModuleFunction"
 			class="org.blueoxygen.cimande.modulefunction.actions.ViewModuleFunction">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/viewModuleFunction.vm
+				/view/module/module_function/viewModuleFunction.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -655,7 +655,7 @@
 		<action name="confirmDeleteModuleFunction"
 			class="org.blueoxygen.cimande.modulefunction.actions.ViewModuleFunction">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/confirmDeleteModuleFunction.vm
+				/view/module/module_function/confirmDeleteModuleFunction.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -664,10 +664,10 @@
 		<action name="deleteModuleFunction"
 			class="org.blueoxygen.cimande.modulefunction.actions.DeleteModuleFunction">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/filterModuleFunction.vm
+				/view/module/module_function/filterModuleFunction.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/module_function/confirmDeleteModuleFunction.vm
+				/view/module/module_function/confirmDeleteModuleFunction.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -676,16 +676,16 @@
 		<action name="editModuleFunction"
 			class="org.blueoxygen.cimande.modulefunction.actions.ViewModuleFunction">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/editModuleFunction.vm
+				/view/module/module_function/editModuleFunction.vm
 			</result>
 		</action>
 		<action name="upDateModuleFunction"
 			class="org.blueoxygen.cimande.modulefunction.actions.UpDateModuleFunction">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/module_function/viewModuleFunction.vm
+				/view/module/module_function/viewModuleFunction.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/module_function/editModuleFunction.vm
+				/view/module/module_function/editModuleFunction.vm
 			</result>
 		</action>
 		<!-- End Module Function -->
@@ -696,28 +696,28 @@
 		<action name="create"
 			class="org.blueoxygen.cimande.role.actions.RoleForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/workflow_role/add.vm
+				/view/module/workflow_role/add.vm
 			</result>
 		</action>
 		<action name="add"
 			class="org.blueoxygen.cimande.role.actions.AddRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/workflow_role/addSuccess.vm
+				/view/module/workflow_role/addSuccess.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/workflow_role/add.vm
+				/view/module/workflow_role/add.vm
 			</result>
 		</action>
 		<action name="list"
 			class="org.blueoxygen.cimande.role.actions.ListRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/workflow_role/list.vm
+				/view/module/workflow_role/list.vm
 			</result>
 		</action>
 		<action name="confirmDelete"
 			class="org.blueoxygen.cimande.role.actions.ViewRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/workflow_role/confirmDelete.vm
+				/view/module/workflow_role/confirmDelete.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.vm
@@ -726,7 +726,7 @@
 		<action name="delete"
 			class="org.blueoxygen.cimande.role.actions.DeleteRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/workflow_role/deleteSuccess.vm
+				/view/module/workflow_role/deleteSuccess.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.vm
@@ -735,7 +735,7 @@
 		<action name="edit"
 			class="org.blueoxygen.cimande.role.actions.EditRoleLoad">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/workflow_role/edit.vm
+				/view/module/workflow_role/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -744,10 +744,10 @@
 		<action name="update"
 			class="org.blueoxygen.cimande.role.actions.EditRole">
 			<result name="success" type="redirect">
-				/WEB-INF/view/module/workflow_role/view.action?id=${id}
+				/view/module/workflow_role/view.action?id=${id}
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/workflow_role/edit.vm
+				/view/module/workflow_role/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -756,7 +756,7 @@
 		<action name="view"
 			class="org.blueoxygen.cimande.role.actions.ViewRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/workflow_role/view.vm
+				/view/module/workflow_role/view.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -765,7 +765,7 @@
 		<action name="filter"
 			class="org.blueoxygen.cimande.role.actions.RoleForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/workflow_role/filter.vm
+				/view/module/workflow_role/filter.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -774,7 +774,7 @@
 		<action name="search"
 			class="org.blueoxygen.cimande.role.actions.SearchRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/workflow_role/result.vm
+				/view/module/workflow_role/result.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -936,7 +936,7 @@
 		<action name="create"
 			class="org.blueoxygen.cimande.category.actions.CategoryForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/category/add.vm
+				/view/module/category/add.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -945,10 +945,10 @@
 		<action name="add"
 			class="org.blueoxygen.cimande.category.actions.AddCategory">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/category/addSuccess.vm
+				/view/module/category/addSuccess.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/category/add.vm
+				/view/module/category/add.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -957,28 +957,28 @@
 		<action name="list"
 			class="org.blueoxygen.cimande.category.actions.ListCategory">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/category/list.vm
+				/view/module/category/list.vm
 			</result>
 		</action>
 		<action name="listParentCode"
 			class="org.blueoxygen.cimande.category.actions.ListCategory">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/category/listParentCode.vm
+				/view/module/category/listParentCode.vm
 			</result>
 		</action>
 		<action name="filter"
 			class="org.blueoxygen.cimande.category.actions.CategoryForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/category/filter.vm
+				/view/module/category/filter.vm
 			</result>
 		</action>
 		<action name="search"
 			class="org.blueoxygen.cimande.category.actions.SearchCategory">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/category/result.vm
+				/view/module/category/result.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/category/filter.vm
+				/view/module/category/filter.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -987,7 +987,7 @@
 		<action name="view"
 			class="org.blueoxygen.cimande.category.actions.ViewCategory">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/category/view.vm
+				/view/module/category/view.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -996,7 +996,7 @@
 		<action name="confirmDelete"
 			class="org.blueoxygen.cimande.category.actions.ViewCategory">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/category/confirmDelete.vm
+				/view/module/category/confirmDelete.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1005,7 +1005,7 @@
 		<action name="delete"
 			class="org.blueoxygen.cimande.category.actions.DeleteCategory">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/category/deleteSuccess.vm
+				/view/module/category/deleteSuccess.vm
 			</result>
 			<result name="input" type="redirect">
 				delete.action?id=${id}
@@ -1017,22 +1017,22 @@
 		<action name="edit"
 			class="org.blueoxygen.cimande.category.actions.EditCategory">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/category/edit.vm
+				/view/module/category/edit.vm
 			</result>
 		</action>
 		<action name="update"
 			class="org.blueoxygen.cimande.category.actions.UpdateCategory">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/category/view.vm
+				/view/module/category/view.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/category/edit.vm
+				/view/module/category/edit.vm
 			</result>
 		</action>
 		<action name="listDescriptor"
 			class="org.blueoxygen.cimande.category.actions.ListCategoryDescriptor">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/category/listDescriptor.vm
+				/view/module/category/listDescriptor.vm
 			</result>
 		</action>
 	</package>
@@ -1042,7 +1042,7 @@
 		<action name="create"
 			class="org.blueoxygen.cimande.section.actions.SectionForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/section/add.vm
+				/view/module/section/add.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1051,10 +1051,10 @@
 		<action name="add"
 			class="org.blueoxygen.cimande.section.actions.AddSection">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/section/addSuccess.vm
+				/view/module/section/addSuccess.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/section/add.vm
+				/view/module/section/add.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1063,28 +1063,28 @@
 		<action name="list"
 			class="org.blueoxygen.cimande.section.actions.ListSection">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/section/list.vm
+				/view/module/section/list.vm
 			</result>
 		</action>
 		<action name="listParentCode"
 			class="org.blueoxygen.cimande.section.actions.ListSection">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/section/listParentCode.vm
+				/view/module/section/listParentCode.vm
 			</result>
 		</action>
 		<action name="filter"
 			class="org.blueoxygen.cimande.section.actions.SectionForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/section/filter.vm
+				/view/module/section/filter.vm
 			</result>
 		</action>
 		<action name="search"
 			class="org.blueoxygen.cimande.section.actions.SearchSection">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/section/result.vm
+				/view/module/section/result.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/section/filter.vm
+				/view/module/section/filter.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1093,7 +1093,7 @@
 		<action name="view"
 			class="org.blueoxygen.cimande.section.actions.ViewSection">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/section/view.vm
+				/view/module/section/view.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1102,7 +1102,7 @@
 		<action name="confirmDelete"
 			class="org.blueoxygen.cimande.section.actions.ViewSection">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/section/confirmDelete.vm
+				/view/module/section/confirmDelete.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1111,7 +1111,7 @@
 		<action name="delete"
 			class="org.blueoxygen.cimande.section.actions.DeleteSection">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/section/deleteSuccess.vm
+				/view/module/section/deleteSuccess.vm
 			</result>
 			<result name="input" type="redirect">
 				delete.action?id=${id}
@@ -1123,22 +1123,22 @@
 		<action name="edit"
 			class="org.blueoxygen.cimande.section.actions.EditSection">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/section/edit.vm
+				/view/module/section/edit.vm
 			</result>
 		</action>
 		<action name="update"
 			class="org.blueoxygen.cimande.section.actions.UpdateSection">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/section/view.vm
+				/view/module/section/view.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/section/edit.vm
+				/view/module/section/edit.vm
 			</result>
 		</action>
 		<action name="listDescriptor"
 			class="org.blueoxygen.cimande.section.actions.ListSectionDescriptor">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/section/listDescriptor.vm
+				/view/module/section/listDescriptor.vm
 			</result>
 		</action>
 	</package>
@@ -1148,16 +1148,16 @@
 		<action name="create"
 			class="org.blueoxygen.cimande.jobdescription.actions.JobDescForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/job_position/add.vm
+				/view/module/job_position/add.vm
 			</result>
 		</action>
 		<action name="add"
 			class="org.blueoxygen.cimande.jobdescription.actions.AddJobDesc">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/job_position/addSuccess.vm
+				/view/module/job_position/addSuccess.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/job_position/add.vm
+				/view/module/job_position/add.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1166,13 +1166,13 @@
 		<action name="list"
 			class="org.blueoxygen.cimande.jobdescription.actions.ListJobDesc">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/job_position/list.vm
+				/view/module/job_position/list.vm
 			</result>
 		</action>
 		<action name="view"
 			class="org.blueoxygen.cimande.jobdescription.actions.ViewJobDesc">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/job_position/view.vm
+				/view/module/job_position/view.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1181,7 +1181,7 @@
 		<action name="edit"
 			class="org.blueoxygen.cimande.jobdescription.actions.EditJobDescLoad">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/job_position/edit.vm
+				/view/module/job_position/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1193,7 +1193,7 @@
 				view.action?id=${id}
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/job_position/edit.vm
+				/view/module/job_position/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1202,13 +1202,13 @@
 		<action name="filter"
 			class="org.blueoxygen.cimande.jobdescription.actions.JobDescForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/job_position/filter.vm
+				/view/module/job_position/filter.vm
 			</result>
 		</action>
 		<action name="search"
 			class="org.blueoxygen.cimande.jobdescription.actions.SearchJobDesc">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/job_position/result.vm
+				/view/module/job_position/result.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1217,7 +1217,7 @@
 		<action name="delete"
 			class="org.blueoxygen.cimande.jobdescription.actions.DeleteJobDesc">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/job_position/deleteSuccess.vm
+				/view/module/job_position/deleteSuccess.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1226,7 +1226,7 @@
 		<action name="confirmDelete"
 			class="org.blueoxygen.cimande.jobdescription.actions.ViewJobDesc">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/job_position/confirmDelete.vm
+				/view/module/job_position/confirmDelete.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1239,16 +1239,16 @@
 		<action name="create"
 			class="org.blueoxygen.cimande.company.actions.CompanyForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/company/add.vm
+				/view/module/company/add.vm
 			</result>
 		</action>
 		<action name="add"
 			class="org.blueoxygen.cimande.company.actions.AddCompany">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/company/addSuccess.vm
+				/view/module/company/addSuccess.vm
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/company/add.vm
+				/view/module/company/add.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1257,7 +1257,7 @@
 		<action name="view"
 			class="org.blueoxygen.cimande.company.actions.ViewCompany">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/company/view.vm
+				/view/module/company/view.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1266,7 +1266,7 @@
 		<action name="edit"
 			class="org.blueoxygen.cimande.company.actions.EditCompanyLoad">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/company/edit.vm
+				/view/module/company/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1278,7 +1278,7 @@
 				view.action?id=${id}
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/company/edit.vm
+				/view/module/company/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1287,13 +1287,13 @@
 		<action name="filter"
 			class="org.blueoxygen.cimande.company.actions.CompanyForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/company/filter.vm
+				/view/module/company/filter.vm
 			</result>
 		</action>
 		<action name="search"
 			class="org.blueoxygen.cimande.company.actions.SearchCompany">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/company/result.vm
+				/view/module/company/result.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1302,7 +1302,7 @@
 		<action name="delete"
 			class="org.blueoxygen.cimande.company.actions.DeleteCompany">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/company/deleteSuccess.vm
+				/view/module/company/deleteSuccess.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1311,7 +1311,7 @@
 		<action name="confirmDelete"
 			class="org.blueoxygen.cimande.company.actions.ViewCompany">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/company/confirmDelete.vm
+				/view/module/company/confirmDelete.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1324,7 +1324,7 @@
 		<action name="list_privilage"
 			class="org.blueoxygen.cimande.role.actions.ListPrivilage">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role_privilage/list_privilage.vm
+				/view/module/role_privilage/list_privilage.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1334,7 +1334,7 @@
 			class="org.blueoxygen.cimande.role.actions.RoleAction"
 			method="doView">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role_privilage/view_privilage.vm
+				/view/module/role_privilage/view_privilage.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1361,7 +1361,7 @@
 		<action name="create"
 			class="org.blueoxygen.cimande.role.actions.RoleFilter">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role_privilage/filter_privilage.vm
+				/view/module/role_privilage/filter_privilage.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1370,7 +1370,7 @@
 		<action name="filter"
 			class="org.blueoxygen.cimande.role.actions.RoleFilter">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role_privilage/filter_privilage.vm
+				/view/module/role_privilage/filter_privilage.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1379,7 +1379,7 @@
 		<action name="search_privilage"
 			class="org.blueoxygen.cimande.role.actions.RoleFilter">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role_privilage/filter_privilage.vm
+				/view/module/role_privilage/filter_privilage.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1388,7 +1388,7 @@
 		<action name="confirmDelete"
 			class="org.blueoxygen.cimande.role.actions.ViewRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role_privilage/confirmDelete.vm
+				/view/module/role_privilage/confirmDelete.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.vm
@@ -1397,7 +1397,7 @@
 		<action name="delete"
 			class="org.blueoxygen.cimande.role.actions.DeleteRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role_privilage/deleteSuccess.vm
+				/view/module/role_privilage/deleteSuccess.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.vm
@@ -1406,7 +1406,7 @@
 		<action name="edit"
 			class="org.blueoxygen.cimande.role.actions.EditRoleLoad">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/role_privilage/edit.vm
+				/view/module/role_privilage/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1418,7 +1418,7 @@
 				view_privilage.action?id=${id}
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/role_privilage/edit.vm
+				/view/module/role_privilage/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1431,14 +1431,14 @@
 		<action name="edit"
 			class="org.blueoxygen.cimande.password.PasswordForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/password/form.vm
+				/view/module/password/form.vm
 			</result>
 		</action>
 
 		<action name="update"
 			class="org.blueoxygen.cimande.password.UpdatePassword">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/password/successUpdate.vm
+				/view/module/password/successUpdate.vm
 			</result>
 		</action>
 	</package>
@@ -1448,7 +1448,7 @@
 		<action name="create"
 			class="org.blueoxygen.cimande.security.usermanager.actions.UserForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/index.vm
+				/view/module/user/index.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1457,7 +1457,7 @@
 		<action name="filter"
 			class="org.blueoxygen.cimande.security.usermanager.actions.UserForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/search.vm
+				/view/module/user/search.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1466,32 +1466,32 @@
 		<action name="search"
 			class="org.blueoxygen.cimande.security.usermanager.actions.SearchUser">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/result.vm
+				/view/module/user/result.vm
 			</result>
 			<result name="error">/errors/notfound.jsp</result>
 		</action>
 		<action name="viewCompany"
 			class="org.blueoxygen.cimande.security.usermanager.actions.ViewListCompany">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/viewCompany.vm
+				/view/module/user/viewCompany.vm
 			</result>
 		</action>
 		<action name="viewJob"
 			class="org.blueoxygen.cimande.security.usermanager.actions.ViewJob">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/viewJob.vm
+				/view/module/user/viewJob.vm
 			</result>
 		</action>
 		<action name="viewRole"
 			class="org.blueoxygen.cimande.security.usermanager.actions.ViewRole">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/viewRole.vm
+				/view/module/user/viewRole.vm
 			</result>
 		</action>
 		<action name="viewSite"
 			class="org.blueoxygen.cimande.security.usermanager.actions.ViewSite">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/viewSite.vm
+				/view/module/user/viewSite.vm
 			</result>
 		</action>
 		<action name="add"
@@ -1500,7 +1500,7 @@
 				userrole.action?user.id=${user.id}
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/user/index.vm
+				/view/module/user/index.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1509,7 +1509,7 @@
 		<action name="userrole"
 			class="org.blueoxygen.cimande.security.usermanager.actions.UserRoleForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/AddUserRole.vm
+				/view/module/user/AddUserRole.vm
 			</result>
 		</action>
 		<action name="adduserrole"
@@ -1524,7 +1524,7 @@
 		<action name="usersite"
 			class="org.blueoxygen.cimande.security.usermanager.actions.UserSiteForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/AddUserSite.vm
+				/view/module/user/AddUserSite.vm
 			</result>
 		</action>
 		<action name="addusersite"
@@ -1539,13 +1539,13 @@
 		<action name="savesucces"
 			class="org.blueoxygen.cimande.security.usermanager.actions.UserForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/Success.vm
+				/view/module/user/Success.vm
 			</result>
 		</action>
 		<action name="confirmDelete"
 			class="org.blueoxygen.cimande.security.usermanager.actions.UserForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/confirmDelete.vm
+				/view/module/user/confirmDelete.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1554,7 +1554,7 @@
 		<action name="delete"
 			class="org.blueoxygen.cimande.security.usermanager.actions.DeleteUser">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/deleteSuccess.vm
+				/view/module/user/deleteSuccess.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1563,7 +1563,7 @@
 		<action name="view"
 			class="org.blueoxygen.cimande.security.usermanager.actions.UserForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/view.vm
+				/view/module/user/view.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1572,7 +1572,7 @@
 		<action name="edit"
 			class="org.blueoxygen.cimande.security.usermanager.actions.UserForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/user/edit.vm
+				/view/module/user/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1584,7 +1584,7 @@
 				view.action?id=${id}
 			</result>
 			<result name="input" type="velocity">
-				/WEB-INF/view/module/user/edit.vm
+				/view/module/user/edit.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1609,13 +1609,13 @@
 		<action name="create"
 			class="org.blueoxygen.cimande.rolesite.RoleSiteForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/rolemanager/rolelist.vm
+				/view/module/rolemanager/rolelist.vm
 			</result>
 		</action>
 		<action name="view"
 			class="org.blueoxygen.cimande.rolesite.RoleSiteForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/rolemanager/form.vm
+				/view/module/rolemanager/form.vm
 			</result>
 		</action>
 		<action name="save"
@@ -1639,13 +1639,13 @@
 		<action name="filter"
 			class="org.blueoxygen.cimande.rolesite.RoleSiteForm">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/rolemanager/search.vm
+				/view/module/rolemanager/search.vm
 			</result>
 		</action>
 		<action name="search"
 			class="org.blueoxygen.cimande.rolesite.SearchRoleSite">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/rolemanager/rolelist.vm
+				/view/module/rolemanager/rolelist.vm
 			</result>
 		</action>
 	</package>
@@ -1655,7 +1655,7 @@
 		<action name="create"
 			class="org.blueoxygen.cimande.security.rsp.actions.Master">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/rsp/rolelist.vm
+				/view/module/rsp/rolelist.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/notfound.jsp
@@ -1664,7 +1664,7 @@
 		<action name="sitelist"
 			class="org.blueoxygen.cimande.security.rsp.actions.Master">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/rsp/sitelist.vm
+				/view/module/rsp/sitelist.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1673,7 +1673,7 @@
 		<action name="master"
 			class="org.blueoxygen.cimande.security.rsp.actions.Master">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/rsp/master.vm
+				/view/module/rsp/master.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1688,13 +1688,13 @@
 		<action name="viewmfuntion"
 			class="org.blueoxygen.cimande.security.rsp.actions.ViewMod">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/rsp/viewmfunction.vm
+				/view/module/rsp/viewmfunction.vm
 			</result>
 		</action>
 		<action name="filter"
 			class="org.blueoxygen.cimande.security.rsp.actions.Master">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/rsp/search.vm
+				/view/module/rsp/search.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm
@@ -1709,7 +1709,7 @@
 		<action name="finish"
 			class="org.blueoxygen.cimande.security.rsp.actions.Master">
 			<result name="success" type="velocity">
-				/WEB-INF/view/module/rsp/addSuccess.vm
+				/view/module/rsp/addSuccess.vm
 			</result>
 			<result name="error" type="velocity">
 				/errors/errors.vm

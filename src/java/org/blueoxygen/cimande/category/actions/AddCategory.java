@@ -13,6 +13,9 @@ import java.util.Enumeration;
 import java.util.Iterator;
 
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.config.Result;
+import org.apache.struts2.config.Results;
+import org.apache.struts2.dispatcher.VelocityResult;
 import org.apache.struts2.dispatcher.multipart.MultiPartRequestWrapper;
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.category.Category;
@@ -24,7 +27,12 @@ import org.blueoxygen.cimande.security.SessionCredentialsAware;
  *
  * TODO To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Style - Code Templates
- */
+ 
+@Results({
+    @Result(name="success", value="/home.page", type=VelocityResult.class),
+    @Result(name="homeError", value="/homeError.page", type=VelocityResult.class)
+})
+*/
 public class AddCategory extends CategoryForm implements SessionCredentialsAware{
 	private SessionCredentials sess;
 	private String id="";
