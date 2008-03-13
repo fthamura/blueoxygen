@@ -23,9 +23,12 @@
     <property name="src.config.dir"   location="${src.dir}/config"/>
 
     <property name="build.dir" value="${basedir}"/>
-    <property name="build.dest.dir" value="${build.dir}/classes"/>
+    <property name="build.dest.dir" value="${build.dir}/buildclasses"/>
+	<!--
     <property name="build.dest.jar.dir" value="${basedir}/WebContent/WEB-INF/lib"/>
-
+    -->
+	<property name="build.dest.jar.dir" value="C:\blueoxygen\papaje-dev\WebContent\WEB-INF\lib"/>
+	
 	<property name="build.dest.dir" value="${build.dir}/classes"/>
 
     <property name="lib.dir" value="WebContent/WEB-INF/lib"/>   
@@ -258,7 +261,10 @@
     </target>
 
     <target name="create-jar" description="Create JAR" depends="compile">
-	
+        <echo>Copy struts xml files to classes</echo>
+ 		<copy todir="${build.dest.dir}">
+             <fileset dir="${src.java.dir}" includes="*"/>
+         </copy>
     <!-- Create Jar -->
     <jar
         jarfile="${build.dest.jar.dir}/${project.name}-${project.version}.jar" 
