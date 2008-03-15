@@ -7,7 +7,8 @@
     <!-- Give user a chance to override without editing this file 
          (and without typing -D each time they invoke a target) -->    
 
-    <property file="build.properties" />
+	   <property file="${basedir}/build/build.properties" />
+		<property file="${basedir}/build/db.properties" />
   
     <!-- Generic project properties -->
 
@@ -23,12 +24,17 @@
     <property name="src.config.dir"   location="${src.dir}/config"/>
 
     <property name="build.dir" value="${basedir}"/>
-    <property name="build.dest.dir" value="${build.dir}/buildclasses"/>
-	<!--
-    <property name="build.dest.jar.dir" value="${basedir}/WebContent/WEB-INF/lib"/>
-    -->
-	<property name="build.dest.jar.dir" value="C:\blueoxygen\papaje-dev\WebContent\WEB-INF\lib"/>
+    <property name="build.dest.dir" value="${build.dir}/generated/classes"/>
+	<!-- -->
+
+
 	
+    <property name="build.dest.jar.dir" value="${basedir}/WebContent/WEB-INF/lib"/>
+    
+
+	<!-- if you want to deploy to another lib 
+	<property name="build.dest.jar.dir" value="C:\blueoxygen\papaje\WebContent\WEB-INF\lib"/>
+	-->
 	<property name="build.dest.dir" value="${build.dir}/classes"/>
 
     <property name="lib.dir" value="WebContent/WEB-INF/lib"/>   
@@ -60,6 +66,7 @@
         <fileset dir="lib">
             <include name="*.jar"/>
         </fileset>
+    
 
     </path>
  
@@ -195,13 +202,7 @@
 	
     <target name="config" depends="build" description="Generate and assemble configuration">
     	<!--
-        <taskdef name="hibernatedoclet" classpathref="classpath" classname="xdoclet.modules.hibernate.HibernateDocletTask" />
-        <hibernatedoclet destDir="${build.dest.dir}" force="true" mergeDir="${src.java.dir}">
-            <fileset dir="${src.java.dir}">
-                <include name="**/*.java"/>
-            </fileset>
-            <hibernate destDir="${build.dest.dir}" version="3.0"/>
-        </hibernatedoclet
+
         
         <copy todir="${build.dest.dir}">
             <fileset dir="${src.config.dir}" includes="*"/>
@@ -215,13 +216,7 @@
     	</copy>
     	-->
     </target>
-	
-	<target name="onlyconfig" depends="build" description="Just assemble configuration">
-        <echo>Copy config files to classes</echo>
-		<copy todir="${build.dest.dir}">
-            <fileset dir="${src.config.dir}" includes="*"/>
-        </copy>
-    </target>
+
 
     <target name="update-schema" depends="config" description="Update the database schema">
         <path id="update.schema.classpath">
@@ -237,23 +232,32 @@
         <echo message="Cimande schema updated"/>
     </target>
 
-   <target name="create-schema"
-        description="Generates DB schema with hbm2ddl."
-        depends="update-schema">
-        <taskdef name="schemaexport"
-        classname="org.hibernate.tool.hbm2ddl.SchemaExportTask">
-        <classpath refid="update.schema.classpath"/>
-        </taskdef>
-        <!-- generate and export DB schema -->
-        <schemaexport
-            config="/hibernate.cfg.xml"
-            quiet="yes"
-            text="yes"
-            drop="no"
-            delimiter=";"
-            output="schema-export.sql"/>
-        <echo message="Cimande schema created"/>
+   <target name="create-schema" 
+   		description="Generates DB schema with hbm2ddl." 
+        depends="build">
+  
+   	<mkdir dir="${build.dir}/generated/sql"/>
+   	<taskdef classpathref="classpath"  name="hibernatetool" 
+   	classname="org.hibernate.tool.ant.HibernateToolTask" />
 
+
+   	            
+   	    
+   	<hibernatetool destdir="${build.dir}/generated/sql">
+   	 <annotationconfiguration
+   	  		configurationfile="${build.dir}/src/config/hibernate.cfg.xml"/>
+   		
+   	 	<!-- list exporters here -->
+        <!-- outputfilename="cimande-schema.ddl" -->
+   		
+   		<hbm2ddl 
+   			export="true" 
+   			update="true"
+   		 	delimiter=";"
+   		 	format="true"
+   		/>
+   	</hibernatetool>
+   	
     </target>
 
     <target name="compile" description="Compile Everything" depends="clean, init, build, config">
@@ -265,10 +269,43 @@
  		<copy todir="${build.dest.dir}">
              <fileset dir="${src.java.dir}" includes="*"/>
          </copy>
-    <!-- Create Jar -->
-    <jar
+    	<!-- Create Jar -->
+    	<jar
         jarfile="${build.dest.jar.dir}/${project.name}-${project.version}.jar" 
         basedir="${build.dest.dir}"       
         />
-    	</target>
+    </target>
+	
+	 <!-- =================================================================== -->
+	    <!-- Export from Database to XML                        -->
+	    <!-- =================================================================== -->
+	    <target name="dbexport" description="dump database to xml" depends="init">
+	    	<echo message="Dump Database to XML"/>
+	    	<mkdir dir="${build.dir}/generated/dbxml"/>
+	    	<taskdef classpathref="classpath" name="dbunit" classname="org.dbunit.ant.DbUnitTask"/>
+	    	<dbunit driver="${db.driver}"          
+	    			    	        url="${db.url}"          
+	    			    	        userid="${db.user}"          
+	    			    	        password="${db.password}">
+	    	   	
+	    	    <export dest="${build.dir}/src/sqlcimande-1.2.1-export.xml"/> 
+	    	</dbunit>
+	    </target>
+	
+	<!-- =================================================================== -->
+		    <!-- Import from XML to Database		-->
+		    <!-- =================================================================== -->
+		  
+	<target name="dbimport" description="fill database from xml" >
+		    	<echo message="Fill Dump Database to XML"/>
+
+		    	<taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask" classpathref="classpath" />
+		    	<dbunit driver="${db.driver}"          
+		    	        url="${db.url}"          
+		    	        userid="${db.user}"          
+		    	        password="${db.password}">
+		    		<operation type="INSERT" src="${build.dir}/src/sql/cimande-1.2.1-export.xml"/> 
+		  
+		    	</dbunit>
+		    </target>
 </project>

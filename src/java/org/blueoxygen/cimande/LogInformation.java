@@ -13,7 +13,11 @@ package org.blueoxygen.cimande;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+
+import org.blueoxygen.cimande.site.Site;
 
 
 
@@ -30,6 +34,7 @@ public class LogInformation {
 	private String createBy = "";
 	private String lastUpdateBy = "";
 	private int activeFlag;
+	private Site site;
 	public final static int ACTIVE = 1;
 	public final static int INACTIVE = 0;
 	
@@ -110,6 +115,15 @@ public class LogInformation {
 	@Transient	
 	public boolean isInactive() {
 		return (this.activeFlag == INACTIVE);
+	}
+	
+	@ManyToOne()
+	@JoinColumn(name="site_id")
+	public Site getSite() {
+		return site;
+	}
+	public void setSite(Site site) {
+		this.site = site;
 	}
 
 }

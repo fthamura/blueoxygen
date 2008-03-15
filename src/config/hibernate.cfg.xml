@@ -13,7 +13,7 @@
         <property name="hibernate.query.imports">org.blueoxygen.cimande.security</property>
         <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cimande-wx</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cimande</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">tulalit</property>
         <property name="hibernate.connection.pool_size">5</property>
@@ -25,26 +25,26 @@
         <property name="hibernate.cache.use_query_cache">false</property>
         <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
         
-
-   				<mapping class="org.blueoxygen.cimande.security.User"/>
+ 				<mapping class="org.blueoxygen.cimande.security.User"/>
+                <mapping class="org.blueoxygen.cimande.security.usermanager.UserSite"/>
+                <mapping class="org.blueoxygen.cimande.role.RoleSite"/>
+                <mapping class="org.blueoxygen.cimande.role.RoleSitePrivilage"/>
+                <mapping class="org.blueoxygen.cimande.role.UserRole"/>
+				
+				<mapping class="org.blueoxygen.cimande.security.User"/>
                 <mapping class="org.blueoxygen.cimande.role.Role"/>
                 <mapping class="org.blueoxygen.cimande.role.RolePrivilage"/>
                 <mapping class="org.blueoxygen.cimande.site.Site"/>
                 <mapping class="org.blueoxygen.cimande.role.RoleSite"/>
                 <mapping class="org.blueoxygen.cimande.descriptors.Collection"/>
                 <mapping class="org.blueoxygen.cimande.descriptors.Descriptor"/>
-                <mapping class="org.blueoxygen.cimande.descriptors.DescriptorGroup"/>
-                <mapping class="org.blueoxygen.cimande.descriptors.Wizard"/>
+   
                 <mapping class="org.blueoxygen.cimande.modulefunction.ModuleFunction"/>
                 <mapping class="org.blueoxygen.cimande.category.Category"/>
                 <mapping class="org.blueoxygen.cimande.section.Section"/>
                 <mapping class="org.blueoxygen.cimande.jobdescription.JobDesc"/>
                 <mapping class="org.blueoxygen.cimande.company.Company"/>
-                <mapping class="org.blueoxygen.cimande.skin.Skin"/>
-                <mapping class="org.blueoxygen.cimande.theme.Theme"/>
-                <mapping class="org.blueoxygen.cimande.template.TemplateObject"/>
-                <mapping class="org.blueoxygen.cimande.template.TemplateObjectDetail"/>
-                <mapping class="org.blueoxygen.cimande.template.Template"/>
+ 
                 
                 <mapping class="org.blueoxygen.cimande.gx.entity.GxTab"/>
                 <mapping class="org.blueoxygen.cimande.gx.entity.GxField"/>
@@ -53,8 +53,8 @@
                 <mapping class="org.blueoxygen.cimande.gx.entity.GxDroplistName"/>
                 <mapping class="org.blueoxygen.cimande.gx.entity.GxDroplistValue"/>
                 <mapping class="org.blueoxygen.cimande.gx.entity.GxWindow"/>
-
-
+				<mapping class="org.blueoxygen.cimande.gx.entity.GxWindowRole" />
+                <mapping class="org.blueoxygen.cimande.gx.entity.GxWindowRoleAccess"/>
 		
 	</session-factory>
 
