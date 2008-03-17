@@ -56,6 +56,7 @@
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
                 <prop key="hibernate.generate_statistics">false</prop>
                 <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.hbm2ddl">update</prop>
             </props>
         </property>
         <property name="eventListeners">

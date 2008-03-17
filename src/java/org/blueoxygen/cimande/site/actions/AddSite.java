@@ -52,7 +52,7 @@ public class AddSite extends SiteForm implements SessionCredentialsAware {
 		newSite.setNotify_email(getNotify_email());
 		newSite.setNotify_from(getNotify_from());
 		newSite.setNotify_message(getNotify_message());
-		newSite.setSite_headline(getSite_headline());
+//		newSite.setSite_headline(getSite_headline());
 
 		LogInformation log = new LogInformation();
 

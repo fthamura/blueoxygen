@@ -41,7 +41,7 @@ public class UpdateSite extends SiteForm implements SessionCredentialsAware {
 			site.setNotify_from(getNotify_from());
 			site.setNotify_message(getNotify_message());
 			site.setUrl_branding(getUrl_branding());
-			site.setSite_headline(getSite_headline());
+//			site.setSite_headline(getSite_headline());
 			site.setSite_url(getSite_url());
 			logInfo = site.getLogInformation();
 			logInfo.setLastUpdateBy(sess.getCurrentUser().getId());
