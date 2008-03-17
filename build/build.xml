@@ -59,15 +59,17 @@
     <!-- Builds Classpath                                                    -->
     <!-- =================================================================== -->
     <path id="classpath">
-        <fileset dir="${lib.dir}">
+        <!-- include all jar from WebContent library folder -->
+    	<fileset dir="${lib.dir}">
             <include name="*.jar"/>
         </fileset>
-	<!-- Generator Library such as XDoclet for compiling only-->
-        <fileset dir="lib">
+		
+        <fileset dir="${build.dir}/lib">
             <include name="*.jar"/>
         </fileset>
-    
-
+    	<!-- include generated classes directory to classpath -->
+    	<dirset dir="${build.dest.dir}" />
+    	        
     </path>
  
     <!-- =================================================================== -->
@@ -235,8 +237,9 @@
    <target name="create-schema" 
    		description="Generates DB schema with hbm2ddl." 
         depends="build">
-  
+  	<!--
    	<mkdir dir="${build.dir}/generated/sql"/>
+   	-->
    	<taskdef classpathref="classpath"  name="hibernatetool" 
    	classname="org.hibernate.tool.ant.HibernateToolTask" />
 
@@ -251,8 +254,9 @@
         <!-- outputfilename="cimande-schema.ddl" -->
    		
    		<hbm2ddl 
+   			
    			export="true" 
-   			update="true"
+   			drop="true"
    		 	delimiter=";"
    		 	format="true"
    		/>
@@ -288,7 +292,7 @@
 	    			    	        userid="${db.user}"          
 	    			    	        password="${db.password}">
 	    	   	
-	    	    <export dest="${build.dir}/src/sqlcimande-1.2.1-export.xml"/> 
+	    	    <export dest="${build.dir}/src/sql/cimande-1.2.1-export.xml"/> 
 	    	</dbunit>
 	    </target>
 	
@@ -304,7 +308,7 @@
 		    	        url="${db.url}"          
 		    	        userid="${db.user}"          
 		    	        password="${db.password}">
-		    		<operation type="INSERT" src="${build.dir}/src/sql/cimande-1.2.1-export.xml"/> 
+		    		<operation type="CLEAN_INSERT" src="${build.dir}/src/sql/cimande-1.2.1-export.xml"/> 
 		  
 		    	</dbunit>
 		    </target>

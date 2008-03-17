@@ -25,8 +25,6 @@ import org.blueoxygen.cimande.site.Site;
 /**
  * @author Umar Khatab umar@intercitra.com
  *
- * To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
  */
 public class LogInformation {
 	private Timestamp createDate = new Timestamp(0);
@@ -68,7 +66,6 @@ public class LogInformation {
 	}
 	/**
 	 * @return Returns the createDate.
-	 * @hibernate.property column="create_date"
 	 */
 	@Column(name="create_date")
 	public Timestamp getCreateDate() {
@@ -82,8 +79,7 @@ public class LogInformation {
 	}
 	/**
 	 * @return Returns the lastUpdateDate.
-	 * @hibernate.property column="update_date"
-	 * 
+ * 
 	 */
 	@Column(name="update_date")
 	public Timestamp getLastUpdateDate() {
@@ -95,9 +91,7 @@ public class LogInformation {
 	public void setLastUpdateDate(Timestamp lastUpdateDate) {
 		this.lastUpdateDate = lastUpdateDate;
 	}
-	/**
-	 * @hibernate.property column="active_flag"
-	 */
+
 	@Column(name="active_flag")
 	public int getActiveFlag() {
 		return activeFlag;

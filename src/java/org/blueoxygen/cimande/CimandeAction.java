@@ -12,13 +12,14 @@ package org.blueoxygen.cimande;
 
 
 
+import org.blueoxygen.cimande.security.User;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author Administrator
  *
- * To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
+
  */
 public class CimandeAction extends ActionSupport implements BlueOxygenSessionCredentialsAware{
 	
@@ -27,7 +28,7 @@ public class CimandeAction extends ActionSupport implements BlueOxygenSessionCre
 	public void setBlueOxygenSessionCredentials(BlueOxygenSessionCredentials sessionCredentials) {
 		this.sessionCredentials = sessionCredentials;
 	}
-	public BackendUser getBackendUser() {
+	public User getBackendUser() {
        return sessionCredentials.getBackendUser();
     }
 

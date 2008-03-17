@@ -9,7 +9,7 @@
     <session-factory name="Cimande">
 
         <!-- properties -->
-        <property name="hibernate.cglib.use_reflection_optimizer">true</property>
+        <property name="hibernate.bytecode.use_reflection_optimizer">true</property>
         <property name="hibernate.query.imports">org.blueoxygen.cimande.security</property>
         <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
@@ -25,10 +25,10 @@
         <property name="hibernate.cache.use_query_cache">false</property>
         <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
         
- 				<mapping class="org.blueoxygen.cimande.security.User"/>
+ 	
                 <mapping class="org.blueoxygen.cimande.security.usermanager.UserSite"/>
-                <mapping class="org.blueoxygen.cimande.role.RoleSite"/>
-                <mapping class="org.blueoxygen.cimande.role.RoleSitePrivilage"/>
+
+
                 <mapping class="org.blueoxygen.cimande.role.UserRole"/>
 				
 				<mapping class="org.blueoxygen.cimande.security.User"/>
