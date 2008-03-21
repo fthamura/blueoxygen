@@ -36,9 +36,10 @@
                 <mapping class="org.blueoxygen.cimande.role.RolePrivilage"/>
                 <mapping class="org.blueoxygen.cimande.site.Site"/>
                 <mapping class="org.blueoxygen.cimande.role.RoleSite"/>
-                <mapping class="org.blueoxygen.cimande.descriptors.Collection"/>
-                <mapping class="org.blueoxygen.cimande.descriptors.Descriptor"/>
-   
+                <mapping class="org.blueoxygen.cimande.role.RoleSitePrivilage"/>
+                <mapping class="org.blueoxygen.cimande.role.UserRole"/>
+				<mapping class="org.blueoxygen.cimande.descriptors.Descriptor"/>
+   				
                 <mapping class="org.blueoxygen.cimande.modulefunction.ModuleFunction"/>
                 <mapping class="org.blueoxygen.cimande.category.Category"/>
                 <mapping class="org.blueoxygen.cimande.section.Section"/>

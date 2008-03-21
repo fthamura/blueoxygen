@@ -24,8 +24,9 @@
     <property name="src.config.dir"   location="${src.dir}/config"/>
 
     <property name="build.dir" value="${basedir}"/>
+	<!-- 
     <property name="build.dest.dir" value="${build.dir}/generated/classes"/>
-	<!-- -->
+	-->
 
 
 	
@@ -220,7 +221,7 @@
     </target>
 
 
-    <target name="update-schema" depends="config" description="Update the database schema">
+    <target name="update-schema" depends="init, config" description="Update the database schema">
         <path id="update.schema.classpath">
             <path refid="classpath"/>
             <pathelement path="${build.dest.dir}"/>
@@ -230,13 +231,14 @@
         <taskdef name="update-schema" classpathref="update.schema.classpath"
                  classname="org.hibernate.tool.hbm2ddl.SchemaExportTask"/>
 
-        <update-schema quiet="no" text="no" drop="no" config="/hibernate.cfg.xml" />
+        <update-schema quiet="no" text="no" drop="no" 
+        	config="${build.dir}/src/config//hibernate.cfg.xml" />
         <echo message="Cimande schema updated"/>
     </target>
 
    <target name="create-schema" 
    		description="Generates DB schema with hbm2ddl." 
-        depends="build">
+        depends="init, build">
   	<!--
    	<mkdir dir="${build.dir}/generated/sql"/>
    	-->
@@ -254,7 +256,7 @@
         <!-- outputfilename="cimande-schema.ddl" -->
    		
    		<hbm2ddl 
-   			
+   			update="true"
    			export="true" 
    			drop="true"
    		 	delimiter=";"
@@ -283,10 +285,15 @@
 	 <!-- =================================================================== -->
 	    <!-- Export from Database to XML                        -->
 	    <!-- =================================================================== -->
-	    <target name="dbexport" description="dump database to xml" depends="init">
+	    <target name="dbexport" description="dump database to xml" >
 	    	<echo message="Dump Database to XML"/>
 	    	<mkdir dir="${build.dir}/generated/dbxml"/>
-	    	<taskdef classpathref="classpath" name="dbunit" classname="org.dbunit.ant.DbUnitTask"/>
+	    	<taskdef  
+	    			name="dbunit" 
+	    			classname="org.dbunit.ant.DbUnitTask"
+	    			classpathref="classpath"
+	    	/>
+	    	
 	    	<dbunit driver="${db.driver}"          
 	    			    	        url="${db.url}"          
 	    			    	        userid="${db.user}"          
@@ -301,14 +308,14 @@
 		    <!-- =================================================================== -->
 		  
 	<target name="dbimport" description="fill database from xml" >
-		    	<echo message="Fill Dump Database to XML"/>
+		    	<echo message="Fill Database from XML"/>
 
 		    	<taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask" classpathref="classpath" />
 		    	<dbunit driver="${db.driver}"          
 		    	        url="${db.url}"          
 		    	        userid="${db.user}"          
 		    	        password="${db.password}">
-		    		<operation type="CLEAN_INSERT" src="${build.dir}/src/sql/cimande-1.2.1-export.xml"/> 
+		    		<operation type="CLEAN_INSERT" src="${build.dir}/src/sql/cimande-1.2.0-export.xml"/> 
 		  
 		    	</dbunit>
 		    </target>
