@@ -15,7 +15,7 @@
     <property name="project.fullname" value="BlueOxygen Cimande Project"/>
     <property name="project.name" value="cimande"/>
     
-    <property name="project.version" value="1.2.1"/>      
+    <property name="project.version" value="1.2.2"/>      
     
     <!-- Directory settings -->
     <property name="src.dir" value="${basedir}/src"/>
@@ -29,13 +29,13 @@
 	-->
 
 
-	
-    <property name="build.dest.jar.dir" value="${basedir}/WebContent/WEB-INF/lib"/>
-    
-
 	<!-- if you want to deploy to another lib 
+		
+    <property name="build.dest.jar.dir" value="${basedir}/WebContent/WEB-INF/lib"/>
+    -->
+
 	<property name="build.dest.jar.dir" value="C:\blueoxygen\papaje\WebContent\WEB-INF\lib"/>
-	-->
+	
 	<property name="build.dest.dir" value="${build.dir}/classes"/>
 
     <property name="lib.dir" value="WebContent/WEB-INF/lib"/>   
@@ -299,7 +299,10 @@
 	    			    	        userid="${db.user}"          
 	    			    	        password="${db.password}">
 	    	   	
-	    	    <export dest="${build.dir}/src/sql/cimande-1.2.1-export.xml"/> 
+	    	    <export 
+	    	    	format="xml"
+	    	    	dest="${build.dir}/generated/dbxml/${project.name}-${project.version}-export.xml"/>
+	    	    	<!-- dest="${build.dir}/src/sql/${project.name}-${project.version}-export.xml"/> -->
 	    	</dbunit>
 	    </target>
 	
@@ -311,12 +314,19 @@
 		    	<echo message="Fill Database from XML"/>
 
 		    	<taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask" classpathref="classpath" />
-		    	<dbunit driver="${db.driver}"          
+		    	<dbunit driver="${db.driver}"
+		    		supportBatchStatement="false" 
 		    	        url="${db.url}"          
 		    	        userid="${db.user}"          
 		    	        password="${db.password}">
-		    		<operation type="CLEAN_INSERT" src="${build.dir}/src/sql/cimande-1.2.0-export.xml"/> 
-		  
+		    		<operation type="CLEAN_INSERT"
+					src="${build.dir}/src/sql/${project.name}-1.2.2-export.xml"/>
+
+		    			<!--
+		    			src="${build.dir}/generated/dbxml/${project.name}-${project.version}-export.xml"
+				
+		    			format="xml"/>
+							--> 		  
 		    	</dbunit>
-		    </target>
+	</target>
 </project>

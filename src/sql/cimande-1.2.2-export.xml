@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
+  
   <company active_flag="0" id="blueoxygen" name="BlueOxygen Tech" address="Wijaya Grand Center Blok H No. 41, 4fl Jakarta Selatan" state="Jakarta" zip_number="12830" telephone="4260933" faximile="4260933" website="www.blueoxygen.org" email="frans@blueoxygen.org" create_by="F162B448063A847" create_date="2003-02-07 16:51:14.0" update_date="2008-03-17 18:32:00.0"/>
   <site id="EE185CE0B82B41C1724F284685" name="Cimande Backend" description="Cimande Backend Site" title="" url_branding="" site_url="" admin_email="" notify_flag="1" notify_email="" notify_from="" notify_message="" active_flag="1" create_by="1" create_date="2002-07-05 09:48:26.0" update_by="1" update_date="2006-03-15 13:59:05.0" site_id="EE185CE0B82B41C1724F284685"/>
   <site id="ff808081151cf62001151cfc0584" name="GXAdmin" description="GXAdmin Site" title="" url_branding="" site_url="" admin_email="" notify_flag="1" notify_email="" notify_from="" notify_message="" active_flag="1" create_by="1" create_date="2007-09-19 15:56:59.0" update_by="1" update_date="2007-09-19 15:56:59.0"/>
@@ -33,11 +34,12 @@
   <descriptor id="ff808081152136f101152137b298" create_by="1" create_date="2007-09-20 11:40:39.0" update_by="1" update_date="2007-10-30 12:26:19.0" name="gx-table" description="GX2-Table" url_descriptor="" descriptor_flag="-1" active_flag="1" url_action="" type_flag="2"/>
   <descriptor id="ff808081153a8e6301153a90b1e9" create_by="1" create_date="2007-09-25 09:48:22.0" update_by="1" update_date="2007-10-30 12:26:19.0" name="gx-droplist" description="Droplist GX2" url_descriptor="" descriptor_flag="-1" active_flag="1" url_action="" type_flag="2"/>
   <descriptor id="ff808081163cbe8a01163cc1db2f0001" create_by="1" create_date="2007-11-14 13:04:05.0" update_by="1" update_date="2007-11-15 21:26:13.0" name="user" description="user" url_descriptor="" descriptor_flag="-1" active_flag="1" url_action="" type_flag="2"/>
-  
-  <module_function id="0" name="Master" description="Master" descriptor_id="1" ref_desc="id" viewall_flag="1" active_flag="1" create_date="2006-02-22 11:02:51.0" update_date="2008-03-17 18:29:48.0"/>
 
-  <module_function id="ff80808105a3a8ed0105a3b185a9" name="Site Manager" description="Site Manager" descriptor_id="1" iparent="0" ref_desc="id" viewall_flag="0" active_flag="1" create_by="1" create_date="2005-08-11 11:30:23.0" update_by="" update_date="2008-03-17 18:29:48.0" site_id="EE185CE0B82B41C1724F284685"/>
-  <module_function id="ff80808105a3a8ed0105a3b4137b" name="User Management" description="User Management" descriptor_id="1" iparent="ff80808105a3a8ed0105a3b185a9" ref_desc="id" viewall_flag="1" active_flag="1" create_by="1" create_date="2005-08-11 11:22:37.0" update_by="" update_date="2008-03-17 18:29:48.0" site_id="EE185CE0B82B41C1724F284685"/>
+ 
+  
+  <module_function id="ff80808105a3a8ed0105a3b185a9" iparent="0" name="Site Manager" description="Site Manager" site_id="EE185CE0B82B41C1724F284685" descriptor_id="1" ref_desc="id" viewall_flag="0" active_flag="1" create_by="1" create_date="2005-08-11 11:30:23.0" update_by="" update_date="2008-03-17 18:29:48.0" />
+ 
+  <module_function id="ff80808105a3a8ed0105a3b4137b" iparent="ff80808105a3a8ed0105a3b185a9" name="User Management" description="User Management" descriptor_id="1" ref_desc="id" viewall_flag="1" active_flag="1" create_by="1" create_date="2005-08-11 11:22:37.0" update_by="" update_date="2008-03-17 18:29:48.0" site_id="EE185CE0B82B41C1724F284685"/>
   <module_function id="ff80808105a3b96f0105a3bdf32c" name="Workflow Designer" description="Workflow Designer" descriptor_id="1" iparent="0" ref_desc="id" viewall_flag="1" active_flag="1" create_by="1" create_date="2005-08-11 11:30:31.0" update_by="" update_date="2008-03-17 18:29:48.0" site_id="EE185CE0B82B41C1724F284685"/>
   <module_function id="ff80808105a3b96f0105a3e1e581" name="Company" description="Company" descriptor_id="F332B5D5577E444B78297AFE84" iparent="ff80808105a3a8ed0105a3b4137b" ref_desc="id" viewall_flag="1" active_flag="1" create_by="1" create_date="2005-08-11 11:52:34.0" update_by="" update_date="2008-03-17 18:29:48.0"/>
   <module_function id="ff80808105a3b96f0105a3e418bd" name="Job Position" description="Job Position" descriptor_id="F2E587923AC44C8979FBF2F26C" iparent="ff80808105a3a8ed0105a3b4137b" ref_desc="id" viewall_flag="1" active_flag="1" create_by="1" create_date="2005-08-11 11:54:59.0" update_by="" update_date="2008-03-17 18:29:48.0"/>
@@ -57,7 +59,8 @@
   <module_function id="ff808081152136f1011521388462" name="GX2Table" description="Table" descriptor_id="ff808081152136f101152137b298" iparent="ff808081151cf62001151cfd6d90" ref_desc="" viewall_flag="1" active_flag="1" create_by="1" create_date="2007-10-11 11:46:45.0" update_by="" update_date="2008-03-17 18:29:48.0"/>
   <module_function id="ff808081153a8e6301153a926a5c" name="GX2Droplist" description="Droplist" descriptor_id="ff808081153a8e6301153a90b1e9" iparent="ff808081151cf62001151cfd6d90" ref_desc="" viewall_flag="1" active_flag="1" create_by="1" create_date="2007-10-11 11:46:40.0" update_by="" update_date="2008-03-17 18:29:48.0"/>
   <module_function id="ff808081163cbe8a01163cc2c2280002" name="user_mvc" description="User Manager Ver.2.1" descriptor_id="ff808081163cbe8a01163cc1db2f0001" iparent="ff80808105a3a8ed0105a3b4137b" ref_desc="" viewall_flag="1" active_flag="1" create_by="1" create_date="2007-11-14 13:05:04.0" update_by="" update_date="2008-03-17 18:29:48.0"/>
-
+	<module_function id="0" name="Master" description="Master" descriptor_id="1" ref_desc="id" site_id="EE185CE0B82B41C1724F284685" viewall_flag="1" active_flag="1" create_by="1" create_date="2007-11-14 13:04:05.0" update_by="1" update_date="2007-11-15 21:26:13.0" />
+ 
   <role_privilage id="ff80808105a521520105a52239c8" role_id="1" module_function_id="ff80808105a3b96f0105a3bdf32c" privilage_flag="1" create_by="" create_date="2008-03-17 18:12:34.0" update_by="" update_date="2008-03-17 18:12:34.0" active_flag="1"/>
   <role_privilage id="ff80808105a8de2e0105a8e066ce" role_id="1" module_function_id="ff80808105a3a8ed0105a3b185a9" privilage_flag="1" create_by="" create_date="2008-03-17 18:12:34.0" update_by="" update_date="2008-03-17 18:12:34.0" active_flag="1"/>
   <role_privilage id="ff808081151cf62001151d01a98b" role_id="2-gx" module_function_id="ff808081151cf62001151cfd6d90" privilage_flag="1" create_by="" create_date="2008-03-17 18:12:34.0" update_by="" update_date="2008-03-17 18:12:34.0" active_flag="1"/>
@@ -67,11 +70,10 @@
 
   <role_site_privilage id="a372f809-a96d-4ec5-a05e-d83c" role_site_id="e1802384-1353-49c3-9651-bab3" module_function_id="ff80808105a3a8ed0105a3b185a9" privilage_flag="1" rs_site_id="ff808081151cf62001151cfc0584" create_date="2007-09-19 16:03:32.0" update_date="2008-03-17 18:23:15.0" active_flag="1" />
   <role_site_privilage id="ff808081168fbd0301168fc0453c0002" role_site_id="ff808081168fbd0301168fc010a10001" module_function_id="ff80808105a3a8ed0105a3b185a9" privilage_flag="0" rs_site_id="EE185CE0B82B41C1724F284685" create_by="1" create_date="2007-11-30 15:50:50.0" update_by="1" update_date="2007-11-30 15:50:50.0" active_flag="1"/>
-  <role_site_privilage id="ff808081168fbd0301168fc07f770004" role_site_id="ff808081168fbd0301168fc010a10001" module_function_id="ff80808105a3a8ed0105a3b185a9" privilage_flag="0" rs_site_id="EE185CE0B82B41C1724F284685" create_by="1" create_date="2007-11-30 15:51:05.0" update_by="1" update_date="2007-11-30 15:51:05.0" active_flag="1"/>
+  <role_site_privilage id="ff808081168fbd0301168fc07f770004" role_site_id="ff808081168fbd0301168fc010a10001" module_function_id="ff808081151cf62001151cfd6d90" privilage_flag="0" rs_site_id="EE185CE0B82B41C1724F284685" create_by="1" create_date="2007-11-30 15:51:05.0" update_by="1" update_date="2007-11-30 15:51:05.0" active_flag="1"/>
   
   <user_role id="adaa9b6c-4f3a-489e-836a-179a" user_id="96f673bc-283e-4b75-b63d-6edc" role_id="2-gx" create_by="1" create_date="2007-09-19 16:04:47.0" update_date="2008-03-17 18:28:12.0" active_flag="1" />
   <user_role id="ff808081163dbc9001163dbd54820001" user_id="1" role_id="1" create_by="1" create_date="1970-01-01 07:00:00.0" update_by="1" update_date="2007-11-30 13:06:50.0" active_flag="0"/>
   <user_site id="2e660f2f-499b-4eb3-b05c-5699" user_id="96f673bc-283e-4b75-b63d-6edc" user_site_id="ff808081151cf62001151cfc0584" create_by="1" create_date="2007-09-19 16:04:47.0" update_date="2008-03-17 18:24:53.0" active_flag="1" site_id="EE185CE0B82B41C1724F284685"/>
   <user_site id="eeb" user_id="1" user_site_id="EE185CE0B82B41C1724F284685" create_by="1" create_date="2003-09-27 10:27:35.0" update_date="2008-03-17 18:24:53.0" active_flag="1" site_id="EE185CE0B82B41C1724F284685"/>
-
 </dataset>
