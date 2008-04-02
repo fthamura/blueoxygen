@@ -15,11 +15,11 @@
     <!--  cimande begin -->
     <context-param>
         <param-name>global_config</param-name>
-        <param-value>/WEB-INF/src/config/cimande.properties</param-value>
+        <param-value>/WEB-INF/classes/cimande.properties</param-value>
     </context-param>
     <context-param>
         <param-name>support_config</param-name>
-        <param-value>/WEB-INF/src/config/cimande.properties</param-value>
+        <param-value>/WEB-INF/classes/cimande.properties</param-value>
     </context-param>
 	
    <!--  cimande end -->
