@@ -2,16 +2,16 @@
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/j2ee/dtds/web-app_2_3.dtd">
 
 <web-app>
-
+    
     <display-name>cimande</display-name>
     <description>BlueOxygen Cimande Web App</description>
-	<!--=========================== SPRING CIMANDE ============================= -->
-	<context-param>
-	    <param-name>contextConfigLocation</param-name>
-	    <param-value>/WEB-INF/applicationContext*.xml</param-value>
-	</context-param>
-
-	<!--=========================== CONFIG CIMANDE ============================= -->
+    <!--=========================== SPRING CIMANDE ============================= -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext*.xml</param-value>
+    </context-param>
+    
+    <!--=========================== CONFIG CIMANDE ============================= -->
     <!--  cimande begin -->
     <context-param>
         <param-name>global_config</param-name>
@@ -21,19 +21,19 @@
         <param-name>support_config</param-name>
         <param-value>/WEB-INF/classes/cimande.properties</param-value>
     </context-param>
+    
+    <!--  cimande end -->
 	
-   <!--  cimande end -->
-	
-	<filter>
-		<filter-name>sitemesh</filter-name>
-		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
-	</filter>
-
+    <filter>
+        <filter-name>sitemesh</filter-name>
+        <filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+    </filter>
+    
     <filter>
         <filter-name>container</filter-name>
         <filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
     </filter>
-
+    
     <filter>
         <filter-name>security</filter-name>
         <filter-class>org.blueoxygen.cimande.security.SecurityFilter</filter-class>
@@ -41,7 +41,7 @@
     <filter>
         <filter-name>login</filter-name>
         <filter-class>org.blueoxygen.cimande.security.LoginFilter</filter-class>
-
+        
         <init-param>
             <param-name>loginPage</param-name>
             <param-value>/backend/user/index.action</param-value>
@@ -60,13 +60,13 @@
             <param-value>jpeg, gif, css</param-value>
         </init-param>
     </filter>
-	
-	<filter-mapping>
+    
+    <filter-mapping>
         <filter-name>login</filter-name>
         <url-pattern>/module/*</url-pattern>
     </filter-mapping>
-  
-	<filter-mapping>
+    
+    <filter-mapping>
         <filter-name>login</filter-name>
         <url-pattern>/frontpage/*</url-pattern>
     </filter-mapping>
@@ -75,18 +75,18 @@
         <filter-name>sitemesh</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+    
     <filter-mapping>
         <filter-name>container</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+    
     <!-- SPRING -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-
-	<listener>
+    
+    <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
     <!-- SPRING -->
@@ -97,21 +97,21 @@
         <load-on-startup>2</load-on-startup>
     </servlet>
 	 -->
-  	<!--  cimande SERVLET -->
+    <!--  cimande SERVLET -->
    	
-  	<!-- cimande end -->
+    <!-- cimande end -->
     <!-- 
     <servlet-mapping>
         <servlet-name>action</servlet-name>
         <url-pattern>*.action</url-pattern>
     </servlet-mapping>
 	 -->
-	<!-- cimande SERVLET MAPPING -->
+    <!-- cimande SERVLET MAPPING -->
 	
 
-	<!--  cimande end -->
-
-<!-- WEB SERVICE BEGIN- ->
+    <!--  cimande end -->
+    
+    <!-- WEB SERVICE BEGIN- ->
 	<servlet>
 		<servlet-name>AxisServlet</servlet-name>
 		<display-name>Apache-Axis Servlet</display-name>
@@ -153,30 +153,25 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-
+    
     <taglib>
         <taglib-uri>sitemesh-page</taglib-uri>
         <taglib-location>/WEB-INF/tld/sitemesh-page.tld</taglib-location>
     </taglib>
-
+    
     <taglib>
         <taglib-uri>sitemesh-decorator</taglib-uri>
         <taglib-location>/WEB-INF/tld/sitemesh-decorator.tld</taglib-location>
     </taglib>
-
+        
     <taglib>
-        <taglib-uri>struts-tags</taglib-uri>
-        <taglib-location>/WEB-INF/tld/struts-tags.tld</taglib-location>
-    </taglib>
-  
-	<taglib>
         <taglib-uri>http://jsptags.com/tags/navigation/pager</taglib-uri>
         <taglib-location>/WEB-INF/tld/pager-taglib.tld</taglib-location>
     </taglib>
-  
-	<taglib>
-		<taglib-uri>/tags/c</taglib-uri>
-		<taglib-location>/WEB-INF/tld/c.tld</taglib-location>
-	</taglib>
-
+    
+    <taglib>
+        <taglib-uri>/tags/c</taglib-uri>
+        <taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+    </taglib>
+    
 </web-app>

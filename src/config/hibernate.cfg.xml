@@ -1,62 +1,62 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 
 <hibernate-configuration>
-
+    
     <session-factory name="Cimande">
-
+        
         <!-- properties -->
         <property name="hibernate.bytecode.use_reflection_optimizer">true</property>
         <property name="hibernate.query.imports">org.blueoxygen.cimande.security</property>
         <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cimande</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">tulalit</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cimande?autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull</property>
+        <property name="hibernate.connection.username">cimande</property>
+        <property name="hibernate.connection.password">cimande</property>
         <property name="hibernate.connection.pool_size">5</property>
-		<property name="connection.autoReconnect">true</property>
-		<property name="connection.autoReconnectForPools">true</property>
-		<property name="connection.is-connection-validation-required">true</property>
+        <property name="connection.autoReconnect">true</property>
+        <property name="connection.autoReconnectForPools">true</property>
+        <property name="connection.is-connection-validation-required">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">false</property>
         <property name="hibernate.cache.use_query_cache">false</property>
         <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
         
- 	
-                <mapping class="org.blueoxygen.cimande.security.usermanager.UserSite"/>
-
-
-                <mapping class="org.blueoxygen.cimande.role.UserRole"/>
-				
-				<mapping class="org.blueoxygen.cimande.security.User"/>
-                <mapping class="org.blueoxygen.cimande.role.Role"/>
-                <mapping class="org.blueoxygen.cimande.role.RolePrivilage"/>
-                <mapping class="org.blueoxygen.cimande.site.Site"/>
-                <mapping class="org.blueoxygen.cimande.role.RoleSite"/>
-                <mapping class="org.blueoxygen.cimande.role.RoleSitePrivilage"/>
-                <mapping class="org.blueoxygen.cimande.role.UserRole"/>
-				<mapping class="org.blueoxygen.cimande.descriptors.Descriptor"/>
-   				
-                <mapping class="org.blueoxygen.cimande.modulefunction.ModuleFunction"/>
-                <mapping class="org.blueoxygen.cimande.category.Category"/>
-                <mapping class="org.blueoxygen.cimande.section.Section"/>
-                <mapping class="org.blueoxygen.cimande.jobdescription.JobDesc"/>
-                <mapping class="org.blueoxygen.cimande.company.Company"/>
- 
-                
-                <mapping class="org.blueoxygen.cimande.gx.entity.GxTab"/>
-                <mapping class="org.blueoxygen.cimande.gx.entity.GxField"/>
-                <mapping class="org.blueoxygen.cimande.gx.entity.GxTable"/>
-                <mapping class="org.blueoxygen.cimande.gx.entity.GxColumn"/>
-                <mapping class="org.blueoxygen.cimande.gx.entity.GxDroplistName"/>
-                <mapping class="org.blueoxygen.cimande.gx.entity.GxDroplistValue"/>
-                <mapping class="org.blueoxygen.cimande.gx.entity.GxWindow"/>
-				<mapping class="org.blueoxygen.cimande.gx.entity.GxWindowRole" />
-                <mapping class="org.blueoxygen.cimande.gx.entity.GxWindowRoleAccess"/>
-		
-	</session-factory>
-
+        
+        <mapping class="org.blueoxygen.cimande.security.usermanager.UserSite"/>
+        
+        
+        <mapping class="org.blueoxygen.cimande.role.UserRole"/>
+        
+        <mapping class="org.blueoxygen.cimande.security.User"/>
+        <mapping class="org.blueoxygen.cimande.role.Role"/>
+        <mapping class="org.blueoxygen.cimande.role.RolePrivilage"/>
+        <mapping class="org.blueoxygen.cimande.site.Site"/>
+        <mapping class="org.blueoxygen.cimande.role.RoleSite"/>
+        <mapping class="org.blueoxygen.cimande.role.RoleSitePrivilage"/>
+        <mapping class="org.blueoxygen.cimande.role.UserRole"/>
+        <mapping class="org.blueoxygen.cimande.descriptors.Descriptor"/>
+        
+        <mapping class="org.blueoxygen.cimande.modulefunction.ModuleFunction"/>
+        <mapping class="org.blueoxygen.cimande.category.Category"/>
+        <mapping class="org.blueoxygen.cimande.section.Section"/>
+        <mapping class="org.blueoxygen.cimande.jobdescription.JobDesc"/>
+        <mapping class="org.blueoxygen.cimande.company.Company"/>
+        
+        
+        <mapping class="org.blueoxygen.cimande.gx.entity.GxTab"/>
+        <mapping class="org.blueoxygen.cimande.gx.entity.GxField"/>
+        <mapping class="org.blueoxygen.cimande.gx.entity.GxTable"/>
+        <mapping class="org.blueoxygen.cimande.gx.entity.GxColumn"/>
+        <mapping class="org.blueoxygen.cimande.gx.entity.GxDroplistName"/>
+        <mapping class="org.blueoxygen.cimande.gx.entity.GxDroplistValue"/>
+        <mapping class="org.blueoxygen.cimande.gx.entity.GxWindow"/>
+        <mapping class="org.blueoxygen.cimande.gx.entity.GxWindowRole" />
+        <mapping class="org.blueoxygen.cimande.gx.entity.GxWindowRoleAccess"/>
+        
+    </session-factory>
+    
 </hibernate-configuration>
