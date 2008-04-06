@@ -164,6 +164,9 @@
         <taglib-location>/WEB-INF/tld/sitemesh-decorator.tld</taglib-location>
     </taglib>
         
+<<<<<<< .mine
+  
+=======
     <taglib>
         <taglib-uri>http://jsptags.com/tags/navigation/pager</taglib-uri>
         <taglib-location>/WEB-INF/tld/pager-taglib.tld</taglib-location>
@@ -174,4 +177,5 @@
         <taglib-location>/WEB-INF/tld/c.tld</taglib-location>
     </taglib>
     
+>>>>>>> .r304
 </web-app>
