@@ -29,13 +29,14 @@
 	-->
 
 
-	<!-- if you want to deploy to another lib 
 		
     <property name="build.dest.jar.dir" value="${basedir}/WebContent/WEB-INF/lib"/>
-    -->
-
+	<property name="build.dest.generated.dir" value="${basedir}/generated"/>
+	<!-- if you want to deploy to another lib 
+    
 	<property name="build.dest.jar.dir" value="C:\blueoxygen\papaje\WebContent\WEB-INF\lib"/>
-	
+	-->
+
 	<property name="build.dest.dir" value="${build.dir}/classes"/>
 
     <property name="lib.dir" value="WebContent/WEB-INF/lib"/>   
@@ -282,6 +283,16 @@
         />
     </target>
 	
+		    <target name="war" depends="create-jar" description="Create web-app WAR">
+        <war destfile="${build.dest.generated.dir}/${project.name}-${project.version}.war" webxml="${basedir}/WebContent/WEB-INF/web.xml">
+            <fileset dir="${basedir}/WebContent">
+               
+	     	</fileset>
+            
+            
+        </war>
+    </target>
+	
 	 <!-- =================================================================== -->
 	    <!-- Export from Database to XML                        -->
 	    <!-- =================================================================== -->
@@ -329,4 +340,6 @@
 							--> 		  
 		    	</dbunit>
 	</target>
+	
+
 </project>
