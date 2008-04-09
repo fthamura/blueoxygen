@@ -24,7 +24,7 @@
 	</package>
 
 	<include file="struts-cimande-gx.xml" />
-<!--	<include file="cimande-sample.xml"/>-->
+	
 	<!--Tree-->
 	<package name="tree" extends="default" namespace="/backend">
 		
@@ -1439,6 +1439,9 @@
 			class="org.blueoxygen.cimande.password.UpdatePassword">
 			<result name="success" type="velocity">
 				/view/module/password/successUpdate.vm
+			</result>
+			<result name="input" type="velocity">
+				/view/module/password/form.vm
 			</result>
 		</action>
 	</package>

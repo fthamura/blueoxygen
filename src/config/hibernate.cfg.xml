@@ -14,8 +14,8 @@
         <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cimande?autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull</property>
-        <property name="hibernate.connection.username">cimande</property>
-        <property name="hibernate.connection.password">cimande</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">tulalit</property>
         <property name="hibernate.connection.pool_size">5</property>
         <property name="connection.autoReconnect">true</property>
         <property name="connection.autoReconnectForPools">true</property>
@@ -27,7 +27,6 @@
         
         
         <mapping class="org.blueoxygen.cimande.security.usermanager.UserSite"/>
-        
         
         <mapping class="org.blueoxygen.cimande.role.UserRole"/>
         
@@ -45,7 +44,6 @@
         <mapping class="org.blueoxygen.cimande.section.Section"/>
         <mapping class="org.blueoxygen.cimande.jobdescription.JobDesc"/>
         <mapping class="org.blueoxygen.cimande.company.Company"/>
-        
         
         <mapping class="org.blueoxygen.cimande.gx.entity.GxTab"/>
         <mapping class="org.blueoxygen.cimande.gx.entity.GxField"/>
