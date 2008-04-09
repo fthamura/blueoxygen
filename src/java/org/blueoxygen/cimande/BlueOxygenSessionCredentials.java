@@ -34,7 +34,7 @@ public class BlueOxygenSessionCredentials implements PersistenceAware {
         String hashCode = (String )getSession().getAttribute("GA_USER");
         StringUtils stringUtils = new StringUtils();
         String memberId = stringUtils.decodeBase64(hashCode);
-        User user = (User) persistenceManager.getByPrimaryKey(User.class, memberId );
+        User user = (User) persistenceManager.getByUniqueField(User.class, memberId, "username");
         return user;
     }
     

@@ -40,7 +40,7 @@ public interface PersistenceManager {
     /**
      * Look up an object by primary key.
      */
-    Object getByPrimaryKey(Class type, Object pk);
+    Object getByUniqueField(Class type, Object pk, String fieldName);
 
     /**
      * Find all objects currently persisted of a particular type.
@@ -69,6 +69,6 @@ public interface PersistenceManager {
 	 */
 	Object getById(Class aClass, String id);
 	
-	List findUserbyName(String username);
+	
 	
 }

@@ -123,18 +123,6 @@ public class HibernatePersistenceManager implements PersistenceManager, Hibernat
         return findAllSorted(type, null);
     }
 
-    public List findUserbyName(String username) {
-        try {
-
-			Criteria crit = session.createCriteria(User.class);
-			crit.add(Expression.eq("username", new String(username)));
-			
-            return crit.list();
-        } catch (Exception e) {
-            throw new PersistenceException(e);
-        }
-    }
-
     public List findAllSorted(Class type, String sortField) {
         try {
             String query = "FROM " + type.getSimpleName() + " as result";
@@ -160,9 +148,11 @@ public class HibernatePersistenceManager implements PersistenceManager, Hibernat
             throw new PersistenceException(e);
         }
     }
-    public Object getByPrimaryKey(Class type, Object pk) {
-        try {
-            return session.load(type, (Serializable) pk);
+    public Object getByUniqueField(Class type, Object pk, String fieldName) {
+        Query query = session.createQuery("SELECT a FROM " + type.getName() + " a WHERE " + fieldName + "=:pk");
+        query.setParameter("pk", pk);
+    	try {
+            return query.uniqueResult();
         } catch (ObjectNotFoundException e) {
             return null;
         } catch (HibernateException e) {

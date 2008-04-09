@@ -21,6 +21,7 @@ import javax.persistence.Transient;
 
 import org.blueoxygen.cimande.DefaultPersistence;
 import org.blueoxygen.cimande.security.User;
+import org.hibernate.annotations.Type;
 
 /**
  * @author frans
