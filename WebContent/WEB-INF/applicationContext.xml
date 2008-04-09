@@ -17,13 +17,23 @@
     	<property name="hibernateSessionFactory" ref="sessionFactory"/>
     </bean>
     
+<!-- Use this UserAccessor implementation to use authentication from database -->
 	<bean 	id="userAccessor" 
 			class="org.blueoxygen.cimande.security.DefaultUserAccessor" 
 			singleton="false">
 		<property name="persistenceManager"><ref bean="persistenceManager"/></property>
 	</bean>
 			
-    <bean 	id="sessionCredentials" 
+<!-- Use this UserAccessor implementation to use authentication from ldap -->
+<!--
+    <bean 	id="userAccessor" 
+			class="org.blueoxygen.cimande.security.ldap.LDAPUserAccessor" 
+			singleton="false">
+		<property name="ldapTemplate"><ref bean="ldapTemplate"/></property>
+		<property name="persistenceManager"><ref bean="persistenceManager"/></property>
+	</bean>
+-->
+	<bean 	id="sessionCredentials" 
     		class="org.blueoxygen.cimande.security.HttpSessionCredentials" 
     		singleton="false">
 		<property name="userAccessor"><ref bean="userAccessor"/></property>

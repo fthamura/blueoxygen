@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="contextSource"
+        class="org.springframework.ldap.support.DirContextSource">
+        <property name="url" value="${ldap.url}" />
+        <property name="base" value="${ldap.base}" />
+        <property name="userName" value="${ldap.username}" />
+        <property name="password" value="${ldap.password}" />
+        <!--<property name="pool" value="true"/>-->
+    </bean>
+    <bean id="ldapTemplate" class="org.springframework.ldap.LdapTemplate">
+        <constructor-arg ref="contextSource" />
+    </bean>
+    
+</beans>
