@@ -11,24 +11,15 @@
 package org.blueoxygen.cimande.security.login;
 
 import org.blueoxygen.cimande.security.LoginFilter;
-import org.blueoxygen.cimande.security.UserAccessor;
-import org.blueoxygen.cimande.security.UserAccessorAware;
 
-import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 
-public class Logout implements Action, UserAccessorAware {
-    private UserAccessor ua;
+public class Logout extends LoginForm {
 
     public String execute() {
-        //ActionContext.getContext().getSession().put(LoginFilter.LOGIN_KEY, null);
-        //ActionContext.getContext().getSession().put(LoginFilter.LOGIN_USER, null);
         ActionContext.getContext().getSession().remove(LoginFilter.LOGIN_CIMANDE_USER);
         ActionContext.getContext().getSession().remove(LoginFilter.LOGIN_CIMANDE_SITE);
         return SUCCESS;
     }
 
-    public void setUserAccessor(UserAccessor ua) {
-        this.ua = ua;
-    }
 }

@@ -46,7 +46,7 @@ public class Signup extends ActionSupport implements ModelDriven, UserAccessorAw
     }
 
     public String execute() {
-        if (ua.getUser(user.getUsername()) == null) {
+        if (ua.getByUsername(user.getUsername()) == null) {
             ua.signup(user);
             return SUCCESS;
         } else {

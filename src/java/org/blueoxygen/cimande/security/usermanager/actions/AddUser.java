@@ -6,8 +6,6 @@ package org.blueoxygen.cimande.security.usermanager.actions;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Timestamp;
 
-import javax.swing.JFrame;
-
 import org.apache.commons.beanutils.PropertyUtils;
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.company.Company;
