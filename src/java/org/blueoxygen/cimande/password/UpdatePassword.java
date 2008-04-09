@@ -3,14 +3,14 @@ package org.blueoxygen.cimande.password;
 import java.sql.Timestamp;
 
 import org.blueoxygen.cimande.LogInformation;
-import org.blueoxygen.cimande.security.SessionCredentials;
-import org.blueoxygen.cimande.security.SessionCredentialsAware;
 import org.blueoxygen.cimande.security.User;
+import org.blueoxygen.cimande.security.UserAccessor;
+import org.blueoxygen.cimande.security.UserAccessorAware;
 import org.blueoxygen.util.StringUtils;
 
-public class UpdatePassword extends PasswordForm implements SessionCredentialsAware{
-	private SessionCredentials sess;
+public class UpdatePassword extends PasswordForm implements UserAccessorAware {
 	private StringUtils su = new StringUtils();
+	private UserAccessor ua;
 	public String execute(){
 		if(getCurrPassword() == null || "".equals(getCurrPassword())){
 			addActionError("Your Old Password is Empty");
@@ -38,13 +38,12 @@ public class UpdatePassword extends PasswordForm implements SessionCredentialsAw
 		user.setPassword(su.encodeBase64(getNewPassword()));
 		user.setLogInformation(logInfo);
 		
-		getManager().save(user);
+		ua.update(user);
 		
 		return SUCCESS;
 	}
-	public void setSessionCredentials(SessionCredentials sessionCredentials) {
-		this.sess = sessionCredentials;
-		
+	public void setUserAccessor(UserAccessor ua) {
+		this.ua = ua;
 	}
 
 }
