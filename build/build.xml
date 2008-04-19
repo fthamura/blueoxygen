@@ -35,8 +35,8 @@
 	<property name="build.dest.bundle.dir" value="${build.dest.generated.dir}/bundle"/>		
 	    
     <property name="build.dest.jar.dir" value="${basedir}/generated/bundle"/>
-	<property name="build.dest.dir" value="${build.dest.generated.dir}/jar/classes"/>
-	<property name="build.dest.view.dir" value="${build.dest.generated.dir}/jar/view"/>
+	<property name="build.dest.dir" value="${build.dest.generated.dir}/classes"/>
+	<property name="build.dest.view.dir" value="${build.dest.generated.dir}/classes/view"/>
 	
     <property name="lib.dir" value="WebContent/WEB-INF/lib"/>   
     <property name="docs.dir" value="${build.dest.generated.dir}/docs"/>
@@ -297,7 +297,7 @@
     	<!-- Create Jar -->
     	<jar
         jarfile="${build.dest.jar.dir}/${project.name}-${project.version}.jar" 
-        basedir="${build.dest.generated.dir}/jar"       
+        basedir="${build.dest.generated.dir}/classes"       
         />
     </target>
 	
@@ -322,22 +322,29 @@
 		<copy todir="${build.dest.blank.dir}/src/sql">
     	            <fileset dir="${build.dir}/src/sql" includes="*.sql"/>
     	</copy>
-		<mkdir dir="${build.dest.blank.dir}/WebContent"/>
-
+		
 		<echo message="Copying eclipse project"/>
+		<mkdir dir="${build.dest.blank.dir}/.settings"/>
+		<copy todir="${build.dest.blank.dir}/.settings">
+		    <fileset dir="${build.dir}/.settings" includes="*"/>
+		</copy>
+				
 		<copy todir="${build.dest.blank.dir}">
     	    <fileset dir="${build.dir}" includes=".classpath"/>
 			<fileset dir="${build.dir}" includes=".packaging"/>
     	    <fileset dir="${build.dir}" includes=".project"/>
     	</copy>
 		
+		
 		<echo message="Copying WebContent to blank"/>
-        <copy todir="${build.dest.blank.dir}/WebContent">
+		<mkdir dir="${build.dest.blank.dir}/WebContent"/>
+
+		<copy todir="${build.dest.blank.dir}/WebContent">
     	            <fileset dir="${build.dir}/WebContent" />
     	</copy>
 		
 		<jar
-			jarfile="${build.dest.bundle.dir}/${project.name}-${project.version}-blank-container.zip" 
+			jarfile="${build.dest.bundle.dir}/${project.name}-${project.version}-sdk.zip" 
 			basedir="${build.dest.blank.dir}"       
         />
 
