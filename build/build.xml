@@ -2,7 +2,7 @@
 
 <!-- Build file for BlueOxygen  -->
 
-<project name="cimande" default="compile" basedir="..">
+<project name="cimande" default="war" basedir="..">
 
     <!-- Give user a chance to override without editing this file 
          (and without typing -D each time they invoke a target) -->    
@@ -15,7 +15,7 @@
     <property name="project.fullname" value="BlueOxygen Cimande Project"/>
     <property name="project.name" value="cimande"/>
     
-    <property name="project.version" value="1.2.2"/>      
+    <property name="project.version" value="1.2.3"/>      
     
     <!-- Directory settings -->
     <property name="src.dir" value="${basedir}/src"/>
@@ -25,22 +25,21 @@
 
     <property name="build.dir" value="${basedir}"/>
 	<!-- 
-    <property name="build.dest.dir" value="${build.dir}/generated/classes"/>
+    <property name="build.dest.dir" value="${build.dir}/classes"/>
 	-->
 
 
-		
-    <property name="build.dest.jar.dir" value="${basedir}/WebContent/WEB-INF/lib"/>
 	<property name="build.dest.generated.dir" value="${basedir}/generated"/>
-	<!-- if you want to deploy to another lib 
-    
-	<property name="build.dest.jar.dir" value="C:\blueoxygen\papaje\WebContent\WEB-INF\lib"/>
-	-->
-
-	<property name="build.dest.dir" value="${build.dir}/classes"/>
-
+	
+	<property name="build.dest.blank.dir" value="${build.dest.generated.dir}/blank"/>
+	<property name="build.dest.bundle.dir" value="${build.dest.generated.dir}/bundle"/>		
+	    
+    <property name="build.dest.jar.dir" value="${basedir}/generated/bundle"/>
+	<property name="build.dest.dir" value="${build.dest.generated.dir}/jar/classes"/>
+	<property name="build.dest.view.dir" value="${build.dest.generated.dir}/jar/view"/>
+	
     <property name="lib.dir" value="WebContent/WEB-INF/lib"/>   
-    <property name="docs.dir" value="docs"/>
+    <property name="docs.dir" value="${build.dest.generated.dir}/docs"/>
     <property name="javadocs.destdir" value="${docs.dir}/api"/>
     <property name="release.dir" value="${project.name}-${project.version}/"/>    
     <property name="install.war" value="${build.dir}/webapp"/>
@@ -122,17 +121,9 @@
     <!-- =================================================================== -->
     <target name="clean" description="Cleans up the distribution" >
     	<echo message="Clean out the output directories"/>
-    	<delete quiet="true" includeEmptyDirs="true" failonerror="false">
-        	<fileset dir="${build.dest.dir}" />
-        	
+    	<delete quiet="false" includeEmptyDirs="true" failonerror="false">
+        	<fileset dir="${build.dest.generated.dir}" />
         </delete>
-    </target>
-
-    <!-- =================================================================== -->
-    <!-- Get the latest source code from the CVS tree                        -->
-    <!-- =================================================================== -->
-    <target name="fetch" description="Get the latest source from the CVS tree" >
-    	<echo message="Get the latest source from the CVS tree"/>
     </target>
 
     <!-- =================================================================== -->
@@ -156,11 +147,7 @@
             deprecation="${deprecation}"
             optimize="${optimize}">            
         </javac>
-    	<mkdir dir="${build.dest.dir}/view"/>
-        <copy todir="${build.dest.dir}/view">
-            <fileset dir="${src.view.dir}" />
-        </copy>
-                   
+    	           
     </target>
 
     <!-- =================================================================== -->
@@ -190,7 +177,7 @@
     </target>
 
     <!-- =================================================================== -->
-    <!-- Ship the JARs, WARs and soon to the execution                       -->
+    <!-- Ship the WARs and soon to the execution                       -->
     <!-- =================================================================== -->
     <target name="deploy" description="Ship the binary to the execution" >
     	<echo message="Deploying the code"/>
@@ -204,25 +191,8 @@
     </target>
 
 	
-    <target name="config" depends="build" description="Generate and assemble configuration">
-    	<!--
 
-        
-        <copy todir="${build.dest.dir}">
-            <fileset dir="${src.config.dir}" includes="*"/>
-        </copy>
-    	
-        <copy todir="${build.dest.dir}">
-            <fileset dir="${src.java.dir}" includes="**/*.xml"/>
-        </copy>
-    	<copy todir="${build.dest.dir}">
-    	            <fileset dir="${src.java.dir}" includes="**/*.properties"/>
-    	</copy>
-    	-->
-    </target>
-
-
-    <target name="update-schema" depends="init, config" description="Update the database schema">
+    <target name="update-schema" depends="init" description="Update the database schema">
         <path id="update.schema.classpath">
             <path refid="classpath"/>
             <pathelement path="${build.dest.dir}"/>
@@ -245,9 +215,6 @@
    	-->
    	<taskdef classpathref="classpath"  name="hibernatetool" 
    	classname="org.hibernate.tool.ant.HibernateToolTask" />
-
-
-   	            
    	    
    	<hibernatetool destdir="${build.dir}/generated/sql">
    	 <annotationconfiguration
@@ -255,7 +222,6 @@
    		
    	 	<!-- list exporters here -->
         <!-- outputfilename="cimande-schema.ddl" -->
-   		
    		<hbm2ddl 
    			update="true"
    			export="true" 
@@ -267,31 +233,6 @@
    	
     </target>
 
-    <target name="compile" description="Compile Everything" depends="clean, init, build, config">
-		
-    </target>
-
-    <target name="create-jar" description="Create JAR" depends="compile">
-        <echo>Copy struts xml files to classes</echo>
- 		<copy todir="${build.dest.dir}">
-             <fileset dir="${src.java.dir}" includes="*"/>
-         </copy>
-    	<!-- Create Jar -->
-    	<jar
-        jarfile="${build.dest.jar.dir}/${project.name}-${project.version}.jar" 
-        basedir="${build.dest.dir}"       
-        />
-    </target>
-	
-		    <target name="war" depends="create-jar" description="Create web-app WAR">
-        <war destfile="${build.dest.generated.dir}/${project.name}-${project.version}.war" webxml="${basedir}/WebContent/WEB-INF/web.xml">
-            <fileset dir="${basedir}/WebContent">
-               
-	     	</fileset>
-            
-            
-        </war>
-    </target>
 	
 	 <!-- =================================================================== -->
 	    <!-- Export from Database to XML                        -->
@@ -331,7 +272,7 @@
 		    	        userid="${db.user}"          
 		    	        password="${db.password}">
 		    		<operation type="CLEAN_INSERT"
-					src="${build.dir}/src/sql/${project.name}-1.2.2-export.xml"/>
+					src="${build.dir}/src/sql/${project.name}-${project.version}-export.xml"/>
 
 		    			<!--
 		    			src="${build.dir}/generated/dbxml/${project.name}-${project.version}-export.xml"
@@ -340,6 +281,78 @@
 							--> 		  
 		    	</dbunit>
 	</target>
+    <target name="create-jar" depends="build" description="Create JAR" >
+    	<echo>Copy template files </echo>
+    	<mkdir dir="${build.dest.view.dir}"/>
+    	<copy todir="${build.dest.view.dir}">
+    		<fileset dir="${src.view.dir}" />
+    	</copy>
+    	        
+    	<echo>Copy struts xml files to classes</echo>
+    	<mkdir dir="${build.dest.bundle.dir}"/>
+    			
+ 		<copy todir="${build.dest.dir}">
+             <fileset dir="${src.java.dir}" includes="*.xml"/>
+         </copy>
+    	<!-- Create Jar -->
+    	<jar
+        jarfile="${build.dest.jar.dir}/${project.name}-${project.version}.jar" 
+        basedir="${build.dest.generated.dir}/jar"       
+        />
+    </target>
 	
+	<target name="create-sdk-bundle" depends="create-jar" description="Generate and assemble configuration">
+		
+		<copy todir="${build.dest.blank.dir}/WebContent/WEB-INF/lib">
+		    <fileset dir="${build.dest.jar.dir}" includes="${project.name}-${project.version}.jar"/>
+		</copy>
+				
+		<mkdir dir="${build.dest.blank.dir}/src/config"/>
+		
+		<copy todir="${build.dest.blank.dir}/src/config">
+    	            <fileset dir="${build.dir}/src/config" />
+    	</copy>
+		
+		<mkdir dir="${build.dest.blank.dir}/src/java"/>
+		<mkdir dir="${build.dest.blank.dir}/src/template"/>
+		<mkdir dir="${build.dest.blank.dir}/src/sql"/>
+
+		<echo message="Copying .sql to blank/src/sql"/>
+
+		<copy todir="${build.dest.blank.dir}/src/sql">
+    	            <fileset dir="${build.dir}/src/sql" includes="*.sql"/>
+    	</copy>
+		<mkdir dir="${build.dest.blank.dir}/WebContent"/>
+
+		<echo message="Copying eclipse project"/>
+		<copy todir="${build.dest.blank.dir}">
+    	    <fileset dir="${build.dir}" includes=".classpath"/>
+			<fileset dir="${build.dir}" includes=".packaging"/>
+    	    <fileset dir="${build.dir}" includes=".project"/>
+    	</copy>
+		
+		<echo message="Copying WebContent to blank"/>
+        <copy todir="${build.dest.blank.dir}/WebContent">
+    	            <fileset dir="${build.dir}/WebContent" />
+    	</copy>
+		
+		<jar
+			jarfile="${build.dest.bundle.dir}/${project.name}-${project.version}-blank-container.zip" 
+			basedir="${build.dest.blank.dir}"       
+        />
+
+    </target>
+	
+	<target name="war" depends="create-sdk-bundle" description="Create web-app WAR">
+			<mkdir dir="${build.dest.blank.dir}/WebContent/WEB-INF/classes"/>
+			<copy todir="${build.dest.blank.dir}/WebContent/WEB-INF/classes">
+		    	<fileset dir="${build.dir}/src/config" />
+		    </copy>
+				
+        	<war destfile="${build.dest.bundle.dir}/${project.name}-${project.version}.war" webxml="${build.dest.blank.dir}/WebContent/WEB-INF/web.xml">
+            <fileset dir="${build.dest.blank.dir}/WebContent">
+            </fileset>
+        </war>
+    </target>
 
 </project>
