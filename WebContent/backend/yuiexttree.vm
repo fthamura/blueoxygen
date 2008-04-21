@@ -1,8 +1,8 @@
 <html lang="en">
 <head>
   <title>Welcome to BlueOxygen Cimande</title>
-    <link rel="stylesheet" type="text/css" href="../jscript/ext/docs/resources/collapser.css"></link>
-	<link rel="stylesheet" type="text/css" href="../jscript/ext/docs/resources/docs.css"></link>
+    <link rel="stylesheet" type="text/css" href="docs/resources/collapser.css"></link>
+	<link rel="stylesheet" type="text/css" href="docs/resources/docs.css"></link>
 </head>
 <body scroll="no" id="docs">
 
@@ -17,7 +17,7 @@
     <script type="text/javascript" src="../jscript/ext/ext-all.js"></script>
     <link rel="stylesheet" type="text/css" href="../jscript/ext/resources/css/ext-all.css" />
 
-    <script type="text/javascript" src="resources/docs.js"></script>
+    <script type="text/javascript" src="doc/resources/docs.js"></script>
 	
   <div id="header" class="ylayout-inactive-content">
 	<div style="padding-top:0px;"><table width="100%"><tr width="100%">
