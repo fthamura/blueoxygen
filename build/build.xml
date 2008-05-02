@@ -15,7 +15,7 @@
     <property name="project.fullname" value="BlueOxygen Cimande Project"/>
     <property name="project.name" value="cimande"/>
     
-    <property name="project.version" value="1.2.3"/>      
+    <property name="project.version" value="1.2.3.1"/>      
     
     <!-- Directory settings -->
     <property name="src.dir" value="${basedir}/src"/>
@@ -264,7 +264,6 @@
 		  
 	<target name="dbimport" description="fill database from xml" >
 		    	<echo message="Fill Database from XML"/>
-
 		    	<taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask" classpathref="classpath" />
 		    	<dbunit driver="${db.driver}"
 		    		supportBatchStatement="false" 
@@ -273,15 +272,24 @@
 		    	        password="${db.password}">
 		    		<operation type="CLEAN_INSERT"
 					src="${build.dir}/src/sql/${project.name}-${project.version}-export.xml"/>
-
-		    			<!--
-		    			src="${build.dir}/generated/dbxml/${project.name}-${project.version}-export.xml"
-				
-		    			format="xml"/>
-							--> 		  
+ 
 		    	</dbunit>
 	</target>
-    <target name="create-jar" depends="build" description="Create JAR" >
+	<target name="dbimport-core" description="fill database from xml" >
+		    	<echo message="Fill Database from XML"/>
+		    	<taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask" classpathref="classpath" />
+		    	<dbunit driver="${db.driver}"
+		    		supportBatchStatement="false" 
+		    	        url="${db.url}"          
+		    	        userid="${db.user}"          
+		    	        password="${db.password}">
+		    		<operation type="CLEAN_INSERT"
+					src="${build.dir}/src/sql/cimande-1.2.3-export.xml"/>
+ 
+		    	</dbunit>
+	</target>
+
+	<target name="create-jar" depends="build" description="Create JAR" >
     	<echo>Copy template files </echo>
     	<mkdir dir="${build.dest.view.dir}"/>
     	<copy todir="${build.dest.view.dir}">
@@ -342,6 +350,20 @@
 		<copy todir="${build.dest.blank.dir}/WebContent">
     	            <fileset dir="${build.dir}/WebContent" />
     	</copy>
+		
+		<echo message="Copying ant build to blank"/>
+		<mkdir dir="${build.dest.blank.dir}/build"/>
+
+		<copy todir="${build.dest.blank.dir}/build">
+			<fileset dir="${build.dir}/build" excludes="spy.log" />
+		</copy>
+		
+		<echo message="Copying build lib to blank"/>
+		<mkdir dir="${build.dest.blank.dir}/lib"/>
+
+		<copy todir="${build.dest.blank.dir}/lib">
+			<fileset dir="${build.dir}/lib" />
+		</copy>
 		
 		<jar
 			jarfile="${build.dest.bundle.dir}/${project.name}-${project.version}-sdk.zip" 

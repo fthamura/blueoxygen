@@ -1,8 +1,8 @@
 <html lang="en">
 <head>
   <title>BlueOxygen Cimande Workspace Project</title>
-    <link rel="stylesheet" type="text/css" href="../jscript/ext/docs/resources/collapser.css"></link>
-	<link rel="stylesheet" type="text/css" href="../jscript/ext/docs/resources/docs.css"></link>
+    <link rel="stylesheet" type="text/css" href="resources/collapser.css"></link>
+	<link rel="stylesheet" type="text/css" href="resources/docs.css"></link>
 </head>
 <body scroll="no" id="docs">
 
@@ -31,7 +31,7 @@
   <div id="classes" class="ylayout-inactive-content">
 	  <!-- BEGIN TREE -->
       
-		<!--start-->
+		<!--start  -->
 		$tree_script
 		<!--finish-->
 		

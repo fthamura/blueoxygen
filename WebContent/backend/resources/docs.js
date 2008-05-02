@@ -1,3 +1,5 @@
+Ext.BLANK_IMAGE_URL = 'js/ext/resources/images/default/s.gif';
+
 var Docs = function(){
     var layout, center;
     
