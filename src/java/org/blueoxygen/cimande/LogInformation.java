@@ -10,6 +10,7 @@
 
 package org.blueoxygen.cimande;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -26,7 +27,7 @@ import org.blueoxygen.cimande.site.Site;
  * @author Umar Khatab umar@intercitra.com
  *
  */
-public class LogInformation {
+public class LogInformation implements Serializable {
 	private Timestamp createDate = new Timestamp(0);
 	private Timestamp lastUpdateDate = new Timestamp(0);
 	private String createBy = "";

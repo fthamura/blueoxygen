@@ -12,16 +12,20 @@ public class UpdatePassword extends PasswordForm implements UserAccessorAware {
 	private StringUtils su = new StringUtils();
 	private UserAccessor ua;
 	public String execute(){
-		if(getCurrPassword() == null || "".equals(getCurrPassword())){
-			addActionError("Your Old Password is Empty");
-		} else {
+//		if(getCurrPassword() == null || "".equals(getCurrPassword())){
+//			addActionError("Your Old Password is Empty");
+//		} else {
 			if(!sess.getCurrentUser().getPassword().equalsIgnoreCase(su.encodeBase64(getCurrPassword()))){
-				addActionError("Your current password is invalid");
+				addActionError("Your Old Password is Invalid");
 			}
-		}
-		if(!getNewPassword().equalsIgnoreCase(getVerifyPassword())){
-			addActionError("Verify your new password");
-		}
+//		}
+//		if(getNewPassword() == null || "".equals(getNewPassword())){
+//			addActionError("Your New Password is Empty");
+//		} else {
+			if(!getNewPassword().equalsIgnoreCase(getVerifyPassword())){
+				addActionError("Retype Your New Password and Verify");
+			}
+//		}
 		if(hasErrors()){
 			return INPUT;
 		}

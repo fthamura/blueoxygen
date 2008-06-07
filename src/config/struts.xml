@@ -7,17 +7,21 @@
 	<package name="default" extends="struts-default">
 		<interceptors>
 			<!--<interceptor name="hibernate" class="org.hibernate.admin.interceptor.HibernateInterceptor"/>-->
+			<interceptor name="cimande" class="org.blueoxygen.cimande.interceptors.CimandeInterceptor"></interceptor>
 			<!-- Basic stack -->
 			<interceptor-stack name="adminStack">
 				<interceptor-ref name="timer" />
 				<interceptor-ref name="logger"/>
 				<interceptor-ref name="static-params" />
 				<interceptor-ref name="params" />
+				<interceptor-ref name="cimande"/>
 				<!-- <interceptor-ref name="hibernate"/>-->
 			</interceptor-stack>
 		</interceptors>
-
 		<default-interceptor-ref name="adminStack" />
+		<global-results>
+			<result name="notallowed" type="velocity">/view/error/notallowed.vm</result>
+		</global-results>
 		<action name="index">
 			<result type="redirect">/view/backend/user/index.action</result>
 		</action>
