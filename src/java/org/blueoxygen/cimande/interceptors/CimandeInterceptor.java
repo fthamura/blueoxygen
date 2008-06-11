@@ -10,13 +10,11 @@ import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 import org.blueoxygen.cimande.role.Role;
 import org.blueoxygen.cimande.role.RolePrivilage;
-import org.blueoxygen.cimande.role.RoleSite;
 import org.blueoxygen.cimande.role.RoleSitePrivilage;
 import org.blueoxygen.cimande.security.LoginFilter;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 import org.blueoxygen.cimande.security.User;
-import org.blueoxygen.cimande.site.Site;
 
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
@@ -25,7 +23,8 @@ public class CimandeInterceptor implements Interceptor, PersistenceAware,
 		SessionCredentialsAware {
 	private PersistenceManager manager;
 	private SessionCredentials sessCredentials;
-	private Site currentSite;
+	//private Site currentSite;
+	private String siteId;
 	private Role currentRole;
 	private User currentUser;
 	private Descriptor descriptorCalled;
@@ -44,10 +43,10 @@ public class CimandeInterceptor implements Interceptor, PersistenceAware,
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
 		if (sessCredentials.getCurrentUser() != null) {
 			// init currentSite
-			String siteId = (String) ServletActionContext.getRequest()
+			siteId = (String) ServletActionContext.getRequest()
 					.getSession().getAttribute(LoginFilter.LOGIN_CIMANDE_SITE);
-			if (siteId != null && !"".equalsIgnoreCase(siteId)) {
-				currentSite = (Site) manager.getById(Site.class, siteId);
+			//if (siteId != null && !"".equalsIgnoreCase(siteId)) {
+				//currentSite = (Site) manager.getById(Site.class, siteId);
 				// init currentUser
 				currentUser = sessCredentials.getCurrentUser();
 				currentRole = currentUser.getRole();
@@ -63,35 +62,33 @@ public class CimandeInterceptor implements Interceptor, PersistenceAware,
 						if (!isAuthorized(actionInvocation)) {
 							return "notallowed";
 						}
+					} else {
+						return "notallowed";
 					}
 				}
-			}
+			//}
 		}
 		return actionInvocation.invoke();
 	}
 
 	private boolean isAuthorized(ActionInvocation actionInvocation) {
-		boolean auth = false;
 		List<ModuleFunction> modules = new ArrayList<ModuleFunction>();
 
-		String mySQL = "SELECT rs FROM " + RoleSite.class.getName()
-				+ " rs WHERE rs.role.id='" + currentRole.getId()
-				+ "' AND rs.site.id='" + currentSite.getId() + "'";
-		List<RoleSite> temp = new ArrayList<RoleSite>();
-		temp = manager.getList(mySQL, null, null);
-		int total_role_site = temp.size();
-
-		if (total_role_site > 0) {
+		String mySQL;
+		if (siteId != null && !"".equalsIgnoreCase(siteId)) {
 			// read all module function from role_site_privilage.
 			mySQL = "SELECT rsp FROM " + RoleSitePrivilage.class.getName()
 					+ " rsp WHERE rsp.roleSite.site.id = '"
-					+ currentSite.getId() + "' AND rsp.roleSite.role.id = '"
+					+ siteId + "' AND rsp.roleSite.role.id = '"
 					+ currentRole.getId()
 					+ "' ORDER BY (rsp.moduleFunction.description)";
 			List<RoleSitePrivilage> rsp = new ArrayList<RoleSitePrivilage>();
 			rsp = (List<RoleSitePrivilage>) manager.getList(mySQL, null, null);
 			for (RoleSitePrivilage tmp : rsp) {
-				modules.addAll(getLeafPrivilage(tmp.getModuleFunction()));
+//				modules.addAll(getLeafPrivilage(tmp.getModuleFunction()));
+				if(checkLeafDescriptor(tmp.getModuleFunction())){
+					return true;
+				}
 			}
 		} else {
 			// read all module function from role_privilage
@@ -101,17 +98,34 @@ public class CimandeInterceptor implements Interceptor, PersistenceAware,
 			List<RolePrivilage> rp = new ArrayList<RolePrivilage>();
 			rp = (List<RolePrivilage>) manager.getList(mySQL, null, null);
 			for (RolePrivilage tmp : rp) {
-				modules.addAll(getLeafPrivilage(tmp.getModuleFunction()));
+				if(checkLeafDescriptor(tmp.getModuleFunction())){
+					return true;
+				}
+//				modules.addAll(getLeafPrivilage(tmp.getModuleFunction()));
 			}
 		}
-		for (ModuleFunction module : modules) {
-			if (descriptorCalled.equals(module.getModuleDescriptor())) {
-				return true;
+//		for (ModuleFunction module : modules) {
+//			if (descriptorCalled.equals(module.getModuleDescriptor())) {
+//				return true;
+//			}
+//		}
+		return false;
+	}
+
+	private boolean checkLeafDescriptor(ModuleFunction parent){
+		for (ModuleFunction mf : parent.getModuleFunctions()) {
+			if (mf.getModuleFunctions().size() <= 0) {
+				if(descriptorCalled.equals(mf.getModuleDescriptor())){
+					return true;
+				}
+			} else {
+				if(checkLeafDescriptor(mf)) {
+					return true;
+				}
 			}
 		}
 		return false;
 	}
-
 	private List<ModuleFunction> getLeafPrivilage(ModuleFunction parent) {
 		List<ModuleFunction> mfs = new ArrayList<ModuleFunction>();
 		for (ModuleFunction mf : parent.getModuleFunctions()) {
