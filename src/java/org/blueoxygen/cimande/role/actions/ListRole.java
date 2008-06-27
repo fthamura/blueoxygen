@@ -28,7 +28,7 @@ public class ListRole extends ActionSupport implements PersistenceAware
 {
 	private PersistenceManager persistenceManager;
 	
-	private List roles;
+	private List<Role> roles;
 	private String orderBy="name";
 	private String direction="asc";
 	
@@ -74,13 +74,13 @@ public class ListRole extends ActionSupport implements PersistenceAware
 	/**
 	 * @return Returns the roles.
 	 */
-	public List getRoles() {
+	public List<Role> getRoles() {
 		return roles;
 	}
 	/**
 	 * @param roles The roles to set.
 	 */
-	public void setRoles(List workflows) {
+	public void setRoles(List<Role> workflows) {
 		this.roles = workflows;
 	}
 }

@@ -20,7 +20,7 @@ public class LDAPUserAccessor extends DefaultUserAccessor {
 		ctxSource.setUserName(buildDn(username) + "," + PropertyLooker.get("ldap.base"));
 		ctxSource.setPassword(password);
 		ctxSource.setPooled(false);
-		System.out.println(buildDn(username) + "," + PropertyLooker.get("ldap.base"));
+//		System.out.println(buildDn(username) + "," + PropertyLooker.get("ldap.base"));
 		try {
 			ctxSource.afterPropertiesSet();
 			ctxSource.getReadWriteContext();

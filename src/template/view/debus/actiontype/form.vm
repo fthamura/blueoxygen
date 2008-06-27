@@ -1,0 +1,23 @@
+<div class="messageError">
+#sfielderror()
+</div>
+
+##<form action="#surl("action=update" "namespace=/module/actiontype")" method="post">
+<form action="#surl("action=save" "namespace=/module/actiontype")" method="post">
+	<table width="100%" cellspacing="1" cellpadding="3">
+		<th>
+			<td colspan="2">Action Type</td>
+		</th>
+		<tr>
+			<td class="label">Name:</td>
+			<td><input name="actionType.name" type="text" value="$!actionType.name"/></td>
+		</tr>
+		<tr>
+			<td class="label">Descriptor:</td>
+			<td><input name="actionType.description" type="text" value="$!actionType.description"/></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="Submit"/></td>
+		</tr>
+	</table>
+</form>

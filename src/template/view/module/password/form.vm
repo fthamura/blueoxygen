@@ -12,38 +12,36 @@
         </style>
 </head>
 	<body>
-		#if(!$actionErrors.isEmpty())
-			<div class="errorMessage">Error</div>
-			<ul class="errorMessage">
-				#foreach($error in $actionErrors)
-					<li>$error</li>
-				#end
-			</ul>
-		#end
-		<form action="update.action" method="post">
-			<table width="59%" align="center" cellpadding="3" cellspacing="1" bgcolor="#000000">
-				<tr bgcolor="#000000">
-					<th colspan="10" bgcolor="#d0dcff">
-						<span class="style1"><font color="#000000"> Update Password Employee</font> </span> </th>
+		<div class="errorMessage">
+			#sfielderror("label=Error")
+		</div>
+		<form action="#surl("action=update" "namespace=/user/password")" method="post">
+			<table width="100%" align="center" cellpadding="3" cellspacing="1" bgcolor="#d0dcff">
+				<tr bgcolor="#d0dcff">
+					<th colspan="2">
+						<span class="style1">Update Password</span> </th>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td bgcolor="#FFFFFF">
-						Old Password :					</td>
-					<td bgcolor="#FFFFFF">
+					<td widht="30%">
+						<div class="label">Old Password:</div>
+					</td>
+					<td width="70%">
 						<input name="currPassword" type="password">
 				  </td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td bgcolor="#FFFFFF">
-						New Password :					</td>
-					<td bgcolor="#FFFFFF">
+					<td>
+						New Password:
+					</td>
+					<td>
 						<input name="newPassword" type="password">
 				  </td>
 				</tr>
 				<tr bgcolor="#ffffff">
-					<td bgcolor="#FFFFFF">
-						Verify New Password :					</td>
-					<td bgcolor="#FFFFFF">
+					<td>
+						Verify New Password:
+					</td>
+					<td>
 						<input name="verifyPassword" type="password">
 				  </td>
 				</tr>
@@ -53,7 +51,5 @@
 				</tr>
 		  </table>	
 		</form>
-		
-		
 	</body>
 </html>

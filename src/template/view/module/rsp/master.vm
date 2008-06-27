@@ -31,8 +31,11 @@
         <div align="right"><font color="#ff0000">*</font> Module ID:</div>
       </td>
       <td width="67%"> 
-        <input type="textfield" id="lihatmodulName" value="None" size="15" disabled="true" onfocus="this.blur()" /><input name="mfunction.id" type="hidden" id="viewmodulId" value="0"/>
+        <input type="textfield" id="lihatmodulName" value="None" size="15" disabled="true" onfocus="this.blur()" /><input name="mfunction.id" type="hidden" id="viewmodulId" value=""/>
         <input type="button" value="View Module Function" onclick="javascript:window.open('../rsp/viewmfuntion.action?roleSite.id=$!roleSite.id','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+        <div class="errorMessage">
+		#sfielderror()
+		</div>
       </td>
     </tr>
     <tr bgcolor="#ffffff" valign="top">

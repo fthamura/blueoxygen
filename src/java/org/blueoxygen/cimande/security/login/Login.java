@@ -20,7 +20,7 @@ public class Login extends LoginForm implements UserAccessorAware {
     public String execute() {
     	if (ua.authenticate(getUsername(), getPassword())) {
     		setUser(ua.getByUsername(getUsername()));
-        	LOG.info("login successful: " + getUser().getUsername());
+//        	LOG.info("login successful: " + getUser().getUsername());
 //        	LOG.info("redirectUri  : " +  getRedirectUri());
             
             ActionContext.getContext().getSession().put(LoginFilter.LOGIN_CIMANDE_USER, su.encodeBase64(getUser().getId()));

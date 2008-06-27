@@ -149,7 +149,7 @@ public class HibernatePersistenceManager implements PersistenceManager, Hibernat
         }
     }
     public Object getByUniqueField(Class type, Object pk, String fieldName) {
-        Query query = session.createQuery("SELECT a FROM " + type.getName() + " a WHERE " + fieldName + "=:pk");
+        Query query = session.createQuery("SELECT a FROM " + type.getName() + " a WHERE a." + fieldName + "=:pk");
         query.setParameter("pk", pk);
     	try {
             return query.uniqueResult();

@@ -23,7 +23,6 @@ public class CimandeInterceptor implements Interceptor, PersistenceAware,
 		SessionCredentialsAware {
 	private PersistenceManager manager;
 	private SessionCredentials sessCredentials;
-	//private Site currentSite;
 	private String siteId;
 	private Role currentRole;
 	private User currentUser;
@@ -43,30 +42,27 @@ public class CimandeInterceptor implements Interceptor, PersistenceAware,
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
 		if (sessCredentials.getCurrentUser() != null) {
 			// init currentSite
-			siteId = (String) ServletActionContext.getRequest()
-					.getSession().getAttribute(LoginFilter.LOGIN_CIMANDE_SITE);
-			//if (siteId != null && !"".equalsIgnoreCase(siteId)) {
-				//currentSite = (Site) manager.getById(Site.class, siteId);
-				// init currentUser
-				currentUser = sessCredentials.getCurrentUser();
-				currentRole = currentUser.getRole();
+			siteId = (String) ServletActionContext.getRequest().getSession()
+					.getAttribute(LoginFilter.LOGIN_CIMANDE_SITE);
+			// init currentUser
+			currentUser = sessCredentials.getCurrentUser();
+			currentRole = currentUser.getRole();
 
-				// init descriptorCalled
-				String namespace = actionInvocation.getProxy().getNamespace();
-				String descriptorCandidate[] = namespace.split("/");
-				if ("module".equalsIgnoreCase(descriptorCandidate[1])) {
-					String descriptorName = descriptorCandidate[2];
-					descriptorCalled = (Descriptor) manager.getByUniqueField(
-							Descriptor.class, descriptorName, "name");
-					if (descriptorCalled != null) {
-						if (!isAuthorized(actionInvocation)) {
-							return "notallowed";
-						}
-					} else {
+			// init descriptorCalled
+			String namespace = actionInvocation.getProxy().getNamespace();
+			String descriptorCandidate[] = namespace.split("/");
+			if ("module".equalsIgnoreCase(descriptorCandidate[1])) {
+				String descriptorName = descriptorCandidate[2];
+				descriptorCalled = (Descriptor) manager.getByUniqueField(
+						Descriptor.class, descriptorName, "name");
+				if (descriptorCalled != null) {
+					if (!isAuthorized(actionInvocation)) {
 						return "notallowed";
 					}
+				} else {
+					return "notallowed";
 				}
-			//}
+			}
 		}
 		return actionInvocation.invoke();
 	}
@@ -78,15 +74,13 @@ public class CimandeInterceptor implements Interceptor, PersistenceAware,
 		if (siteId != null && !"".equalsIgnoreCase(siteId)) {
 			// read all module function from role_site_privilage.
 			mySQL = "SELECT rsp FROM " + RoleSitePrivilage.class.getName()
-					+ " rsp WHERE rsp.roleSite.site.id = '"
-					+ siteId + "' AND rsp.roleSite.role.id = '"
-					+ currentRole.getId()
+					+ " rsp WHERE rsp.roleSite.site.id = '" + siteId
+					+ "' AND rsp.roleSite.role.id = '" + currentRole.getId()
 					+ "' ORDER BY (rsp.moduleFunction.description)";
 			List<RoleSitePrivilage> rsp = new ArrayList<RoleSitePrivilage>();
 			rsp = (List<RoleSitePrivilage>) manager.getList(mySQL, null, null);
 			for (RoleSitePrivilage tmp : rsp) {
-//				modules.addAll(getLeafPrivilage(tmp.getModuleFunction()));
-				if(checkLeafDescriptor(tmp.getModuleFunction())){
+				if (checkLeafDescriptor(tmp.getModuleFunction())) {
 					return true;
 				}
 			}
@@ -98,34 +92,29 @@ public class CimandeInterceptor implements Interceptor, PersistenceAware,
 			List<RolePrivilage> rp = new ArrayList<RolePrivilage>();
 			rp = (List<RolePrivilage>) manager.getList(mySQL, null, null);
 			for (RolePrivilage tmp : rp) {
-				if(checkLeafDescriptor(tmp.getModuleFunction())){
+				if (checkLeafDescriptor(tmp.getModuleFunction())) {
 					return true;
 				}
-//				modules.addAll(getLeafPrivilage(tmp.getModuleFunction()));
 			}
 		}
-//		for (ModuleFunction module : modules) {
-//			if (descriptorCalled.equals(module.getModuleDescriptor())) {
-//				return true;
-//			}
-//		}
 		return false;
 	}
 
-	private boolean checkLeafDescriptor(ModuleFunction parent){
+	private boolean checkLeafDescriptor(ModuleFunction parent) {
 		for (ModuleFunction mf : parent.getModuleFunctions()) {
 			if (mf.getModuleFunctions().size() <= 0) {
-				if(descriptorCalled.equals(mf.getModuleDescriptor())){
+				if (descriptorCalled.equals(mf.getModuleDescriptor())) {
 					return true;
 				}
 			} else {
-				if(checkLeafDescriptor(mf)) {
+				if (checkLeafDescriptor(mf)) {
 					return true;
 				}
 			}
 		}
 		return false;
 	}
+
 	private List<ModuleFunction> getLeafPrivilage(ModuleFunction parent) {
 		List<ModuleFunction> mfs = new ArrayList<ModuleFunction>();
 		for (ModuleFunction mf : parent.getModuleFunctions()) {

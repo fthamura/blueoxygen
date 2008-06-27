@@ -19,21 +19,29 @@ import org.blueoxygen.cimande.role.Role;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import com.opensymphony.xwork2.validator.annotations.Validation;
+import com.opensymphony.xwork2.validator.annotations.Validations;
+
 /**
  * @author frans
  * 
  */
+@Validation
 public class AddRole extends RoleForm implements SessionCredentialsAware {
 
 	private SessionCredentials sessionCredentials;
 
+	@Validations(requiredStrings = {
+			@RequiredStringValidator(fieldName = "name", message = "Name can't be empty."),
+			@RequiredStringValidator(fieldName = "description", message = "Description can't be empty.") })
 	public String execute() {
 		Role role = new Role();
 
-		if (getName().equalsIgnoreCase(""))
-			addActionError("Name can't be empty.");
-		if (getDescription().equalsIgnoreCase(""))
-			addActionError("Description can't be empty.");
+//		if (getName().equalsIgnoreCase(""))
+//			addActionError("Name can't be empty.");
+//		if (getDescription().equalsIgnoreCase(""))
+//			addActionError("Description can't be empty.");
 		
 		// User currentUser = (User) persistenceManager.getById(User.class, "1");
 		// if (currentUser == null) addActionError("Current User is null");

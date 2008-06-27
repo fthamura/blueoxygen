@@ -37,6 +37,24 @@ public class LogInformation implements Serializable {
 	public final static int ACTIVE = 1;
 	public final static int INACTIVE = 0;
 	
+	public LogInformation() {
+		
+	}
+	
+	public LogInformation(String userId, int flag) {
+		setActiveFlag(flag);
+		setCreateBy(userId);
+		setLastUpdateBy(userId);
+		setCreateDate(new Timestamp(System.currentTimeMillis()));
+		setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
+	}
+	public LogInformation(LogInformation logInfo, String userId, int flag){
+		setCreateBy(logInfo.getCreateBy());
+		setCreateDate(logInfo.getCreateDate());
+		setLastUpdateBy(userId);
+		setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
+		setActiveFlag(flag);
+	}
 	/**
 	 * @return Returns the createBy.
 	 * @hibernate.property length="28" column="create_by"

@@ -55,6 +55,16 @@
         <mapping class="org.blueoxygen.cimande.gx.entity.GxWindowRole" />
         <mapping class="org.blueoxygen.cimande.gx.entity.GxWindowRoleAccess"/>
         
+        <mapping class="org.blueoxygen.debus.ActionType"/>
+        <mapping class="org.blueoxygen.debus.PermissionType"/>
+        <mapping class="org.blueoxygen.debus.DescriptorAccess"/>
+        <mapping class="org.blueoxygen.debus.entity.GXWindowRoleAccess"/>
+        <mapping class="org.blueoxygen.debus.entity.RoleDescriptorACL"/>
+        <mapping class="org.blueoxygen.debus.entity.RoleDescriptorACLAccess"/>
+        <mapping class="org.blueoxygen.debus.entity.RoleSiteDescriptorACL"/>
+        <mapping class="org.blueoxygen.debus.entity.RoleSiteDescriptorACLAccess"/>
+        <mapping class="org.blueoxygen.debus.entity.SiteDescriptorACL"/>
+        <mapping class="org.blueoxygen.debus.entity.SiteDescriptorACLAccess"/>
     </session-factory>
     
 </hibernate-configuration>

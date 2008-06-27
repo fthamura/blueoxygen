@@ -11,14 +11,14 @@
 package org.blueoxygen.cimande;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.struts2.ServletActionContext;
+import org.blueoxygen.cimande.descriptors.Descriptor;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
-import org.blueoxygen.cimande.role.RolePrivilage;
+import org.blueoxygen.cimande.role.Role;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 import org.blueoxygen.cimande.security.User;
@@ -37,7 +37,7 @@ public class CimandeAction extends ActionSupport implements PersistenceAware, Se
 	private static Properties properties = new Properties();
 	static {
 		try {
-			properties.load(getResourceAsStream("cimande.properties"));
+			properties.load(PropertyLooker.getResourceAsStream("cimande.properties"));
 		} catch (IOException e){
 			e.printStackTrace();
 		} catch (NullPointerException npe) {
@@ -45,27 +45,9 @@ public class CimandeAction extends ActionSupport implements PersistenceAware, Se
 			npe.printStackTrace();
 		}
 	}
+
 	public static String get(String propertyName){
 		return properties.getProperty(propertyName);
-	}
-	
-	public static URL getResource(String resourceName) {
-		URL url = null;
-		url = Thread.currentThread().getContextClassLoader().getResource(
-				resourceName);
-		if (url == null) {
-			url = PropertyLooker.class.getClassLoader().getResource(resourceName);
-		}
-		return url;
-	}
-	
-	public static InputStream getResourceAsStream(String resourceName) {
-		URL url = getResource(resourceName);
-		try {
-			return (url != null) ? url.openStream() : null;
-		} catch (IOException e) {
-			return null;
-		}
 	}
 	
 	@Override
@@ -80,9 +62,7 @@ public class CimandeAction extends ActionSupport implements PersistenceAware, Se
 	public User getCurrentUser(){
 		return sessionCredentials.getCurrentUser();
 	}
-	
-	public List getPrivilages(){
-		String query = "SELECT m FROM " + RolePrivilage.class.getName() + " m WHERE ";
-		return manager.getList(query, null, null);
+	public Role getCurrentRole(){
+		return getCurrentUser().getRole();
 	}
 }

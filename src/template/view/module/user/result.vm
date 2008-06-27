@@ -53,11 +53,11 @@
 #end
 	<tr bgcolor="#e4e4e4">
 		<td align="right" colspan="5">
-			#if ($currPage > 0) <a href="search.action?name=   &currPage=0" title="currPage"><img src="../../images/silk/resultset_first.png" border="0"></a>#end
-			#if ($currPage > 0) <a href="search.action?name=$name&description=$description&currPage=$prevPage" title="prevPage"><img src="../../images/silk/resultset_previous.png" border="0">#end
-			[page $page]
-			#if ($currPage < $maxPage) <a href="search.action?name=$name&username=$username&name.first=$name.first&company.name=$company.name&job.name=$job.name&currPage=$nextPage" title="nextPage"><img src="../../images/silk/resultset_next.png" border="0"></a>#end
-			#if ($currPage < $maxPage) <a href="search.action?name=$$name&username=$username&name.first=$name.first&company.name=$company.name&job.name=$job.name&&currPage=$maxPage" title="maxPage"><img src="../../images/silk/resultset_last.png" border="0"></a>#end
+			#if ($currPage > 0) <a href="search.action?name=$!name&username=$!username&name.first=$!name.first&company.name=$!company.name&job.name=$!job.name&currPage=0" title="currPage"><img src="../../images/silk/resultset_first.png" border="0"></a>#end
+			#if ($currPage > 0) <a href="search.action?name=$!name&username=$!username&name.first=$!name.first&company.name=$!company.name&job.name=$!job.name&currPage=$prevPage" title="prevPage"><img src="../../images/silk/resultset_previous.png" border="0">#end
+			[page $!page]
+			#if ($currPage < $maxPage) <a href="search.action?name=$!name&username=$!username&name.first=$!name.first&company.name=$!company.name&job.name=$!job.name&currPage=$nextPage" title="nextPage"><img src="../../images/silk/resultset_next.png" border="0"></a>#end
+			#if ($currPage < $maxPage) <a href="search.action?name=$!name&username=$!username&name.first=$!name.first&company.name=$!company.name&job.name=$!job.name&&currPage=$maxPage" title="maxPage"><img src="../../images/silk/resultset_last.png" border="0"></a>#end
 		</td>
      </tr>
 </table>

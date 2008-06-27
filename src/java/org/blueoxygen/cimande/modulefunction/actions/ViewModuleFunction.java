@@ -16,59 +16,55 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author Amelia
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
+ * 
+ * TODO To change the template for this generated type comment go to Window -
+ * Preferences - Java - Code Generation - Code and Comments
  */
-public class ViewModuleFunction extends ActionSupport implements PersistenceAware{
-	protected PersistenceManager pm;
+public class ViewModuleFunction extends ModuleFunctionForm {
 	private String id;
-	protected ModuleFunction moduleFunction; 
+	protected ModuleFunction moduleFunction;
 	private String module_function_id;
 
-	private List mfs;
-	public String execute()
-	{
+	private List<ModuleFunction> mfs;
 
-		if (!id.equalsIgnoreCase(""))
-		{
-			
-			moduleFunction = (ModuleFunction) pm.getById(ModuleFunction.class, getId());
+	public String execute() {
+
+		if (!id.equalsIgnoreCase("")) {
+			moduleFunction = (ModuleFunction) manager.getById(
+					ModuleFunction.class, getId());
 			mfs = moduleFunction.getModuleFunctions();
 			return SUCCESS;
-		}
-		else
-		{
+		} else {
 			addActionError("Module Function not found");
 			return ERROR;
 		}
 	}
 
-	
-	public void setPersistenceManager(PersistenceManager persistenceManager) {
-		this.pm = persistenceManager;
-	}
-	
 	/**
 	 * @return Returns the moduleFunction.
 	 */
 	public ModuleFunction getModuleFunction() {
 		return moduleFunction;
 	}
+
 	/**
-	 * @param moduleFunction The moduleFunction to set.
+	 * @param moduleFunction
+	 *            The moduleFunction to set.
 	 */
 	public void setModuleFunction(ModuleFunction moduleFunction) {
 		this.moduleFunction = moduleFunction;
 	}
+
 	/**
 	 * @return Returns the id.
 	 */
 	public String getId() {
 		return id;
 	}
+
 	/**
-	 * @param id The id to set.
+	 * @param id
+	 *            The id to set.
 	 */
 	public void setId(String id) {
 		this.id = id;
@@ -78,21 +74,16 @@ public class ViewModuleFunction extends ActionSupport implements PersistenceAwar
 		return module_function_id;
 	}
 
-
 	public void setModule_function_id(String module_function_id) {
 		this.module_function_id = module_function_id;
 	}
-
 
 	public List getMfs() {
 		return mfs;
 	}
 
-
 	public void setMfs(List mfs) {
 		this.mfs = mfs;
 	}
 
-	
 }
-

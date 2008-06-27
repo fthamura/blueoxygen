@@ -1,3 +1,3 @@
 <%
-	response.sendRedirect("index.action"); 
+	response.sendRedirect("/backend/user/index.action"); 
 %>

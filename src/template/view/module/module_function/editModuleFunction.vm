@@ -5,14 +5,10 @@
   <link type="text/css" rel="stylesheet" href="../../style.css">
 </head>
 <body>
-#if (!$actionErrors.isEmpty())
-<div class="errorMessage">Errors</div>
-<ul class="errorMessage">
-#foreach( $error in $actionErrors ) <li>$error</li>
-#end
-</ul>
-#end
 
+<div class="errorMessage">
+#sfielderror()
+</div>
 
 <form method="get" action="upDateModuleFunction.action" name="upload" enctype="multipart/form-data"> 
 <table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">

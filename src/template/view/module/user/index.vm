@@ -12,13 +12,16 @@ Add a new Company</title>
 <script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
 </head>
 <body onload="HTMLArea.replaceAll();">
-#if (!$actionErrors.isEmpty())
-<div class="errorMessage">Errors</div>
-<ul class="errorMessage">
-#foreach( $error in $actionErrors ) <li>$error</li>
-#end
-</ul>
-#end
+###if (!$actionErrors.isEmpty())
+##<div class="errorMessage">Errors</div>
+##<ul class="errorMessage">
+###foreach( $error in $actionErrors ) <li>$error</li>
+###end
+##</ul>
+###end
+<div class="errorMessage">
+#sfielderror()
+</div>
 
 
 <form method="post" action="add.action">

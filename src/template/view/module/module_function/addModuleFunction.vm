@@ -11,13 +11,9 @@
 <script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
 </head>
 <body >
-#if (!$actionErrors.isEmpty())
-<div class="errorMessage">Errors</div>
-<ul class="errorMessage">
-#foreach( $error in $actionErrors ) <li>$error</li>
-#end
-</ul>
-#end
+<div class="errorMessage">
+#sfielderror()
+</div>
 
 
 <form method="get" action="addModuleFunction.action" name="upload" enctype="multipart/form-data" > 
@@ -45,7 +41,7 @@
      <td style="font-weight: bold;" align="right" valign="top">Thread Master ID:</td>
     <td>
     <input type="textfield" id="moduleFunctionName" value="None" size="15" disabled="true" onfocus="this.blur()"/>
-    <input type="hidden" id="moduleFunctionId" name="moduleFunctionId" value="0"/>
+    <input type="hidden" id="moduleFunctionId" name="moduleFunctionId" value=""/>
     &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../module_function/listThreadNumber.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
     </td>
   </tr>

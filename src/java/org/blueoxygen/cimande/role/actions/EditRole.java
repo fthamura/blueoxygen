@@ -18,21 +18,28 @@ import org.blueoxygen.cimande.role.Role;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import com.opensymphony.xwork2.validator.annotations.Validation;
+import com.opensymphony.xwork2.validator.annotations.Validations;
+
 /**
  * @author frans
  * 
  * TODO To change the template for this generated type comment go to Window -
  * Preferences - Java - Code Style - Code Templates
  */
+@Validation
 public class EditRole extends RoleForm implements SessionCredentialsAware {
 
 	private SessionCredentials sessionCredentials;
 
 	public void setSessionCredentials(SessionCredentials sessionCredentials) {
 		this.sessionCredentials = sessionCredentials;
-
 	}
 
+	@Validations(requiredStrings = {
+			@RequiredStringValidator(fieldName = "name", message = "Name can't be empty."),
+			@RequiredStringValidator(fieldName = "description", message = "Description can't be empty.") })
 	public String execute() {
 
 		Role role = (Role) pm.getById(Role.class, getId());

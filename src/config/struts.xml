@@ -15,6 +15,7 @@
 				<interceptor-ref name="static-params" />
 				<interceptor-ref name="params" />
 				<interceptor-ref name="cimande"/>
+				<interceptor-ref name="validation"/>
 				<!-- <interceptor-ref name="hibernate"/>-->
 			</interceptor-stack>
 		</interceptors>
@@ -29,4 +30,5 @@
 
 	<include file="struts-cimande-gx.xml" />
 	<include file="struts-cimande-core.xml" />
+	<include file="struts-debus.xml"/>
 </struts>

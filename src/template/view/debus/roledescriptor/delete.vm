@@ -1,0 +1,5 @@
+<form action="confirm.action">
+delete $!roleDescriptorAccess.roleDescriptor.role.name $!roleDescriptorAccess.roleDescriptor.descriptor.description 
+<input type="hidden" name="roleDescriptorAccess.id" value="$!roleDescriptorAccess.id">
+<input type="submit">
+</form>

@@ -1,0 +1,36 @@
+<form action="#surl("action=create!save" "namespace=/module/roleaccess")">
+<table>
+	<th>
+		<td>Descriptor - Role - Access</td>
+	</th>
+	<tr>
+		<td><font color="red">*</font>Descriptor:</td>
+		<td><input type="textfield" id="moduleDescriptorDescription" value="None" size="15" disabled="true" onfocus="this.blur()"/>
+    <input type="hidden" id="moduleDescriptorId" name="descriptor.id" value="$!dra.descriptor.id"/>
+    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../module_function/listModuleDescriptor.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+  	</td>
+	</tr>
+	<tr>
+		<td><font color="red">*</font>Role:</td>
+		<td><input type="textfield" id="roleName" value="None" size="15" disabled="true" onfocus="this.blur()"/>
+    	<input type="hidden" id="roleId" name="role.id" value="$!dra.role.id"/>
+    	&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listRole.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+  	
+		</td>
+	</tr>
+	<tr>
+		<td><font color="red">*</font>Access:</td>
+		<td>
+			<select name="dra.access">
+				<option value="0" #if($dra.access == 0) selected #end>All</option>
+				<option value="1" #if($dra.access == 1) selected #end>Update</option>
+				<option value="2" #if($dra.access == 2) selected #end>Create</option>
+				<option value="3" #if($dra.access == 3) selected #end>Read</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" value="Submit"></td>
+	</tr>
+</table>
+</form>
