@@ -19,7 +19,7 @@
 #foreach ($site in $sites)
 <tr>
 	<td width=60%>$site.name</td>
-	<td><input type="button" onClick="javascript:window.opener.document.getElementById('site_id').value='$role.id';window.opener.document.getElementById('siteName').value='$role.name';window.close();" value="Set"></td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('site_id').value='$site.id';window.opener.document.getElementById('siteName').value='$site.name';window.close();" value="Set"></td>
 </tr>
 #end
 </table>
