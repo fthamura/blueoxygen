@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title>Workspace Management - Result of Search Site Descriptor</title>
+  	<link type="text/css" rel="stylesheet" href="../../style.css">
+    <style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+-->
+    </style>
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="5"><b>Search Result</b></td>
+      </tr>
+
+#if ($sdAccesses.isEmpty()) 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right" bgcolor="#0000CC"><span class="style1">No such data found</span></td>
+      	</tr>
+#else 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right" bgcolor="#FFFFFF">
+        	Found ( <strong>$!sdAccesses.size()</strong> ) #if ($resultRows > 1) index #else indices #end </td>
+       	</tr>
+<tr bgcolor="#d0dcff" width="98%" align="center">
+	
+	<td><b>Role</b></td>
+	<td><b>Descriptor</b></td>
+	<td><b>Access</b></td>
+	<td><div align="center"><b>Action</b></div></td>
+</tr>
+
+#foreach($rda in $sdAccesses)
+	<tr valign="top" bgcolor="white">
+		<td>$!rda.siteDescriptor.role.name</td>
+		<td>$!rda.siteDescriptor.descriptor.description</td>
+		<td>$!rda.acl.value</td>
+		<td nowrap="true" align="center">
+			<div align="center">   
+			<a href="delete.action?siteDescriptorAccess.id=$!rda.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a> </div>
+		</td>
+	</tr>
+#end
+	<tr bgcolor="#e4e4e4">
+		<td align="right" colspan="5">
+			#if ($currPage > 0) <a href="search.action?currPage=0" title="currPage"><img src="../../images/silk/resultset_first.png" border="0"></a>#end
+			#if ($currPage > 0) <a href="search.action?currPage=$prevPage" title="prevPage"><img src="../../images/silk/resultset_previous.png" border="0">#end
+			[page $!page]
+			#if ($currPage < $maxPage) <a href="search.action?currPage=$nextPage" title="nextPage"><img src="../../images/silk/resultset_next.png" border="0"></a>#end
+			#if ($currPage < $maxPage) <a href="search.action?currPage=$maxPage" title="maxPage"><img src="../../images/silk/resultset_last.png" border="0"></a>#end
+		</td>
+     </tr>
+</table>
+
+#end
+
+</body>
+</html>

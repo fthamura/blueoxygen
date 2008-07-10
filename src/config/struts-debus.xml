@@ -6,7 +6,7 @@
 <struts>
 	<package name="actionType" extends="default" namespace="/module/actiontype">
 		<interceptors>
-			<interceptor name="cimande-acl" class="org.blueoxygen.debus.interceptors.ACLInterceptor"/>
+			<interceptor name="cimande-acl" class="org.blueoxygen.debus.interceptors.RoleDescriptorACLInterceptor"/>
 		</interceptors>
 		<action name="create" class="org.blueoxygen.debus.actions.ActionTypeAction" method="execute">
 			<interceptor-ref name="cimande-acl"/>
@@ -18,7 +18,7 @@
 			<result name="input" type="velocity">/view/debus/actiontype/form.vm</result>
 		</action>
 	</package>
-	<package name="roleDesriptor" extends="default" namespace="/module/roledescriptor">
+	<package name="roleDescriptor" extends="default" namespace="/module/roledescriptor">
 		<action name="create" class="org.blueoxygen.debus.actions.roledescriptor.RoleDescriptorACLForm">
 			<result name="success" type="velocity">/view/debus/roledescriptor/form.vm</result>
 		</action>
@@ -48,5 +48,64 @@
 			<result name="success" type="velocity">/view/debus/roledescriptor/delete.vm</result>
 		</action>
 	</package>
-
+	<package name="roleSiteDescriptor" extends="default" namespace="/module/rolesitedescriptor">
+		<action name="create" class="org.blueoxygen.debus.actions.rolesitedescriptor.RoleSiteDescriptorACLForm">
+			<result name="success" type="velocity">/view/debus/rolesitedescriptor/form.vm</result>
+		</action>
+		<action name="save" class="org.blueoxygen.debus.actions.rolesitedescriptor.SaveRoleSiteDescriptorACL">
+			<result name="success" type="velocity">/view/debus/rolesitedescriptor/success.vm</result>
+			<result name="input" type="velocity">/view/debus/rolesitedescriptor/form.vm</result>
+		</action>
+		<action name="filter" class="org.blueoxygen.debus.actions.rolesitedescriptor.RoleSiteDescriptorACLForm">
+			<result name="success" type="velocity">/view/debus/rolesitedescriptor/search.vm</result>
+		</action>
+		<action name="search" class="org.blueoxygen.debus.actions.rolesitedescriptor.SearchRoleSiteDescriptorACL">
+			<result name="success" type="velocity">/view/debus/rolesitedescriptor/result.vm</result>
+		</action>
+		<action name="listrole" class="org.blueoxygen.cimande.role.actions.ListRole">
+			<result name="success" type="velocity">/view/module/role/listrole.vm</result>
+		</action>
+		<action name="listdescriptor" class="org.blueoxygen.cimande.moduledescriptor.actions.ListModuleDescriptor">
+			<result name="success" type="velocity">/view/module/descriptor/listdescriptor.vm</result>
+		</action>
+		<action name="listaccess" class="org.blueoxygen.cimande.gx.droplist.DroplistForm">
+			<result name="success" type="velocity">/view/module/gx/droplist/listvalue.vm</result>
+		</action>
+		<action name="delete" class="org.blueoxygen.debus.actions.rolesitedescriptor.RoleSiteDescriptorACLForm">
+			<result name="success" type="velocity">/view/debus/rolesitedescriptor/delete.vm</result>
+		</action>
+		<action name="confirm" class="org.blueoxygen.debus.actions.rolesitedescriptor.DeleteRoleSiteDescriptorACL">
+			<result name="success" type="velocity">/view/debus/rolesitedescriptor/delete.vm</result>
+		</action>
+	</package>
+	<package name="siteDescriptor" extends="default" namespace="/module/sitedescriptor">
+		<action name="create" class="org.blueoxygen.debus.actions.sitedescriptor.SiteDescriptorACLForm">
+			<result name="success" type="velocity">/view/debus/sitedescriptor/form.vm</result>
+		</action>
+		<action name="save" class="org.blueoxygen.debus.actions.sitedescriptor.SaveSiteDescriptorACL">
+			<result name="success" type="velocity">/view/debus/sitedescriptor/success.vm</result>
+			<result name="input" type="velocity">/view/debus/sitedescriptor/form.vm</result>
+		</action>
+		<action name="filter" class="org.blueoxygen.debus.actions.sitedescriptor.SiteDescriptorACLForm">
+			<result name="success" type="velocity">/view/debus/sitedescriptor/search.vm</result>
+		</action>
+		<action name="search" class="org.blueoxygen.debus.actions.sitedescriptor.SearchSiteDescriptorACL">
+			<result name="success" type="velocity">/view/debus/sitedescriptor/result.vm</result>
+		</action>
+		<action name="listsite" class="org.blueoxygen.cimande.site.actions.ListSite">
+			<result name="success" type="velocity">/view/module/site/listsite.vm</result>
+		</action>
+		<action name="listdescriptor" class="org.blueoxygen.cimande.moduledescriptor.actions.ListModuleDescriptor">
+			<result name="success" type="velocity">/view/module/descriptor/listdescriptor.vm</result>
+		</action>
+		<action name="listaccess" class="org.blueoxygen.cimande.gx.droplist.DroplistForm">
+			<result name="success" type="velocity">/view/module/gx/droplist/listvalue.vm</result>
+		</action>
+		<action name="delete" class="org.blueoxygen.debus.actions.sitedescriptor.SiteDescriptorACLForm">
+			<result name="success" type="velocity">/view/debus/sitedescriptor/delete.vm</result>
+		</action>
+		<action name="confirm" class="org.blueoxygen.debus.actions.sitedescriptor.DeleteSiteDescriptorACL">
+			<result name="success" type="velocity">/view/debus/sitedescriptor/delete.vm</result>
+		</action>
+	</package>
 </struts>

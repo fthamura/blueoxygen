@@ -13,8 +13,8 @@ import org.blueoxygen.debus.entity.RoleDescriptorACLAccess;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 
-public class ACLInterceptor implements Interceptor, PersistenceAware,
-		SessionCredentialsAware {
+public class RoleDescriptorACLInterceptor implements Interceptor,
+		PersistenceAware, SessionCredentialsAware {
 
 	private PersistenceManager manager;
 	private SessionCredentials sessionCredential;

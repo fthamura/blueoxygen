@@ -41,8 +41,13 @@ public class UUID
     public static void main(String[] args) {
     	// this is the sample how to use this object.
     	// see org.blueoxygen.test.TestUUIDjdk15.java for sample of another UUID
-    	UUID sid= new UUID();
-    	String s = sid.generate();
-    	System.out.println(s);
+//    	UUID sid= new UUID();
+//    	String s = sid.generate();
+//    	System.out.println(s);
+    	
+    	for(int i = 0; i < 10; i ++){
+//    		System.out.println(Long.toHexString(Long.reverseBytes(System.currentTimeMillis()))+"-"+Long.toHexString(System.nanoTime()));
+//    		System.out.printf("%16x-%16x\n", System.currentTimeMillis(), System.nanoTime());
+    	}
 	}
 }
