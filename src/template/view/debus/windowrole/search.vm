@@ -2,15 +2,15 @@
 <table>
 	<th>
 		<td colspan="2">
-			Site Descriptor
+			Role Descriptor
 		</td>
 	</th>
 	<tr>
 		<td>Role</td>
 		<td>
-			<input type="textfield" id="siteName" value="All" size="15" readonly="true" onfocus="this.blur()"/>
-		    <input type="hidden" id="site_id" name="site.id" value=""/>
-    		&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listsite.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+			<input type="textfield" id="roleName" value="All" size="15" readonly="true" onfocus="this.blur()"/>
+		    <input type="hidden" id="role_id" name="role.id" value=""/>
+    		&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listrole.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
 		</td>
 	</tr>
 	<tr>

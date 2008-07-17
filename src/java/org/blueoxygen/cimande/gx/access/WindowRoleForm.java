@@ -14,13 +14,17 @@ public class WindowRoleForm extends GxAction {
 	private List<GxDroplistValue> accessList = new ArrayList<GxDroplistValue>();
 	private List<String> access = new ArrayList<String>();
 	private Role role = new Role();
-	
-	public String execute(){
-		if(getWindowRole().getId() != null && !"".equalsIgnoreCase(getWindowRole().getId())){
-			setWindowRole((GxWindowRole) manager.getById(GxWindowRole.class, getWindowRole().getId()));
+
+	public String execute() {
+		if (getWindowRole().getId() != null
+				&& !"".equalsIgnoreCase(getWindowRole().getId())) {
+			setWindowRole((GxWindowRole) manager.getById(GxWindowRole.class,
+					getWindowRole().getId()));
 		}
-		setAccessList((ArrayList<GxDroplistValue>)manager.getList("FROM " + GxDroplistValue.class.getName() + 
-				" dv WHERE dv.name.id='ff80808115f0cf5a0115f0d214ed0002'", null, null));
+		setAccessList(manager.getList("SELECT acl FROM "
+				+ GxDroplistValue.class.getName()
+				+ " acl WHERE acl.name.id='ff80808115f0cf5a0115f0d214ed0002'",
+				null, null));
 		return SUCCESS;
 	}
 
