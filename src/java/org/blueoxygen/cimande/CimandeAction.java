@@ -11,11 +11,8 @@
 package org.blueoxygen.cimande;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Properties;
 
-import org.apache.struts2.ServletActionContext;
-import org.blueoxygen.cimande.descriptors.Descriptor;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 import org.blueoxygen.cimande.role.Role;
@@ -41,7 +38,7 @@ public class CimandeAction extends ActionSupport implements PersistenceAware, Se
 		} catch (IOException e){
 			e.printStackTrace();
 		} catch (NullPointerException npe) {
-			System.out.println("file cimande.properties is not in classpath");
+			LOG.info("file cimande.properties is not in classpath");
 			npe.printStackTrace();
 		}
 	}
@@ -50,11 +47,9 @@ public class CimandeAction extends ActionSupport implements PersistenceAware, Se
 		return properties.getProperty(propertyName);
 	}
 	
-	@Override
 	public void setPersistenceManager(PersistenceManager persistenceManager) {
 		this.manager = persistenceManager;
 	}
-	@Override
 	public void setSessionCredentials(SessionCredentials sessionCredentials) {
 		this.sessionCredentials = sessionCredentials;
 	}

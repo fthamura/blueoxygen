@@ -24,9 +24,12 @@
 	<tr>
 		<td>Access</td>
 		<td>
-			<input type="textfield" id="droplistValueName" value="None" size="15" readonly="true" onfocus="this.blur()"/>
-		    <input type="hidden" id="droplistValueId" name="acl.id" value=""/>
-    		&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listaccess.action?name.id=ff80808115f0cf5a0115f0d214ed0002','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+			#foreach($ac in $acls)
+				<input name="accesses" type="checkbox" value="$ac.id"> $ac.value</br>
+			#end
+			##<input type="textfield" id="droplistValueName" value="None" size="15" readonly="true" onfocus="this.blur()"/>
+		    ##<input type="hidden" id="droplistValueId" name="acl.id" value=""/>
+    		##&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listaccess.action?name.id=ff80808115f0cf5a0115f0d214ed0002','cats','scrollbars=yes,status=no,width=300,height=300')"/>
 		</td>
 	</tr>
 	<tr>

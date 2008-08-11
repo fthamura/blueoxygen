@@ -1,5 +1,5 @@
 <form action="confirm.action">
-delete $!roleDescriptorAccess.roleDescriptor.role.name $!roleDescriptorAccess.roleDescriptor.descriptor.description 
-<input type="hidden" name="roleDescriptorAccess.id" value="$!roleDescriptorAccess.id">
+delete $!siteDescriptorAccess.siteDescriptor.site.name $!siteDescriptorAccess.siteDescriptor.descriptor.description 
+<input type="hidden" name="siteDescriptorAccess.id" value="$!siteDescriptorAccess.id">
 <input type="submit">
 </form>

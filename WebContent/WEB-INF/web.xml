@@ -109,14 +109,14 @@
         <taglib-location>/WEB-INF/tld/sitemesh-decorator.tld</taglib-location>
     </taglib>
         
-    <taglib>
-        <taglib-uri>http://jsptags.com/tags/navigation/pager</taglib-uri>
-        <taglib-location>/WEB-INF/tld/pager-taglib.tld</taglib-location>
-    </taglib>
+<!--    <taglib>-->
+<!--        <taglib-uri>http://jsptags.com/tags/navigation/pager</taglib-uri>-->
+<!--        <taglib-location>/WEB-INF/tld/pager-taglib.tld</taglib-location>-->
+<!--    </taglib>-->
     
-    <taglib>
-        <taglib-uri>/tags/c</taglib-uri>
-        <taglib-location>/WEB-INF/tld/c.tld</taglib-location>
-    </taglib>
+<!--    <taglib>-->
+<!--        <taglib-uri>/tags/c</taglib-uri>-->
+<!--        <taglib-location>/WEB-INF/tld/c.tld</taglib-location>-->
+<!--    </taglib>-->
     
 </web-app>

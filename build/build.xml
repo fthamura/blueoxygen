@@ -252,9 +252,9 @@
 	    			    	        password="${db.password}">
 	    	   	
 	    	    <export 
-	    	    	format="xml"
-	    	    	dest="${build.dir}/generated/dbxml/${project.name}-${project.version}-export.xml"/>
-	    	    	<!-- dest="${build.dir}/src/sql/${project.name}-${project.version}-export.xml"/> -->
+	    	    	format="xml" 
+	    	    	dest="${build.dir}/src/sql/${project.name}-${project.version}-export.xml"/>
+	    		<!--dest="${build.dir}/generated/dbxml/${project.name}-${project.version}-export.xml"/>-->
 	    	</dbunit>
 	    </target>
 	

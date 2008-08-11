@@ -36,7 +36,7 @@
 
 #foreach($rda in $sdAccesses)
 	<tr valign="top" bgcolor="white">
-		<td>$!rda.siteDescriptor.role.name</td>
+		<td>$!rda.siteDescriptor.site.name</td>
 		<td>$!rda.siteDescriptor.descriptor.description</td>
 		<td>$!rda.acl.value</td>
 		<td nowrap="true" align="center">

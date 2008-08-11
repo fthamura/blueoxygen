@@ -28,17 +28,14 @@ public class CimandeInterceptor implements Interceptor, PersistenceAware,
 	private User currentUser;
 	private Descriptor descriptorCalled;
 
-	@Override
 	public void destroy() {
 
 	}
 
-	@Override
 	public void init() {
 
 	}
 
-	@Override
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
 		if (sessCredentials.getCurrentUser() != null) {
 			// init currentSite
@@ -127,12 +124,10 @@ public class CimandeInterceptor implements Interceptor, PersistenceAware,
 		return mfs;
 	}
 
-	@Override
 	public void setPersistenceManager(PersistenceManager arg0) {
 		this.manager = arg0;
 	}
 
-	@Override
 	public void setSessionCredentials(SessionCredentials arg0) {
 		this.sessCredentials = arg0;
 	}

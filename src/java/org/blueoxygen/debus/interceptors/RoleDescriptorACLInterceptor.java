@@ -19,15 +19,12 @@ public class RoleDescriptorACLInterceptor implements Interceptor,
 	private PersistenceManager manager;
 	private SessionCredentials sessionCredential;
 
-	@Override
 	public void destroy() {
 	}
 
-	@Override
 	public void init() {
 	}
 
-	@Override
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
 		String namespace = actionInvocation.getProxy().getNamespace();
 		String actionName = actionInvocation.getProxy().getActionName();
@@ -53,12 +50,10 @@ public class RoleDescriptorACLInterceptor implements Interceptor,
 		return actionInvocation.invoke();
 	}
 
-	@Override
 	public void setPersistenceManager(PersistenceManager persistenceManager) {
 		this.manager = persistenceManager;
 	}
 
-	@Override
 	public void setSessionCredentials(SessionCredentials sessionCredentials) {
 		this.sessionCredential = sessionCredentials;
 	}

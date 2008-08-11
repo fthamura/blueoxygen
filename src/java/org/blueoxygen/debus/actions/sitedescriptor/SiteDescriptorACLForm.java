@@ -20,6 +20,7 @@ public class SiteDescriptorACLForm extends CimandeAction {
 	private SiteDescriptorACLAccess siteDescriptorAccess = new SiteDescriptorACLAccess();
 	private List<SiteDescriptorACLAccess> sdAccesses = new ArrayList<SiteDescriptorACLAccess>();
 	private List<GxDroplistValue> acls = new ArrayList<GxDroplistValue>();
+	private List<String> accesses = new ArrayList<String>();
 	
 	public String execute() {
 		if (getSiteDescriptorAccess().getId() != null
@@ -56,22 +57,6 @@ public class SiteDescriptorACLForm extends CimandeAction {
 		this.aclId = aclId;
 	}
 
-//	public List<String> getDescriptorId() {
-//		return descriptorId;
-//	}
-//
-//	public void setDescriptorId(List<String> descriptorId) {
-//		this.descriptorId = descriptorId;
-//	}
-//
-//	public List<String> getSiteId() {
-//		return siteId;
-//	}
-//
-//	public void setSiteId(List<String> siteId) {
-//		this.siteId = siteId;
-//	}
-
 	public SiteDescriptorACL getSiteDescriptor() {
 		return siteDescriptor;
 	}
@@ -103,5 +88,13 @@ public class SiteDescriptorACLForm extends CimandeAction {
 
 	public void setAcls(List<GxDroplistValue> acls) {
 		this.acls = acls;
+	}
+
+	public List<String> getAccesses() {
+		return accesses;
+	}
+
+	public void setAccesses(List<String> accesses) {
+		this.accesses = accesses;
 	}
 }

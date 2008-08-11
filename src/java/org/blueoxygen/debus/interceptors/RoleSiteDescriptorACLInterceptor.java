@@ -22,35 +22,32 @@ public class RoleSiteDescriptorACLInterceptor implements Interceptor,
 	private PersistenceManager manager;
 	private SessionCredentials sessionCredentials;
 
-	@Override
 	public void destroy() {
 
 	}
 
-	@Override
 	public void init() {
 
 	}
 
-	@Override
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
 		String namespace = actionInvocation.getProxy().getNamespace();
 		String actionName = actionInvocation.getProxy().getActionName();
 		String descriptorCandidate[] = namespace.split("/");
 		if ("module".equalsIgnoreCase(descriptorCandidate[1])) {
 			String descriptorName = descriptorCandidate[2];
-			List<RoleDescriptorACLAccess> rdAccesses = new ArrayList<RoleDescriptorACLAccess>();
+			List<RoleSiteDescriptorACLAccess> rdAccesses = new ArrayList<RoleSiteDescriptorACLAccess>();
 			rdAccesses = manager.getList("SELECT rsda FROM "
 					+ RoleSiteDescriptorACLAccess.class.getName()
 					+ " rsda WHERE rsda.rsDescriptor.roleSite.role.id='"
 					+ getCurrentUser().getRole().getId()
-					+ " AND rsda.rsDescriptor.roleSite.site.id='"
+					+ "' AND rsda.rsDescriptor.roleSite.site.id='"
 					+ ActionContext.getContext().getSession().get(
 							LoginFilter.LOGIN_CIMANDE_SITE)
 					+ "' AND rsda.rsDescriptor.descriptor.name='"
 					+ descriptorName + "'", null, null);
 			if (!rdAccesses.isEmpty()) {
-				for (RoleDescriptorACLAccess rda : rdAccesses) {
+				for (RoleSiteDescriptorACLAccess rda : rdAccesses) {
 					if (actionName.equalsIgnoreCase(rda.getAcl().getValue())) {
 						return actionInvocation.invoke();
 					}
@@ -65,12 +62,10 @@ public class RoleSiteDescriptorACLInterceptor implements Interceptor,
 		return sessionCredentials.getCurrentUser();
 	}
 
-	@Override
 	public void setPersistenceManager(PersistenceManager persistenceManager) {
 		this.manager = persistenceManager;
 	}
 
-	@Override
 	public void setSessionCredentials(SessionCredentials sessionCredentials) {
 		this.sessionCredentials = sessionCredentials;
 	}

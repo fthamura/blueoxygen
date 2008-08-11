@@ -16,8 +16,10 @@ public class RoleDescriptorACLForm extends CimandeAction {
 	private List<RoleDescriptorACLAccess> rdAccesses = new ArrayList<RoleDescriptorACLAccess>();
 	private Role role = new Role();
 	private Descriptor descriptor = new Descriptor();
-	private GxDroplistValue acl = new GxDroplistValue();
-
+//	private GxDroplistValue acl = new GxDroplistValue();
+	private List<String> accesses = new ArrayList<String>();
+	private List<GxDroplistValue> acls = new ArrayList<GxDroplistValue>();
+	
 	public String execute() {
 		if (getRoleDescriptorAccess().getId() != null
 				&& !"".equalsIgnoreCase(getRoleDescriptorAccess().getId())) {
@@ -25,15 +27,8 @@ public class RoleDescriptorACLForm extends CimandeAction {
 					RoleDescriptorACLAccess.class, getRoleDescriptorAccess()
 							.getId()));
 		}
+		setAcls(manager.getList("SELECT acl FROM " + GxDroplistValue.class.getName() + " acl WHERE acl.name.id='ff80808115f0cf5a0115f0d214ed0002'", null, null));
 		return SUCCESS;
-	}
-
-	public GxDroplistValue getAcl() {
-		return acl;
-	}
-
-	public void setAcl(GxDroplistValue acl) {
-		this.acl = acl;
 	}
 
 	public RoleDescriptorACL getRoleDescriptor() {
@@ -75,5 +70,21 @@ public class RoleDescriptorACLForm extends CimandeAction {
 
 	public void setRdAccesses(List<RoleDescriptorACLAccess> rdAccesses) {
 		this.rdAccesses = rdAccesses;
+	}
+
+	public List<String> getAccesses() {
+		return accesses;
+	}
+
+	public void setAccesses(List<String> accesses) {
+		this.accesses = accesses;
+	}
+
+	public List<GxDroplistValue> getAcls() {
+		return acls;
+	}
+
+	public void setAcls(List<GxDroplistValue> acls) {
+		this.acls = acls;
 	}
 }
