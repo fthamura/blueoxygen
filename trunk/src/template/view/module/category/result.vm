@@ -1,0 +1,57 @@
+<html>
+<head>
+	<title>Workspace Management - Result of Search Category</title>
+  	<link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="5"><b>Search Category</b></td>
+      </tr>
+
+#if ($categories.isEmpty()) 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right">No such data found</td>
+      	</tr>
+#else 
+	<tr bgcolor="yellow">
+        	<td colspan="5" align="right">
+        	Found ( <strong>$!resultRows</strong> ) #if ($resultRows > 1) categories #else category
+        	</td>
+      	</tr>
+#end
+<tr bgcolor="#e4e4e4" width="98%">
+	
+	<td><b>Code</b></td>
+	<td><b>Description</b></td>
+	<td><b>URL Category Image</b></td>
+	<td><b>Action</b></td>
+</tr>
+
+#foreach ($moduleCategory in $categories)
+	<tr valign="top" bgcolor="white">
+	
+	<td><a href="edit.action?id=$moduleCategory.Id">$!moduleCategory.Code</a></td>
+	<td><a href="edit.action?id=$moduleCategory.Id">$!moduleCategory.Description</a></td>
+	<td>$!moduleCategory.Url_category_image</td>
+	<td>
+		<a href="edit.action?id=$moduleCategory.Id">Edit</a>&nbsp;
+		<a href="confirmDelete.action?id=$moduleCategory.Id">Del</a>
+	</td>
+	</tr>
+#end
+	<tr bgcolor="#e4e4e4">
+		<td align="right" colspan="5">
+			#if ($currPage > 0) <a href="search.action?code=$code&description=$description&url_category_image=$url_category_image&activeFlag=$activeFlag&currPage=0">&lt;&lt;</a>&nbsp;#end
+			#if ($currPage > 0) <a href="search.action?code=$code&description=$description&url_category_image=$url_category_image&activeFlag=$activeFlag&currPage=$prevPage">&lt;</a>&nbsp;#end
+			[page $page]
+			#if ($currPage < $maxPage) <a href="search.action?code=$code&description=$description&url_category_image=$url_category_image&activeFlag=$activeFlag&currPage=$nextPage">&gt;</a>&nbsp;#end
+			#if ($currPage < $maxPage) <a href="search.action?code=$code&description=$description&url_category_image=$url_category_image&activeFlag=$activeFlag&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+		</td>
+     </tr>
+</table>
+
+#end
+
+</body>
+</html>

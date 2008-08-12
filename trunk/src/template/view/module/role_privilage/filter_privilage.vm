@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title>edit - Add Business Partner</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+<form method="get" action="filter.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
+  <tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan=2>Search Role</td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Role Name:</td>
+    <td><input type="text" name="name" value="$!name">
+    </td>
+  </tr>
+  <tr bgcolor="#ffffff">
+    <td>Description:</td>
+    <td><input type="text" name="description" value="$!description">
+    </td>
+  </tr>
+  
+  
+  <tr id="tableHeader1" bgcolor="#e4e4e4">
+  <td colspan="2">
+ 	<input type="submit" value="Search">
+	<input type="reset" name="reset">
+
+  </td>
+  </tr>
+ </table>
+  #if ($roles.isEmpty()) Data tidak ditemukan
+	#else
+	<p><tr id="tableHeader2" bgcolor="#d0dcff">
+	<td colspan="6">
+	Found <strong>$!resultRows</strong> #if ($resultRows > 1) Role #else Roles #end
+	</tr></p>
+    <tr id="tableHeader2" bgcolor="#ffffff">
+	<td colspan="6">
+    #if ($currPage > 0) <a href="filter.action?name=$name&description=$description&currPage=0">&lt;&lt;</a>&nbsp;#end
+	#if ($currPage > 0) <a href="filter.action?name=$name&description=$description&currPage=$prevPage">&lt;</a>&nbsp;#end
+	[page $currPage]
+	#if ($currPage < $maxPage) <a href="filter.action?name=$name&description=$description&currPage=$nextPage">&gt;</a>&nbsp;#end
+	#if ($currPage < $maxPage) <a href="filter.action?name=$name&description=$description&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+	
+</p>
+<p>
+
+  <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
+<tr align="center" id="tableHeader1" bgcolor="#d0dcff">
+	<td>Name</td>
+	<td>Description</td>
+	<td>Action</td>
+	 
+
+</tr>
+
+
+#foreach ($role in $roles)
+<tr valign="top" bgcolor="#ffffff">
+	
+	<td>$!role.name</td>
+	<td>$!role.description</td>
+	<td align="center">
+		<a href="view_privilage.action?id=$role.Id" title="View"><img src="../../images/silk/application_view_list.png" border="0"></a>
+		<a href="edit.action?id=$role.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a>
+		<a href="confirmDelete.action?id=$role.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a>
+	</td>
+</tr>
+
+#end
+
+#end
+
+</table>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Search Job Description</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<form name="filterDescriptor" method="post" action="search.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td colspan="3"><b>Search Job Description</b></td>
+      </tr>
+
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" width="25%">
+        	Name
+        </td>
+        <td width="75%"><input maxlength="128" name="name" size="25" value="$!name"></td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" valign="top">Description:</td>
+        <td>
+        	<input maxlength="128" name="description" size="25" >
+         </td>
+      </tr>
+      <tr bgcolor="#e4e4e4">
+        <td colspan="3"><input name="Submit" value="Search" type="submit">
+        <input name="Clear" value="Reset" type="reset"> </td>
+      </tr>
+  
+</table>
+	
+</body>
+
+</html>

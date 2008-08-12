@@ -1,0 +1,84 @@
+		<form method="get" action="../gx-column/save.action">
+			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+				<tr bgcolor="#d0dcff">
+					<td colspan="2"><b>Column</b></td>
+				</tr>
+				<tr bgcolor="#ffff00">
+					<td colspan="2"><b>&nbsp;</b></td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Name: <font color="red">*</font></td>
+					<td>
+						<input name="column.name" value="$!column.name" size="35"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Description:</td>
+					<td>
+						<input name="column.description" value="$!column.description" size="35"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Database Column:</td>
+					<td>
+						<input name="column.dbColumn" value="$!column.dbColumn" size="35"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Data Type: <font color="red">*</font></td>
+					<td>
+						<select name="dataType.id">
+							#foreach($dt in $dataTypes)
+								<option value="$dt.id" #if($column.element.id.equals($dt.id)) selected #end>$dt.value</option>
+							#end
+						</select>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Size:</td>
+					<td>
+						<input name="column.length" value="$!column.length" size="4"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Minimum Length:</td>
+					<td>
+						<input name="column.minLength" value="$!column.minLength" size="4"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Maximum Length:</td>
+					<td>
+						<input name="column.maxLength" value="$!column.maxLength" size="4"/>
+					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Reference Table:</td>
+					<td><input type="textfield" id="reftableDescription" value="$!column.referenceTable.description" size="35" disabled="true" onfocus="this.blur()"/>
+    					<input type="hidden" id="reftableId" name="referenceTable.id" value="$!column.referenceTable.id"/>
+    					&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../gx-table/listTable.action?formId=ref','cats','scrollbars=yes,status=no,width=300,height=300')"/>    					
+  					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+  					<td>Reference Droplist:</td>
+  					<td><input type="textfield" id="refDroplistDescription" value="$!column.referenceDroplist.name" size="35" disabled="true" onfocus="this.blur()"/>
+    					<input type="hidden" id="refDroplistId" name="referenceDroplist.id" value="$!column.referenceDroplist.id"/>
+    					&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../gx-droplist/listName.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>    					
+  					</td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td colspan="2">
+						<input type="checkbox" name="column.encryptedFlag" value="1" #if($column.encryptedFlag == 1)checked #end/>Encrypted
+						<input type="checkbox" name="column.keyColumnFlag" value="1" #if($column.keyColumnFlag == 1)checked #end/>Key Column
+					</td>
+				</tr>
+				<tr bgcolor="#e4e4e4">
+					<td colspan="2">
+						<input name="table.id" id="nametableId" type="hidden" value="$!table.id"/>
+						<input name="column.id" id="columnId" type="hidden" value="$!column.id"/>
+						<input type="submit" value="Submit"/>
+						<input type="Reset" value="Reset"/>
+					</td>
+				</tr>
+			</table>
+		</form>

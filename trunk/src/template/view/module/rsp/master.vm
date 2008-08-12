@@ -1,0 +1,74 @@
+<head>
+  <title>Workspace Management - Add a new Section</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+ <form method="post" action="addmodulfunction.action">
+<table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="100%">
+	<tbody><tr bgcolor="#ffffff" valign="top"> 
+      	<td colspan="3" bgcolor="#CCCCCC"><b>Role Name :</b>  $!roleSite.role.name</td>
+      	</tr>
+      	<tr bgcolor="#ffffff" valign="top">
+      	<td colspan="3" bgcolor="#CCCCCC"><b>Site Name :</b>  $!roleSite.site.name</td>
+      	</tr>
+  </tbody></table><br>
+  <table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="100%">
+    <tr bgcolor="#ffffff" valign="top"> 
+      	<td colspan="10" bgcolor="white"> <br>
+			<table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="100%">
+    			<tbody><tr bgcolor="#ffffff" valign="top"> 
+      				<td colspan="10" bgcolor="#d0dcff"><b> </b>
+      				<b><font color="#000000">Add Module Function</font></b></td>
+        		</tr>    	     	
+  			</tbody></table>
+  			<table bgcolor="black" border="0" cellpadding="3" cellspacing="1" width="100%">
+
+    <tbody><tr bgcolor="#ffffff" valign="top"> 
+      <td width="33%"> 
+        <div align="right"><font color="#ff0000">*</font> Module ID:</div>
+      </td>
+      <td width="67%"> 
+        <input type="textfield" id="lihatmodulName" value="None" size="15" disabled="true" onfocus="this.blur()" /><input name="mfunction.id" type="hidden" id="viewmodulId" value=""/>
+        <input type="button" value="View Module Function" onclick="javascript:window.open('../rsp/viewmfuntion.action?roleSite.id=$!roleSite.id','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+        <div class="errorMessage">
+		#sfielderror()
+		</div>
+      </td>
+    </tr>
+    <tr bgcolor="#ffffff" valign="top">
+    <td align="right" width="25%">&nbsp;</td>
+    <td colspan="2">
+    	<p>
+    	  <input type="submit" name="Submit" value="Add Module Function">
+    	  <input type="hidden" name="roleSite.id" value="$!roleSite.id">
+    	  </p>
+    	</td></tr>
+  </tbody></table><br>
+
+ 
+ </form>
+<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tbody>
+	  <tr bgcolor="#d0dcff" align="center">
+	    <td><strong><font color="#000000">Module Function Name</font></strong></td>
+	    <td><strong><font color="#000000">Module Function Description</font></strong></td>
+	    <td><strong><font color="#000000">Action</font></strong></td>
+	  </tr>
+	  #foreach($rs in $rsps)
+	  <tr bgcolor="#FFFFFF">
+	    <td>$!rs.moduleFunction.name</td>
+	    <td>$!rs.moduleFunction.description</td>
+	    <td align="center"><a href="delete.action?rsp.id=$!rs.id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a>
+	    	
+	    </td>
+	  </tr>
+	  #end
+	</tbody>
+</table>
+<div align="centre"><br>
+  <input value="     Finish    " type="button" onClick="javascript:location.href='finish.action?'"> 
+</div>
+ 

@@ -1,0 +1,46 @@
+
+<html>
+<head>
+  <title>edit - Add Business Partner</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+#if ($roles.isEmpty()) Data tidak ditemukan
+#else
+<tr bgcolor="#d0dcff">
+Ditemukan $roles.size() #if ($roles.size()>1) roles #else role #end
+</tr>
+<p>
+</table>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="90%">
+<tr id="tableHeader1" bgcolor="#d0dcff">
+	<td>&nbsp;</td>
+	<td>Nama</td>
+	<td>Penjelasan</td>
+	 
+
+</tr>
+
+
+#foreach ($role in $roles)
+<tr valign="top" bgcolor="#ffffff">
+	<td><a href="view_privilage.action?id=$role.Id" name="View Detail">v</a>&nbsp;<a href="edit.action?id=$role.Id" name="Edit">e</a>&nbsp;<a href="confirmDelete.action?id=$role.Id" name="Delete">d</a></td>
+	<td>$!role.Name</td>
+	<td>$!role.Description</td>
+	<td>$!role.moduleFunction.Name</td>
+</tr>
+
+#end
+</table>
+#end
+
+</body>
+</html>
+

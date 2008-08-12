@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--<%@ taglib uri = "webwork" prefix = "ww" %>-->
+<html>
+	<head>
+		<title>Delete - Window</title>
+		<link rel="stylesheet" type="text/css" href="../../style.css">
+	</head>
+	<body>
+		<form method="get" action="confirm.action">
+			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
+				<tr bgcolor="#d0dcff">
+					<td bgcolor="#333366"><span class="style1">Delete Window</span></td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>Delete window $!window.name?</td> 
+				</tr>
+				<tr>
+					<td align="right" bgcolor="#CFE9EB">
+						<input name="window.id" type="hidden" value="$window.id"/>
+						<input name="confirm" type="submit" value="Yes"/>
+						<input name="confirm" type="submit" value="No"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<br>
+	</body>
+</html>

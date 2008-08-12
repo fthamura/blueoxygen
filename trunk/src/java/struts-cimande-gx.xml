@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<!--TABLE-->
+	<package name="gx-table" extends="default" namespace="/module/gx-table">
+		<action name="create" class="org.blueoxygen.cimande.gx.db.table.TableForm">
+			<result name="success" type="velocity">/view/module/gx/table/form.vm</result>
+		</action>
+		<action name="save" class="org.blueoxygen.cimande.gx.db.table.SaveTable">
+			<result name="success" type="redirect">edit.action?table.id=${table.id}</result>
+			<result name="input" type="redirect">edit.action?table.id=${table.id}&amp;actionErrors=${actionErrors}</result>
+		</action>
+		<action name="filter" class="org.blueoxygen.cimande.gx.db.table.TableForm">
+			<result name="success" type="velocity">/view/module/gx/table/filter.vm</result>
+		</action>
+		<action name="search" class="org.blueoxygen.cimande.gx.db.table.SearchTable">
+			<result name="success" type="velocity">/view/module/gx/table/result.vm</result>
+		</action>
+		<action name="edit" class="org.blueoxygen.cimande.gx.db.table.TableForm">
+			<result name="success" type="velocity">/view/module/gx/table/form.vm</result>
+		</action>
+		<action name="delete" class="org.blueoxygen.cimande.gx.db.table.TableForm">
+			<result name="success" type="velocity">/view/module/gx/table/delete.vm</result>
+		</action>
+		<action name="confirm" class="org.blueoxygen.cimande.gx.db.table.DeleteTable">
+			<result name="success" type="velocity">/view/module/gx/table/report.vm</result>
+		</action>
+		<action name="view" class="org.blueoxygen.cimande.gx.db.table.TableForm">
+			<result name="success" type="velocity">/view/module/gx/table/view.vm</result>
+		</action>
+		<action name="listTable" class="org.blueoxygen.cimande.gx.db.table.ListTable">
+			<result name="success" type="velocity">/view/module/gx/table/list.vm</result>
+		</action>
+	</package>
+<!--COLUMN-->
+	<package name="gx-column" extends="default" namespace="/module/gx-column">
+		<action name="create" class="org.blueoxygen.cimande.gx.db.column.ColumnForm">
+			<result name="success" type="velocity">/view/module/gx/column/form.vm</result>
+		</action>
+		<action name="save" class="org.blueoxygen.cimande.gx.db.column.SaveColumn">
+			<result name="success" type="redirect">../gx-table/edit.action?table.id=${table.id}</result>
+			<result name="input" type="redirect">../gx-table/edit.action?table.id=${table.id}&amp;column.id=${column.id}&amp;actionErrors=${actionErrors}</result>
+		</action>
+		<action name="edit" class="org.blueoxygen.cimande.gx.db.column.ColumnForm">
+			<result name="success" type="velocity">/view/module/gx/column/form.vm</result>
+		</action>
+		<action name="listdetail" class="org.blueoxygen.cimande.gx.db.column.ColumnForm">
+			<result name="success" type="velocity">/view/module/gx/column/listdetail.vm</result>
+		</action>
+		<action name="delete" class="org.blueoxygen.cimande.gx.db.column.ColumnForm">
+			<result name="success" type="velocity">/view/module/gx/column/delete.vm</result>
+		</action>
+		<action name="confirm" class="org.blueoxygen.cimande.gx.db.column.DeleteColumn">
+			<result name="success" type="redirect">../gx-table/edit.action?table.id=${table.id}</result>
+		</action>
+	</package>
+<!--DROPLIST-->
+	<package name="gx-droplist" extends="default" namespace="/module/gx-droplist">
+		<action name="create" class="org.blueoxygen.cimande.gx.droplist.DroplistForm">
+			<result name="success" type="velocity">/view/module/gx/droplist/form.vm</result>
+		</action>
+		<action name="save" class="org.blueoxygen.cimande.gx.droplist.SaveDroplist">
+			<result name="success" type="redirect">edit.action?name.id=${name.id}</result>
+			<result name="input" type="velocity">/view/module/gx/droplist/form.vm</result>
+		</action>
+		<action name="filter" class="org.blueoxygen.cimande.gx.droplist.DroplistForm">
+			<result name="success" type="velocity">/view/module/gx/droplist/search.vm</result>
+		</action>
+		<action name="search" class="org.blueoxygen.cimande.gx.droplist.SearchDroplist">
+			<result name="success" type="velocity">/view/module/gx/droplist/result.vm</result>
+		</action>
+		<action name="edit" class="org.blueoxygen.cimande.gx.droplist.DroplistForm">
+			<result name="success" type="velocity">/view/module/gx/droplist/form.vm</result>
+		</action>
+		<action name="view" class="org.blueoxygen.cimande.gx.droplist.DroplistForm">
+			<result name="success" type="velocity">/view/module/gx/droplist/form.vm</result>
+		</action>
+		<action name="savevalue" class="org.blueoxygen.cimande.gx.droplist.SaveValue">
+			<result name="success" type="redirect">edit.action?name.id=${name.id}</result>
+			<result name="input" type="redirect">edit.action?name.id=${name.id}</result>
+		</action>
+		
+		<!-- Detail View Droplist -->
+		
+		<action name="detail" class="org.blueoxygen.cimande.gx.droplist.DroplistForm">
+			<result name="success" type="velocity">/view/module/gx/droplist/template.vm</result>
+		</action>
+		
+		<!-- END DETAIL -->
+
+		<action name="editvalue" class="org.blueoxygen.cimande.gx.droplist.DroplistForm">
+			<result name="success" type="velocity">/view/module/gx/droplist/form.vm</result>
+		</action>
+		<action name="listName" class="org.blueoxygen.cimande.gx.droplist.ListName">
+			<result name="success" type="velocity">/view/module/gx/droplist/list.vm</result>
+		</action>
+	</package>
+<!--WINDOW-->
+	<package name="window" extends="default" namespace="/module/window">
+		<action name="create" class="org.blueoxygen.cimande.gx.window.WindowForm">
+			<result name="success" type="velocity">/view/module/gx/window/form.vm</result>
+		</action>
+		<action name="save" class="org.blueoxygen.cimande.gx.window.SaveWindow">
+			<result name="success" type="redirect">edit.action?window.id=${window.id}</result>
+			<result name="input" type="velocity">/view/module/gx/window/form.vm</result>
+		</action>
+		<action name="filter" class="org.blueoxygen.cimande.gx.window.WindowForm">
+			<result name="success" type="velocity">/view/module/gx/window/search.vm</result>
+		</action>
+		<action name="search" class="org.blueoxygen.cimande.gx.window.SearchWindow">
+			<result name="success" type="velocity">/view/module/gx/window/result.vm</result>
+		</action>
+		<action name="edit" class="org.blueoxygen.cimande.gx.window.WindowForm">
+			<result name="success" type="velocity">/view/module/gx/window/view.vm</result>
+		</action>
+		<action name="delete" class="org.blueoxygen.cimande.gx.window.WindowForm">
+			<result name="success" type="velocity">/view/module/gx/window/delete.vm</result>
+		</action>
+		<action name="confirm" class="org.blueoxygen.cimande.gx.window.DeleteWindow">
+			<result name="success" type="velocity">/view/module/gx/window/report.vm</result>
+		</action>
+		<action name="list" class="org.blueoxygen.cimande.gx.window.ListWindow">
+			<result name="success" type="velocity">/view/module/gx/window/list.vm</result>
+		</action>
+		<action name="overview" class="org.blueoxygen.cimande.gx.window.WindowForm">
+			<result name="success" type="velocity">/view/module/gx/window/overview.vm</result>
+		</action>
+		<action name="genform" class="org.blueoxygen.cimande.gx.window.WindowForm">
+			<result name="success" type="velocity">/view/module/gx/template/form.vm</result>
+		</action>
+	</package>
+<!--GXFORM-->
+	<package name="tab" extends="default" namespace="/module/tab">
+		<action name="create" class="org.blueoxygen.cimande.gx.tab.TabForm">
+			<result name="success" type="velocity">/view/module/gx/tab/form.vm</result>
+		</action>
+		<action name="save" class="org.blueoxygen.cimande.gx.tab.SaveTab">
+			<result name="success" type="redirect">../window/edit.action?window.id=${window.id}</result>
+			<result name="input" type="velocity">/view/module/gx/tab/form.vm</result>
+		</action>
+		<action name="edit" class="org.blueoxygen.cimande.gx.tab.TabForm">
+			<result name="success" type="velocity">/view/module/gx/tab/view.vm</result>
+		</action>
+		<action name="confirm" class="org.blueoxygen.cimande.gx.tab.TabForm">
+			<result name="success" type="velocity">/view/module/gx/tab/delete.vm</result>
+		</action>
+		<action name="delete" class="org.blueoxygen.cimande.gx.tab.DeleteTab">
+			<result name="success" type="velocity">/view/module/gx/tab/report.vm</result>
+		</action>
+		<action name="listdetail" class="org.blueoxygen.cimande.gx.tab.TabForm">
+			<result name="success" type="velocity">/view/module/gx/tab/listdetail.vm</result>
+		</action>
+	</package>
+<!--GXGREENATOR-->
+	<package name="field" extends="default" namespace="/module/field">
+		<action name="save" class="org.blueoxygen.cimande.gx.field.SaveField"  >
+			<result name="success" type="redirect">../tab/edit.action?window.id=${window.id}&amp;tab.id=${tab.id}</result>
+			<result name="input" type="redirect">../tab/edit.action?window.id=${window.id}&amp;tab.id=${tab.id}&amp;actionErrors=${actionErrors}</result>
+		</action>
+		<action name="delete" class="org.blueoxygen.cimande.gx.field.FieldForm">
+			<result name="success" type="velocity">/view/module/gx/field/delete.vm</result>
+		</action>
+		<action name="confirm" class="org.blueoxygen.cimande.gx.field.DeleteField">
+			<result name="success" type="redirect">../tab/edit.action?window.id=${window.id}&amp;tab.id=${tab.id}</result>
+		</action>
+		<action name="edit" class="org.blueoxygen.cimande.gx.field.FieldForm">
+			<result name="success" type="velocity">/view/module/gx/field/form.vm</result>
+		</action>
+		<action name="gen" class="org.blueoxygen.cimande.gx.field.SaveField">
+			<result name="success" type="velocity">/view/module/gx/field/view_gx.vm</result>
+		</action>
+		<action name="listdetail" class="org.blueoxygen.cimande.gx.field.FieldForm">
+			<result name="success" type="velocity">/view/module/gx/field/listdetail.vm</result>
+		</action>
+	</package>
+	<package name="window_role" extends="default" namespace="/module/windowrole">
+		<action name="create" class="org.blueoxygen.cimande.gx.access.WindowRoleForm">
+			<result name="success" type="velocity">/view/module/gx/access/form.vm</result>
+		</action>
+		<action name="save" class="org.blueoxygen.cimande.gx.access.SaveWindowRole">
+			<result name="success" type="redirect">../window/edit.action?window.id=${window.id}</result>
+			<result name="input" type="velocity">/view/module/gx/access/form.vm</result>
+		</action>
+		<action name="edit" class="org.blueoxygen.cimande.gx.access.WindowRoleForm">
+			<result name="success" type="velocity">/view/module/gx/access/form.vm</result>
+		</action>
+		<action name="delete" class="org.blueoxygen.cimande.gx.access.WindowRoleForm">
+			<result name="success" type="velocity">/view/module/gx/access/delete.vm</result>
+		</action>
+		<action name="confirm" class="org.blueoxygen.cimande.gx.access.DeleteWindowRole">
+			<result name="success" type="velocity">/view/module/gx/access/report.vm</result>
+		</action>
+		<action name="listdetail" class="org.blueoxygen.cimande.gx.access.ListWindowRole">
+			<param name="window.id">${window.id}</param>
+			<result name="success" type="velocity">/view/module/gx/access/listdetail.vm</result>
+		</action>
+		<action name="listrole" class="org.blueoxygen.cimande.gx.access.RoleList">
+			<result name="success" type="velocity">/view/module/gx/access/listrole.vm</result>
+		</action>
+	</package>
+</struts>

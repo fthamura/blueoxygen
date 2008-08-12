@@ -1,0 +1,30 @@
+<form action="search.action" method="post" >
+<table>
+	<th>
+		<td colspan="2">
+			Role Descriptor
+		</td>
+	</th>
+	<tr>
+		<td>Role</td>
+		<td>
+			<input type="textfield" id="roleName" value="All" size="15" readonly="true" onfocus="this.blur()"/>
+		    <input type="hidden" id="role_id" name="role.id" value=""/>
+    		&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listrole.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+		</td>
+	</tr>
+	<tr>
+		<td>Descriptor</td>
+		<td>
+	<input type="textfield" id="moduleDescriptorDescription" value="All" size="15" readonly="true" onfocus="this.blur()"/>
+    <input type="hidden" id="moduleDescriptorId" name="descriptor.Id" value=""/>
+    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listdescriptor.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="submit" value="Submit">
+		</td>
+	</tr>
+</table>
+</form>

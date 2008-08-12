@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Delete Module Function Confirmation</title>
+  	<link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td ><b>Delete Module Function Confirmation:</b>
+	</td>
+      </tr>
+      <tr bgcolor="white">
+        <td align="center">
+		<div class=errorMessage></div>
+		<p>Are You sure Want to Destroy "<strong>$moduleFunction.Name</strong>" Module Function?<p>
+		<font color="red">This Action cannot be <b>Undone!!</b></font>
+	</td>
+      </tr>
+      <tr bgcolor="#d0dcff">
+        <td align="center">
+        <form action="deleteModuleFunction.action" method="GET">
+        		<input type="hidden" name="id" value="$moduleFunction.Id">
+        		<input type="submit" value="Delete">&nbsp;
+        		<input type="button" value="Cancel" OnClick="javascript:location.href='viewModuleFunction.action?id=$moduleFunction.Id';">
+		</form>
+        </td>
+      </tr>	
+      </table>
+</body>
+</html>

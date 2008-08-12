@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Search a Skin</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+<link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+
+<body onload="HTMLArea.replaceAll();">
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors )
+<li>$error</li>
+ #end
+</ul>
+#end
+
+<form method="post" action="search.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  <tbody>
+  <tr bgcolor="#d0dcff">
+    <td colspan='3'><strong>Search Skin</strong></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top" width=25%>
+    Name:
+    </td>
+    <td><input type="text" name="name" length="128" value="$!name"/>
+    </td>
+  	<td align="right" valign="top">
+	<img alt="Name of The Skin" src="../../images/help.gif" border="0"></td>
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top" width=25%>Description:</td>
+  	<td><input type="text" name="description" value="$!description"/>
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Description of The Skin" src="../../images/help.gif" border="0"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+<td style="font-weight: bold;" align="right" valign="top" width=25%>Url Theme</td>
+  	<td><input type="text" name="url_theme" value="$!url_theme">
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="URL Theme of The Skin" src="../../images/help.gif" border="0"></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+<td style="font-weight: bold;" align="right" valign="top" width=25%>Active</td>
+  	<td><input type="radio" name="activeFlag" value=1 #if ($activeFlag == 1) checked #end>active<br><input type="radio" name="activeFlag" value=0 #if ($activeFlag == 0) checked #end>inactive
+  	</td>
+  	<td align="right" valign="top">
+	<img alt="Status of The Skin" src="../../images/help.gif" border="0"></td>
+  </tr>
+  <tr bgcolor="#d0dcff">
+  	<td colspan="3"><input type="submit" value="Search"><input type="reset" value="Clear"></td>
+  </tr>
+ </table>
+</form>
+</body>
+</html>

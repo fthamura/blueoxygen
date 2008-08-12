@@ -1,0 +1,38 @@
+<form action="save.action" method="post" >
+<table>
+	<th>
+		<td colspan="2">
+			Window Role
+		</td>
+	</th>
+	<tr>
+		<td>Role</td>
+		<td>
+			<input type="textfield" id="roleName" value="None" size="15" readonly="true" onfocus="this.blur()"/>
+		    <input type="hidden" id="role_id" name="role.id" value=""/>
+    		&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listrole.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+		</td>
+	</tr>
+	<tr>
+		<td>Window</td>
+		<td>
+	<input type="textfield" id="windowDescription" value="None" size="15" readonly="true" onfocus="this.blur()"/>
+    <input type="hidden" id="windowId" name="window.Id" value=""/>
+    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listwindow.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+		</td>
+	</tr>
+	<tr>
+		<td>Access</td>
+		<td>
+			#foreach($ac in $accessList)
+				<input name="accesses" type="checkbox" value="$ac.id"> $ac.value</br>
+			#end
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="submit" value="Submit"><input type="reset" value="Reset">
+		</td>
+	</tr>
+</table>
+</form>

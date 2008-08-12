@@ -1,0 +1,25 @@
+BODY {
+	font: 9pt Verdana, Arial, Helvetica, sans-serif
+}
+
+TABLE {
+	font: 9pt Verdana, Arial, Helvetica, sans-serif
+}
+A {
+	font-family: Arial, helvetica, arial, sans-serif; font-style: normal; text-decoration: none
+; color: #000000
+}
+A:link {
+	color: #000000; cursor: hand; font-style: normal; font-weight: normal;text-decoration: none
+}
+A:active {
+	cursor: hand; font-style: normal; font-weight: normal; text-decoration: none
+; color: #000000 ; text-decoration: underline
+}
+A:visited {
+	cursor: hand; font-style: normal; font-weight: normal; text-decoration: none
+; color: #000000 ;text-decoration: none
+}
+A:hover {
+	color: red; cursor: hand; font-style: bold; font-weight: normal; text-decoration: none 
+}

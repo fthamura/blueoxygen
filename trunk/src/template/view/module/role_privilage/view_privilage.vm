@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Role - Role Detail</title>
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+</head>
+<body onload="HTMLArea.replaceAll();">
+<form method="post" action="add_privilage.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
+  <tbody>
+	<tr bgcolor="#d0dcff">
+    <td id="tableHeader1" colspan="2">Detail Role</td>
+  	</tr>
+	<tr bgcolor="#ffffff">
+	  <td id="tableHeader2" colspan="2"><b><a href="edit.action?id=$role.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a>  <a href="confirmDelete.action?id=$role.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a></b>
+    </tr>
+    <tr bgcolor="#ffffff">
+      <td id="tableHeader2">Name    :</td>
+      <td>$!role.Name  </td>
+    </tr bgcolor="#ffffff">
+    <tr bgcolor="#ffffff">
+      <td id="tableHeader2">Description :   </td>
+      <td>$!role.Description  </td>
+    </tr>
+	<tr bgcolor="#ffffff">
+		<td id="tableHeader2">Status  : </td>
+		<td>#if ($role.LogInformation.isActive()) active #else inactive #end</td>
+	</tr>
+    </tbody>
+     <tr bgcolor="#ffffff">
+    <td>Module Function</td><td>
+	<input type="textfield" id="moduleFunctionName" value="" size="15" disabled="true" onfocus="this.blur()"/>
+    <input type="hidden" id="moduleFunctionId" name="moduleFunctionId" value=""/>
+    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../module_function/listModulePrivilage.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+  	</td>
+  </tr>
+  
+  
+    <tr bgcolor="#e4e4e4">
+  <td id=tableHeader1 colspan="2"> <input type="hidden" name="id" value="$id">
+	<input type="submit" name="Submit" value="Submit" onClick="doUpload()">
+	<input type="reset" name="Clear">
+  </td>
+  </tr>
+  </table><br>
+  <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="70%">
+
+  <tr id="tableHeader1" bgcolor="#d0dcff" align="center">
+		<td>Module Function</td>
+		<td>Description</td>
+		<td>Table Reference</td>
+		<td>Action</td>
+  </tr>
+#foreach ($rf in $role.rolePrivilage)
+
+    <tr valign="top" bgcolor="#ffffff">
+	<td>$!rf.moduleFunction.name</td>
+	<td>$!rf.moduleFunction.description</td>
+	<td>$!rf.moduleFunction.tableReferences</td>
+	<td align="center"><strong><a href="remove_privilage.action?rolePrivilageId=$!rf.id&id=$!role.id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a></strong>&nbsp;</td>
+	</tr>
+#end
+</table>
+  
+
+
+
+
+
+
+</body>
+</html>
+    

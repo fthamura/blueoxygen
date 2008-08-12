@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Build file for BlueOxygen  -->
+
+<project name="cimande" default="war" basedir="..">
+
+    <!-- Give user a chance to override without editing this file 
+         (and without typing -D each time they invoke a target) -->    
+
+	   <property file="${basedir}/build/build.properties" />
+		<property file="${basedir}/build/db.properties" />
+  
+    <!-- Generic project properties -->
+
+    <property name="project.fullname" value="BlueOxygen Cimande Project"/>
+    <property name="project.name" value="cimande"/>
+    
+    <property name="project.version" value="1.2.3.1"/>      
+    
+    <!-- Directory settings -->
+    <property name="src.dir" value="${basedir}/src"/>
+    <property name="src.java.dir" value="${src.dir}/java"/> 
+	<property name="src.view.dir" value="${src.dir}/template/view"/>
+    <property name="src.config.dir"   location="${src.dir}/config"/>
+
+    <property name="build.dir" value="${basedir}"/>
+	<!-- 
+    <property name="build.dest.dir" value="${build.dir}/classes"/>
+	-->
+
+
+	<property name="build.dest.generated.dir" value="${basedir}/generated"/>
+	
+	<property name="build.dest.blank.dir" value="${build.dest.generated.dir}/blank"/>
+	<property name="build.dest.bundle.dir" value="${build.dest.generated.dir}/bundle"/>		
+	    
+    <property name="build.dest.jar.dir" value="${basedir}/generated/bundle"/>
+	<property name="build.dest.dir" value="${build.dest.generated.dir}/classes"/>
+	<property name="build.dest.view.dir" value="${build.dest.generated.dir}/classes/view"/>
+	
+    <property name="lib.dir" value="WebContent/WEB-INF/lib"/>   
+    <property name="docs.dir" value="${build.dest.generated.dir}/docs"/>
+    <property name="javadocs.destdir" value="${docs.dir}/api"/>
+    <property name="release.dir" value="${project.name}-${project.version}/"/>    
+    <property name="install.war" value="${build.dir}/webapp"/>
+    <property name="locale.default" value="en"/>
+    
+    <!-- Miscellaneous settings -->
+
+    <property name="locale.default" value="en"/>
+    <property name="debug" value="on"/>
+    <property name="optimize" value="on"/>
+    <property name="deprecation" value="off"/>  
+    
+    <!-- Anakia doc settings -->
+    <property name="docs.dest" value="docs"/>
+    <property name="docs.src" value="xdocs"/>  
+
+    <!-- =================================================================== -->
+    <!-- Builds Classpath                                                    -->
+    <!-- =================================================================== -->
+    <path id="classpath">
+        <!-- include all jar from WebContent library folder -->
+    	<fileset dir="${lib.dir}">
+            <include name="*.jar"/>
+        </fileset>
+		
+        <fileset dir="${build.dir}/lib">
+            <include name="*.jar"/>
+        </fileset>
+    	<!-- include generated classes directory to classpath -->
+    	<dirset dir="${build.dest.dir}" />
+    	        
+    </path>
+ 
+    <!-- =================================================================== -->
+    <!-- Initializes the build.                                              -->
+    <!-- =================================================================== -->    
+    <target name="init" description="Initialization">
+
+        <!-- So that we can use the ${TSTAMP}, ${DSTAMP}, ... time stamps
+             in targets, if need be -->
+        <tstamp/>
+
+        <echo message="---------- ${project.fullname} version ${project.version} ----------"/>
+        <echo message=""/>
+        
+        <echo message="java.class.path = ${java.class.path}"/>        
+        <echo message=""/>
+        <echo message="java.home = ${java.home}"/>
+        <echo message="ant.home = ${ant.home}"/>
+        <echo message="user.home = ${user.home}"/>
+        <echo message=""/>
+        <echo message="basedir = ${basedir}"/>
+        <echo message=""/>        
+        <echo message="src.java.dir= ${src.java.dir}"/>
+        <echo message=""/>        
+        <echo message="build.dir= ${build.dir}"/>
+
+    	<echo message=""/>        
+	  <echo message="locale.default = ${locale.default}"/>
+
+    </target>
+
+    <!-- ================================================================== -->
+    <!-- Displays usage information                                         -->
+    <!-- ================================================================== -->
+    <target name="usage" description="Displays usage information">
+        <echo message="Use -projecthelp to see the available targets"/>
+    </target>
+        
+    <!-- ================================================================== -->
+    <!-- Perform clean, fetch, build, test, docs, and deploy     	    -->
+    <!-- ================================================================== -->
+    <target name="all" description="Calling All Target " depends="init, build, test">
+        <echo message="Calling all the targets"/>
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- Cleans up the distribution                                          -->
+    <!-- =================================================================== -->
+    <target name="clean" description="Cleans up the distribution" >
+    	<echo message="Clean out the output directories"/>
+    	<delete quiet="false" includeEmptyDirs="true" failonerror="false">
+        	<fileset dir="${build.dest.generated.dir}" />
+        </delete>
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- Build the distribution                                              -->
+    <!-- =================================================================== -->
+    <target name="build" depends="init" description="Build the distribution" >
+    	<echo message="Compiling all the code"/>
+    	
+        <echo message=""/>        
+        <echo message="src.java.dir= ${src.java.dir}"/>
+        <echo message=""/>        
+        <echo message="build.dest.dir= ${build.dest.dir}"/>
+
+        <mkdir dir="${build.dest.dir}"/>
+    	
+        <javac 
+            classpathref="classpath"
+            srcdir="${src.java.dir}/" 
+            destdir="${build.dest.dir}" 
+            debug="${debug}"
+            deprecation="${deprecation}"
+            optimize="${optimize}">            
+        </javac>
+    	           
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- Generate JavaDoc Documentation                                      -->
+    <!-- =================================================================== -->
+    	<target 
+        name="javadocs" depends="build" 
+        description="Generates the project's API documentation"
+    >
+        <mkdir dir="${javadocs.destdir}"/>
+        
+        <javadoc        
+            sourcepath="${src.java.dir}" 
+            destdir="${javadocs.destdir}"
+            packagenames="org.blueoxygen.*"
+            author="true"
+            private="false"
+            version="true"
+            use="true"
+            windowtitle="${project.fullname} API"
+            doctitle="${project.fullname}"                
+            bottom="Copyright &#169; ${year}, BlueOxygen Foundation. All Rights Reserved."
+        >
+            <classpath refid="classpath"/>
+        </javadoc>
+
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- Ship the WARs and soon to the execution                       -->
+    <!-- =================================================================== -->
+    <target name="deploy" description="Ship the binary to the execution" >
+    	<echo message="Deploying the code"/>
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- Run the junit test                                                  -->
+    <!-- =================================================================== -->
+    <target name="test" description="Test the distribution" >
+    	<echo message="Testing"/>
+    </target>
+
+	
+
+    <target name="update-schema" depends="init" description="Update the database schema">
+        <path id="update.schema.classpath">
+            <path refid="classpath"/>
+            <pathelement path="${build.dest.dir}"/>
+            <pathelement path="${src.config.dir}"/>
+        </path>
+
+        <taskdef name="update-schema" classpathref="update.schema.classpath"
+                 classname="org.hibernate.tool.hbm2ddl.SchemaExportTask"/>
+
+        <update-schema quiet="no" text="no" drop="no" 
+        	config="${build.dir}/src/config//hibernate.cfg.xml" />
+        <echo message="Cimande schema updated"/>
+    </target>
+
+   <target name="create-schema" 
+   		description="Generates DB schema with hbm2ddl." 
+        depends="init, build">
+  	<!--
+   	<mkdir dir="${build.dir}/generated/sql"/>
+   	-->
+   	<taskdef classpathref="classpath"  name="hibernatetool" 
+   	classname="org.hibernate.tool.ant.HibernateToolTask" />
+   	    
+   	<hibernatetool destdir="${build.dir}/generated/sql">
+   	 <annotationconfiguration
+   	  		configurationfile="${build.dir}/src/config/hibernate.cfg.xml"/>
+   		
+   	 	<!-- list exporters here -->
+        <!-- outputfilename="cimande-schema.ddl" -->
+   		<hbm2ddl 
+   			update="true"
+   			export="true" 
+   			drop="true"
+   		 	delimiter=";"
+   		 	format="true"
+   		/>
+   	</hibernatetool>
+   	
+    </target>
+
+	
+	 <!-- =================================================================== -->
+	    <!-- Export from Database to XML                        -->
+	    <!-- =================================================================== -->
+	    <target name="dbexport" description="dump database to xml" >
+	    	<echo message="Dump Database to XML"/>
+	    	<mkdir dir="${build.dir}/generated/dbxml"/>
+	    	<taskdef  
+	    			name="dbunit" 
+	    			classname="org.dbunit.ant.DbUnitTask"
+	    			classpathref="classpath"
+	    	/>
+	    	
+	    	<dbunit driver="${db.driver}"          
+	    			    	        url="${db.url}"          
+	    			    	        userid="${db.user}"          
+	    			    	        password="${db.password}">
+	    	   	
+	    	    <export 
+	    	    	format="xml" 
+	    	    	dest="${build.dir}/src/sql/${project.name}-${project.version}-export.xml"/>
+	    		<!--dest="${build.dir}/generated/dbxml/${project.name}-${project.version}-export.xml"/>-->
+	    	</dbunit>
+	    </target>
+	
+	<!-- =================================================================== -->
+		    <!-- Import from XML to Database		-->
+		    <!-- =================================================================== -->
+		  
+	<target name="dbimport" description="fill database from xml" >
+		    	<echo message="Fill Database from XML"/>
+		    	<taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask" classpathref="classpath" />
+		    	<dbunit driver="${db.driver}"
+		    		supportBatchStatement="false" 
+		    	        url="${db.url}"          
+		    	        userid="${db.user}"          
+		    	        password="${db.password}">
+		    		<operation type="CLEAN_INSERT"
+					src="${build.dir}/src/sql/${project.name}-${project.version}-export.xml"/>
+ 
+		    	</dbunit>
+	</target>
+	<target name="dbimport-core" description="fill database from xml" >
+		    	<echo message="Fill Database from XML"/>
+		    	<taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask" classpathref="classpath" />
+		    	<dbunit driver="${db.driver}"
+		    		supportBatchStatement="false" 
+		    	        url="${db.url}"          
+		    	        userid="${db.user}"          
+		    	        password="${db.password}">
+		    		<operation type="CLEAN_INSERT"
+					src="${build.dir}/src/sql/cimande-1.2.3-export.xml"/>
+ 
+		    	</dbunit>
+	</target>
+
+	<target name="create-jar" depends="build" description="Create JAR" >
+    	<echo>Copy template files </echo>
+    	<mkdir dir="${build.dest.view.dir}"/>
+    	<copy todir="${build.dest.view.dir}">
+    		<fileset dir="${src.view.dir}" />
+    	</copy>
+    	        
+    	<echo>Copy struts xml files to classes</echo>
+    	<mkdir dir="${build.dest.bundle.dir}"/>
+    			
+ 		<copy todir="${build.dest.dir}">
+             <fileset dir="${src.java.dir}" includes="*.xml"/>
+         </copy>
+    	<!-- Create Jar -->
+    	<jar
+        jarfile="${build.dest.jar.dir}/${project.name}-${project.version}.jar" 
+        basedir="${build.dest.generated.dir}/classes"       
+        />
+    </target>
+	
+	<target name="create-sdk-bundle" depends="create-jar" description="Generate and assemble configuration">
+		
+		<copy todir="${build.dest.blank.dir}/WebContent/WEB-INF/lib">
+		    <fileset dir="${build.dest.jar.dir}" includes="${project.name}-${project.version}.jar"/>
+		</copy>
+				
+		<mkdir dir="${build.dest.blank.dir}/src/config"/>
+		
+		<copy todir="${build.dest.blank.dir}/src/config">
+    	            <fileset dir="${build.dir}/src/config" />
+    	</copy>
+		
+		<mkdir dir="${build.dest.blank.dir}/src/java"/>
+		<mkdir dir="${build.dest.blank.dir}/src/template"/>
+		<mkdir dir="${build.dest.blank.dir}/src/sql"/>
+
+		<echo message="Copying .sql to blank/src/sql"/>
+
+		<copy todir="${build.dest.blank.dir}/src/sql">
+    	            <fileset dir="${build.dir}/src/sql" includes="*.sql"/>
+    	</copy>
+		
+		<echo message="Copying eclipse project"/>
+		<mkdir dir="${build.dest.blank.dir}/.settings"/>
+		<copy todir="${build.dest.blank.dir}/.settings">
+		    <fileset dir="${build.dir}/.settings" includes="*"/>
+		</copy>
+				
+		<copy todir="${build.dest.blank.dir}">
+    	    <fileset dir="${build.dir}" includes=".classpath"/>
+			<fileset dir="${build.dir}" includes=".packaging"/>
+    	    <fileset dir="${build.dir}" includes=".project"/>
+    	</copy>
+		
+		
+		<echo message="Copying WebContent to blank"/>
+		<mkdir dir="${build.dest.blank.dir}/WebContent"/>
+
+		<copy todir="${build.dest.blank.dir}/WebContent">
+    	            <fileset dir="${build.dir}/WebContent" />
+    	</copy>
+		
+		<echo message="Copying ant build to blank"/>
+		<mkdir dir="${build.dest.blank.dir}/build"/>
+
+		<copy todir="${build.dest.blank.dir}/build">
+			<fileset dir="${build.dir}/build" excludes="spy.log" />
+		</copy>
+		
+		<echo message="Copying build lib to blank"/>
+		<mkdir dir="${build.dest.blank.dir}/lib"/>
+
+		<copy todir="${build.dest.blank.dir}/lib">
+			<fileset dir="${build.dir}/lib" />
+		</copy>
+		
+		<jar
+			jarfile="${build.dest.bundle.dir}/${project.name}-${project.version}-sdk.zip" 
+			basedir="${build.dest.blank.dir}"       
+        />
+
+    </target>
+	
+	<target name="war" depends="create-sdk-bundle" description="Create web-app WAR">
+			<mkdir dir="${build.dest.blank.dir}/WebContent/WEB-INF/classes"/>
+			<copy todir="${build.dest.blank.dir}/WebContent/WEB-INF/classes">
+		    	<fileset dir="${build.dir}/src/config" />
+		    </copy>
+				
+        	<war destfile="${build.dest.bundle.dir}/${project.name}-${project.version}.war" webxml="${build.dest.blank.dir}/WebContent/WEB-INF/web.xml">
+            <fileset dir="${build.dest.blank.dir}/WebContent">
+            </fileset>
+        </war>
+    </target>
+
+</project>

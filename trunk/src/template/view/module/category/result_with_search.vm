@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Ruang Kerja Warintek - Result Search Category</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="AUTHOR" content="mee_andto@yahoo.com">
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+<script type="text/javascript" src="../../htmlarea/hideform.js"></script>
+#include("../../decorators/hide.css") <!-- used for hide form-->
+
+</head>
+<body onload="HTMLArea.replaceAll();">
+
+#include("../../decorators/form.vm") <!-- used for hide form-->
+
+  #if($categories.isEmpty())
+  <strong>Data not found in Category<strong> Please Search again
+  #else
+<table width=98%>
+
+<tr align="right" bgcolor="#ffffff"><td align="left"><a href="javascript:ShowHide('FormDiv','visible')">Show Form</a></td>
+<td colspan=5>Ditemukan <strong>$!resultRows</strong> #if ($resultRows <2) Category #else Categories #end &nbsp; &nbsp;    
+	#if ($currPage > 0) <a href="search.action?id=$id&descriptor_id=$descriptor_id&code=$code&iparentcode=$iparentcode&description=$description&active_flag=$activeFlag&currPage=0">&lt;&lt;</a>&nbsp;#end
+	#if ($currPage > 0) <a href="search.action?id=$id&descriptor_id=$descriptor_id&code=$code&iparentcode=$iparentcode&description=$description&active_flag=$activeFlag&currPage=$prevPage">&lt;</a>&nbsp;#end
+	[page $currPage]
+	#if ($currPage < $maxPage) <a href="search.action?id=$id&descriptor_id=$descriptor_id&code=$code&iparentcode=$iparentcode&description=$description&active_flag=$activeFlag&currPage=$nextPage">&gt;</a>&nbsp;#end
+	#if ($currPage < $maxPage) <a href="search.action?id=$id&descriptor_id=$descriptor_id&code=$code&iparentcode=$iparentcode&description=$description&active_flag=$activeFlag&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+<td>
+
+ <tr bgcolor="#d0dcff" align=center>
+<td colspan=6><strong>Result Category</strong></td>
+</tr>
+<tr bgcolor="#d0dcff" align=center>
+<td>Descriptor </td>
+<td>Code</td>
+<td>Parent Code</td>
+<td>URL Category Image</td>
+<td>Description</td>
+<td>Action</td>
+</tr>
+#foreach ($category in $categories)
+
+<tr bgcolor="#ffffcc">
+<td><a href="edit.action?id=$category.Id">$!category.categoryDescriptor.name</a></td>
+<td><a href="edit.action?id=$category.Id">$!category.Code</a></td>
+<td><a href="edit.action?id=$category.Id">$!category.parentCategory.code</a></td>
+<td><a href="edit.action?id=$category.Id">$!category.Url_category_image</a></td>
+<td><a href="edit.action?id=$category.Id">$!category.Description</a></td>
+<td><b><a href="edit.action?id=$category.Id">[Edit]</a><a href="confirmDelete.action?id=$category.Id">[Delete]</a></b></td>
+</tr>
+#end
+#end
+</table>	 
+
+</body>
+</html>

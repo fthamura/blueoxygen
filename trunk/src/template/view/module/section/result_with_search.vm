@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Ruang Kerja Warintek - Result Search Section</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="AUTHOR" content="mee_andto@yahoo.com">
+ <link type="text/css" rel="stylesheet" href="../../style.css">
+ 
+  <script type="text/javascript">
+  _editor_url = "../../htmlarea/";
+  _editor_lang = "en";
+</script>
+<script type="text/javascript" src="../../decorators/hide.js"></script>
+
+<script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
+
+<script type="text/javascript" src="../../htmlarea/hideform.js"></script>
+
+#include("../../decorators/hide.css") <!-- used for hide form-->
+
+</head>
+<body onload="HTMLArea.replaceAll();">
+
+#include("../../decorators/form.vm") <!-- used for hide form-->
+
+  #if($sections.isEmpty())
+  <strong>Data not found in Section<strong>Please Search again
+  #else
+
+<table width=98%>
+<tr  bgcolor="#ffffff"><td align="left"><a href="javascript:ShowHide('FormDiv','visible')">Show Form</a></td>
+<td align="right"colspan=5>Ditemukan <strong>$!resultRows</strong> #if ($resultRows <2) Section #else Sections #end &nbsp; &nbsp;    
+	#if ($currPage > 0) <a href="search.action?id=$id&descriptor_id=$descriptor_id&code=$code&description=$description&active_flag=$activeFlag&currPage=0">&lt;&lt;</a>&nbsp;#end
+	#if ($currPage > 0) <a href="search.action?id=$id&descriptor_id=$descriptor_id&code=$code&description=$description&active_flag=$activeFlag&currPage=$prevPage">&lt;</a>&nbsp;#end
+	[page $currPage]
+	#if ($currPage < $maxPage) <a href="search.action?id=$id&descriptor_id=$descriptor_id&code=$code&description=$description&active_flag=$activeFlag&currPage=$nextPage">&gt;</a>&nbsp;#end
+	#if ($currPage < $maxPage) <a href="search.action?id=$id&descriptor_id=$descriptor_id&code=$code&description=$description&active_flag=$activeFlag&currPage=$maxPage">&gt;&gt;</a>&nbsp;#end
+<td>
+
+ <tr bgcolor="#d0dcff" align=center>
+<td colspan=6><strong>Result Section</strong></td>
+</tr>
+<tr bgcolor="#d0dcff" align=center>
+<td>Descriptor </td>
+<td>Code</td>
+<td>URL Section Image</td>
+<td>Description</td>
+<td>Action</td>
+</tr>
+
+#foreach ($section in $sections)
+
+<tr bgcolor="#ffffcc">
+<td><a href="edit.action?id=$section.Id">
+$!section.sectionDescriptor.name</a></td>
+<td><a href="edit.action?id=$section.Id">
+$!section.Code</a></td>
+<td><a href="edit.action?id=$section.Id">
+$!section.Url_section</a></td>
+<td><a href="edit.action?id=$section.Id">
+$!section.Description</a></td>
+<td><b><a href="edit.action?id=$section.Id">[Edit]</a><a href="confirmDelete.action?id=$section.Id">[Delete]</a></b></td>
+</tr>
+#end
+#end
+</table>	 
+
+</body>
+</html>

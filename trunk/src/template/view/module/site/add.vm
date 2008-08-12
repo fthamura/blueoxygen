@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Workspace Management - Add a new Site</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="GENERATOR" content="Quanta Plus">
+<link type="text/css" rel="stylesheet" href="../../style.css">
+ 
+</head>
+
+<body>
+#if (!$actionErrors.isEmpty())
+<div class="errorMessage">Errors</div>
+<ul class="errorMessage">
+#foreach( $error in $actionErrors )
+<li>$error</li>
+ #end
+</ul>
+#end
+
+<form method="post" action="add.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+  <tbody>
+  <tr bgcolor="#d0dcff">
+    <td colspan='3'><strong>Create Site</strong></td>
+  </tr>
+  <tr bgcolor="#ffffff">
+     <td style="font-weight: bold;" align="right" valign="top" width="20%"><font color="red">*</font>Name:</td>
+    <td width="70%"><input type="text" name="name" value="$!name" style="width: 50%">
+    </td>
+  	
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Description:</td>
+  	<td><input type="text" name="description" value="$!name" style="width: 50%">
+  	</td>
+  	
+  </tr>
+   <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Title:</td>
+  	<td><input type="text" name="title" value="$!title" style="width: 70%">
+  	</td>
+  	
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">URL Branding:</td>
+  	<td><input type="text" name="url_branding" style="width: 50%">
+  	</td>
+  	
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Admin Email:</td>
+  	<td><input type="text" name="admin_email" style="width: 50%">
+  	</td>
+  	
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Notify:</td>
+  	<td><input type="radio" name="notify_flag" value=1 checked>yes&nbsp;&nbsp;<input type="radio" name="notify_flag" value=0>no
+  	</td>
+  	
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Notify Email:</td>
+  	<td><input type="text" name="notify_email" style="width: 50%">
+  	</td>
+  	
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Notify From:</td>
+  	<td><input type="text" name="notify_from"  style="width: 50%">
+  	</td>
+  	
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Notify Message:</td>
+  	<td><input type="text" name="notify_message" style="width: 50%">
+  	</td>
+  	
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Site Headline:</td>
+  	<td><input type="text" name="site_headline" style="width: 50%">
+  	</td>
+  	
+  </tr>
+ <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Active:</td>
+  	<td><input type="radio" name="activeFlag" value=1 checked >active&nbsp;&nbsp;<input type="radio" name="activeFlag" value=0 >inactive
+  	</td>
+  	
+  </tr>
+  <tr bgcolor="#e4e4e4">
+  	<td colspan="3"><input type="submit" value="Save"><input type="reset" value="Clear"></td>
+  </tr>
+ </table>
+</form>
+</body>
+</html>
