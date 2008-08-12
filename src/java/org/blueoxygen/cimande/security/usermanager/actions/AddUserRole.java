@@ -33,7 +33,7 @@ public class AddUserRole extends UserForm implements SessionCredentialsAware, Pe
 				if(getUser().getRole() == null){
 					getUser().setRole(role);
 					manager.save(getUser());
-					ur.setDefaultRole(true);
+					//ur.setDefaultRole(true);
 				}
 				
 			}

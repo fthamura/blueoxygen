@@ -16,7 +16,7 @@ public class PasswordForm extends ActionSupport implements PersistenceAware, Ses
 	private String currPassword = "";
 	private String newPassword = "";
 	private String verifyPassword = "";
-	private SessionCredentials sess;
+	protected SessionCredentials sess;
 	User user = new User();
 	
 	public String execute(){

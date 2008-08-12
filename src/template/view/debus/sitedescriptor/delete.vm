@@ -1,0 +1,5 @@
+<form action="confirm.action">
+delete $!siteDescriptorAccess.siteDescriptor.site.name $!siteDescriptorAccess.siteDescriptor.descriptor.description 
+<input type="hidden" name="siteDescriptorAccess.id" value="$!siteDescriptorAccess.id">
+<input type="submit">
+</form>

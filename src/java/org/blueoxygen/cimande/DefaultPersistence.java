@@ -30,7 +30,6 @@ public abstract class DefaultPersistence implements Serializable {
 	private String id;
 	private LogInformation logInformation = new LogInformation();
 	
-	
 	//private String siteId;
 	
 	/**
@@ -62,4 +61,10 @@ public abstract class DefaultPersistence implements Serializable {
 	public void setLogInformation(LogInformation logInformation) {
 		this.logInformation = logInformation;
 	}
+//	public String getKeyword() {
+//		return keyword;
+//	}
+//	public void setKeyword(String keyword) {
+//		this.keyword = keyword;
+//	}
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Password Employee - Success</title>	
+		<link type="text/css" rel="stylesheet" href="../../style.css">
+	</head>
+	<body>
+		<table bgcolor="#d0dcff" border="0" cellpadding="5" cellspacing="1" width="100%">
+			<tr bgcolor="#ffffff">
+				<th><strong>Password Employee</strong></th>
+			</tr>
+			<tr bgcolor="#ffffff">
+				<td align="center">
+					<p>Successfully $!msg Password Employee<br><p>
+				</td>
+			</tr>
+			<tr bgcolor="#ffffff">
+				<td align="center">&nbsp;
+				</td>
+			</tr>	
+		</table>
+		
+		<br>
+		<table align="center" bgcolor="d0dcff" border="0" cellpadding="5" cellspacing="1" width="100%">
+		  	<tr bgcolor="#C1C1FF">
+				<td align="center"><!--<a href="../form.action"><b>[Home]</b></a>-->
+				<a href="#surl("value=/backend/user/logout.action")" target="_parent"><b>[Login Again]</b></a></td>
+			</tr>
+		</table>
+	</body>
+	</body>
+</html>

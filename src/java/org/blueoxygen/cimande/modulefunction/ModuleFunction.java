@@ -115,7 +115,7 @@ public class ModuleFunction extends DefaultPersistence{
 	 * @hibernate.many-to-one column="iparent"
 	 */
 	@ManyToOne
-	@JoinColumn(name="iparent")
+	@JoinColumn(name="iparent", nullable=true, updatable = true, insertable = true)
 	public ModuleFunction getModuleFunction() {
 		return moduleFunction;
 	}

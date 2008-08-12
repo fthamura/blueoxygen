@@ -11,20 +11,11 @@
 package org.blueoxygen.cimande.descriptors.actions;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import org.blueoxygen.cimande.descriptors.Descriptor;
-import org.blueoxygen.cimande.persistence.PersistenceException;
-import org.blueoxygen.cimande.persistence.hibernate3.HibernateSessionFactory;
-import org.blueoxygen.cimande.persistence.hibernate3.HibernateSessionFactoryAware;
-import org.blueoxygen.cimande.persistence.hibernate3.PersistenceManager;
-import org.blueoxygen.cimande.persistence.hibernate3.PersistenceManagerAware;
-import org.hibernate.HibernateException;
+import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 /**
  * @author frans

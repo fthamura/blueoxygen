@@ -19,6 +19,7 @@ import org.apache.struts2.ServletActionContext;
 
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
+import org.blueoxygen.cimande.security.User;
 import org.blueoxygen.util.StringUtils;
 
 public class BlueOxygenSessionCredentials implements PersistenceAware {
@@ -29,11 +30,11 @@ public class BlueOxygenSessionCredentials implements PersistenceAware {
 	public void setPersistenceManager(PersistenceManager persistenceManager) {
 		this.persistenceManager = persistenceManager;
 	}
-	public BackendUser getBackendUser() {
+	public User getBackendUser() {
         String hashCode = (String )getSession().getAttribute("GA_USER");
         StringUtils stringUtils = new StringUtils();
         String memberId = stringUtils.decodeBase64(hashCode);
-        BackendUser user = (BackendUser) persistenceManager.getByPrimaryKey(BackendUser.class, memberId );
+        User user = (User) persistenceManager.getByUniqueField(User.class, memberId, "username");
         return user;
     }
     

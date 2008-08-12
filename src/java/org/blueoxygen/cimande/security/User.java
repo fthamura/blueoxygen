@@ -84,6 +84,7 @@ public class User extends DefaultPersistence {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+	
 	@ManyToOne
 	@JoinColumn(name="company_id")
 	public Company getCompany() {
@@ -92,6 +93,7 @@ public class User extends DefaultPersistence {
 	public void setCompany(Company company) {
 		this.company = company;
 	}
+	
 	@ManyToOne
 	@JoinColumn(name="job_position_id")
 	public JobDesc getJob() {

@@ -9,6 +9,7 @@ package org.blueoxygen.cimande.modulefunction.actions;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.modulefunction.ModuleFunction;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
@@ -21,20 +22,15 @@ import com.opensymphony.xwork2.ActionSupport;
  * TODO To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-public class ListModuleFunction extends ActionSupport implements PersistenceAware{
+public class ListModuleFunction extends CimandeAction {
 	private List moduleFunctions = new ArrayList();
 	protected ModuleFunction moduleFunction;
-	protected PersistenceManager pm;
 	
 	public String execute(){
-		moduleFunctions = pm.findAllSorted(ModuleFunction.class, "name");
+		moduleFunctions = manager.findAllSorted(ModuleFunction.class, "name");
 		return SUCCESS;
 	}
 
-	public void setPersistenceManager(PersistenceManager persistenceManager) {
-		this.pm = persistenceManager;
-	}
-	
 	/**
 	 * @return Returns the moduleFunction.
 	 */

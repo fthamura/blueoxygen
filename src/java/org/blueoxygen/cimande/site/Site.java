@@ -39,8 +39,7 @@ public class Site extends DefaultPersistence{
  	private String notify_email = "";
  	private String notify_from = "";
  	private String notify_message = "";
- 	private String site_headline = "";
-
+ 	
  	/**
 	 * @hibernate.property
 	 */
@@ -127,16 +126,6 @@ public class Site extends DefaultPersistence{
 	}
 	public void setNotify_message(String notify_message) {
 		this.notify_message = notify_message;
-	}
-	
-	/**
-	 * @hibernate.property
-	 */
-	public String getSite_headline() {
-		return site_headline;
-	}
-	public void setSite_headline(String site_headline) {
-		this.site_headline = site_headline;
 	}
 	
 	/**

@@ -9,12 +9,14 @@
  *******************************************************************************/
 package org.blueoxygen.cimande.security;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
 
 @Embeddable
-public class Name {
+public class Name implements Serializable {
     private String prefix;
     private String first;
     private String middle;

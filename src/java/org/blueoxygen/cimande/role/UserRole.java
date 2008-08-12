@@ -21,6 +21,7 @@ import javax.persistence.Transient;
 
 import org.blueoxygen.cimande.DefaultPersistence;
 import org.blueoxygen.cimande.security.User;
+import org.hibernate.annotations.Type;
 
 /**
  * @author frans
@@ -38,21 +39,6 @@ public class UserRole extends DefaultPersistence {
 	private Role role = new Role();
 	private boolean defaultRole;
 	
-	/**
-	 * @return Returns the defaultRole.
-	 * @hibernate.property type="yes_no"
-	 */
-	@Column(name="default_role")
-	public boolean getDefaultRole() {
-		return defaultRole;
-	}
-	/**
-	 * @param defaultRole The defaultRole to set.
-	 */
-	public void setDefaultRole(boolean defaultRole) {
-		this.defaultRole = defaultRole;
-	}
-
 	/**
 	 * @return Returns the role.
 	 * @hibernate.many-to-one column="role_id"

@@ -9,17 +9,21 @@
  *******************************************************************************/
 package org.blueoxygen.cimande.security;
 
+import java.util.List;
+
 
 public interface UserAccessor {
     boolean authenticate(String username, String password);
 
     void signup(User user);
 
-    User getUser(String username);
-    
-    User getUserName(String username);
+    User getByUsername(String username);
     
     User getById(String userId);
 
 	void update(User userEdited);
+	
+	void delete(User user);
+	
+	List findAllUser();
 }

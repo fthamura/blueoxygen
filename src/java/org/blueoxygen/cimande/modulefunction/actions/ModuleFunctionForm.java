@@ -9,12 +9,10 @@ package org.blueoxygen.cimande.modulefunction.actions;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.LogInformation;
+import org.blueoxygen.cimande.descriptors.Descriptor;
 import org.blueoxygen.cimande.modulefunction.ModuleFunction;
-import org.blueoxygen.cimande.persistence.PersistenceAware;
-import org.blueoxygen.cimande.persistence.PersistenceManager;
-
-import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author Amelia
@@ -22,9 +20,8 @@ import com.opensymphony.xwork2.ActionSupport;
  * TODO To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-public class ModuleFunctionForm extends ActionSupport implements PersistenceAware{
+public class ModuleFunctionForm extends CimandeAction {
 	protected ModuleFunction moduleFunction;
-	protected PersistenceManager pm;
 	protected LogInformation logInfo;
 	
 	private String name="";
@@ -33,19 +30,13 @@ public class ModuleFunctionForm extends ActionSupport implements PersistenceAwar
 	private String tableReferences="";
 	private String moduleFunctionId="";
 	
-	
 	private String moduleDescriptorId="";
-	private List moduleDescriptors = new ArrayList();
+	private List<Descriptor> moduleDescriptors = new ArrayList<Descriptor>();
 	
 	public String execute(){
 
 		return SUCCESS;
 	}
-	
-	public void setPersistenceManager(PersistenceManager persistenceManager) {
-		this.pm = persistenceManager;
-	}
-
 	
 	/**
 	 * @return Returns the moduleFunctionId.

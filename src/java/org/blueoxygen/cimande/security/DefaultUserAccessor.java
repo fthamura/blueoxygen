@@ -10,40 +10,45 @@
 package org.blueoxygen.cimande.security;
 
 import java.util.List;
+
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceException;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
+import org.blueoxygen.util.StringUtils;
 public class DefaultUserAccessor implements UserAccessor, PersistenceAware {
 	private PersistenceManager pm;
+	private StringUtils su = new StringUtils();
+	
 	public boolean authenticate(String username, String password) {
-		User user = getUserName(username);
+		User user = getByUsername(username);
 
-		if (user == null || !user.getPassword().equals(password)) {
+		if (user == null || !user.getPassword().equals(su.encodeBase64(password))) {
 			return false;
 		} else {
 			return true;
 		}
 	}
-	public User getUser(String username) {
+	
+	public User getByUsername(String username) {
 		try {
-			return (User) pm.getByPrimaryKey(User.class, username);
+			return (User) pm.getByUniqueField(User.class, username, "username");
 		} catch (PersistenceException e) {
 			return null;
 		}
 	}
-	public User getUserName(String username) {
-		try {
-			List users = pm.findUserbyName(username);
-			
-			if (users.isEmpty()) {
-				return null;
-			} else {
-				return (User) users.get(0);
-			}
-		} catch (PersistenceException e) {
-			return null;
-		}
-	}
+//	public User getByUsername(String username) {
+//		try {
+//			List users = findAllUser(username);
+//			
+//			if (users.isEmpty()) {
+//				return null;
+//			} else {
+//				return (User) users.get(0);
+//			}
+//		} catch (PersistenceException e) {
+//			return null;
+//		}
+//	}
 	public void signup(User user) {
 		pm.save(user);
 	}
@@ -58,5 +63,17 @@ public class DefaultUserAccessor implements UserAccessor, PersistenceAware {
 	public User getById(String userId) {
 		
 		return (User) pm.getById(User.class, userId);
+	}
+	
+	public List<User> findAllUser() {
+        try {
+			return pm.findAll(User.class);
+        } catch (Exception e) {
+            throw new PersistenceException(e);
+        }
+    }
+
+	public void delete(User user) {
+		pm.remove(user);
 	}
 }

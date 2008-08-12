@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Update password Employee - Form</title>	
+<link type="text/css" rel="stylesheet" href="../../style.css" >
+	    <style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+-->
+        </style>
+</head>
+	<body>
+		<div class="errorMessage">
+			#sfielderror("label=Error")
+		</div>
+		<form action="#surl("action=update" "namespace=/user/password")" method="post">
+			<table width="100%" align="center" cellpadding="3" cellspacing="1" bgcolor="#d0dcff">
+				<tr bgcolor="#d0dcff">
+					<th colspan="2">
+						<span class="style1">Update Password</span> </th>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td widht="30%">
+						<div class="label">Old Password:</div>
+					</td>
+					<td width="70%">
+						<input name="currPassword" type="password">
+				  </td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>
+						New Password:
+					</td>
+					<td>
+						<input name="newPassword" type="password">
+				  </td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td>
+						Verify New Password:
+					</td>
+					<td>
+						<input name="verifyPassword" type="password">
+				  </td>
+				</tr>
+				<tr bgcolor="#ffffff">
+					<td colspan="2" bgcolor="#e4e4e4">
+				  <input type="submit" value="Submit"> <input type="reset" value="Reset"></td>
+				</tr>
+		  </table>	
+		</form>
+	</body>
+</html>

@@ -16,7 +16,8 @@ import org.blueoxygen.util.StringUtils;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginForm extends ActionSupport implements PersistenceAware, UserAccessorAware {
+public class LoginForm extends ActionSupport implements PersistenceAware,
+		UserAccessorAware {
 	protected PersistenceManager manager;
 	protected UserAccessor ua;
 	protected StringUtils su = new StringUtils();
@@ -27,36 +28,50 @@ public class LoginForm extends ActionSupport implements PersistenceAware, UserAc
 	private List<UserSite> userSites = new ArrayList<UserSite>();
 	private String redirectUri;
 
-	public String execute(){
-		if(ActionContext.getContext().getSession().get(LoginFilter.LOGIN_CIMANDE_USER) != null){ // sudah login
-			if(ActionContext.getContext().getSession().get(LoginFilter.LOGIN_CIMANDE_SITE) != null){ // sudah pilih site
+	public String execute() {
+		if (ActionContext.getContext().getSession().get(
+				LoginFilter.LOGIN_CIMANDE_USER) != null) { // sudah login
+			if (ActionContext.getContext().getSession().get(
+					LoginFilter.LOGIN_CIMANDE_SITE) != null) { // sudah pilih
+				// site
 				return "continue";
 			} else { // belum pilih site
-				getUser().setId(su.decodeBase64(ActionContext.getContext().getSession().get(LoginFilter.LOGIN_CIMANDE_USER).toString()));
+				getUser().setId(
+						su
+								.decodeBase64(ActionContext.getContext()
+										.getSession().get(
+												LoginFilter.LOGIN_CIMANDE_USER)
+										.toString()));
 				setUser(ua.getById(getUser().getId()));
-				setUserSites(manager.getList("FROM " + UserSite.class.getName() + " us WHERE us.user.id='"+getUser().getId()+"'", null, null));
-				if(getUserSites().size() == 1){ //cuma satu site
+				setUserSites(manager.getList("FROM " + UserSite.class.getName()
+						+ " us WHERE us.user.id='" + getUser().getId() + "'",
+						null, null));
+				if (getUserSites().size() == 1) { // cuma satu site
 					setSite(getUserSites().get(0).getSite());
-					ActionContext.getContext().getSession().put(LoginFilter.LOGIN_CIMANDE_SITE, getSite().getId());
-					if(getRedirectUri() != null || !"".equalsIgnoreCase(getRedirectUri())){
+					ActionContext.getContext().getSession().put(
+							LoginFilter.LOGIN_CIMANDE_SITE, getSite().getId());
+					if (getRedirectUri() != null
+							|| !"".equalsIgnoreCase(getRedirectUri())) {
 						LOG.info("redirectUri : " + getRedirectUri());
 						return "redirect";
 					} else {
-						return "continue"; 
+						return "continue";
 					}
-				} else { //lebih dari satu site
-					return "site"; 
+				} else if(getUserSites().size() <= 0) {
+					return "continue";
+				} else { // lebih dari satu site
+					return "site";
 				}
 			}
-		} else { //belum login
+		} else { // belum login
 			return "login";
 		}
 	}
-	
+
 	public void setUserAccessor(UserAccessor ua) {
-        this.ua = ua;
-    }
-	
+		this.ua = ua;
+	}
+
 	public void setPersistenceManager(PersistenceManager persistenceManager) {
 		this.manager = persistenceManager;
 	}

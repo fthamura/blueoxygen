@@ -9,12 +9,14 @@
  *******************************************************************************/
 package org.blueoxygen.cimande.security;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
 
 @Embeddable
-public class Address {
+public class Address implements Serializable {
     private String street1;
     private String street2;
     private String city;

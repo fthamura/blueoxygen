@@ -10,10 +10,15 @@
 
 package org.blueoxygen.cimande;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+
+import org.blueoxygen.cimande.site.Site;
 
 
 
@@ -21,18 +26,35 @@ import javax.persistence.Transient;
 /**
  * @author Umar Khatab umar@intercitra.com
  *
- * To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class LogInformation {
+public class LogInformation implements Serializable {
 	private Timestamp createDate = new Timestamp(0);
 	private Timestamp lastUpdateDate = new Timestamp(0);
 	private String createBy = "";
 	private String lastUpdateBy = "";
 	private int activeFlag;
+	private Site site;
 	public final static int ACTIVE = 1;
 	public final static int INACTIVE = 0;
 	
+	public LogInformation() {
+		
+	}
+	
+	public LogInformation(String userId, int flag) {
+		setActiveFlag(flag);
+		setCreateBy(userId);
+		setLastUpdateBy(userId);
+		setCreateDate(new Timestamp(System.currentTimeMillis()));
+		setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
+	}
+	public LogInformation(LogInformation logInfo, String userId, int flag){
+		setCreateBy(logInfo.getCreateBy());
+		setCreateDate(logInfo.getCreateDate());
+		setLastUpdateBy(userId);
+		setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
+		setActiveFlag(flag);
+	}
 	/**
 	 * @return Returns the createBy.
 	 * @hibernate.property length="28" column="create_by"
@@ -63,7 +85,6 @@ public class LogInformation {
 	}
 	/**
 	 * @return Returns the createDate.
-	 * @hibernate.property column="create_date"
 	 */
 	@Column(name="create_date")
 	public Timestamp getCreateDate() {
@@ -77,8 +98,7 @@ public class LogInformation {
 	}
 	/**
 	 * @return Returns the lastUpdateDate.
-	 * @hibernate.property column="update_date"
-	 * 
+ * 
 	 */
 	@Column(name="update_date")
 	public Timestamp getLastUpdateDate() {
@@ -90,9 +110,7 @@ public class LogInformation {
 	public void setLastUpdateDate(Timestamp lastUpdateDate) {
 		this.lastUpdateDate = lastUpdateDate;
 	}
-	/**
-	 * @hibernate.property column="active_flag"
-	 */
+
 	@Column(name="active_flag")
 	public int getActiveFlag() {
 		return activeFlag;
@@ -110,6 +128,15 @@ public class LogInformation {
 	@Transient	
 	public boolean isInactive() {
 		return (this.activeFlag == INACTIVE);
+	}
+	
+	@ManyToOne()
+	@JoinColumn(name="site_id")
+	public Site getSite() {
+		return site;
+	}
+	public void setSite(Site site) {
+		this.site = site;
 	}
 
 }

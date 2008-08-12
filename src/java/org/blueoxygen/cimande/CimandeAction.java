@@ -10,25 +10,54 @@
 
 package org.blueoxygen.cimande;
 
+import java.io.IOException;
+import java.util.Properties;
 
+import org.blueoxygen.cimande.persistence.PersistenceAware;
+import org.blueoxygen.cimande.persistence.PersistenceManager;
+import org.blueoxygen.cimande.role.Role;
+import org.blueoxygen.cimande.security.SessionCredentials;
+import org.blueoxygen.cimande.security.SessionCredentialsAware;
+import org.blueoxygen.cimande.security.User;
+import org.blueoxygen.util.PropertyLooker;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * @author Administrator
+ * @author leo
  *
- * To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class CimandeAction extends ActionSupport implements BlueOxygenSessionCredentialsAware{
+public class CimandeAction extends ActionSupport implements PersistenceAware, SessionCredentialsAware {
+	protected PersistenceManager manager;
+	protected SessionCredentials sessionCredentials;
 	
-	private BlueOxygenSessionCredentials sessionCredentials;
+	private static Properties properties = new Properties();
+	static {
+		try {
+			properties.load(PropertyLooker.getResourceAsStream("cimande.properties"));
+		} catch (IOException e){
+			e.printStackTrace();
+		} catch (NullPointerException npe) {
+			LOG.info("file cimande.properties is not in classpath");
+			npe.printStackTrace();
+		}
+	}
 
-	public void setBlueOxygenSessionCredentials(BlueOxygenSessionCredentials sessionCredentials) {
+	public static String get(String propertyName){
+		return properties.getProperty(propertyName);
+	}
+	
+	public void setPersistenceManager(PersistenceManager persistenceManager) {
+		this.manager = persistenceManager;
+	}
+	public void setSessionCredentials(SessionCredentials sessionCredentials) {
 		this.sessionCredentials = sessionCredentials;
 	}
-	public BackendUser getBackendUser() {
-       return sessionCredentials.getBackendUser();
-    }
-
+	
+	public User getCurrentUser(){
+		return sessionCredentials.getCurrentUser();
+	}
+	public Role getCurrentRole(){
+		return getCurrentUser().getRole();
+	}
 }

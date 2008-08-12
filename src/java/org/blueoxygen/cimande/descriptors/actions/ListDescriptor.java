@@ -24,7 +24,7 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class ListDescriptor extends ActionSupport implements PersistenceAware {
 
-	private List descriptors;
+	private List<Descriptor> descriptors;
 	private PersistenceManager pm;
 	
 	public void setPersistenceManager(PersistenceManager persistenceManager) {
@@ -38,7 +38,7 @@ public class ListDescriptor extends ActionSupport implements PersistenceAware {
 	
 	}
 
-	public List getDescriptors() {
+	public List<Descriptor> getDescriptors() {
 		return descriptors;
 	}
 }

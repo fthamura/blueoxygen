@@ -1,0 +1,60 @@
+<form action="save.action" method="post" >
+<table>
+	<th>
+		<td colspan="2">
+			Role Descriptor
+		</td>
+	</th>
+	<tr>
+		<td>Role</td>
+		<td>
+			<select onChange="location.href='create!selectRole.action?role.id='+this.value">
+				<option value="$!role.id">$!role.name</option>
+				#foreach($r in $roles)
+				<option value="$!r.id">$!r.name</option>
+				#end
+			</select> 
+			##<input type="textfield" id="roleName" value="None" size="15" readonly="true" onfocus="this.blur()"/>
+		    ##<input type="hidden" id="role_id" name="role.id" value=""/>
+    		##&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listrole.action','cats','scrollbars=yes,status=no,width=300,height=300');location.href='create!selectRole.action?role.id='+document.getElementById('role_id').value"/>
+		</td>
+	</tr>
+	<tr>
+		<td>Site</td>
+		<td>
+			<select name="roleSite.id">
+				#foreach($rs in $roleSites)
+				<option value="$!rs.id">$!rs.site.name</option>
+				#end
+			</select> 
+			##<input type="textfield" id="roleName" value="None" size="15" readonly="true" onfocus="this.blur()"/>
+		    ##<input type="hidden" id="role_id" name="role.id" value=""/>
+    		##&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listrole.action','cats','scrollbars=yes,status=no,width=300,height=300');location.href='create!selectRole.action?role.id='+document.getElementById('role_id').value"/>
+		</td>
+	</tr>
+	<tr>
+		<td>Descriptor</td>
+		<td>
+	<input type="textfield" id="moduleDescriptorDescription" value="None" size="15" readonly="true" onfocus="this.blur()"/>
+    <input type="hidden" id="moduleDescriptorId" name="descriptor.Id" value=""/>
+    &nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listdescriptor.action','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+		</td>
+	</tr>
+	<tr>
+		<td>Access</td>
+		<td>
+			#foreach($ac in $acls)
+				<input name="accesses" type="checkbox" value="$ac.id"> $ac.value</br>
+			#end
+			##<input type="textfield" id="droplistValueName" value="None" size="15" readonly="true" onfocus="this.blur()"/>
+		    ##<input type="hidden" id="droplistValueId" name="acl.id" value=""/>
+    		##&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('listaccess.action?name.id=ff80808115f0cf5a0115f0d214ed0002','cats','scrollbars=yes,status=no,width=300,height=300')"/>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="submit" value="Submit"><input type="reset" value="Reset">
+		</td>
+	</tr>
+</table>
+</form>
