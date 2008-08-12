@@ -1,5 +1,0 @@
-Role Descriptor<br/> 
-Role: $!roleDescriptorAccess.roleDescriptor.role.name<br/>
-Descriptor: $!roleDescriptorAccess.roleDescriptor.descriptor.description<br/>
-Access: $!roleDescriptorAccess.acl.value<br/>
-successfully added

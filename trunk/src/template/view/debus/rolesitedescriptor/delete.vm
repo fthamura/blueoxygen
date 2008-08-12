@@ -1,5 +1,0 @@
-<form action="confirm.action">
-delete $!rsDescriptorAccess.rsDescriptor.roleSite.role.name $!rsDescriptorAccess.rsDescriptor.descriptor.description 
-<input type="hidden" name="rsDescriptorAccess.id" value="$!rsDescriptorAccess.id">
-<input type="submit">
-</form>

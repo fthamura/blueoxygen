@@ -1,3 +1,0 @@
-#foreach($u in $user)
-	$u<br>
-#end
