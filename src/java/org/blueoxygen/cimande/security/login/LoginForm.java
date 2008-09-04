@@ -3,7 +3,7 @@ package org.blueoxygen.cimande.security.login;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.blueoxygen.cimande.persistence.PersistenceAware;
+import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 import org.blueoxygen.cimande.security.LoginFilter;
 import org.blueoxygen.cimande.security.User;
@@ -14,11 +14,8 @@ import org.blueoxygen.cimande.site.Site;
 import org.blueoxygen.util.StringUtils;
 
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginForm extends ActionSupport implements PersistenceAware,
-		UserAccessorAware {
-	protected PersistenceManager manager;
+public class LoginForm extends CimandeAction implements UserAccessorAware {
 	protected UserAccessor ua;
 	protected StringUtils su = new StringUtils();
 	private String username = "";
@@ -130,5 +127,9 @@ public class LoginForm extends ActionSupport implements PersistenceAware,
 
 	public void setSite(Site site) {
 		this.site = site;
+	}
+	
+	public boolean getAllowRegister(){
+		return Boolean.getBoolean(get("application.registration.public"));
 	}
 }

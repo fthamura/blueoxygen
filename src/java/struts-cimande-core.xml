@@ -1329,4 +1329,21 @@
 			</result>
 		</action>
 	</package>
+	<package name="registration" extends="default" namespace="/">
+		<action name="register" class="org.blueoxygen.cimande.registration.RegistrationForm">
+			<result name="success" type="velocity">/view/frontpage/register/register.vm</result>
+		</action>
+		<action name="registeruser" class="org.blueoxygen.cimande.registration.RegisterUser">
+			<result name="input" type="velocity">/view/frontpage/register/register.vm</result>
+<!--			<result name="${user.role}" type="redirect">employee.action?id=${employee.id}</result>-->
+			<result name="success" type="velocity">/view/frontpage/register/success.vm</result>
+		</action>
+		<action name="reqactmail" class="org.blueoxygen.cimande.registration.RegistrationForm">
+			<result name="success" type="velocity">/view/frontpage/register/activation.vm</result>
+		</action>
+		<action name="sendactmail" class="org.blueoxygen.cimande.registration.ResendMail">
+			<result name="success" type="velocity">/view/frontpage/register/success.vm</result>
+		</action>
+		
+	</package>
 </struts>

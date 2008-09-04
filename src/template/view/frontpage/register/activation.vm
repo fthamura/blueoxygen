@@ -1,0 +1,80 @@
+<html><head>
+<title>BlueOxygen Cimande Workspace Framework</title>
+	
+</head>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<body bgcolor="white">
+<div style="position: absolute; left: 150px; top: 50px;">
+           <table border=0 cellpadding=0 cellspacing=5 width="512">
+	          <tr> 
+	            <td colspan=2><img border=0 
+	            src="#surl("value=/images/e-business-suite.gif" "includeParams=false")" ></td>
+	          </tr>
+	          <tr> 
+	            <td colspan=2><img border=0 height=5 
+	            src="#surl("value=/images/empty.gif" "includeParams=false")" 
+	        width=1></td>
+	
+	          </tr>
+	        </table>
+  <div> 
+  	<br>
+<form method="post" action="amail.action">
+  	<span style="font-weight: bold;">Login Information</span><br>
+<table border="0" width="100%" cellpadding="0" cellspacing="2">
+  <tbody>
+    <tr>
+      <td>Enter your account username in the field below. </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+     <td>
+       <table style="text-align: left; width: 100%;" cellpadding="3" cellspacing="1">
+          <tbody>
+            <tr>
+              <td>
+              <table bgcolor="#ffffff" border="0" cellpadding="3" cellspacing="1" width="100%">
+                <tbody>
+                  <tr bgcolor="#ffffff">
+                    <td align="center"><font color="red">*</font><span style="font-weight: bold;">Username</span></td>
+                    <td><input name="user.username"/></td>
+                  </tr>
+                  <tr bgcolor="#ffffff">
+                   <td>&nbsp;</td>
+                   <td><input type="submit" name="Submit" value="Send">  <input type="reset" name="Reset"></td>
+                  </tr>
+                </tbody>
+                <strong>
+                #if(!$actionErrors.isEmpty())
+                	<ul class="errorMessage">
+                		#foreach($error in $actionErrors)
+                			<li>$error</li>
+                		#end
+                	</ul>
+                #end
+                </strong>
+              </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+</td>
+    </tr>
+  </tbody>
+</table>
+</form>
+
+<img src="../images/index_006.gif" alt="" style="border: 0px solid ; width: 100%; height: 3px;"></p>
+
+<p style="margin-top: 0pt; margin-bottom: 0pt;" align="center">&nbsp;</p>
+
+<p style="margin-top: 0pt; margin-bottom: 0pt; text-align: left;">
+<font face="Arial" size="2"><small>&nbsp;&nbsp;&nbsp;
+&copy; 2007, Meruvian Foundation. &nbsp;</small></font><small><font face="Arial" size="2"><small>Wijaya Grand
+Centre Blok H No 41&nbsp;,&nbsp;Jakarta Selatan 12160,
+Indonesia,&nbsp;+62 21 93586577</small></font></small></p>
+
+</body>
+</html>

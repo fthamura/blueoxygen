@@ -270,7 +270,7 @@
 		    	        url="${db.url}"          
 		    	        userid="${db.user}"          
 		    	        password="${db.password}">
-		    		<operation type="CLEAN_INSERT"
+		    		<operation type="CLEAN_INSERT" format="xml"
 					src="${build.dir}/src/sql/${project.name}-${project.version}-export.xml"/>
  
 		    	</dbunit>

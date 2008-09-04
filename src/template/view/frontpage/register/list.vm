@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>List - Country</title>
+<link rel="stylesheet" type="text/css" href="../../style.css">
+
+</head>
+<body>
+<h3>Country List</h3>
+#if ($countries.empty) No Country available yet
+#else
+
+<table width=90% border="0">
+<tr>
+	<td width=60%>None</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('${fieldId}Id').value='';window.opener.document.getElementById('${fieldId}Name').value='None';window.close();" value="Set"></td>
+</tr>
+#foreach ($c in $countries)
+<tr>
+	<td width=60%>$c.name</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('${fieldId}Id').value='$c.id';window.opener.document.getElementById('${fieldId}Name').value='$c.name';window.close();" value="Set"></td>
+</tr>
+#end
+</table>
+#end
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+	<img src="http://localhost:8080/cimeng/images/blueoxygen-logo.png"><br>
+	<hr><br>
+	Dear $user.name.first $user.name.last, <br>
+	Thank you for registering to Mervpolis. Before we can activate your account one last step must be taken to complete your registration.<br>
+	<br>
+	Please note - you must complete this last step to become a registered member. You will only need to visit this url once to activate your account.<br>
+	<br>
+	To complete your registration, please visit this url: <br>
+	<a href="$href">$href</a><br>
+	<br>
+	Best regards,<br>
+	Cimande Admin
+</html>

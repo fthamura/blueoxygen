@@ -1,0 +1,54 @@
+<html><head>
+<title>BlueOxygen Cimande Workspace Framework</title>
+	
+</head>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<body bgcolor="white">
+<div style="position: absolute; left: 150px; top: 50px;">
+           <table border=0 cellpadding=0 cellspacing=5 width="512">
+	          <tr> 
+	            <td colspan=2><img border=0 
+	            src="#surl("value=/images/e-business-suite.gif" "includeParams=false")" ></td>
+	          </tr>
+	          <tr> 
+	            <td colspan=2><img border=0 height=5 
+	            src="#surl("value=/images/empty.gif" "includeParams=false")" 
+	        width=1></td>
+	
+	          </tr>
+	        </table>
+<div>
+<br>
+<span style="font-weight: bold;">Login Information</span><br>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="25%">
+    <p style="margin-top: 0; margin-bottom: 0">&nbsp;</td>
+    <td width="41%">
+    Thank you for joining us.<br>
+    Your confirmation mail is being sent to your email.<br> 
+    Follow the link to activate your account.<br>
+    
+    </td>
+    <td width="34%">
+    <p style="margin-top: 0; margin-bottom: 0">&nbsp;</td>
+  </tr>
+</table>
+ 	 <table style="text-align: left; width: 100%;" cellpadding="3" cellspacing="1">
+    <tbody>
+      <tr> 
+	            <td></td>
+	            <td class=copyright-text>&nbsp;</td>
+	          </tr>
+	          <tr> 
+	            <td colspan="2">Copyright &copy; 2000-2007, <b>BlueOxygen Technology</b>. 
+	              All Rights Reserved. </td>
+	          </tr>
+      </tbody>
+  </table>
+  </div>
+  <br>
+  
+</form>
+
+</div>

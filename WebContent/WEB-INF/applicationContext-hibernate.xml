@@ -49,9 +49,6 @@
                 <value>org.blueoxygen.cimande.gx.entity.GxWindowRole</value>
                 <value>org.blueoxygen.cimande.gx.entity.GxWindowRoleAccess</value>
 				
-				<value>org.blueoxygen.debus.ActionType</value>
-				<value>org.blueoxygen.debus.PermissionType</value>
-				<value>org.blueoxygen.debus.DescriptorAccess</value>
 				<value>org.blueoxygen.debus.entity.GXWindowRoleAccess</value>
 		        <value>org.blueoxygen.debus.entity.RoleDescriptorACL</value>
 		        <value>org.blueoxygen.debus.entity.RoleDescriptorACLAccess</value>

@@ -1,0 +1,117 @@
+<html><head>
+<title>BlueOxygen Cimande Workspace Framework</title>
+	
+</head>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<body bgcolor="white">
+<div style="position: absolute; left: 150px; top: 50px;">
+           <table border=0 cellpadding=0 cellspacing=5 width="512">
+	          <tr> 
+	            <td colspan=2><img border=0 
+	            src="#surl("value=/images/e-business-suite.gif" "includeParams=false")" ></td>
+	          </tr>
+	          <tr> 
+	            <td colspan=2><img border=0 height=5 
+	            src="#surl("value=/images/empty.gif" "includeParams=false")" 
+	        width=1></td>
+	
+	          </tr>
+	        </table>
+  <form method="post" action="registeruser.action"><br>
+  <div> 
+  	<br>
+  	<span style="font-weight: bold;">Login Information</span><br>
+  <table style="text-align: left; width: 100%;" cellpadding="3" cellspacing="1">
+    <tbody>
+      <tr>
+        <td style="text-align: right; width:150px"><span style="color:red">*</span>Username</td>
+        <td><input name="username" value="$!username" size=24></td>
+      </tr>
+      <tr>
+        <td style="text-align: right;"><span style="color:red">*</span>Password</td>
+        <td><input name="password" type="password" size=24></td>
+      </tr>
+      <tr>
+        <td style="text-align: right;"><span style="color:red">*</span>Verify Password</td>
+        <td><input name="cpassword" type="password" size=24></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Already have account. <a href="#surl("value=/backend/user/index.action" "includeParams=false")">Login</a>.</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <span style="font-weight: bold;">Personal Information</span><br>
+  <table style="text-align: left; width: 100%;" cellpadding="3" cellspacing="1">
+    <tbody>
+      <tr>
+        <td style="text-align: right; width:150px"><span style="color:red">*</span>First name</td>
+        <td><input name="firstName" value="$!user.name.first" size=24></td>
+      </tr>
+      <tr>
+        <td style="text-align: right;">Last name</td>
+        <td><input name="lastName" value="$!user.name.last" size=24></td>
+      </tr>
+      <tr>
+        <td style="text-align: right;"><span style="color:red">*</span>Email</td>
+        <td><input name="email" value="$!user.email" size=24></td>
+      </tr>
+      <tr>
+        <td style="text-align: right;">Address</td>
+        <td><input name="address.street1" value="$!user.address.street1" size=24></td>
+      </tr>
+      <tr>
+        <td style="text-align: right;"></td>
+        <td><input name="address.street2" value="$!user.address.street2" size=24></td>
+      </tr>
+      <tr>
+        <td style="text-align: right;">City</td>
+        <td><input name="address.city" value="$!user.address.city" size=24></td>
+      </tr>
+      <tr>
+        <td style="text-align: right;">State</td>
+        <td><input name="address.state" value="$!user.address.state" size=24></td>
+      </tr>
+      <tr>
+        <td style="text-align: right;">Zip</td>
+        <td><input name="address.zip" value="$!user.address.zip" size=6 maxlength=6></td>
+      </tr>
+    </tbody>
+  </table>
+  
+    <br>
+    	#if(!$actionErrors.isEmpty())
+			<ul class="errorMessage">
+				#foreach($error in $actionErrors)
+					<li>$error</li>
+				#end
+			</ul>
+		#end
+  <table style="text-align: left; width: 100%;" cellpadding="3" cellspacing="1">
+    <tbody>
+      <tr>
+        <td style="text-align: right; width:150px"></td>
+        <td><input value="Submit" type="submit"> 
+    <input value="Reset" type="reset"></td>
+      </tr>
+      <tr> 
+	            <td></td>
+	            <td class=copyright-text>&nbsp;</td>
+	          </tr>
+	          <tr> 
+	            <td colspan="2">Copyright &copy; 2000-2007, <b>BlueOxygen Technology</b>. 
+	              All Rights Reserved. </td>
+	          </tr>
+      </tbody>
+  </table>
+  </div>
+  <br>
+  
+</form>
+  <a href="#surlreqactmail.action">Request activation mail</a> 
+
+</div>
+</body>
+</html>
+		
