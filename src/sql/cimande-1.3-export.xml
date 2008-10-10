@@ -1,41 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-  <table name="article">
-    <column>id</column>
-    <column>create_by</column>
-    <column>update_by</column>
-    <column>create_date</column>
-    <column>update_date</column>
-    <column>active_flag</column>
-    <column>abstrak</column>
-    <column>title</column>
-    <column>description</column>
-    <column>site_id</column>
-    <row>
-      <value>402882f91acc4eb7011acc4fda1e0002</value>
-      <value>40288d3c1aae29ea011aae2f033e0008</value>
-      <value/>
-      <value><![CDATA[2008-06-28 06:16:02.0]]></value>
-      <value><![CDATA[2008-06-28 06:16:02.0]]></value>
-      <value>1</value>
-      <value>blabla</value>
-      <value>blabla</value>
-      <value>blabla</value>
-      <null/>
-    </row>
-    <row>
-      <value>40288d3c1aae34c5011aae3592230001</value>
-      <value>40288d3c1aae29ea011aae2f033e0008</value>
-      <value/>
-      <value><![CDATA[2008-06-22 09:58:43.0]]></value>
-      <value><![CDATA[2008-06-22 09:58:43.0]]></value>
-      <value>1</value>
-      <value><![CDATA[Reality show about mom]]></value>
-      <value>MamaMia</value>
-      <value><![CDATA[bla bla bla bla bla bla bla]]></value>
-      <null/>
-    </row>
-  </table>
   <table name="backend_user">
     <column>id</column>
     <column>create_by</column>
@@ -80,50 +44,6 @@
       <value>tree</value>
     </row>
     <row>
-      <value>402880f91ce4e97e011ce50117cc0001</value>
-      <null/>
-      <null/>
-      <value><![CDATA[2008-10-10 11:26:06.0]]></value>
-      <value><![CDATA[2008-10-10 11:26:06.0]]></value>
-      <value>1</value>
-      <value>test</value>
-      <value>bagus.candra@meruvian.org</value>
-      <value/>
-      <value/>
-      <value/>
-      <value>bece</value>
-      <value>el</value>
-      <null/>
-      <value>dGVzdA==</value>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-    </row>
-    <row>
-      <value>40288d3c1aae29ea011aae2f033e0008</value>
-      <value>1</value>
-      <value>1</value>
-      <value><![CDATA[2008-06-22 09:51:34.0]]></value>
-      <value><![CDATA[2008-06-22 09:51:34.0]]></value>
-      <value>1</value>
-      <value>acowner</value>
-      <value>bagus.candra@meruvian.org</value>
-      <value><![CDATA[Jl Bunga Anyelir 15]]></value>
-      <value/>
-      <value>Malang</value>
-      <value><![CDATA[Bagus Candra]]></value>
-      <value>Lesmana</value>
-      <value/>
-      <value>YWNvd25lcg==</value>
-      <null/>
-      <value>40288d3c1aae29ea011aae2d21ac0003</value>
-      <value>blueoxygen</value>
-      <value>mgr</value>
-      <null/>
-    </row>
-    <row>
       <value>96f673bc-283e-4b75-b63d-6edc</value>
       <null/>
       <null/>
@@ -159,55 +79,6 @@
     <column>site_id</column>
     <column>categoryDescriptor_id</column>
     <column>iparentcode</column>
-  </table>
-  <table name="collection">
-    <column>id</column>
-    <column>create_by</column>
-    <column>update_by</column>
-    <column>create_date</column>
-    <column>update_date</column>
-    <column>active_flag</column>
-    <column>name</column>
-    <column>description</column>
-    <column>site_id</column>
-    <row>
-      <value>402880f91c179614011c1797691b0002</value>
-      <value>ff8081811bb004e1011bb010c800000f</value>
-      <value/>
-      <value><![CDATA[2008-08-31 14:08:30.0]]></value>
-      <value><![CDATA[2008-08-31 14:08:30.0]]></value>
-      <value>1</value>
-      <value>article</value>
-      <value>article</value>
-      <null/>
-    </row>
-  </table>
-  <table name="collection_descriptor">
-    <column>id</column>
-    <column>create_by</column>
-    <column>update_by</column>
-    <column>create_date</column>
-    <column>update_date</column>
-    <column>active_flag</column>
-    <column>ordered_by</column>
-    <column>limit_value</column>
-    <column>site_id</column>
-    <column>collection_id</column>
-    <column>descriptor_id</column>
-  </table>
-  <table name="collection_selected_detail">
-    <column>id</column>
-    <column>create_by</column>
-    <column>update_by</column>
-    <column>create_date</column>
-    <column>update_date</column>
-    <column>active_flag</column>
-    <column>article_id</column>
-    <column>article_desc</column>
-    <column>rank</column>
-    <column>site_id</column>
-    <column>collection_id</column>
-    <column>descriptor_id</column>
   </table>
   <table name="company">
     <column>id</column>
@@ -1224,28 +1095,6 @@
       <value>ff808081163cbe8a01163cc1db2f0001</value>
     </row>
   </table>
-  <table name="page_collection">
-    <column>id</column>
-    <column>create_by</column>
-    <column>update_by</column>
-    <column>create_date</column>
-    <column>update_date</column>
-    <column>active_flag</column>
-    <column>name</column>
-    <column>description</column>
-    <column>site_id</column>
-  </table>
-  <table name="page_collection_detail">
-    <column>id</column>
-    <column>create_by</column>
-    <column>update_by</column>
-    <column>create_date</column>
-    <column>update_date</column>
-    <column>active_flag</column>
-    <column>site_id</column>
-    <column>collection_id</column>
-    <column>page_collection_id</column>
-  </table>
   <table name="role_descriptor_acl">
     <column>id</column>
     <column>active_flag</column>
@@ -1595,28 +1444,6 @@
     <column>role_id</column>
     <column>user_id</column>
     <row>
-      <value>402880f91ce4e97e011ce501180a0002</value>
-      <value>402880f91ce4e97e011ce50117cc0001</value>
-      <value>402880f91ce4e97e011ce50117cc0001</value>
-      <value><![CDATA[2008-10-10 11:26:06.0]]></value>
-      <value><![CDATA[2008-10-10 11:26:06.0]]></value>
-      <value>1</value>
-      <null/>
-      <null/>
-      <value>402880f91ce4e97e011ce50117cc0001</value>
-    </row>
-    <row>
-      <value>40288d3c1aae29ea011aae2f17c00009</value>
-      <value>1</value>
-      <value>1</value>
-      <value><![CDATA[2008-06-22 09:51:39.0]]></value>
-      <value><![CDATA[2008-06-22 09:51:39.0]]></value>
-      <value>1</value>
-      <null/>
-      <value>40288d3c1aae29ea011aae2d21ac0003</value>
-      <value>40288d3c1aae29ea011aae2f033e0008</value>
-    </row>
-    <row>
       <value>adaa9b6c-4f3a-489e-836a-179a</value>
       <value>1</value>
       <null/>
@@ -1659,28 +1486,6 @@
       <value>EE185CE0B82B41C1724F284685</value>
       <value>96f673bc-283e-4b75-b63d-6edc</value>
       <value>ff808081151cf62001151cfc0584</value>
-    </row>
-    <row>
-      <value>402880f91ce4e97e011ce50118490003</value>
-      <value>402880f91ce4e97e011ce50117cc0001</value>
-      <value>402880f91ce4e97e011ce50117cc0001</value>
-      <value><![CDATA[2008-10-10 11:26:06.0]]></value>
-      <value><![CDATA[2008-10-10 11:26:06.0]]></value>
-      <value>1</value>
-      <null/>
-      <value>402880f91ce4e97e011ce50117cc0001</value>
-      <null/>
-    </row>
-    <row>
-      <value>40288d3c1aae29ea011aae2f71a7000a</value>
-      <value>1</value>
-      <value>1</value>
-      <value><![CDATA[2008-06-22 09:52:02.0]]></value>
-      <value><![CDATA[2008-06-22 09:52:02.0]]></value>
-      <value>1</value>
-      <null/>
-      <value>40288d3c1aae29ea011aae2f033e0008</value>
-      <value>40288d3c1aae29ea011aae2dae5c0004</value>
     </row>
     <row>
       <value>eeb</value>
