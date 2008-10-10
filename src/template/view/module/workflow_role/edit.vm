@@ -39,6 +39,9 @@
         	<textarea id="description" name="description" style="width: 90%" rows="15" cols="80">$!description</textarea>
          </td>
       </tr>
+      <tr bgcolor="#ffffff" valign="top">
+      <td width="25%" style="font-weight: bold;" align="right" valign="top">Workspace Type: 
+      </td><td><select name="workspace_type"><option value="">choose your type</option><option value="menu">Menu</option><option value="flat">Flat</option><option value="tree">Tree</option></select> (Optional)</tr>
       <tr bgcolor="#ffffff">
         <td style="font-weight: bold;" align="right" valign="top">Parent ID:</td>
         <td>

@@ -40,9 +40,6 @@ public class AddSite extends SiteForm implements SessionCredentialsAware {
 		// if (getName().equalsIgnoreCase("")) {
 		// addActionError("Name can't be empty.");
 		// }
-		// if (getDescription().equalsIgnoreCase("")) {
-		// addActionError("Description can't be empty.");
-		// }
 
 		if (hasErrors()) {
 			return INPUT;
@@ -59,6 +56,12 @@ public class AddSite extends SiteForm implements SessionCredentialsAware {
 			newSite.setNotify_email(getNotify_email());
 			newSite.setNotify_from(getNotify_from());
 			newSite.setNotify_message(getNotify_message());
+			if(getWorkspace_type().equalsIgnoreCase("")){
+				newSite.setWorkspace_type(get("workspace.type.default.role"));
+			}else {
+				newSite.setWorkspace_type(getWorkspace_type());
+			}
+			
 			// newSite.setSite_headline(getSite_headline());
 
 			LogInformation log = new LogInformation();

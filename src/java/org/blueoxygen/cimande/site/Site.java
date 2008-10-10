@@ -39,6 +39,7 @@ public class Site extends DefaultPersistence{
  	private String notify_email = "";
  	private String notify_from = "";
  	private String notify_message = "";
+ 	private String workspace_type = "";
  	
  	/**
 	 * @hibernate.property
@@ -148,6 +149,16 @@ public class Site extends DefaultPersistence{
 	public void setUrl_branding(String url_branding) {
 		this.url_branding = url_branding;
 	}
+	
+	
+	public String getWorkspace_type() {
+		return workspace_type;
+	}
+	public void setWorkspace_type(String workspace_type) {
+		this.workspace_type = workspace_type;
+	}
+	
+	
 	
 	
  }

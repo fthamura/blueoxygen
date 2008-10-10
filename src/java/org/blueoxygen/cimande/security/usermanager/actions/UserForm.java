@@ -1,6 +1,7 @@
 
 package org.blueoxygen.cimande.security.usermanager.actions;
 
+import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.company.Company;
 import org.blueoxygen.cimande.jobdescription.JobDesc;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
@@ -14,7 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 /**
  * @author Rizal
  */
-public class UserForm extends ActionSupport implements PersistenceAware {
+public class UserForm extends CimandeAction implements PersistenceAware {
 	
 	protected PersistenceManager manager;
 	private User user = new User();

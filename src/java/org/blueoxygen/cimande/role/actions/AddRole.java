@@ -12,6 +12,7 @@
 package org.blueoxygen.cimande.role.actions;
 
 import java.sql.Timestamp;
+import org.blueoxygen.util.StringUtils;
 
 import org.blueoxygen.cimande.LogInformation;
 
@@ -52,6 +53,13 @@ public class AddRole extends RoleForm implements SessionCredentialsAware {
 		 		
 			role.setName(getName());
 			role.setDescription(getDescription());
+			if(getWorkspace_type().equalsIgnoreCase("")){
+				role.setWorkspace_type(get("workspace.type.default.role"));
+			}
+			else{
+				role.setWorkspace_type(getWorkspace_type());
+			}
+			
 
 			// logging information
 			LogInformation log = new LogInformation();

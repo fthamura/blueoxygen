@@ -47,6 +47,11 @@ public class UpdateSite extends SiteForm implements SessionCredentialsAware {
 			site.setNotify_from(getNotify_from());
 			site.setNotify_message(getNotify_message());
 			site.setUrl_branding(getUrl_branding());
+			if(getWorkspace_type().equalsIgnoreCase("")){
+				site.setWorkspace_type(get("workspace.type.default.role"));
+			}else {
+				site.setWorkspace_type(getWorkspace_type());
+			}
 			// site.setSite_headline(getSite_headline());
 			site.setSite_url(getSite_url());
 			logInfo = site.getLogInformation();

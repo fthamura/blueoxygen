@@ -120,6 +120,13 @@ public class AddUser extends UserForm implements SessionCredentialsAware {
 			getUser().setName(getName());
 			getUser().setCompany(getCompany());
 			getUser().setJob(getJob());
+			if(getUser().getWorkspace_type().equalsIgnoreCase("")){
+				getUser().setWorkspace_type("");
+			}
+			else{
+				getUser().setWorkspace_type(getUser().getWorkspace_type());
+			}
+			
 
 			try {
 				manager.save(getUser());

@@ -35,6 +35,12 @@
   	<td><input type="text" name="description" value="$!site.description" style="width: 50%"></td>
   	
   </tr>
+  <tr bgcolor="#ffffff">
+     <td style="font-weight: bold;" align="right" valign="top" width="20%"><font color="red">*</font>Workspace Type:</td>
+    <td width="70%"><select name="workspace_type"><option value="">choose your type</option><option value="menu">Menu</option><option value="flat">Flat</option><option value="tree">Tree</option></select>
+    </td>
+  	
+  </tr>
  <tr bgcolor="#ffffff">
     <td style="font-weight: bold;" align="right" valign="top">Title:</td>
   	<td><input type="text" name="title" value="$!site.title" style="width: 70%">

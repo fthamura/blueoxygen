@@ -11,6 +11,7 @@
 package org.blueoxygen.cimande.role.actions;
 
 
+import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.modulefunction.ModuleFunction;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
@@ -21,7 +22,7 @@ import com.opensymphony.xwork2.ActionSupport;
 /**
  * @author Frans Thamura frans@blueoxygen.org
  */
-public class RoleForm extends ActionSupport implements PersistenceAware
+public class RoleForm extends CimandeAction implements PersistenceAware
 {
 	protected PersistenceManager pm;
 	protected ModuleFunction moduleFunction;
@@ -31,6 +32,7 @@ public class RoleForm extends ActionSupport implements PersistenceAware
 	private String description="";
 	private String siteId="";
 	private String parentId="";
+	private String workspace_type="";
 	private int activeFlag=-1; //dummy status, means unstated
 	
 
@@ -131,4 +133,11 @@ public class RoleForm extends ActionSupport implements PersistenceAware
 	public void setPersistenceManager(PersistenceManager persistenceManager) {
 		this.pm = persistenceManager;
 	}
+	public String getWorkspace_type() {
+		return workspace_type;
+	}
+	public void setWorkspace_type(String workspace_type) {
+		this.workspace_type = workspace_type;
+	}
+	
 }

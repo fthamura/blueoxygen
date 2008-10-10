@@ -10,6 +10,7 @@
 
 package org.blueoxygen.cimande.site.actions;
 
+import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
@@ -19,7 +20,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  */
-public class SiteForm extends ActionSupport implements PersistenceAware
+public class SiteForm extends CimandeAction implements PersistenceAware
 {
 	protected PersistenceManager persistenceManager;
 	protected LogInformation logInfo;
@@ -38,7 +39,16 @@ public class SiteForm extends ActionSupport implements PersistenceAware
  	private String notify_from="";
  	private String notify_message="";
  	private String site_headline="";
+ 	private String workspace_type="";
+ 	
+ 	
 	 
+	public String getWorkspace_type() {
+		return workspace_type;
+	}
+	public void setWorkspace_type(String workspace_type) {
+		this.workspace_type = workspace_type;
+	}
 	public int getActiveFlag() {
 		return activeFlag;
 	}

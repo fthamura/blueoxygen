@@ -37,12 +37,20 @@ public class User extends DefaultPersistence {
 	private Role role;
 	private String email;
 	private String description;
+	private String workspace_type;
 	
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	
+	public String getWorkspace_type() {
+		return workspace_type;
+	}
+	public void setWorkspace_type(String workspace_type) {
+		this.workspace_type = workspace_type;
 	}
 	/**
 	 * Password of user 

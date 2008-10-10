@@ -47,7 +47,9 @@ Add a new Company</title>
 	  <input type="hidden" id="viewjobId" name="job.id" value="$!user.job.id"/>&nbsp;&nbsp;
 	    <input type="button" value="View Position " onclick="javascript:window.open('../user/viewJob.action','cats','scrollbars=yes,status=no,width=300,height=300')"/> </td>
 	  </tr>
-
+<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right">Workspace Type : 
+					</div></td><td><select name="user.workspace_type"><option value="">choose your type</option><option value="menu">Menu</option><option value="flat">Flat</option><option value="tree">Tree</option></select> (Optional)</tr>
+					
 	<tr bgcolor="#ffffff" valign="top"><td width="25%"><div align="right"><font color="red"></font>Email: 
 					</div></td><td><input maxlength="125" name="user.email" size="25" type="text" value="$!user.email"></td></tr>
 

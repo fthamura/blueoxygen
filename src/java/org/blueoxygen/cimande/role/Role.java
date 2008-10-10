@@ -35,6 +35,7 @@ import org.blueoxygen.cimande.DefaultPersistence;
 public class Role extends DefaultPersistence {
 	private String name;
 	private String description;
+	private String workspace_type;
 	private List<RolePrivilage> rolePrivilage = new ArrayList<RolePrivilage>();
 	//private String site_id;
 	
@@ -94,5 +95,13 @@ public class Role extends DefaultPersistence {
 //	public void setSite_id(String site_id) {
 //		this.site_id = site_id;
 //	}
+	public String getWorkspace_type() {
+		return workspace_type;
+	}
+	public void setWorkspace_type(String workspace_type) {
+		this.workspace_type = workspace_type;
+	}
+	
+	
 	
 }

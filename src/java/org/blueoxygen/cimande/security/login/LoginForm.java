@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
+import org.blueoxygen.cimande.role.Role;
 import org.blueoxygen.cimande.security.LoginFilter;
 import org.blueoxygen.cimande.security.User;
 import org.blueoxygen.cimande.security.UserAccessor;
@@ -22,7 +23,9 @@ public class LoginForm extends CimandeAction implements UserAccessorAware {
 	private String password = "";
 	private User user = new User();
 	private Site site = new Site();
+	private Role role = new Role();
 	private List<UserSite> userSites = new ArrayList<UserSite>();
+	private List<User> users = new ArrayList<User>();
 	private String redirectUri;
 
 	public String execute() {
@@ -31,14 +34,28 @@ public class LoginForm extends CimandeAction implements UserAccessorAware {
 			if (ActionContext.getContext().getSession().get(
 					LoginFilter.LOGIN_CIMANDE_SITE) != null) { // sudah pilih
 				// site
-				return "continue";
-			} else { // belum pilih site
-				getUser().setId(
-						su
-								.decodeBase64(ActionContext.getContext()
-										.getSession().get(
-												LoginFilter.LOGIN_CIMANDE_USER)
-										.toString()));
+				String id = su.decodeBase64(ActionContext.getContext().getSession().get(LoginFilter.LOGIN_CIMANDE_USER).toString());
+				setUser(ua.getById(id));
+				if(getUser().getWorkspace_type().equalsIgnoreCase("")){
+					setRole((Role) manager.getById(Role.class, getUser().getRole().getId()));
+					if(getRole().getWorkspace_type().equalsIgnoreCase("tree")){
+						return "continue";
+					}
+					else if(getRole().getWorkspace_type().equalsIgnoreCase("menu")){
+						return "menu";
+					}else {
+						return "flat";
+					}
+				}
+				else if (getUser().getWorkspace_type().equalsIgnoreCase("tree")){
+					return "continue";
+				} else if(getUser().getWorkspace_type().equalsIgnoreCase("menu")){
+					return "menu";
+				} else {
+					return "flat";
+				}
+ 			} else { // belum pilih site
+				getUser().setId(su.decodeBase64(ActionContext.getContext().getSession().get(LoginFilter.LOGIN_CIMANDE_USER).toString()));
 				setUser(ua.getById(getUser().getId()));
 				setUserSites(manager.getList("FROM " + UserSite.class.getName()
 						+ " us WHERE us.user.id='" + getUser().getId() + "'",
@@ -47,8 +64,7 @@ public class LoginForm extends CimandeAction implements UserAccessorAware {
 					setSite(getUserSites().get(0).getSite());
 					ActionContext.getContext().getSession().put(
 							LoginFilter.LOGIN_CIMANDE_SITE, getSite().getId());
-					if (getRedirectUri() != null
-							|| !"".equalsIgnoreCase(getRedirectUri())) {
+					if (getRedirectUri() != null || !"".equalsIgnoreCase(getRedirectUri())) {
 						LOG.info("redirectUri : " + getRedirectUri());
 						return "redirect";
 					} else {
@@ -132,4 +148,28 @@ public class LoginForm extends CimandeAction implements UserAccessorAware {
 	public boolean getAllowRegister(){
 		return Boolean.getBoolean(get("application.registration.public"));
 	}
+
+	/**
+	 * @return the users
+	 */
+	public List<User> getUsers() {
+		return users;
+	}
+
+	/**
+	 * @param users the users to set
+	 */
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
+	
 }
