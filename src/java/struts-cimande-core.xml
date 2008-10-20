@@ -12,6 +12,11 @@
 			</result>
 			<result name="error">/errors/notfound.vm</result>
 		</action>
+		<action name="yuimenu" class="org.blueoxygen.cimande.sitemanager.MenuGenerator">
+			<result name="success" type="velocity">
+				/view/backend/yuimenu.vm
+			</result>
+		</action>
 	</package>
 	<!--Security - Login-->
 	<package name="security" extends="default"
@@ -26,6 +31,9 @@
 			</result>
 			<result name="continue" type="redirect">
 				../yuitree.action
+			</result>
+			<result name="menu" type="redirect">
+				../yuimenu.action
 			</result>
 			<result name="redirect" type="redirect">
 				../../${redirectUri}

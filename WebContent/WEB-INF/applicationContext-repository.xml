@@ -28,8 +28,8 @@
 		<constructor-arg index="0" value="password"/>
 	</bean>
 	
-	<bean id="repositoryManager" class="org.blueoxygen.jackrabbit.dao.DefaultRepositoryDAO" 
+	<!-- <bean id="repositoryManager" class="org.blueoxygen.jackrabbit.dao.DefaultRepositoryDAO" 
 			init-method="init" destroy-method="dispose">
 		<property name="jcrSessionFactory" ref="jcrSessionFactory"/>
-	</bean>
+	</bean>  -->
 </beans>
