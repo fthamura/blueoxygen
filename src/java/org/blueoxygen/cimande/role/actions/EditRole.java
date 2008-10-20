@@ -53,8 +53,6 @@ public class EditRole extends RoleForm implements SessionCredentialsAware {
 				addActionError("Name can't be empty.");
 			if (getDescription().equalsIgnoreCase(""))
 				addActionError("Description can't be empty.");
-			if (getWorkspace_type().equalsIgnoreCase(""))
-				addActionError("Workspace Type can't be empty.");
 			if (hasErrors()) {
 				return INPUT;
 			} else {

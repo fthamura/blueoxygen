@@ -43,7 +43,7 @@ public class MenuGenerator extends CimandeAction {
 			temp = manager.getList(mySQL, null, null);
 			total_role_site = temp.size();
 			
-			int iFirstNode = 0;
+			int iFirstNode = 1;
 			
 			if (total_role_site > 0) {
 				mySQL = "FROM tmp in " + RoleSitePrivilage.class + " WHERE tmp.roleSite.site.id = '" + this.siteId + "' AND tmp.roleSite.role.id = '" + this.roleId + "' ORDER BY (tmp.moduleFunction.description)";

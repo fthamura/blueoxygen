@@ -485,7 +485,7 @@
 		<action name="update"
 			class="org.blueoxygen.cimande.role.actions.EditRole">
 			<result name="success" type="redirect">
-				/view/module/workflow_role/view.action?id=${id}
+				view.action?id=${id}
 			</result>
 			<result name="input" type="velocity">
 				/view/module/workflow_role/edit.vm

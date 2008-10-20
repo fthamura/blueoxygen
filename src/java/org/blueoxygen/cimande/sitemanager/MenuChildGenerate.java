@@ -83,8 +83,8 @@ public class MenuChildGenerate {
 			
 			
 			if(totalChild > 0){
-				MenuJS = MenuJS + "<li class=\"parent level"+nextLevel+"\"><span>"+mf.getDescription()+"</span><ul>";
-				nextLevel = nextLevel + 1;
+				MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"parent level"+nextLevel+"\"><span>"+mf.getDescription()+"</span><ul>";
+				//nextLevel = nextLevel + 1;
 				MenuJS = MenuJS + childGenerate.getMenuJS(nextLevel);
 				MenuJS = MenuJS + "</ul></li>";
 				
