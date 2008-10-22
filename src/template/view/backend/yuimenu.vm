@@ -3,8 +3,9 @@
   <title>BlueOxygen Cimande Workspace Project</title>
     <link rel="stylesheet" type="text/css" href="#surl("value=/backend/resources/collapser.css")"></link>
 	<link rel="stylesheet" type="text/css" href="#surl("value=/backend/resources/docs.css")"></link>
-		<link rel="stylesheet" type="text/css" href="#surl("value=/style/menu.css")"></link>
-				<link rel="stylesheet" type="text/css" href="#surl("value=/style/boxes.css")"></link>
+		<link rel="stylesheet" type="text/css" href="#surl("value=/style/menu.css")" media="screen, projection"></link>
+				<link rel="stylesheet" type="text/css" href="#surl("value=/style/boxes.css")" media="all"></link>
+				<link rel="stylesheet" type="text/css" href="#surl("value=/style/reset.css")" media="all"></link>
 
 		
 </head>
@@ -39,7 +40,8 @@
 			</div>
    	  <!-- END MENU -->
 
-  
+<div class="dashboard-container">  
   <iframe id="main" name="main" frameborder="no" height="100%" width="100%"></iframe>
+</div>
   </body>
 </html>

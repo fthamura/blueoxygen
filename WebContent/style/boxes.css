@@ -604,7 +604,7 @@ td.divider              { font-size:1px; line-height:0; }
 /* LAYOUT
 *******************************************************************************/
 .wrapper    { min-width:980px; }
-.header { background:url(images/magento/header_top_bg.gif) repeat-x #0000FF; text-align:right; }
+.header { background:url(images/magento/header_top_bg.gif) repeat-x #0033CC; text-align:right; }
 .middle {
     min-height:450px;
     background:url(images/simple_container_bg.gif) repeat-x #fff;
@@ -656,11 +656,11 @@ body.html-body-popup    { min-width:300px !important; }
 *******************************************************************************/
 
 .logo                                   { float:left; margin:5px 20px 5px 27px; height:43px; }
-.header-top                             { border-bottom:1px solid #0000FF; }
+.header-top                             { border-bottom:1px solid #0033CC; }
 
 /* Header right */
 .header-right                           { padding:10px 25px 0 15px; font-size:.95em; color:#fff; }
-.header-right a, .header-right a:hover  { color:#0000FF; }
+.header-right a, .header-right a:hover  { color:#0033CC; }
 .header-right .separator                { color:#999; }
 .header-right fieldset                  { display:inline; padding-left:10px; }
 .header-right fieldset input.input-text { width:18em; }
