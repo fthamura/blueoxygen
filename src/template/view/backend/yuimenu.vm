@@ -40,8 +40,11 @@
 			</div>
    	  <!-- END MENU -->
 
-<div class="dashboard-container">  
+<div class="middle">  
   <iframe id="main" name="main" frameborder="no" height="100%" width="100%"></iframe>
+</div>
+<div class="footer">
+<p>Copyright &copy; 2000-2007, <strong>BlueOxygen Technology</strong>. All Rights Reserved.</p>
 </div>
   </body>
 </html>
