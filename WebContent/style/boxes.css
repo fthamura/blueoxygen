@@ -604,15 +604,15 @@ td.divider              { font-size:1px; line-height:0; }
 /* LAYOUT
 *******************************************************************************/
 .wrapper    { min-width:980px; }
-.header { background:url(images/magento/header_top_bg.gif) repeat-x #0033CC; text-align:right; }
+.header { background:url(../images/magento/header_top_bg.gif) repeat-x #0033CC; text-align:right; }
 .middle {
     min-height:450px;
-    background:url(images/simple_container_bg.gif) repeat-x #fff;
+    background:url(../images/simple_container_bg.gif) repeat-x #fff;
     padding:23px 27px 0 27px;
     }
 .middle-popup {
     border-bottom:3px solid #fff;
-    background:url(images/middle_bg.gif) repeat-x 0 100% #fff;
+    background:url(../images/middle_bg.gif) repeat-x 0 100% #fff;
     padding:0 0 0 0;
     background:yellow;
     }
@@ -620,7 +620,7 @@ td.divider              { font-size:1px; line-height:0; }
     padding:1.8em 2.2em 1.8em 2em;
     padding-top:0;
     }
-.columns {background:url(images/side_col_bg.gif) repeat-y 217px 0;}
+.columns {background:url(../images/side_col_bg.gif) repeat-y 217px 0;}
 div.side-col {
     float:left;
     width:220px;
@@ -634,7 +634,7 @@ div.main-col {
 div.main-col-inner { float:left; /* Fixes some inner clears in the liquid main-col */ width:100%; }
 .footer {
     clear:both;
-    background:url(images/footer_bg.gif) repeat-x #e6e6e6;
+    background:url(../images/footer_bg.gif) repeat-x #e6e6e6;
     padding:105px 2.8em 2.8em 2.8em;
     font-size:.95em;
     text-align:center;
@@ -642,7 +642,7 @@ div.main-col-inner { float:left; /* Fixes some inner clears in the liquid main-c
 .simple-container-popup {
     min-height:50px !important;
     padding:1.8em 2.3em 6em 2.3em;
-    background:url(images/simple_container_bg.gif) repeat-x;
+    background:url(../images/simple_container_bg.gif) repeat-x;
     }
 body.html-body-popup    { min-width:300px !important; }
 
@@ -656,11 +656,11 @@ body.html-body-popup    { min-width:300px !important; }
 *******************************************************************************/
 
 .logo                                   { float:left; margin:5px 20px 5px 27px; height:43px; }
-.header-top                             { border-bottom:1px solid #0033CC; }
+.header-top                             { border-bottom:1px solid #FFFFFF; }
 
 /* Header right */
 .header-right                           { padding:10px 25px 0 15px; font-size:.95em; color:#fff; }
-.header-right a, .header-right a:hover  { color:#0033CC; }
+.header-right a, .header-right a:hover  { color:#FFFFFF; }
 .header-right .separator                { color:#999; }
 .header-right fieldset                  { display:inline; padding-left:10px; }
 .header-right fieldset input.input-text { width:18em; }

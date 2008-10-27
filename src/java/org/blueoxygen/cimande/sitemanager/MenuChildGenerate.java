@@ -68,7 +68,7 @@ public class MenuChildGenerate {
 		List<ModuleFunction> modules = new ArrayList<ModuleFunction>();
 		modules = (List<ModuleFunction>)pm.getList(mySQL,null,null);
 		i = modules.size();
-		size = 0;
+		size = 1;
 		
 		for(ModuleFunction mf : modules){
 			
@@ -83,7 +83,11 @@ public class MenuChildGenerate {
 			
 			
 			if(totalChild > 0){
-				MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"parent level"+nextLevel+"\"><span>"+mf.getDescription()+"</span><ul>";
+				if(size == i){
+					MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"last parent level"+nextLevel+"\"><span>"+mf.getDescription()+"</span><ul>";
+				}else{
+					MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"parent level"+nextLevel+"\"><span>"+mf.getDescription()+"</span><ul>";
+				}
 				//nextLevel = nextLevel + 1;
 				MenuJS = MenuJS + childGenerate.getMenuJS(nextLevel);
 				MenuJS = MenuJS + "</ul></li>";
@@ -104,8 +108,11 @@ public class MenuChildGenerate {
 				}else {
 					sUrlAction = "../descriptor/"+mf.getModuleDescriptor().getUrlDescriptor()+"?";
 				}
-				
-				MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"parent level"+nextLevel+"\"><span><a href=\"#\" onclick=\"return false\">"+ mf.getDescription() +"</a></span><ul>";
+				if (size == i){
+					MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"last parent level"+nextLevel+"\"><span><a href=\"#\" onclick=\"return false\">"+ mf.getDescription() +"</a></span><ul>";
+				}else{
+					MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"parent level"+nextLevel+"\"><span><a href=\"#\" onclick=\"return false\">"+ mf.getDescription() +"</a></span><ul>";
+				}
 				
 				if (sActionFlag.equals("2")) {
 					
