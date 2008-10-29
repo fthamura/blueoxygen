@@ -21,7 +21,7 @@
 	
   <div id="header" class="ylayout-inactive-content">
 	<div style="padding-top:0px;"><table width="100%"><tr width="100%">
-	<td><img src="#surl("value=/images/blueoxygen-logo.png")"></td>
+	<td><img src="#surl("value=/images/blueoxygen-logo-new-small.png")"></td>
 	<td align="right">
 		<span style="color: #ffffff;">$!currentUser.username ($!currentUser.role.name)</span> 
 		<a href="#surl("value=/user/password/edit.action")" target="main" ><font size="1" color="white" title="Change Password"><img src="#surl("value=/images/silk/key_add.png")" border="0"></font></a>&nbsp;<font color="white"></font>&nbsp;
