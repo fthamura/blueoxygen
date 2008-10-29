@@ -52,7 +52,7 @@ public class MenuGenerator extends CimandeAction {
 				
 				for (RoleSitePrivilage tmp : rsp) {
 					MenuChild = new MenuChildGenerate(tmp.getModuleFunction().getId(), variableNode, iFirstNode, manager);
-					MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"parent level"+iFirstNode+"\"><span><a href=\"#\" onclick=\"return false\">"+tmp.getModuleFunction().getDescription()+"</a></span><ul>";
+					MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"parent level"+iFirstNode+"\"><span><a href=\"#\" onclick=\"return false\" class=\"\">"+tmp.getModuleFunction().getDescription()+"</a></span><ul>";
 					
 					MenuJS = MenuJS + MenuChild.getMenuJS(iFirstNode);
 					MenuJS = MenuJS + "</ul></li>";

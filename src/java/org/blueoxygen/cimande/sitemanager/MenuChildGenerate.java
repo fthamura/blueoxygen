@@ -109,21 +109,21 @@ public class MenuChildGenerate {
 					sUrlAction = "../descriptor/"+mf.getModuleDescriptor().getUrlDescriptor()+"?";
 				}
 				if (size == i){
-					MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"last parent level"+nextLevel+"\"><span><a href=\"#\" onclick=\"return false\">"+ mf.getDescription() +"</a></span><ul>";
+					MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"last parent level"+nextLevel+"\"><span><a href=\"#\" onclick=\"return false\" class=\"\">"+ mf.getDescription() +"</a></span><ul>";
 				}else{
-					MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"parent level"+nextLevel+"\"><span><a href=\"#\" onclick=\"return false\">"+ mf.getDescription() +"</a></span><ul>";
+					MenuJS = MenuJS + "<li onmouseover=\"Element.addClassName(this,'over')\" onmouseout=\"Element.removeClassName(this,'over')\" class=\"parent level"+nextLevel+"\"><span><a href=\"#\" onclick=\"return false\" class=\"\">"+ mf.getDescription() +"</a></span><ul>";
 				}
 				
 				if (sActionFlag.equals("2")) {
 					
-					MenuJS = MenuJS + "<li class=\"level"+child+"\"><a href=\""+sUrlAction+"create.action\" target=\"main\">New</a></li>";
+					MenuJS = MenuJS + "<li class=\"level"+child+"\"><a href=\""+sUrlAction+"create.action\" target=\"main\"><span>New</span></a></li>";
 				} else {
 					MenuJS = MenuJS + "<li class=\"level"+child+"\"><a href=\""+sUrlAction+"action=new\">New</a></li>";
 				}
 				
 				if (sActionFlag.equals("2")) {
 					
-					MenuJS = MenuJS + "<li class=\"last level"+child+"\"><a href=\""+sUrlAction+"filter.action\" target=\"main\">Search</a></li>";
+					MenuJS = MenuJS + "<li class=\"last level"+child+"\"><a href=\""+sUrlAction+"filter.action\" target=\"main\"><span>Search</span></a></li>";
 				} else {
 					MenuJS = MenuJS + "<li class=\"last level"+child+"\"><a href=\""+sUrlAction+"action=search\">Search</a></li>";
 				}

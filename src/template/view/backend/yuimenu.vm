@@ -30,15 +30,12 @@
 
 	<div class="clear"></div>
 	
-
-	  <!-- BEGIN MENU -->
-<div id="nav-bar">
+<div class="nav-bar">
 <ul id="nav">
 		$menu_script
 		</ul>
 		</div> 
 			</div>
-   	  <!-- END MENU -->
 
 <div class="middle">  
   <iframe id="main" name="main" frameborder="no" height="100%" width="100%"></iframe>
