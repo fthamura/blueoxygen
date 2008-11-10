@@ -17,7 +17,9 @@
  #end
 </ul>
 #end
-
+#if($workType == "flat")
+<a href="../site/filter.action">[ Search Site ]</a><br><br>
+#end
 <form method="post" action="add.action">
 <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
   <tbody>

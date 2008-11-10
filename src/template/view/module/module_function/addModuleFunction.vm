@@ -14,10 +14,12 @@
 <div class="errorMessage">
 #sfielderror()
 </div>
-
+#if($workType == "flat")
+<a href="../module_function/filter.action">[ Search Module Function ]</a><br><br>
+#end
 
 <form method="get" action="addModuleFunction.action" name="upload" enctype="multipart/form-data" > 
-<table align="center" bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
   <tbody>
   <tr bgcolor="#d0dcff">
     <td colspan="3"><b>Add Module Function<b></td>

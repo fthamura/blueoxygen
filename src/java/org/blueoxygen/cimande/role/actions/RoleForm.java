@@ -16,6 +16,7 @@ import org.blueoxygen.cimande.modulefunction.ModuleFunction;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 import org.blueoxygen.cimande.role.Role;
+import org.blueoxygen.cimande.security.User;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -27,6 +28,7 @@ public class RoleForm extends CimandeAction implements PersistenceAware
 	protected PersistenceManager pm;
 	protected ModuleFunction moduleFunction;
 	protected Role role;
+	protected User user;
 	private String id;
 	private String name="";
 	private String description="";
@@ -34,6 +36,17 @@ public class RoleForm extends CimandeAction implements PersistenceAware
 	private String parentId="";
 	private String workspace_type="";
 	private int activeFlag=-1; //dummy status, means unstated
+	private String workType="";
+	
+	public String execute(){
+		user = (User) pm.getById(User.class, getCurrentUser().getId());
+		if(user.getWorkspace_type().equalsIgnoreCase("flat")){
+			workType = "flat";
+		}else{
+			workType = "";
+		}
+		return SUCCESS;
+	}
 	
 
 	/**
@@ -139,5 +152,38 @@ public class RoleForm extends CimandeAction implements PersistenceAware
 	public void setWorkspace_type(String workspace_type) {
 		this.workspace_type = workspace_type;
 	}
+
+
+	/**
+	 * @return the user
+	 */
+	public User getUser() {
+		return user;
+	}
+
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	/**
+	 * @return the workType
+	 */
+	public String getWorkType() {
+		return workType;
+	}
+
+
+	/**
+	 * @param workType the workType to set
+	 */
+	public void setWorkType(String workType) {
+		this.workType = workType;
+	}
+	
 	
 }

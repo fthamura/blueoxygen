@@ -13,6 +13,9 @@ import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.descriptors.Descriptor;
 import org.blueoxygen.cimande.modulefunction.ModuleFunction;
+import org.blueoxygen.cimande.persistence.PersistenceAware;
+import org.blueoxygen.cimande.persistence.PersistenceManager;
+import org.blueoxygen.cimande.security.User;
 
 /**
  * @author Amelia
@@ -20,21 +23,29 @@ import org.blueoxygen.cimande.modulefunction.ModuleFunction;
  * TODO To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-public class ModuleFunctionForm extends CimandeAction {
+public class ModuleFunctionForm extends CimandeAction implements PersistenceAware{
 	protected ModuleFunction moduleFunction;
 	protected LogInformation logInfo;
+	private User user = new User();
+	protected PersistenceManager pm;
 	
 	private String name="";
 	private String description="";
 	private int viewActive=0;
 	private String tableReferences="";
 	private String moduleFunctionId="";
+	private String workType="";
 	
 	private String moduleDescriptorId="";
 	private List<Descriptor> moduleDescriptors = new ArrayList<Descriptor>();
 	
 	public String execute(){
-
+		user = (User) pm.getById(User.class, getCurrentUser().getId());
+		if(user.getWorkspace_type().equalsIgnoreCase("flat")){
+			workType = "flat";
+		}else{
+			workType = "";
+		}
 		return SUCCESS;
 	}
 	
@@ -147,4 +158,28 @@ public class ModuleFunctionForm extends CimandeAction {
 	public void setViewActive(int viewActive) {
 		this.viewActive = viewActive;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getWorkType() {
+		return workType;
+	}
+
+	public void setWorkType(String workType) {
+		this.workType = workType;
+	}
+	public PersistenceManager getPersistenceManager() {
+		return pm;
+	}
+	public void setPersistenceManager(PersistenceManager persistenceManager) {
+		this.pm = persistenceManager;
+	}
+	
+	
 }

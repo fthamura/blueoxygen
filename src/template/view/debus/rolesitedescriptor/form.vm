@@ -1,3 +1,6 @@
+#if($workType == "flat")
+<a href="../rolesitedescriptor/filter.action">[ Search Role Site Descriptor ]</a><br><br>
+#end
 <form action="save.action" method="post" >
 <table>
 	<th>

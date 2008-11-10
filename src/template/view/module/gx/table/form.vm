@@ -14,7 +14,9 @@
 			#end
 			</ul>
 		#end
-		
+		#if($workType == "flat")
+<a href="../gx-table/filter.action">[ Search Table ]</a><br><br>
+#end
 		<form method="get" action="save.action">
 			<table border="0" cellpadding="5" cellspacing="1" width="98%" bgcolor="#000000">
 				<tr bgcolor="#d0dcff">

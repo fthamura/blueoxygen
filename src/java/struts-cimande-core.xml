@@ -17,6 +17,11 @@
 				/view/backend/yuimenu.vm
 			</result>
 		</action>
+		<action name="yuiflat" class="org.blueoxygen.cimande.sitemanager.FlatGenerator">
+			<result name="success" type="velocity">
+				/view/backend/yuiflat.vm
+			</result>
+		</action>
 	</package>
 	<!--Security - Login-->
 	<package name="security" extends="default"
@@ -34,6 +39,9 @@
 			</result>
 			<result name="menu" type="redirect">
 				../yuimenu.action
+			</result>
+			<result name="flat" type="redirect">
+				../yuiflat.action
 			</result>
 			<result name="redirect" type="redirect">
 				../../${redirectUri}

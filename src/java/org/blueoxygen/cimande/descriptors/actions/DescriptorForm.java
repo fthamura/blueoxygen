@@ -10,17 +10,20 @@
 
 package org.blueoxygen.cimande.descriptors.actions;
 
+import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.descriptors.Descriptor;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
+import org.blueoxygen.cimande.security.User;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author Umar Khatab umar@intercitra.com
  */
-public class DescriptorForm extends ActionSupport implements PersistenceAware {
+public class DescriptorForm extends CimandeAction implements PersistenceAware {
 	protected PersistenceManager pm;
+	private User user = new User();
 	private String id;
 	private String name="";
 	private String description="";
@@ -34,6 +37,18 @@ public class DescriptorForm extends ActionSupport implements PersistenceAware {
 	private String windowId = "";
 	private int activeFlag = -1;
 	protected Descriptor descr = new Descriptor();
+	private String workType="";
+	
+	public String execute(){
+		user = (User) pm.getById(User.class, getCurrentUser().getId());
+		if(user.getWorkspace_type().equalsIgnoreCase("flat")){
+			workType = "flat";
+		}else{
+			workType = "";
+		}
+		return SUCCESS;
+	}
+	
 
 	public void setPersistenceManager(PersistenceManager persistenceManager) {
 		this.pm = persistenceManager;
@@ -140,4 +155,25 @@ public class DescriptorForm extends ActionSupport implements PersistenceAware {
 	public void setDescr(Descriptor descr) {
 		this.descr = descr;
 	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public String getWorkType() {
+		return workType;
+	}
+
+
+	public void setWorkType(String workType) {
+		this.workType = workType;
+	}
+	
 }

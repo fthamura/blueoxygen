@@ -1,3 +1,6 @@
+#if($workType == "flat")
+<a href="../gxwindowrole/filter.action">[ Search Window Role ]</a><br><br>
+#end
 <form action="save.action" method="post" >
 <table>
 	<th>

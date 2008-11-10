@@ -14,6 +14,7 @@ import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
+import org.blueoxygen.cimande.security.User;
 
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -24,6 +25,7 @@ public class SiteForm extends CimandeAction implements PersistenceAware
 {
 	protected PersistenceManager persistenceManager;
 	protected LogInformation logInfo;
+	private User user = new User();
 	
 	private String id="";
 	private String name="";
@@ -40,7 +42,17 @@ public class SiteForm extends CimandeAction implements PersistenceAware
  	private String notify_message="";
  	private String site_headline="";
  	private String workspace_type="";
+ 	private String workType="";
  	
+ 	public String execute(){
+ 		user = (User) persistenceManager.getById(User.class, getCurrentUser().getId());
+		if(user.getWorkspace_type().equalsIgnoreCase("flat")){
+			workType = "flat";
+		}else{
+			workType = "";
+		}
+ 		return SUCCESS;
+ 	}
  	
 	 
 	public String getWorkspace_type() {
@@ -139,6 +151,19 @@ public class SiteForm extends CimandeAction implements PersistenceAware
 	public void setUrl_branding(String url_branding) {
 		this.url_branding = url_branding;
 	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public String getWorkType() {
+		return workType;
+	}
+	public void setWorkType(String workType) {
+		this.workType = workType;
+	}
+	
 	
 	
 }

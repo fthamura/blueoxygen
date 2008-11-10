@@ -18,6 +18,9 @@
 #end
 </ul>
 #end
+#if($workType == "flat")
+<a href="../workflow_role/filter.action">[ Search WorkFlow Role ]</a><br><br>
+#end
 
 <form method="post" action="add.action">
   <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1"

@@ -6,7 +6,15 @@
 		<link rel="stylesheet" type="text/css" href="#surl("value=/style/menu.css")" media="screen, projection"></link>
 				<link rel="stylesheet" type="text/css" href="#surl("value=/style/boxes.css")" media="all"></link>
 				<link rel="stylesheet" type="text/css" href="#surl("value=/style/reset.css")" media="all"></link>
-
+				<!--[if IE]>
+			<link rel="stylesheet" type="text/css" href="#surl("value=/style/iestyle.css")" media="all"></link>
+			<![endif]-->
+			<!--[if lt IE 7]>
+			<link rel="stylesheet" type="text/css" href="#surl("value=/style/below_ie7.css")" media="all"></link>
+			<![endif]-->
+			<!--[if IE 7]>
+			<link rel="stylesheet" type="text/css" href="#surl("value=/style/ie7.css")" media="all"></link>
+<![endif]-->
 		
 </head>
 <body class="ext-gecko ext-strict" id="html-body">

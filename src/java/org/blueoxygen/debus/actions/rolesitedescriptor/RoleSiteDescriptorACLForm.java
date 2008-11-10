@@ -8,6 +8,7 @@ import org.blueoxygen.cimande.descriptors.Descriptor;
 import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
 import org.blueoxygen.cimande.role.Role;
 import org.blueoxygen.cimande.role.RoleSite;
+import org.blueoxygen.cimande.security.User;
 import org.blueoxygen.cimande.site.Site;
 import org.blueoxygen.debus.entity.RoleDescriptorACLAccess;
 import org.blueoxygen.debus.entity.RoleSiteDescriptorACL;
@@ -25,8 +26,16 @@ public class RoleSiteDescriptorACLForm extends CimandeAction {
 	private List<GxDroplistValue> acls = new ArrayList<GxDroplistValue>();
 	private List<RoleSite> roleSites = new ArrayList<RoleSite>();
 	private List<Role> roles = new ArrayList<Role>();
+	private User user = new User();
+	private String workType="";
 
 	public String execute() {
+		user = (User) manager.getById(User.class, getCurrentUser().getId());
+		if(user.getWorkspace_type().equalsIgnoreCase("flat")){
+			workType = "flat";
+		}else{
+			workType = "";
+		}
 		if (getRsDescriptorAccess().getId() != null
 				&& !"".equalsIgnoreCase(getRsDescriptorAccess().getId())) {
 			setRsDescriptorAccess((RoleSiteDescriptorACLAccess) manager
@@ -137,4 +146,22 @@ public class RoleSiteDescriptorACLForm extends CimandeAction {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getWorkType() {
+		return workType;
+	}
+
+	public void setWorkType(String workType) {
+		this.workType = workType;
+	}
+	
+	
 }

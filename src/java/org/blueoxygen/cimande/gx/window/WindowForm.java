@@ -3,23 +3,33 @@ package org.blueoxygen.cimande.gx.window;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.gx.entity.GxDroplistName;
 import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
 import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
+import org.blueoxygen.cimande.security.User;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class WindowForm extends ActionSupport implements PersistenceAware {
+public class WindowForm extends CimandeAction implements PersistenceAware {
 	protected PersistenceManager manager;
 	private List<GxWindow> windows = new ArrayList<GxWindow>();
 	private GxWindow window = new GxWindow();
 	private String report = "";
 	private GxDroplistName windowTypes = new GxDroplistName();
 	private GxDroplistValue windowType = new GxDroplistValue();
+	private User user = new User();
+	private String workType="";
 	
 	public String execute(){
+		user = (User) manager.getById(User.class, getCurrentUser().getId());
+		if(user.getWorkspace_type().equalsIgnoreCase("flat")){
+			workType = "flat";
+		}else{
+			workType = "";
+		}
 		if (getWindow().getId() != null && !"".equalsIgnoreCase(getWindow().getId())){
 			setWindow((GxWindow)manager.getById(GxWindow.class, getWindow().getId()));
 			getWindow().getTabs();
@@ -91,6 +101,23 @@ public class WindowForm extends ActionSupport implements PersistenceAware {
 	public void setWindowType(GxDroplistValue windowType) {
 		this.windowType = windowType;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getWorkType() {
+		return workType;
+	}
+
+	public void setWorkType(String workType) {
+		this.workType = workType;
+	}
+	
 
 //	/**
 //	 * @param tabs the tabs to set

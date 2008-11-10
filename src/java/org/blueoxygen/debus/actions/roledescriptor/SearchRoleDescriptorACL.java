@@ -21,7 +21,7 @@ public class SearchRoleDescriptorACL extends RoleDescriptorACLForm {
 			query += "rda.roleDescriptor.descriptor.id='" + getDescriptor().getId() + "' ";
 		}
 		query += "ORDER BY rda." + orderBy ;
-		setRdAccesses(manager.getList(query, null, null));
+		setRdAccesses(pm.getList(query, null, null));
 		return SUCCESS;
 	}
 

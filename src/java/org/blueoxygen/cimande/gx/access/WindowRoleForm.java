@@ -7,6 +7,7 @@ import org.blueoxygen.cimande.gx.actions.GxAction;
 import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
 import org.blueoxygen.cimande.gx.entity.GxWindowRole;
 import org.blueoxygen.cimande.role.Role;
+import org.blueoxygen.cimande.security.User;
 
 public class WindowRoleForm extends GxAction {
 	private GxWindowRole windowRole = new GxWindowRole();
@@ -14,8 +15,16 @@ public class WindowRoleForm extends GxAction {
 	private List<GxDroplistValue> accessList = new ArrayList<GxDroplistValue>();
 	private List<String> access = new ArrayList<String>();
 	private Role role = new Role();
+	private User user = new User();
+	private String workType="";
 
 	public String execute() {
+		user = (User) manager.getById(User.class, sessionCredentials.getCurrentUser().getId());
+		if(user.getWorkspace_type().equalsIgnoreCase("flat")){
+			workType = "flat";
+		}else{
+			workType = "";
+		}
 		if (getWindowRole().getId() != null
 				&& !"".equalsIgnoreCase(getWindowRole().getId())) {
 			setWindowRole((GxWindowRole) manager.getById(GxWindowRole.class,
@@ -67,4 +76,21 @@ public class WindowRoleForm extends GxAction {
 	public void setAccess(List<String> access) {
 		this.access = access;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getWorkType() {
+		return workType;
+	}
+
+	public void setWorkType(String workType) {
+		this.workType = workType;
+	}
+	
 }

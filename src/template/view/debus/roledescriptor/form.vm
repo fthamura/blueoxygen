@@ -1,3 +1,8 @@
+<html>
+<body>
+#if($workType == "flat")
+<a href="../roledescriptor/filter.action">[ Search Role Descriptor ]</a><br><br>
+#end
 <form action="save.action" method="post" >
 <table>
 	<th>
@@ -39,3 +44,5 @@
 	</tr>
 </table>
 </form>
+</body>
+</html>
