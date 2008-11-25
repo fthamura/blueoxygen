@@ -106,7 +106,7 @@ public class FlatChildGenerator {
 
 				// check the child after this object. if > 0 mean generate branch module
 
-				FlatJS = FlatJS  + "<li><a href=\""+sUrlAction+"create.action\">"+mf.getDescription() + "</a></li>"; //dbTreeChild.getDescription();
+				FlatJS = FlatJS  + "<li><a href=\""+sUrlAction+"create.action\" target=\"main\">"+mf.getDescription() + "</a></li>"; //dbTreeChild.getDescription();
 
 				// new action <a href="output/hello.html">New</a> 
 /*				if (sActionFlag.equals("2")) {
