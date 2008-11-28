@@ -39,7 +39,7 @@ public class UpDateModuleFunction extends ModuleFunctionForm {
 	public String execute() {
 		String result = super.execute();
 
-		moduleFunction = (ModuleFunction) manager.getById(ModuleFunction.class,
+		moduleFunction = (ModuleFunction) pm.getById(ModuleFunction.class,
 				getId());
 
 		String query = "SELECT module_function FROM "
@@ -49,14 +49,14 @@ public class UpDateModuleFunction extends ModuleFunctionForm {
 
 		if (getModuleDescriptorId() != null
 				&& !"".equalsIgnoreCase(getModuleDescriptorId())) {
-			moduleDescriptor = (Descriptor) manager.getById(Descriptor.class,
+			moduleDescriptor = (Descriptor) pm.getById(Descriptor.class,
 					getModuleDescriptorId());
 		} else {
 			moduleDescriptor = null;
 		}
 		if (getModuleFunctionId() != null
 				&& !"".equalsIgnoreCase(getModuleFunctionId())) {
-			mf = (ModuleFunction) manager.getById(ModuleFunction.class,
+			mf = (ModuleFunction) pm.getById(ModuleFunction.class,
 					getModuleFunctionId());
 		} else {
 			mf = null;
@@ -74,10 +74,10 @@ public class UpDateModuleFunction extends ModuleFunctionForm {
 		logInfo.setLastUpdateDate(new Timestamp(System.currentTimeMillis()));
 		moduleFunction.setLogInformation(logInfo);
 
-		manager.save(moduleFunction);
+		pm.save(moduleFunction);
 		moduleFunctionId = moduleFunction.getId();
 
-		mfs = manager.find(query, null, null);
+		mfs = pm.find(query, null, null);
 
 		return SUCCESS;
 	}

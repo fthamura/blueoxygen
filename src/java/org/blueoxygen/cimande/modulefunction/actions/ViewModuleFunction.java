@@ -22,16 +22,15 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class ViewModuleFunction extends ModuleFunctionForm {
 	private String id;
-	protected ModuleFunction moduleFunction;
+	protected ModuleFunction moduleFunction = new ModuleFunction();
 	private String module_function_id;
 
 	private List<ModuleFunction> mfs;
 
 	public String execute() {
 
-		if (!id.equalsIgnoreCase("")) {
-			moduleFunction = (ModuleFunction) manager.getById(
-					ModuleFunction.class, getId());
+		if(!getId().equalsIgnoreCase("")) {
+			moduleFunction = (ModuleFunction) pm.getById(ModuleFunction.class, getId());
 			mfs = moduleFunction.getModuleFunctions();
 			return SUCCESS;
 		} else {
