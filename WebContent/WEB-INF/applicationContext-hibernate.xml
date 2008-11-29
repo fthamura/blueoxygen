@@ -29,7 +29,6 @@
                 <value>org.blueoxygen.cimande.role.RoleSitePrivilage</value>
                 <value>org.blueoxygen.cimande.role.UserRole</value>
                 <value>org.blueoxygen.cimande.site.Site</value>
-                <value>org.blueoxygen.cimande.descriptors.Collection</value>
                 <value>org.blueoxygen.cimande.descriptors.Descriptor</value>
 
                 <value>org.blueoxygen.cimande.modulefunction.ModuleFunction</value>

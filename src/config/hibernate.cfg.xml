@@ -62,6 +62,9 @@
         <mapping class="org.blueoxygen.debus.entity.RoleSiteDescriptorACLAccess"/>
         <mapping class="org.blueoxygen.debus.entity.SiteDescriptorACL"/>
         <mapping class="org.blueoxygen.debus.entity.SiteDescriptorACLAccess"/>
+        <mapping class="org.blueoxygen.debus.ActionType"/>
+        <mapping class="org.blueoxygen.debus.DescriptorAccess"/>
+        <mapping class="org.blueoxygen.debus.PermissionType"/>
     </session-factory>
     
 </hibernate-configuration>
