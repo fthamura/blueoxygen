@@ -37,16 +37,19 @@ public class AddModuleFunction extends ModuleFunctionForm {
 			@RequiredStringValidator(fieldName = "name", message = "Please input name"),
 			@RequiredStringValidator(fieldName = "description", message = "Please input description") })
 	public String execute() {
+		if (hasErrors()){
+			return INPUT;
+		}
 		if (getModuleDescriptorId() != null
 				&& !"".equalsIgnoreCase(getModuleDescriptorId())) {
-			moduleDescriptor = (Descriptor) manager.getById(Descriptor.class,
+			moduleDescriptor = (Descriptor) pm.getById(Descriptor.class,
 					getModuleDescriptorId());
 		} else {
 			moduleDescriptor = null;
 		}
 		if (getModuleFunctionId() != null
 				&& !"".equalsIgnoreCase(getModuleFunctionId())) {
-			mf = (ModuleFunction) manager.getById(ModuleFunction.class,
+			mf = (ModuleFunction) pm.getById(ModuleFunction.class,
 					getModuleFunctionId());
 		} else {
 			mf = null;
@@ -68,7 +71,7 @@ public class AddModuleFunction extends ModuleFunctionForm {
 		logInfo.setActiveFlag(1);
 		moduleFunction.setLogInformation(logInfo);
 
-		manager.save(moduleFunction);
+		pm.save(moduleFunction);
 		moduleFunctionId = moduleFunction.getId();
 		return SUCCESS;
 	}

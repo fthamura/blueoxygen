@@ -11,21 +11,19 @@
 <script type="text/javascript" src="../../htmlarea/htmlarea.js"></script>
 </head>
 <body >
-<div class="errorMessage">
 #sfielderror()
-</div>
 #if($workType == "flat")
 <a href="../module_function/filter.action">[ Search Module Function ]</a><br><br>
 #end
 
-<form method="get" action="addModuleFunction.action" name="upload" enctype="multipart/form-data" > 
+<form method="post" action="addModuleFunction.action" > 
 <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
   <tbody>
   <tr bgcolor="#d0dcff">
     <td colspan="3"><b>Add Module Function<b></td>
   </tr>
    <tr bgcolor="#ffffff">
-     <td style="font-weight: bold;" align="right" valign="top">Name:<font color="RED">*</font></td>
+     <td style="font-weight: bold;" align="right" valign="top"><font color="RED">*</font>Name:</td>
     <td><input type="text" name="name" maxlength="30" value="$!name" size="30"></td>
   </tr>
   <tr bgcolor="#ffffff">

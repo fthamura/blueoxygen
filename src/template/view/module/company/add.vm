@@ -19,6 +19,7 @@ Add a new Company</title>
 #end
 </ul>
 #end
+#sfielderror()
 #if($workType == "flat")
 <a href="../company/filter.action">[ Search Company ]</a><br><br>
 #end

@@ -14,6 +14,7 @@ Add a new Descriptor</title>
 #end
 </ul>
 #end
+#sfielderror()
 #if($workType == "flat")
 <a href="../descriptor/filter.action">[ Search Descriptor ]</a><br><br>
 #end

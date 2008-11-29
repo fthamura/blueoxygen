@@ -18,6 +18,7 @@
 #end
 </ul>
 #end
+#sfielderror()
 #if($workType == "flat")
 <a href="../workflow_role/filter.action">[ Search WorkFlow Role ]</a><br><br>
 #end

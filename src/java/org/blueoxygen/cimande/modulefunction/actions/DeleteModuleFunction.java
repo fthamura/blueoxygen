@@ -23,16 +23,16 @@ public class DeleteModuleFunction extends ViewModuleFunction {
 			if (mf != null) {
 				mf.getModuleFunctions().remove(moduleFunction);
 				moduleFunction.setModuleFunction(null);
-				manager.save(mf);
+				pm.save(mf);
 			}
-			manager.save(moduleFunction);
-			moduleFunction = (ModuleFunction) manager.getById(
+			pm.save(moduleFunction);
+			moduleFunction = (ModuleFunction) pm.getById(
 					ModuleFunction.class, moduleFunction.getId());
 			for (ModuleFunction m : moduleFunction.getModuleFunctions()) {
 				m.setModuleFunction(null);
-				manager.save(m);
+				pm.save(m);
 			}
-			manager.remove(moduleFunction);
+			pm.remove(moduleFunction);
 			return SUCCESS;
 
 		} else {

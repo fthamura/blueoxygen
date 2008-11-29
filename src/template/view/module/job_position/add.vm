@@ -19,6 +19,7 @@ Add a new Job Description</title>
 #end
 </ul>
 #end
+#sfielderror()
 #if($workType == "flat")
 <a href="../job_position/filter.action">[ Search Job Position ]</a><br><br>
 #end

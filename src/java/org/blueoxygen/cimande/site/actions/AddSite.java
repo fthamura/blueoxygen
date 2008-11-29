@@ -34,7 +34,8 @@ public class AddSite extends SiteForm implements SessionCredentialsAware {
 
 	@Validations(requiredStrings = {
 			@RequiredStringValidator(fieldName = "name", message = "Name can't be empty."),
-			@RequiredStringValidator(fieldName = "description", message = "Description can't be empty.") })
+			@RequiredStringValidator(fieldName = "description", message = "Description can't be empty."), 
+			@RequiredStringValidator(fieldName = "workspace_type", message= "Workspace Type can't be empty.") })
 	public String execute() {
 		//
 		// if (getName().equalsIgnoreCase("")) {

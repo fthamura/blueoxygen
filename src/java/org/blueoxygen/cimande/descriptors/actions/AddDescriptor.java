@@ -18,24 +18,31 @@ import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import com.opensymphony.xwork2.validator.annotations.Validation;
+import com.opensymphony.xwork2.validator.annotations.Validations;
+
 /**
  * @author Umar Khatab umar@intercitra.com
  */
-
+@Validation
 public class AddDescriptor extends DescriptorForm implements SessionCredentialsAware {
 
 	private SessionCredentials sessCredentials;
-
+	@Validations(requiredStrings = {
+			@RequiredStringValidator(fieldName = "name", message = "Please input name"),
+			@RequiredStringValidator(fieldName = "description", message = "Please input description") })
+			
 	public String execute() {
 
 		Descriptor descr = new Descriptor();
 
-		if (getName().equalsIgnoreCase("")) {
+/*		if (getName().equalsIgnoreCase("")) {
 			addActionError("Name can't be empty");
 		}
 		if (getDescription().equalsIgnoreCase("")) {
 			addActionError("Description can't be empty");
-		}
+		}*/
 
 		if (hasErrors()) {
 			return INPUT;

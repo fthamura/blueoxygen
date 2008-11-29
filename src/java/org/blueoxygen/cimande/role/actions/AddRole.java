@@ -35,7 +35,8 @@ public class AddRole extends RoleForm implements SessionCredentialsAware {
 
 	@Validations(requiredStrings = {
 			@RequiredStringValidator(fieldName = "name", message = "Name can't be empty."),
-			@RequiredStringValidator(fieldName = "description", message = "Description can't be empty.") })
+			@RequiredStringValidator(fieldName = "description", message = "Description can't be empty.") 
+			})
 	public String execute() {
 		Role role = new Role();
 

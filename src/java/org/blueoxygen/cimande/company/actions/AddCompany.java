@@ -29,7 +29,7 @@ public class AddCompany extends CompanyForm implements SessionCredentialsAware {
 
 	private SessionCredentials sessCredentials;
 
-	@Validations(requiredStrings = { @RequiredStringValidator(fieldName = "name", message = "Nmae can't be empty") })
+	@Validations(requiredStrings = { @RequiredStringValidator(fieldName = "name", message = "Name can't be empty") })
 	public String execute() {
 
 		Company comp = new Company();

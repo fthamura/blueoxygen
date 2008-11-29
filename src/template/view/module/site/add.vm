@@ -17,6 +17,7 @@
  #end
 </ul>
 #end
+#sfielderror()
 #if($workType == "flat")
 <a href="../site/filter.action">[ Search Site ]</a><br><br>
 #end
@@ -33,7 +34,7 @@
   	
   </tr>
  <tr bgcolor="#ffffff">
-    <td style="font-weight: bold;" align="right" valign="top">Description:</td>
+    <td style="font-weight: bold;" align="right" valign="top"><font color="red">*</font>Description:</td>
   	<td><input type="text" name="description" value="$!name" style="width: 50%">
   	</td>
   	

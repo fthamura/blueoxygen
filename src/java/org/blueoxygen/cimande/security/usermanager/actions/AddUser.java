@@ -32,7 +32,10 @@ public class AddUser extends UserForm implements SessionCredentialsAware {
 	@Validations(
 			requiredStrings = { 
 					@RequiredStringValidator(fieldName = "user.username", message = "Username can not empty"),
-					@RequiredStringValidator(fieldName = "user.password", message = "Password can not empty")
+					@RequiredStringValidator(fieldName = "user.password", message = "Password can not empty"),
+					@RequiredStringValidator(fieldName = "name.first", message = "First name can not empty"),
+					@RequiredStringValidator(fieldName = "company.id", message = "Company can not empty"),
+					@RequiredStringValidator(fieldName = "job.id", message = "Position can not empty")
 			}, 
 			stringLengthFields = { 
 					@StringLengthFieldValidator(minLength="3", fieldName = "user.username", message = "Username must have at least 3 characters"),
