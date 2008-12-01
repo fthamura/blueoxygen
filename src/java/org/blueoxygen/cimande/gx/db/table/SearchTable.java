@@ -27,25 +27,22 @@ public class SearchTable extends TableForm implements HibernateSessionFactoryAwa
 	public String execute(){
 		sess = hsf.createSession();
 		Criteria crit = sess.createCriteria(GxTable.class);
-		if (getTable().getName() != null && "".equalsIgnoreCase(getTable().getName())){
+		if (getTable().getName() != null && !"".equalsIgnoreCase(getTable().getName())){
 			crit.add(Expression.like("name", "%"+getTable().getName()+"%"));
 		}
-		if (getTable().getDescription() != null && "".equalsIgnoreCase(getTable().getDescription())){
+		if (getTable().getDescription() != null && !"".equalsIgnoreCase(getTable().getDescription())){
 			crit.add(Expression.like("description", "%"+getTable().getDescription()+"%"));
 		}
 		crit.add(Expression.eq("logInformation.activeFlag", new Integer(1)));
 		resultRows = crit.list().size();
-		paging();
-		
-//		if(resultRows > 0){
+		maxPage = resultRows / maxRowPerPage;
+		prevPage = currPage - 1;
+		nextPage = currPage + 1;
+		if(resultRows % maxRowPerPage == 0) maxPage = maxPage - 1;
 			setTables((ArrayList<GxTable>) crit.addOrder(Order.asc(orderBy))
 					.setFirstResult(currPage * maxRowPerPage)
 					.setMaxResults(maxRowPerPage)
 					.list());
-//		} else {
-//			setTables(null);
-//		}
-		
 		try {
 			hsf.endSession(sess);
 			hsf.closeSession(sess);

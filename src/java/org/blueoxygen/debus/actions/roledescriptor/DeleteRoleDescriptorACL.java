@@ -10,10 +10,10 @@ public class DeleteRoleDescriptorACL extends RoleDescriptorACLForm {
 	public String execute() {
 		if (getRoleDescriptorAccess().getId() != null
 				&& !"".equalsIgnoreCase(getRoleDescriptorAccess().getId())) {
-			setRoleDescriptorAccess((RoleDescriptorACLAccess) manager.getById(
+			setRoleDescriptorAccess((RoleDescriptorACLAccess) pm.getById(
 					RoleDescriptorACLAccess.class, getRoleDescriptorAccess()
 							.getId()));
-			manager.remove(getRoleDescriptorAccess());
+			pm.remove(getRoleDescriptorAccess());
 		}
 		return SUCCESS;
 	}

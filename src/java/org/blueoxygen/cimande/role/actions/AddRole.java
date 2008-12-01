@@ -55,7 +55,7 @@ public class AddRole extends RoleForm implements SessionCredentialsAware {
 			role.setName(getName());
 			role.setDescription(getDescription());
 			if(getWorkspace_type().equalsIgnoreCase("")){
-				role.setWorkspace_type(get("workspace.type.default.role"));
+				role.setWorkspace_type("");
 			}
 			else{
 				role.setWorkspace_type(getWorkspace_type());

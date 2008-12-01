@@ -8,15 +8,21 @@
 		<interceptors>
 			<!--<interceptor name="hibernate" class="org.hibernate.admin.interceptor.HibernateInterceptor"/>-->
 			<interceptor name="cimande" class="org.blueoxygen.cimande.interceptors.CimandeInterceptor"></interceptor>
+			<interceptor name="RoleDescriptorACL" class="org.blueoxygen.debus.interceptors.RoleDescriptorACLInterceptor"></interceptor>
+			<interceptor name="RoleSiteDescriptorACL" class="org.blueoxygen.debus.interceptors.RoleSiteDescriptorACLInterceptor"></interceptor>
+			<interceptor name="SiteDescriptorACL" class="org.blueoxygen.debus.interceptors.SiteDescriptorACLInterceptor"></interceptor>
 			<!-- Basic stack -->
 			<interceptor-stack name="adminStack">
 				<interceptor-ref name="timer" />
 				<interceptor-ref name="logger"/>
 				<interceptor-ref name="static-params" />
 				<interceptor-ref name="params" />
-				<interceptor-ref name="cimande"/>
+				<!-- <interceptor-ref name="cimande"/>  -->  
 				<interceptor-ref name="validation"/>
 				<!-- <interceptor-ref name="hibernate"/>-->
+				<interceptor-ref name="RoleDescriptorACL"/>
+				<interceptor-ref name="RoleSiteDescriptorACL"/>
+				<interceptor-ref name="SiteDescriptorACL"/>
 			</interceptor-stack>
 		</interceptors>
 		<default-interceptor-ref name="adminStack" />

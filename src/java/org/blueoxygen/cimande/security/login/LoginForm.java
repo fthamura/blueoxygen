@@ -36,15 +36,26 @@ public class LoginForm extends CimandeAction implements UserAccessorAware {
 				// site
 				String id = su.decodeBase64(ActionContext.getContext().getSession().get(LoginFilter.LOGIN_CIMANDE_USER).toString());
 				setUser(ua.getById(id));
-				if(getUser().getWorkspace_type().equalsIgnoreCase("")){
+				if(getUser().getWorkspace_type() == null || getUser().getWorkspace_type().equalsIgnoreCase("")){
 					setRole((Role) manager.getById(Role.class, getUser().getRole().getId()));
-					if(getRole().getWorkspace_type().equalsIgnoreCase("tree")){
-						return "continue";
+					if(getRole().getWorkspace_type() == null || getRole().getWorkspace_type().equalsIgnoreCase("")){
+						String site = ActionContext.getContext().getSession().get(LoginFilter.LOGIN_CIMANDE_SITE).toString();
+						setSite((Site) manager.getById(Site.class, site));
+						if(getSite().getWorkspace_type().equalsIgnoreCase("tree")){
+							return "continue";
+						}else if(getSite().getWorkspace_type().equalsIgnoreCase("menu")){
+							return "menu";
+						}else {
+							return "flat";
+						}
+						
 					}
 					else if(getRole().getWorkspace_type().equalsIgnoreCase("menu")){
 						return "menu";
-					}else {
+					}else if(getRole().getWorkspace_type().equalsIgnoreCase("flat")){
 						return "flat";
+					}else {
+						return "continue";
 					}
 				}
 				else if (getUser().getWorkspace_type().equalsIgnoreCase("tree")){

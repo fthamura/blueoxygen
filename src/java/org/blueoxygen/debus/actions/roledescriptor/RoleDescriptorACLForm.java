@@ -35,7 +35,7 @@ public class RoleDescriptorACLForm extends CimandeAction implements PersistenceA
 		}
 		if (getRoleDescriptorAccess().getId() != null
 				&& !"".equalsIgnoreCase(getRoleDescriptorAccess().getId())) {
-			setRoleDescriptorAccess((RoleDescriptorACLAccess) manager.getById(
+			setRoleDescriptorAccess((RoleDescriptorACLAccess) pm.getById(
 					RoleDescriptorACLAccess.class, getRoleDescriptorAccess()
 							.getId()));
 		}
