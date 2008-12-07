@@ -448,17 +448,7 @@
       <null/>
     </row>
   </table>
-  <table name="collection">
-    <column>id</column>
-    <column>site_id</column>
-    <column>name</column>
-    <column>description</column>
-    <column>active_flag</column>
-    <column>create_by</column>
-    <column>create_date</column>
-    <column>update_by</column>
-    <column>update_date</column>
-  </table>
+
   <table name="company">
     <column>active_flag</column>
     <column>id</column>
