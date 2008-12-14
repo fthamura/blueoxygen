@@ -29,7 +29,7 @@
 		<action name="index"
 			class="org.blueoxygen.cimande.security.login.LoginForm">
 			<result name="login" type="velocity">
-				/view/frontpage/login/login.vm
+				/view/frontpage/login/new-login.vm
 			</result>
 			<result name="site" type="velocity">
 				/view/frontpage/login/site.vm
@@ -57,7 +57,7 @@
 				index.action?redirectUri=${redirectUri}
 			</result>
 			<result name="input" type="velocity">
-				/view/frontpage/login/login.vm
+				/view/frontpage/login/new-login.vm
 			</result>
 			<result name="error">/errors/notfound.vm</result>
 		</action>

@@ -35,23 +35,20 @@
 		<a href="#surl("value=/backend/user/site.action")" target="_parent" ><font size="1" color="white" title="Change Site"><img src="#surl("value=/images/silk/group_go.png")" border="0"></font></a>&nbsp;
 		<a href="#surl("value=/backend/user/logout.action")" target="_parent" ><font size="1" color="white" title="Sign Out"><img src="#surl("value=/images/silk/delete.png")" border="0"></font></a>
 		<a href="http://www.blueoxygen.org/jiveforums/" title="Forum"><img src="#surl("value=/images/silk/information.png")" border="0"></a></td>
-		
   </tr>
   <tr>
     <td colspan="3" background="#surl("value=/backend/resources/tree-bg.gif")">&nbsp;</td>
   </tr>
+  
   <tr>
-    <td width="17%">&nbsp;</td>
-    <td colspan="2" rowspan="2" height="500"><iframe id="main" name="main" frameborder="no" width="100%" height="500"></iframe></td>
-  </tr>
-  <tr>
-    <td valign="top"><div  style="height:250px;margin-bottom:1em;"> 
+    <td width="17%" valign="top"><div  style="height:250px;margin-bottom:1em;"> 
 			<ul id="navigation"> 
 
 		$flat_script
 		</ul>
 		
 	</div>;</td>
+    <td colspan="2" height="500"><iframe id="main" name="main" frameborder="no" width="100%" height="500"></iframe></td>
   </tr>
   <tr>
     <td colspan="3" align="center">Copyright &copy; 2000-2007, BlueOxygen Technology. All Rights Reserved. </td>

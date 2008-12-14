@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="en" version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>BlueOxygen Cimande Workspace Framework</title>
+  
+  <link href="../../simple.css" rel="stylesheet" type="text/css"/>
+  
+</head><body>
+  
+  <div id="contents">
+    <div id="header">
+      <div id="header-logo">
+        <img alt="Logo-banner" src="../../images/e-business-suite.png"></a>
+      </div>
+    </div>
+    
+    <div id="contents-wrapper">  
+      <div id="container">
+        
+
+<h1 class="tight-title">Blueoxygen</h1>
+<h2 class="tight-title">Login</h2>
+
+
+<div class="error-message">
+$!fieldErrors.username
+</div>
+
+<div class="login-form">
+  <form action="login.action" method="post"><div style="margin: 0pt; padding: 0pt;"><input type="hidden" name="redirectUri" value="$!redirectUri"></div>
+
+    <div class="field">
+      <label for="login_password">Username</label>
+      <div class="field-inner">
+        <input name="username" size="24">
+      </div>
+    </div>
+  
+    <div class="field">
+      <label for="login_confirm_password">Password</label>
+      <div class="field-inner">
+        <input name="password" size="24" type="password">
+      </div>
+    </div>
+  
+    <input name="commit" value="Login" type="submit">
+  </form>
+</div>
+        </div>
+      </div>
+    </div>
+
+</body></html>

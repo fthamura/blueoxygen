@@ -1,0 +1,307 @@
+/* --------- /stylesheets/common.css --------- */ 
+/* clearfix pattern */
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+html[xmlns] .clearfix {
+	display: block;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+
+/* pngfix hack */
+img, div { behavior: url(/javascripts/iepngfix.htc) }/* --------- /stylesheets/style.css --------- */ 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+
+body {
+	font-family: "lucida grande",verdana,arial,helvetica,sans-serif;
+	font-size: 13px;
+	line-height: 1.35;
+	color: #333;
+	background: #d0dcff;
+}
+
+h1
+{
+	font-weight: bold;
+	color: #993300;
+	letter-spacing: -2px;
+	font-family: tahoma, arial, verdana, sans-serif;
+	font-size: 280%;
+}
+
+h2
+{
+	font-size: 150%;
+}
+
+h4
+{
+	font-size: 110%;
+}
+
+h1, h2, h3
+{
+	margin-top: 5px;
+	padding-bottom: 15px;
+}
+
+h4, h5, p
+{
+	padding-bottom: 10px;
+}
+
+ul
+{
+	padding-bottom: 10px;
+	padding-left: 20px;
+}
+
+ol
+{
+	padding-bottom: 10px;
+	padding-left: 30px;
+}
+
+a, a:visited
+{
+	color: #269;
+}
+
+a img
+{
+	border: 0px;
+}
+
+body .legal
+{
+	font-size: 12px;
+}
+
+
+h1.tight-title
+{
+	margin-bottom: 0px;
+	padding-bottom: 0;
+	line-height: 1;
+}
+
+h2.tight-title
+{
+	font-size: 170%;
+	color: silver;
+	line-height: 1.2;
+	letter-spacing: -2px;
+}
+
+h4.tight-title
+{
+	font-size: 150%;
+	color: gray;
+	line-height: 1;
+	letter-spacing: -2px;
+}
+
+.info 
+{
+	padding: 10px;
+	border-top: 1px solid #e4e4c8;
+	border-bottom: 2px solid #e4e4c8;
+	background: #ffd;
+	margin-bottom: 15px;
+}
+
+.tip 
+{
+	padding: 10px;
+	border-top: 1px solid #BEDCE7;
+	border-bottom: 2px solid #BEDCE7;
+	background: #EAF2F5;
+	margin-bottom: 15px;
+}
+
+.notice 
+{
+	padding: 10px;
+	border-top: 1px solid #be6;
+	border-bottom: 1px solid #be6;
+	background: #efd;
+	margin-bottom: 15px;
+	font-size: 90%;
+	color: #363;
+}
+
+.error-message 
+{
+	padding: 12px 10px 12px 40px;
+	border-top: 1px solid #ecb;
+	border-bottom: 1px solid #ecb;
+	background: #fdc url(/images/icons/error-icon.png) no-repeat 10px 13px;
+	margin-bottom: 15px;
+	font-size: 130%;
+	font-weight: bold;
+	color: #633;
+}
+
+/* rails classes */
+
+.errorExplanation
+{
+	padding: 10px;
+	border-top: 1px solid #ecb;
+	border-bottom: 1px solid #ecb;
+	background: #fdc;
+	margin-bottom: 15px;
+	font-size: 90%;
+	color: #633;
+}
+
+.errorExplanation ul li
+{
+	font-weight: bold;
+}
+
+div.fieldWithErrors
+{
+	display: inline;
+}
+
+.fieldWithErrors input, 
+.fieldWithErrors textarea
+{
+	border: 2px solid #DDAA99 !important;
+	background: #FFDDCC !important;
+}
+/* --------- /stylesheets/login.css --------- */ 
+body
+{
+	font-size: 13px; /* smaller than site default */
+	background-color: #888;
+}
+
+#header
+{
+	background-color: #252525;
+	min-height: 60px; /* works best with a 40px logo */
+	color: #d0dcff;
+	border-bottom: 3px solid #aaa;
+	background: url(/images/bg-header.gif) repeat-x 0px -10px;
+}
+
+* html #header 
+{
+	height: 60px;
+}
+
+#header a
+{
+	color: #e0eee0;
+}
+
+#header-logo
+{
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+#contents {
+	margin: 50px auto;
+	width: 600px;
+	border: 10px solid #666;
+}
+
+#contents-wrapper
+{
+	padding: 20px 30px;
+	background: #f0f0f0;
+	min-height: 250px;
+}
+
+/* forms */
+
+.login-form fieldset
+{
+	border: 0;
+	border-top: 2px solid gray;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.login-form fieldset legend
+{
+	font-weight: bold;
+	font-size: 130%;
+	letter-spacing: -1px;
+	padding: 5px;
+}
+
+.login-form .field
+{
+	line-height: 40px;
+	margin-bottom: 5px;
+}
+
+.login-form .field-inner
+{
+	margin-left: 100px;
+}
+
+.login-form label
+{
+	float: left;
+	width: 100px;
+	margin-top: 5px;
+	font-size: 95%;
+	line-height: 1.5;
+}
+
+.login-form input,
+.login-form select
+{
+	padding: 2px;
+	font-size: 140%;
+}
+
+.login-form .important input,
+.login-form .important select
+{
+	font-size: 120%;
+}
+
+.login-form .explanatory
+{
+	font-size: 85%;
+	color: #666;
+	margin-top: 5px;
+}
