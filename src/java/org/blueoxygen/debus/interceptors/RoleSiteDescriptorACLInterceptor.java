@@ -34,6 +34,7 @@ public class RoleSiteDescriptorACLInterceptor implements Interceptor,
 		String namespace = actionInvocation.getProxy().getNamespace();
 		String actionName = actionInvocation.getProxy().getActionName();
 		String descriptorCandidate[] = namespace.split("/");
+		if(descriptorCandidate.length != 0){
 		if ("module".equalsIgnoreCase(descriptorCandidate[1])) {
 			String descriptorName = descriptorCandidate[2];
 			List<RoleSiteDescriptorACLAccess> rdAccesses = new ArrayList<RoleSiteDescriptorACLAccess>();
@@ -54,6 +55,9 @@ public class RoleSiteDescriptorACLInterceptor implements Interceptor,
 				}
 				return "notallowed";
 			}
+		}
+		}else{
+			
 		}
 		return actionInvocation.invoke();
 	}

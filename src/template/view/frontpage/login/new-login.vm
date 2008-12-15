@@ -26,9 +26,9 @@
 <h2 class="tight-title">Login</h2>
 
 
-<div class="error-message">
+##<div class="error-message">
 $!fieldErrors.username
-</div>
+##</div>
 
 <div class="login-form">
   <form action="login.action" method="post"><div style="margin: 0pt; padding: 0pt;"><input type="hidden" name="redirectUri" value="$!redirectUri"></div>
@@ -48,6 +48,7 @@ $!fieldErrors.username
     </div>
   
     <input name="commit" value="Login" type="submit">
+    	Don't have account, <a href="#surl("value=/register.action" "includeParams=false")">Register</a>.
   </form>
 </div>
         </div>

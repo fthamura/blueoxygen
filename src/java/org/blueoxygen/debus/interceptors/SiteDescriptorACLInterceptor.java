@@ -33,6 +33,7 @@ public class SiteDescriptorACLInterceptor implements Interceptor,
 		String descriptorCandidate[] = namespace.split("/");
 		String siteId = (String) ActionContext.getContext().getSession().get(
 				LoginFilter.LOGIN_CIMANDE_SITE);
+		if(descriptorCandidate.length != 0){
 		if ("module".equalsIgnoreCase(descriptorCandidate[1])) {
 			String descriptorName = descriptorCandidate[2];
 			List<SiteDescriptorACLAccess> sdAccesses = new ArrayList<SiteDescriptorACLAccess>();
@@ -49,6 +50,9 @@ public class SiteDescriptorACLInterceptor implements Interceptor,
 				}
 				return "notallowed";
 			}
+		}
+		}else{
+			
 		}
 		return actionInvocation.invoke();
 	}
