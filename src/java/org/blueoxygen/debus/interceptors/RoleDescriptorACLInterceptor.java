@@ -29,10 +29,6 @@ public class RoleDescriptorACLInterceptor implements Interceptor,
 		String namespace = actionInvocation.getProxy().getNamespace();
 		String actionName = actionInvocation.getProxy().getActionName();
 		String descriptorCandidate[] = namespace.split("/");
-		System.out.println("Panjang array : "+descriptorCandidate.length);
-		for ( int i=1; i < descriptorCandidate.length; i++){
-			System.out.println("Hasil "+i+" = "+descriptorCandidate[i]);
-		}
 		if(descriptorCandidate.length != 0){
 		if ("module".equalsIgnoreCase(descriptorCandidate[1])) {
 			String descriptorName = descriptorCandidate[2];
