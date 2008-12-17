@@ -55,6 +55,9 @@
 		        <value>org.blueoxygen.debus.entity.RoleSiteDescriptorACLAccess</value>
 		        <value>org.blueoxygen.debus.entity.SiteDescriptorACL</value>
 		        <value>org.blueoxygen.debus.entity.SiteDescriptorACLAccess</value>
+		        <value>org.blueoxygen.debus.ActionType</value>
+		        <value>org.blueoxygen.debus.DescriptorAccess</value>
+		        <value>org.blueoxygen.debus.PermissionType</value>
             </list>
         </property>
         <property name="hibernateProperties">

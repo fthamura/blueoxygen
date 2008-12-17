@@ -21,8 +21,6 @@
     <div id="contents-wrapper">  
       <div id="container">
         
-
-<h1 class="tight-title">Blueoxygen</h1>
 <h2 class="tight-title">Login</h2>
 
 
@@ -34,21 +32,21 @@ $!fieldErrors.username
   <form action="login.action" method="post"><div style="margin: 0pt; padding: 0pt;"><input type="hidden" name="redirectUri" value="$!redirectUri"></div>
 
     <div class="field">
-      <label for="login_password">Username</label>
+      <label for="login_password"><font color="#000000">Username</font></label>
       <div class="field-inner">
         <input name="username" size="24">
       </div>
     </div>
   
     <div class="field">
-      <label for="login_confirm_password">Password</label>
+      <label for="login_confirm_password"><font color="#000000">Password</font></label>
       <div class="field-inner">
         <input name="password" size="24" type="password">
       </div>
     </div>
   
     <input name="commit" value="Login" type="submit">
-    	Don't have account, <a href="#surl("value=/register.action" "includeParams=false")">Register</a>.
+    	<font color="#000000">Don't have account, <a href="#surl("value=/register.action" "includeParams=false")">Register</a>.</font>
   </form>
 </div>
         </div>

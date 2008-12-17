@@ -22,11 +22,11 @@ public class SaveRoleDescriptorACL extends RoleDescriptorACLForm {
 
 		if (getRole().getId() != null
 				&& !"".equalsIgnoreCase(getRole().getId().trim())) {
-			setRole((Role) manager.getById(Role.class, getRole().getId()));
+			setRole((Role) pm.getById(Role.class, getRole().getId()));
 		}
 		if (getDescriptor().getId() != null
 				&& !"".equalsIgnoreCase(getDescriptor().getId())) {
-			setDescriptor((Descriptor) manager.getById(Descriptor.class,
+			setDescriptor((Descriptor) pm.getById(Descriptor.class,
 					getDescriptor().getId()));
 		}
 		getRoleDescriptor().setRole(getRole());
@@ -34,17 +34,17 @@ public class SaveRoleDescriptorACL extends RoleDescriptorACLForm {
 		getRoleDescriptor().setLogInformation(
 				new LogInformation(getCurrentUser().getId(), 1));
 
-		manager.save(getRoleDescriptor());
+		pm.save(getRoleDescriptor());
 		GxDroplistValue acl = new GxDroplistValue();
 		for (String aclId : getAccesses()) {
-			acl = (GxDroplistValue) manager.getById(GxDroplistValue.class,
+			acl = (GxDroplistValue) pm.getById(GxDroplistValue.class,
 					aclId);
 			setRoleDescriptorAccess(new RoleDescriptorACLAccess());
 			getRoleDescriptorAccess().setRoleDescriptor(getRoleDescriptor());
 			getRoleDescriptorAccess().setLogInformation(
 					new LogInformation(getCurrentUser().getId(), 1));
 			getRoleDescriptorAccess().setAcl(acl);
-			manager.save(getRoleDescriptorAccess());
+			pm.save(getRoleDescriptorAccess());
 		}
 		return SUCCESS;
 	}

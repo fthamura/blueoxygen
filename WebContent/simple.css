@@ -47,14 +47,14 @@ body {
 	font-family: "lucida grande",verdana,arial,helvetica,sans-serif;
 	font-size: 13px;
 	line-height: 1.35;
-	color: #333;
+	color: #d0dcff;
 	background: #d0dcff;
 }
 
 h1
 {
 	font-weight: bold;
-	color: #993300;
+	color: #000000; /* #993300 */
 	letter-spacing: -2px;
 	font-family: tahoma, arial, verdana, sans-serif;
 	font-size: 280%;
@@ -206,12 +206,12 @@ div.fieldWithErrors
 body
 {
 	font-size: 13px; /* smaller than site default */
-	background-color: #888;
+	background-color: #d0dcff; /* #888 */
 }
 
 #header
 {
-	background-color: #252525;
+	background-color: #d0dcff; /* #252525 */
 	min-height: 60px; /* works best with a 40px logo */
 	color: #d0dcff;
 	border-bottom: 3px solid #aaa;
