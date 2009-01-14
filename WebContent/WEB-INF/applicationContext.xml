@@ -38,6 +38,14 @@
     		singleton="false">
 		<property name="userAccessor"><ref bean="userAccessor"/></property>
     </bean>
+    <bean id="reCaptcha" class="net.tanesha.recaptcha.ReCaptchaImpl">
+		<property name="privateKey" value="6LdtbAQAAAAAAKbQsKFqarVaqdrtHLykI2UjgyOx"/>
+		<property name="publicKey" value="6LdtbAQAAAAAAH7YjLqYawtCgsLzncxb0gP50Het"/>
+		<property name="recaptchaServer" value="http://api.recaptcha.net"/>
+		<!-- For SSL use:
+    	<property name="recaptchaServer" value="https://api-secure.recaptcha.net"/> -->
+		<property name="includeNoscript" value="false"/>
+	</bean>
     
     
 </beans>

@@ -20,7 +20,7 @@
 				<!-- <interceptor-ref name="cimande"/>  -->  
 				<interceptor-ref name="validation"/>
 				<!-- <interceptor-ref name="hibernate"/>-->
-				<interceptor-ref name="RoleDescriptorACL"/>
+				 <interceptor-ref name="RoleDescriptorACL"/>
 				<interceptor-ref name="RoleSiteDescriptorACL"/>
 				<interceptor-ref name="SiteDescriptorACL"/>
 			</interceptor-stack>

@@ -4,6 +4,10 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.tanesha.recaptcha.ReCaptcha;
+import net.tanesha.recaptcha.ReCaptchaResponse;
+
+import org.apache.struts2.ServletActionContext;
 import org.apache.velocity.exception.MethodInvocationException;
 import org.apache.velocity.exception.ParseErrorException;
 import org.apache.velocity.exception.ResourceNotFoundException;
@@ -30,6 +34,9 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 	private String email = "";
 	private String srole = "ee";
 	private StringUtils su = new StringUtils();
+	private String recaptcha_challenge_field;
+	private String recaptcha_response_field;
+	private ReCaptcha reCaptcha;
 
 	public String execute() {
 		if (getUsername() == null || "".equals(getUsername())) {
@@ -41,6 +48,8 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 		if (!users.isEmpty()) {
 			addActionError("User already exist!");
 		}
+		System.out.println("Remote address ="+ServletActionContext.getRequest().getRemoteAddr()+"challenge field ="+recaptcha_challenge_field+" dan response field = "+recaptcha_response_field);
+		
 
 		if (getPassword() == null || "".equals(getPassword())) {
 			addActionError("Password is required");
@@ -52,6 +61,11 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 			addActionError("First name is required");
 		}
 		
+		ReCaptchaResponse reCaptchaResponse = reCaptcha.checkAnswer(ServletActionContext.getRequest().getRemoteAddr(),recaptcha_challenge_field,recaptcha_response_field);
+		if(!reCaptchaResponse.isValid()){
+			addActionError("Not a good Captcha");
+		}
+		
 		if (hasActionErrors()) {
 			return INPUT;
 		}
@@ -59,6 +73,7 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 		String srole = get("application.role.default");
 		Site site;
 		Role role;
+		System.out.println("ROLE = "+srole);
 		if (srole != null && !"".equals(srole)) {
 			role = (Role) manager.getByUniqueField(Role.class, srole, "name");
 		} else {
@@ -227,5 +242,22 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	public String getRecaptcha_challenge_field() {
+		return recaptcha_challenge_field;
+	}
+
+	public void setRecaptcha_challenge_field(String recaptcha_challenge_field) {
+		this.recaptcha_challenge_field = recaptcha_challenge_field;
+	}
+
+	public String getRecaptcha_response_field() {
+		return recaptcha_response_field;
+	}
+
+	public void setRecaptcha_response_field(String recaptcha_response_field) {
+		this.recaptcha_response_field = recaptcha_response_field;
+	}
+	
 
 }

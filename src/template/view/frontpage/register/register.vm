@@ -88,6 +88,12 @@
 				#end
 			</ul>
 		#end
+		<script type="text/javascript" src="http://api.recaptcha.net/challenge?k=6LdtbAQAAAAAAH7YjLqYawtCgsLzncxb0gP50Het">
+</script>
+<noscript><iframe src="http://api.recaptcha.net/noscript?k=6LdtbAQAAAAAAH7YjLqYawtCgsLzncxb0gP50Het" height="300" width="500" frameborder="0"></iframe>
+<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+<input type="text" name="recaptcha_response_field" value=""></noscript>
+		
   <table style="text-align: left; width: 100%;" cellpadding="3" cellspacing="1">
     <tbody>
       <tr>
