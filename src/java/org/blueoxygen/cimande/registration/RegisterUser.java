@@ -3,8 +3,10 @@ package org.blueoxygen.cimande.registration;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.net.URLEncoder;
 
 import net.tanesha.recaptcha.ReCaptcha;
+import net.tanesha.recaptcha.ReCaptchaImpl;
 import net.tanesha.recaptcha.ReCaptchaResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -22,6 +24,7 @@ import org.blueoxygen.cimande.security.UserAccessorAware;
 import org.blueoxygen.cimande.security.usermanager.UserSite;
 import org.blueoxygen.cimande.site.Site;
 import org.blueoxygen.util.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class RegisterUser extends RegistrationForm implements UserAccessorAware {
 	private UserAccessor ua;
@@ -36,7 +39,7 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 	private StringUtils su = new StringUtils();
 	private String recaptcha_challenge_field;
 	private String recaptcha_response_field;
-	private ReCaptcha reCaptcha;
+	private @Autowired ReCaptchaImpl reCaptcha;
 
 	public String execute() {
 		if (getUsername() == null || "".equals(getUsername())) {
@@ -60,12 +63,12 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 		if (getFirstName() == null || "".equals(getFirstName())) {
 			addActionError("First name is required");
 		}
-		
+		reCaptcha = new ReCaptchaImpl();
+		reCaptcha.setPrivateKey(get("captcha.private.key"));
 		ReCaptchaResponse reCaptchaResponse = reCaptcha.checkAnswer(ServletActionContext.getRequest().getRemoteAddr(),recaptcha_challenge_field,recaptcha_response_field);
 		if(!reCaptchaResponse.isValid()){
 			addActionError("Not a good Captcha");
 		}
-		
 		if (hasActionErrors()) {
 			return INPUT;
 		}

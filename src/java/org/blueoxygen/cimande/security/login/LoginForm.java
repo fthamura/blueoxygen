@@ -73,7 +73,7 @@ public class LoginForm extends CimandeAction implements UserAccessorAware {
 						null, null));
 				if (getUserSites().size() == 1) { // cuma satu site
 					setSite(getUserSites().get(0).getSite());
-					ActionContext.getContext().getSession().put(
+						ActionContext.getContext().getSession().put(
 							LoginFilter.LOGIN_CIMANDE_SITE, getSite().getId());
 					if (getRedirectUri() != null || !"".equalsIgnoreCase(getRedirectUri())) {
 						LOG.info("redirectUri : " + getRedirectUri());
