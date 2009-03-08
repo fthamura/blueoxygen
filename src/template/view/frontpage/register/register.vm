@@ -8,7 +8,7 @@
            <table border=0 cellpadding=0 cellspacing=5 width="512">
 	          <tr> 
 	            <td colspan=2><img border=0 
-	            src="#surl("value=/images/e-business-suite.gif" "includeParams=false")" ></td>
+	            src="#surl("value=/images/e-business-suite.png" "includeParams=false")" ></td>
 	          </tr>
 	          <tr> 
 	            <td colspan=2><img border=0 height=5 
@@ -36,6 +36,10 @@
         <td><input name="cpassword" type="password" size=24></td>
       </tr>
       <tr>
+        <td style="text-align: right;"><span style="color:red">*</span>Email</td>
+        <td><input name="email" value="$!user.email" size=24></td>
+      </tr>
+      <tr>
         <td></td>
         <td>Already have account. <a href="#surl("value=/backend/user/index.action" "includeParams=false")">Login</a>.</td>
       </tr>
@@ -52,10 +56,6 @@
       <tr>
         <td style="text-align: right;">Last name</td>
         <td><input name="lastName" value="$!user.name.last" size=24></td>
-      </tr>
-      <tr>
-        <td style="text-align: right;"><span style="color:red">*</span>Email</td>
-        <td><input name="email" value="$!user.email" size=24></td>
       </tr>
       <tr>
         <td style="text-align: right;">Address</td>

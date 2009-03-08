@@ -18,6 +18,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import org.blueoxygen.cimande.role.Role;
 import org.blueoxygen.cimande.site.Site;
 
 
@@ -138,5 +139,6 @@ public class LogInformation implements Serializable {
 	public void setSite(Site site) {
 		this.site = site;
 	}
+	
 
 }

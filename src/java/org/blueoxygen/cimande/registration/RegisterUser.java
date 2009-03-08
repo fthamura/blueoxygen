@@ -39,7 +39,8 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 	private StringUtils su = new StringUtils();
 	private String recaptcha_challenge_field;
 	private String recaptcha_response_field;
-	private @Autowired ReCaptchaImpl reCaptcha;
+	private @Autowired
+	ReCaptchaImpl reCaptcha;
 
 	public String execute() {
 		if (getUsername() == null || "".equals(getUsername())) {
@@ -51,8 +52,15 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 		if (!users.isEmpty()) {
 			addActionError("User already exist!");
 		}
-		System.out.println("Remote address ="+ServletActionContext.getRequest().getRemoteAddr()+"challenge field ="+recaptcha_challenge_field+" dan response field = "+recaptcha_response_field);
-		
+		if(getEmail() == null || "".equals(getEmail())){
+			addActionError("Email is required");
+		}
+		List<User> emails = (ArrayList<User>) manager.getList("SELECT e FROM "
+				+ User.class.getName() + " e WHERE e.email='" + getEmail()
+				+ "'", null, null);
+		if(!emails.isEmpty()){
+			addActionError("An Email has been using by another account, please check again.");
+		}
 
 		if (getPassword() == null || "".equals(getPassword())) {
 			addActionError("Password is required");
@@ -65,8 +73,10 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 		}
 		reCaptcha = new ReCaptchaImpl();
 		reCaptcha.setPrivateKey(get("captcha.private.key"));
-		ReCaptchaResponse reCaptchaResponse = reCaptcha.checkAnswer(ServletActionContext.getRequest().getRemoteAddr(),recaptcha_challenge_field,recaptcha_response_field);
-		if(!reCaptchaResponse.isValid()){
+		ReCaptchaResponse reCaptchaResponse = reCaptcha.checkAnswer(
+				ServletActionContext.getRequest().getRemoteAddr(),
+				recaptcha_challenge_field, recaptcha_response_field);
+		if (!reCaptchaResponse.isValid()) {
 			addActionError("Not a good Captcha");
 		}
 		if (hasActionErrors()) {
@@ -76,13 +86,13 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 		String srole = get("application.role.default");
 		Site site;
 		Role role;
-		System.out.println("ROLE = "+srole);
+		System.out.println("ROLE = " + srole);
 		if (srole != null && !"".equals(srole)) {
 			role = (Role) manager.getByUniqueField(Role.class, srole, "name");
 		} else {
 			role = null;
 		}
-		
+
 		getUser().setUsername(getUsername());// StringUtils.encodeBase64
 		getUser().setPassword(su.encodeBase64(getPassword()));
 		getUser().setName(new Name());
@@ -91,7 +101,7 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 		getUser().setEmail(getEmail());
 		getUser().setAddress(getAddress());
 		getUser().setRole(role);
-		if(Boolean.parseBoolean(get("application.user.activation.mail"))){
+		if (Boolean.parseBoolean(get("application.user.activation.mail"))) {
 			getUser().setLogInformation(new LogInformation(null, 0));
 		} else {
 			getUser().setLogInformation(new LogInformation(null, 1));
@@ -111,8 +121,9 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 			us.setUser(getUser());
 			us.setLogInformation(new LogInformation(getUser().getId(), 1));
 			manager.save(us);
-		} 
-		if(Boolean.parseBoolean(get("application.registration.activation.mail"))){
+		}
+		if (Boolean
+				.parseBoolean(get("application.registration.activation.mail"))) {
 			try {
 				new SendActMail().send(getUser());
 			} catch (ResourceNotFoundException e) {
@@ -125,7 +136,7 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 				e.printStackTrace();
 			}
 		}
-		
+
 		return SUCCESS;
 	}
 
@@ -261,6 +272,5 @@ public class RegisterUser extends RegistrationForm implements UserAccessorAware 
 	public void setRecaptcha_response_field(String recaptcha_response_field) {
 		this.recaptcha_response_field = recaptcha_response_field;
 	}
-	
 
 }

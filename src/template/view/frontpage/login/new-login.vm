@@ -23,10 +23,11 @@
         
 <h2 class="tight-title">Login</h2>
 
-
-##<div class="error-message">
+#if (!$fieldErrors.isEmpty())
+<div class="error-message">
 $!fieldErrors.username
-##</div>
+</div>
+#end
 
 <div class="login-form">
   <form action="login.action" method="post"><div style="margin: 0pt; padding: 0pt;"><input type="hidden" name="redirectUri" value="$!redirectUri"></div>

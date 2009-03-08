@@ -2,6 +2,7 @@ package org.blueoxygen.cimande.security.login;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
