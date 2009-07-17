@@ -20,10 +20,10 @@ public class Login extends LoginForm implements UserAccessorAware {
     public String execute() {
     	if (ua.authenticate(getUsername(), getPassword())) {
     		setUser(ua.getByUsername(getUsername()));
-    		if(getUser().getRole().getId().equalsIgnoreCase("f2f900fb1f3714e1011f3715b0f60001")){
+    		if(getUser().getRole().getName().equalsIgnoreCase("default")){
     			addFieldError("username", "Sorry, your account not activated yet.");
     			return INPUT;
-    		}
+    		} else {
 //        	LOG.info("login successful: " + getUser().getUsername());
 //        	LOG.info("redirectUri  : " +  getRedirectUri());
             
@@ -31,6 +31,7 @@ public class Login extends LoginForm implements UserAccessorAware {
             
             /* Normal flow */
             return SUCCESS;
+    		}
         } else {
             addFieldError("username", "Invalid username or password.");
             return INPUT;

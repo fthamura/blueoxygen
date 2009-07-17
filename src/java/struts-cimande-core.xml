@@ -1360,6 +1360,9 @@
 		<action name="sendactmail" class="org.blueoxygen.cimande.registration.ResendMail">
 			<result name="success" type="velocity">/view/frontpage/register/success.vm</result>
 		</action>
+		<action name="activation" class="org.blueoxygen.cimande.registration.AutentifikasiEmail">
+			<result name="success" type="velocity">/view/frontpage/register/activated.vm</result>
+		</action>
 		
 	</package>
 </struts>

@@ -27,11 +27,12 @@ public class RemoveRolePrivilage extends ActionSupport implements PersistenceAwa
 	private String id = "";
 	
 	public String execute() {
-		if(!getRolePrivilageId().equalsIgnoreCase("")&&!getId().equalsIgnoreCase("")){
-			rf = (RolePrivilage) pm.getById(RolePrivilage.class, getRolePrivilageId().substring(0,28));
+		if(!getRolePrivilageId().equalsIgnoreCase("") && !getId().equalsIgnoreCase("")){
+			rf = (RolePrivilage) pm.getById(RolePrivilage.class, getRolePrivilageId());
 			role = (Role) pm.getById(Role.class, getId());
-			role.getRolePrivilage().remove(rf);
+			//role.getRolePrivilage().remove(rf);
 			pm.remove(rf);
+			//pm.remove(role);
 			return SUCCESS;
 		}
 		

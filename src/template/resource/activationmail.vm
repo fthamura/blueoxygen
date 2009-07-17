@@ -1,5 +1,5 @@
 <html>
-	<img src="http://localhost:8080/cimeng/images/blueoxygen-logo.png"><br>
+	<img src="http://localhost:8080/cimeng/images/blueoxygen-logo-new-small.png"><br>
 	<hr><br>
 	Dear $user.name.first $user.name.last, <br>
 	Thank you for registering to Mervpolis. Before we can activate your account one last step must be taken to complete your registration.<br>

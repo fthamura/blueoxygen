@@ -17,6 +17,7 @@ import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.User;
+import org.blueoxygen.util.PropertyLooker;
 import org.blueoxygen.util.StringUtils;
 
 public class AutentifikasiEmail extends CimandeAction {
@@ -48,6 +49,7 @@ public class AutentifikasiEmail extends CimandeAction {
 
 		HtmlEmail mail = new HtmlEmail();
 		mail.setHostName(get("email.smtp.server"));
+		mail.setSSL(true);
 		mail.setSmtpPort(Integer.parseInt(get("email.smtp.port")));
 		if (!"".equalsIgnoreCase(get("email.smtp.username"))) {
 			mail.setAuthentication(get("email.smtp.username"),
@@ -59,19 +61,19 @@ public class AutentifikasiEmail extends CimandeAction {
 
 			mail.addTo(user.getEmail(), user.getName().getFirst() + " "
 					+ user.getName().getLast());
-			mail.setFrom(get("email.new.employer"), "JobMerv");
-			mail.setSubject("JobMerv: Email Notification");
+			mail.setFrom(PropertyLooker.get("application.activation.from.email"), PropertyLooker.get("application.activation.from.name"));
+			mail.setSubject("Account has been activated");
 			mail
 					.setHtmlMsg("<html><img src=\"cid:"
 							+ cid
 							+ "\">"
 							+ "<br><hr><br>"
-							+ "<br>You are registered in JobMerv.com as an Employer. "
-							+ "Your account has been activated. You can log in and post jobs or edit your company profile.<br>"
-							+ "<br>To start using JobMerv.com, click <a href=\""
+							+ "<br>You are registered in Mervpolis "
+							+ "Your account has been activated. You can log in now with your account.<br>"
+							+ "<br>To start using Mervpolis, click <a href=\""
 							+ ServletActionContext.getRequest().getContextPath()
 							+ "/backend/user/index.action\">here</a>."
-							+ "<br><br>Best regards,<br>Jobmerv</html>");
+							+ "<br><br>Best regards,<br>Cimande Admin</html>");
 			mail.send();
 		} catch (EmailException e) {
 			e.printStackTrace();
