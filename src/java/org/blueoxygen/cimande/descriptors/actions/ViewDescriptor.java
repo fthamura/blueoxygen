@@ -10,7 +10,11 @@
 
 package org.blueoxygen.cimande.descriptors.actions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.blueoxygen.cimande.descriptors.Descriptor;
+import org.blueoxygen.cimande.descriptors.DescriptorModule;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 
@@ -23,7 +27,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * Preferences - Java - Code Style - Code Templates
  */
 public class ViewDescriptor extends ActionSupport implements PersistenceAware {
-
+	private List<DescriptorModule> descriptorModules = new ArrayList<DescriptorModule>();
 	protected PersistenceManager pm;
 	protected Descriptor descriptor;
 	private String id;
@@ -42,6 +46,12 @@ public class ViewDescriptor extends ActionSupport implements PersistenceAware {
 
 	}
 
+	public List<DescriptorModule> getDescriptorModules() {
+		return descriptorModules;
+	}
+	public void setDescriptorModules(List<DescriptorModule> descriptorModules) {
+		this.descriptorModules = descriptorModules;
+	}
 	public String execute() {
 
 		descriptor = (Descriptor) pm.getById(Descriptor.class, getId());

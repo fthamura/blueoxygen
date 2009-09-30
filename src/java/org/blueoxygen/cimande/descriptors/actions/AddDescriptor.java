@@ -14,6 +14,8 @@ import java.sql.Timestamp;
 
 import org.blueoxygen.cimande.LogInformation;
 import org.blueoxygen.cimande.descriptors.Descriptor;
+import org.blueoxygen.cimande.descriptors.DescriptorModule;
+import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
 import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
@@ -36,7 +38,8 @@ public class AddDescriptor extends DescriptorForm implements SessionCredentialsA
 	public String execute() {
 
 		Descriptor descr = new Descriptor();
-
+		DescriptorModule descriptorModule;
+		LogInformation logInfo;
 /*		if (getName().equalsIgnoreCase("")) {
 			addActionError("Name can't be empty");
 		}
@@ -45,8 +48,8 @@ public class AddDescriptor extends DescriptorForm implements SessionCredentialsA
 		}*/
 
 		if (hasErrors()) {
+			setDroplistValues(pm.getList("SELECT d FROM "+GxDroplistValue.class.getName()+" d WHERE d.name.id= '"+idDroplist+"'", null, null));
 			return INPUT;
-
 		} else {
 			GxWindow window;
 			if(!getWindowId().equalsIgnoreCase("")){
@@ -86,6 +89,30 @@ public class AddDescriptor extends DescriptorForm implements SessionCredentialsA
 			descr.setLogInformation(log);
 
 			pm.save(descr);
+			setDescr(descr);
+
+			if(!getOptions().isEmpty()){
+				for(String option : getOptions()){
+					setDroplistValue((GxDroplistValue) pm.getById(GxDroplistValue.class, option));
+					
+					descriptorModule = new DescriptorModule();
+					logInfo = new LogInformation();
+					logInfo.setActiveFlag(1);
+					logInfo.setCreateDate(new Timestamp(System.currentTimeMillis()));
+					logInfo.setCreateBy(sessCredentials.getCurrentUser().getId());
+					
+					descriptorModule.setLogInformation(logInfo);
+					descriptorModule.setDescriptor(getDescr());
+//					descriptorModule.setOptionmodule(option);
+					descriptorModule.setDroplistValue(getDroplistValue());
+					
+					pm.save(descriptorModule);
+					setDescriptorModule(descriptorModule);
+					
+					System.out.println(option+" ");
+				}	
+			}
+			
 			return SUCCESS;
 		}
 

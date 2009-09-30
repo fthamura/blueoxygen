@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.blueoxygen.cimande.descriptors.Descriptor;
+import org.blueoxygen.cimande.descriptors.DescriptorModule;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
 import org.hibernate.Session;
 
@@ -53,6 +54,9 @@ public class EditDescriptorLoad extends DescriptorForm {
 			if(descr.getWindow() != null){
 				setWindowId(descr.getWindow().getId());
 			}
+			
+			setDescriptorModules(pm.getList("SELECT m FROM "+DescriptorModule.class.getName()+" m WHERE m.descriptor.id= '"+descr.getId()+"'", null, null));
+			System.out.println("Size "+getDescriptorModules().size());
 			return SUCCESS;
 		}
 

@@ -10,8 +10,14 @@
 
 package org.blueoxygen.cimande.descriptors.actions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.descriptors.Descriptor;
+import org.blueoxygen.cimande.descriptors.DescriptorModule;
+import org.blueoxygen.cimande.gx.entity.GxDroplistName;
+import org.blueoxygen.cimande.gx.entity.GxDroplistValue;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 import org.blueoxygen.cimande.security.User;
@@ -38,6 +44,13 @@ public class DescriptorForm extends CimandeAction implements PersistenceAware {
 	private int activeFlag = -1;
 	protected Descriptor descr = new Descriptor();
 	private String workType="";
+	private DescriptorModule descriptorModule = new DescriptorModule();
+	private List<DescriptorModule> descriptorModules = new ArrayList<DescriptorModule>();
+	private List<String> options = new ArrayList<String>();
+	private GxDroplistName droplistName = new GxDroplistName();
+	private GxDroplistValue droplistValue = new GxDroplistValue();
+	private List<GxDroplistName> droplistValues = new ArrayList<GxDroplistName>();
+	protected String idDroplist="ff80818124089247012408b06d5e0006";
 	
 	public String execute(){
 		user = (User) pm.getById(User.class, getCurrentUser().getId());
@@ -46,9 +59,71 @@ public class DescriptorForm extends CimandeAction implements PersistenceAware {
 		}else{
 			workType = "";
 		}
+		
+		setDroplistValues(pm.getList("SELECT d FROM "+GxDroplistValue.class.getName()+" d WHERE d.name.id= '"+idDroplist+"'", null, null));
 		return SUCCESS;
 	}
 	
+	
+	public List<DescriptorModule> getDescriptorModules() {
+		return descriptorModules;
+	}
+
+
+	public void setDescriptorModules(List<DescriptorModule> descriptorModules) {
+		this.descriptorModules = descriptorModules;
+	}
+
+
+	public GxDroplistName getDroplistName() {
+		return droplistName;
+	}
+
+
+	public void setDroplistName(GxDroplistName droplistName) {
+		this.droplistName = droplistName;
+	}
+
+
+	public GxDroplistValue getDroplistValue() {
+		return droplistValue;
+	}
+
+
+	public void setDroplistValue(GxDroplistValue droplistValue) {
+		this.droplistValue = droplistValue;
+	}
+
+
+	public List<GxDroplistName> getDroplistValues() {
+		return droplistValues;
+	}
+
+
+	public void setDroplistValues(List<GxDroplistName> droplistValues) {
+		this.droplistValues = droplistValues;
+	}
+
+
+	public DescriptorModule getDescriptorModule() {
+		return descriptorModule;
+	}
+
+
+	public void setDescriptorModule(DescriptorModule descriptorModule) {
+		this.descriptorModule = descriptorModule;
+	}
+
+
+	public List<String> getOptions() {
+		return options;
+	}
+
+
+	public void setOptions(List<String> options) {
+		this.options = options;
+	}
+
 
 	public void setPersistenceManager(PersistenceManager persistenceManager) {
 		this.pm = persistenceManager;

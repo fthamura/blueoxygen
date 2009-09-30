@@ -76,9 +76,33 @@
   </tr>
 </table>
 
-
-
+<br>
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+    <tbody>
+      <tr bgcolor="#d0dcff">
+        <td colspan="2"><b>Select Option Descriptor Module</b></td>
+      </tr>
+      
+      #foreach($d in $descriptorModules)
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" width="10">
+		<input type="checkbox" name="options" value="$!d.id">	        	
+        </td>
+        <td>
+        	$!d.droplistValue.value
+        </td>
+      </tr>
+      #end
+      <tr bgcolor="#e4e4e4">
+        <td colspan="2"><input type="submit" value="Update"><input type="reset" value="Reset">
+        <input type=hidden name="descr.id" value="$!descr.id">
+        </td>
+      </tr>
+   </tbody>
+</table>
 </form>
+<br>
+
 
 <p>&nbsp;</p>
 </body>

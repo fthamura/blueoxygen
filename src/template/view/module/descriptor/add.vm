@@ -71,12 +71,33 @@ Add a new Descriptor</title>
         <td><input name="activeFlag" value="1" checked="checked" type="radio">Yes<br><input name="activeFlag" value="0" type="radio">No
         </td>
       </tr>
+    </tbody>
+  </table>
+<br>
+
+ <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1"
+ width="98%">
+    <tbody>
+      <tr bgcolor="#d0dcff">
+        <td colspan="3"><b>Select Option Descriptor Module</b></td>
+      </tr>
+      
+      #foreach($d in $droplistValues)
+      <tr bgcolor="#ffffff">
+        <td style="font-weight: bold;" align="right" width="10">
+		<input type="checkbox" name="options" value="$!d.id">	        	
+        </td>
+        <td>
+        	$!d.value
+        </td>
+      </tr>
+      #end
       <tr bgcolor="#e4e4e4">
         <td colspan="3"><input name="Submit" value="Save" type="submit">&nbsp;&nbsp;
         <input name="Clear" value="Reset" type="reset"> </td>
       </tr>
-    </tbody>
-  </table>
+   </tbody>
+</table>
 </form>
 </body>
 </html>

@@ -10,12 +10,16 @@
 
 package org.blueoxygen.cimande.descriptors;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.blueoxygen.cimande.DefaultPersistence;
@@ -49,8 +53,16 @@ public class Descriptor extends DefaultPersistence {
 	public final static int TYPE_CDML = 0;
 	public final static int DESCRIPTOR_YES = 1;
 	public final static int DESCRIPTOR_NO = 0;
-
 	
+	private List<DescriptorModule> descriptorModules = new ArrayList<DescriptorModule>();
+	
+	@OneToMany(mappedBy="descriptor")
+	public List<DescriptorModule> getDescriptorModules() {
+		return descriptorModules;
+	}
+	public void setDescriptorModules(List<DescriptorModule> descriptorModules) {
+		this.descriptorModules = descriptorModules;
+	}
 	/**
 	 * @return Returns the name.
 	 * @hibernate.property

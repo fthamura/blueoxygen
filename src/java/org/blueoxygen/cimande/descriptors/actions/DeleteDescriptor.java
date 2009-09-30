@@ -10,6 +10,8 @@
 
 package org.blueoxygen.cimande.descriptors.actions;
 
+import org.blueoxygen.cimande.descriptors.DescriptorModule;
+
 /**
  * @author frans
  * 
@@ -23,7 +25,12 @@ public class DeleteDescriptor extends ViewDescriptor {
 		String result = super.execute();
 
 		if (result.equalsIgnoreCase(SUCCESS)) {
-
+			
+			setDescriptorModules(pm.getList("SELECT m FROM "+DescriptorModule.class.getName()+" m WHERE m.descriptor.id= '"+descriptor.getId()+"'", null, null));
+			for(DescriptorModule dm : getDescriptorModules()){
+				pm.remove(dm);
+				System.out.println("tes "+dm);
+			}
 			pm.remove(descriptor);
 			return SUCCESS;
 		} else {
