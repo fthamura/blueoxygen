@@ -326,6 +326,27 @@
 				/errors/errors.vm
 			</result>
 		</action>
+		<action name="listdm"
+			class="org.blueoxygen.cimande.descriptors.actions.ListDescriptorModule">
+			<result name="success" type="velocity">
+				/view/module/descriptor/list_descriptor_module.vm
+			</result>
+		</action>
+		<action name="addDescriptormodule"
+			class="org.blueoxygen.cimande.descriptors.actions.UpdateDescriptorModule">
+			<result name="success" type="redirect">
+				edit.action?id=${id}
+			</result>
+			<result name="input" type="velocity">
+				/view/module/descriptor/edit.vm
+			</result>
+		</action>
+		<action name="deletedm"
+			class="org.blueoxygen.cimande.descriptors.actions.DeleteDescriptorModule">
+			<result name="success" type="redirect">
+				edit.action?id=${id}
+			</result>
+		</action>
 	</package>
 	<!--ModuleFunction-->
 	<package name="moduleFunction" extends="default"

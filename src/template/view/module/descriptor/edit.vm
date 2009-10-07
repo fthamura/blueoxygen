@@ -75,7 +75,31 @@
   	</td>
   </tr>
 </table>
+</form>
+<br>
+$!pesan
+#if($!pesan!="")
 
+#end
+<form action="addDescriptormodule.action" method="post" name="FM">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+    <tbody>
+      <tr bgcolor="#d0dcff">
+        <td colspan="2"><b>Add Descriptor Module</b></td>
+      </tr>
+    <tr bgcolor="#ffffff">
+    <td style="font-weight: bold;" align="right" valign="top">Descriptor Module:</td>
+    <td>
+		<input type="textfield" name="description" id="descriptionDm" size="15" disabled="true" onfocus="this.blur()"/>
+	    	<input type="hidden" id="dmId" name="droplistValue.id"/>
+	    	<input type="hidden" name="id" value="$!id"/>
+	    	&nbsp;&nbsp;<input type="button" value="Change" onclick="javascript:window.open('../descriptor/listdm.action','ds','scrollbars=yes,status=no,width=300,height=300')"/>
+	    	<input type=button value="Add" onclick="validasi()">
+  	</td>
+  </tr>
+    </tbody>
+</table>
+</form>
 <br>
 <table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
     <tbody>
@@ -85,25 +109,31 @@
       
       #foreach($d in $descriptorModules)
       <tr bgcolor="#ffffff">
-        <td style="font-weight: bold;" align="right" width="10">
-		<input type="checkbox" name="options" value="$!d.id">	        	
-        </td>
         <td>
         	$!d.droplistValue.value
         </td>
-      </tr>
-      #end
-      <tr bgcolor="#e4e4e4">
-        <td colspan="2"><input type="submit" value="Update"><input type="reset" value="Reset">
-        <input type=hidden name="descr.id" value="$!descr.id">
+         <td style="font-weight: bold;" align="right" width="10">
+		<a href="deletedm.action?descriptorModule.id=$!d.id&id=$!d.descriptor.id" title="delete"><img src="../../images/silk/delete.png" border="0"></a>        	
         </td>
       </tr>
+      #end
    </tbody>
 </table>
-</form>
+
 <br>
 
 
 <p>&nbsp;</p>
+
+<script>
+function validasi(){
+if(FM.description.value==""){
+alert('warning');
+return false;
+}
+FM.submit();
+return true;
+}
+</script>
 </body>
 </html>

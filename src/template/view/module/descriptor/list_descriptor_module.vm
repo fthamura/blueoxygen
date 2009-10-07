@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>list - Descriptor Module</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="AUTHOR" content="Alex">
+<link rel="stylesheet" type="text/css" href="../../decorators/tables.css">
+
+</head>
+<body>
+
+<table width=100% border="0">
+<tr>
+	<td width=60%>None</td>
+	<td><input type="button" onClick="javascript:window.opener.document.getElementById('dmId').value='';window.opener.document.getElementById('descriptionDm').value='None';window.close();" value="Set"></td>
+</tr>
+ #foreach($d in $droplistValues)
+      <tr bgcolor="#ffffff">
+        <td>
+        	$!d.value
+        </td>
+        <td><input type="button" onClick="javascript:window.opener.document.getElementById('dmId').value='$!d.id';window.opener.document.getElementById('descriptionDm').value='$!d.value';window.close();" value="Set"></td>
+      </tr>
+      #end
+</table>
+</body>
+</html>

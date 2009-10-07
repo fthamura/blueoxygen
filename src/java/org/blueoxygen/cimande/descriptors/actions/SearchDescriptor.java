@@ -92,8 +92,10 @@ public class SearchDescriptor extends DescriptorForm implements HibernateSession
 			return SUCCESS;
 
 		} catch (HibernateException e) {
+			e.printStackTrace();
 			return ERROR;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return ERROR;
 		} finally {
 			try {
