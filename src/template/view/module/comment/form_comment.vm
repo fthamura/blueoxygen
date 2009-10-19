@@ -1,0 +1,91 @@
+<html>
+<head>
+  <title>Workspace Management - Comment Manager</title>
+  <link type="text/css" rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<form name="FM" method="post" action="savecomment.action">
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="650">
+      <tr bgcolor="#d0dcff">
+        <td colspan="3"><b>Add Comment</b></td>
+      </tr>
+	<tr bgcolor="#ffffff">
+	<td>Name</td>
+        <td width="75%">
+        	<input type=text name="name">  
+        </td>
+      </tr>
+      <tr bgcolor="#ffffff">
+	<td>Category</td>
+        <td width="75%">
+        	<select name="categoryComment.id">
+        	#foreach($c in $categoryComments)
+        	<option value=$!c.id>$!c.description</option>
+        	#end
+        	</select>  
+        </td>
+      </tr>
+      <tr bgcolor="#ffffff">
+      <td valign=top>Comment</td>
+        <td width="75%">
+        <textarea name="txtcomment" cols="40" rows=7>$!comment.txtcomment</textarea> 
+        </td>
+      </tr>
+       <tr bgcolor="#e4e4e4">
+        <td colspan="3">
+        <input type="hidden" name="idContent" value="$!idContent">
+        <input type="hidden" name="comment.id" value="$!comment.id">
+        <input type="hidden" name="currDescriptor" value="$!currDescriptor">
+       	<input onclick="validasi()" value="Add Comments" type="button">&nbsp;&nbsp;
+      </tr>
+</table> 
+</form><br><br>
+#foreach($dm in $descriptorModules)
+	#if($!dm.droplistValue.id == "ff80818124089247012408b0f89b0008")
+		<a href="http://www.facebook.com/share.php?u=$!tmpurl" target="_blank" style="text-decoration:none;color:blue">Facebook Share</a><br>	
+	#end
+	#if($!dm.droplistValue.id == "ff80818124089247012408b1666e000a")
+		<a href="http://twitter.com/home?status=$!tmpurl" target="_blank" style="text-decoration:none;color:blue">Twitter Share</a>	<br>
+	#end
+#end
+
+
+<br>
+#if(!$comments.isEmpty())
+#foreach($c in $comments)
+<table bgcolor="gray" border="0" cellpadding="5" cellspacing="1" width="98%">
+      <tr bgcolor="#d0dcff">
+        <td><img src="../../images/silk/comments.png" border="0"> &nbsp; $!c.name</td>
+        <td width="40" align="right" style="border-left:1px solid #d0dcff;border-right:1px solid #d0dcff">
+        </td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td colspan=2>
+        $!c.text_comment
+        </td>
+      </tr>
+       <tr bgcolor="#e4e4e4">
+        <td colspan="2"> $!c.logInformation.createDate</td>
+      </tr>
+</table> <br>
+#end
+#end
+<script>
+
+function validasi(){
+if(FM.name.value==""){
+alert('Name Required');
+return false;
+}
+if(FM.txtcomment.value==""){
+alert('Comment required');
+return false;
+}
+
+FM.submit();
+return true;
+}
+</script>
+</body>
+</html>

@@ -39,7 +39,9 @@
 	<td>$!site.Title</a></td>
 	<td>$!site.Url_branding</a></td>
 	<td align="center"><a href="edit.action?id=$site.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a>&nbsp;
-	<a href="confirmDelete.action?id=$site.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a></td>	
+	<a href="confirmDelete.action?id=$site.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a>
+	<a href="../comment/create.action?idContent=$site.Id&currDescriptor=$!currDescriptor" title="Add Comment"><img src="../../images/silk/comment.png" border="0"></a></div>
+	</td>	
 </tr>
 
 #end

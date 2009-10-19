@@ -39,6 +39,7 @@
         <mapping class="org.blueoxygen.cimande.role.UserRole"/>
         <mapping class="org.blueoxygen.cimande.descriptors.Descriptor"/>
         <mapping class="org.blueoxygen.cimande.descriptors.DescriptorModule"/>
+        <mapping class="org.blueoxygen.cimande.comment.CommentManager"/>
         
         <mapping class="org.blueoxygen.cimande.modulefunction.ModuleFunction"/>
         <mapping class="org.blueoxygen.cimande.category.Category"/>

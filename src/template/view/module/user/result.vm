@@ -33,7 +33,7 @@
 	<td width="19%"><b>Name</b></td>
 	<td width="28%"><b>Company</b></td>
 	<td width="24%"><b><strong>Position</strong></b></td>
-	<td width="12%"><div align="center"><b>Action</b></div></td>
+	<td width="14%"><div align="center"><b>Action</b></div></td>
 	
 </tr>
 
@@ -48,6 +48,7 @@
 			<a href="confirmDelete.action?user.id=$!u.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a>  
 			<a href="userrole.action?user.id=$!u.Id" title="User Role"><img src="../../images/silk/user_green.png" border="0"></a> 
 			<a href="usersite.action?user.id=$!u.Id" title="User Site"><img src="../../images/silk/user_orange.png" border="0"></a></div>
+			<a href="../comment/create.action?idContent=$!u.id&currDescriptor=$!currDescriptor " title="Add Comment"><img src="../../images/silk/comment.png" border="0"></a></div>
 		</td>
 	</tr>
 #end

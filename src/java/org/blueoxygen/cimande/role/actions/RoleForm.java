@@ -11,12 +11,15 @@
 package org.blueoxygen.cimande.role.actions;
 
 
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.util.URLBean;
 import org.blueoxygen.cimande.CimandeAction;
 import org.blueoxygen.cimande.modulefunction.ModuleFunction;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 import org.blueoxygen.cimande.role.Role;
 import org.blueoxygen.cimande.security.User;
+import org.blueoxygen.util.PropertyLooker;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -37,7 +40,8 @@ public class RoleForm extends CimandeAction implements PersistenceAware
 	private String workspace_type="";
 	private int activeFlag=-1; //dummy status, means unstated
 	private String workType="";
-	
+	protected String currDescriptor;
+	protected String descriptorName;
 	public String execute(){
 		user = (User) pm.getById(User.class, getCurrentUser().getId());
 		if(user.getWorkspace_type().equalsIgnoreCase("flat")){
@@ -45,9 +49,22 @@ public class RoleForm extends CimandeAction implements PersistenceAware
 		}else{
 			workType = "";
 		}
+		
+		
+		
 		return SUCCESS;
 	}
 	
+
+	public String getCurrDescriptor() {
+		return currDescriptor;
+	}
+
+
+	public void setCurrDescriptor(String currDescriptor) {
+		this.currDescriptor = currDescriptor;
+	}
+
 
 	/**
 	 * @return Returns the description.

@@ -360,6 +360,32 @@
       <null/>
     </row>
   </table>
+  <table name="comment_manager">
+    <column>id</column>
+    <column>active_flag</column>
+    <column>create_by</column>
+    <column>create_date</column>
+    <column>update_by</column>
+    <column>update_date</column>
+    <column>id_content</column>
+    <column>name</column>
+    <column>text_comment</column>
+    <column>site_id</column>
+    <column>category_comment</column>
+    <row>
+      <value>ff808181246df78101246dff0b240001</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-20 01:11:21.0]]></value>
+      <value>1</value>
+      <value><![CDATA[2009-10-20 01:11:21.0]]></value>
+      <value>1</value>
+      <value>Kurniawan</value>
+      <value><![CDATA[comment pertama]]></value>
+      <null/>
+      <value>ff808181246de54c01246deb28270002</value>
+    </row>
+  </table>
   <table name="company">
     <column>id</column>
     <column>active_flag</column>
@@ -1095,10 +1121,26 @@
       <value>1</value>
       <value><![CDATA[2009-09-30 09:29:18.0]]></value>
       <value>1</value>
-      <value><![CDATA[2009-09-30 09:29:18.0]]></value>
+      <value><![CDATA[2009-10-05 14:45:12.0]]></value>
       <value>1234</value>
       <value>-1</value>
       <value>1234</value>
+      <value>2</value>
+      <value/>
+      <value/>
+      <null/>
+      <null/>
+    </row>
+    <row>
+      <value>ff808181246c23ec01246c27d7280001</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-19 16:36:40.0]]></value>
+      <value>1</value>
+      <value><![CDATA[2009-10-19 16:36:40.0]]></value>
+      <value><![CDATA[Comment manager]]></value>
+      <value>-1</value>
+      <value>comment</value>
       <value>2</value>
       <value/>
       <value/>
@@ -1142,10 +1184,34 @@
       <value>ff80818124089247012408b0f89b0008</value>
     </row>
     <row>
-      <value>ff8081812408c782012408c7beca0004</value>
+      <value>ff8081812427d9ec012427da366c0001</value>
       <value>1</value>
       <value>1</value>
-      <value><![CDATA[2009-09-30 09:29:18.0]]></value>
+      <value><![CDATA[2009-10-06 10:17:42.0]]></value>
+      <value/>
+      <value><![CDATA[1970-01-01 07:00:00.0]]></value>
+      <null/>
+      <null/>
+      <value>ff8081812408c59a012408c72ed90001</value>
+      <value>ff80818124089247012408b1666e000a</value>
+    </row>
+    <row>
+      <value>ff8081812428b356012428b6a4230001</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-06 14:18:28.0]]></value>
+      <value/>
+      <value><![CDATA[1970-01-01 07:00:00.0]]></value>
+      <null/>
+      <null/>
+      <value>ff8081812408c59a012408c72ed90001</value>
+      <value>ff80818124089247012408b0a1c10007</value>
+    </row>
+    <row>
+      <value>ff808181242d180f01242d18fc2e0001</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-07 10:44:22.0]]></value>
       <value/>
       <value><![CDATA[1970-01-01 07:00:00.0]]></value>
       <null/>
@@ -1154,15 +1220,87 @@
       <value>ff80818124089247012408b140e60009</value>
     </row>
     <row>
-      <value>ff8081812408c782012408c7bed50005</value>
+      <value>ff808181242d180f01242d191b960002</value>
       <value>1</value>
       <value>1</value>
-      <value><![CDATA[2009-09-30 09:29:18.0]]></value>
+      <value><![CDATA[2009-10-07 10:44:30.0]]></value>
       <value/>
       <value><![CDATA[1970-01-01 07:00:00.0]]></value>
       <null/>
       <null/>
       <value>ff8081812408c782012408c7be9e0001</value>
+      <value>ff80818124089247012408b1666e000a</value>
+    </row>
+    <row>
+      <value>ff808181246c23ec01246c27d7d00002</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-19 16:36:40.0]]></value>
+      <value/>
+      <value><![CDATA[1970-01-01 07:00:00.0]]></value>
+      <null/>
+      <null/>
+      <value>ff808181246c23ec01246c27d7280001</value>
+      <value>password</value>
+    </row>
+    <row>
+      <value>ff808181246d4fe801246d75e83c0001</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-19 22:41:34.0]]></value>
+      <value/>
+      <value><![CDATA[1970-01-01 07:00:00.0]]></value>
+      <null/>
+      <null/>
+      <value>14</value>
+      <value>ff80818124089247012408b0a1c10007</value>
+    </row>
+    <row>
+      <value>ff808181246d4fe801246d75f74a0002</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-19 22:41:37.0]]></value>
+      <value/>
+      <value><![CDATA[1970-01-01 07:00:00.0]]></value>
+      <null/>
+      <null/>
+      <value>14</value>
+      <value>ff80818124089247012408b0f89b0008</value>
+    </row>
+    <row>
+      <value>ff808181246d4fe801246d7659a30003</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-19 22:42:03.0]]></value>
+      <value/>
+      <value><![CDATA[1970-01-01 07:00:00.0]]></value>
+      <null/>
+      <null/>
+      <value>ff808081163cbe8a01163cc1db2f0001</value>
+      <value>ff80818124089247012408b1666e000a</value>
+    </row>
+    <row>
+      <value>ff808181246dc27201246dc307b80001</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-20 00:05:48.0]]></value>
+      <value/>
+      <value><![CDATA[1970-01-01 07:00:00.0]]></value>
+      <null/>
+      <null/>
+      <value>2</value>
+      <value>ff80818124089247012408b0f89b0008</value>
+    </row>
+    <row>
+      <value>ff808181246dc27201246dc316330002</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-20 00:05:52.0]]></value>
+      <value/>
+      <value><![CDATA[1970-01-01 07:00:00.0]]></value>
+      <null/>
+      <null/>
+      <value>2</value>
       <value>ff80818124089247012408b1666e000a</value>
     </row>
   </table>
@@ -1333,6 +1471,30 @@
       <value><![CDATA[2009-09-30 09:03:50.0]]></value>
       <value><![CDATA[Descriptor Module]]></value>
       <value>descriptor_module</value>
+      <null/>
+      <null/>
+    </row>
+    <row>
+      <value>ff808181245c054e01245c1a0a320001</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-16 13:47:40.0]]></value>
+      <value>1</value>
+      <value><![CDATA[2009-10-16 13:47:40.0]]></value>
+      <value>Keterangan</value>
+      <value>keterangan</value>
+      <null/>
+      <null/>
+    </row>
+    <row>
+      <value>ff808181246de54c01246dea6c850001</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-20 00:48:50.0]]></value>
+      <value>1</value>
+      <value><![CDATA[2009-10-20 00:48:50.0]]></value>
+      <value><![CDATA[Category Comment]]></value>
+      <value>category_comment</value>
       <null/>
       <null/>
     </row>
@@ -1683,6 +1845,66 @@
       <value>Twitter</value>
       <null/>
       <value>ff80818124089247012408b06d5e0006</value>
+    </row>
+    <row>
+      <value>ff808181245c054e01245c1a3ef10002</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-16 13:47:54.0]]></value>
+      <value>1</value>
+      <value><![CDATA[2009-10-16 13:47:54.0]]></value>
+      <value>Sakit</value>
+      <value>Sakit</value>
+      <null/>
+      <value>ff808181245c054e01245c1a0a320001</value>
+    </row>
+    <row>
+      <value>ff808181245c054e01245c1b026d0003</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-16 13:48:44.0]]></value>
+      <value>1</value>
+      <value><![CDATA[2009-10-16 13:48:44.0]]></value>
+      <value>Ijin</value>
+      <value>Ijin</value>
+      <null/>
+      <value>ff808181245c054e01245c1a0a320001</value>
+    </row>
+    <row>
+      <value>ff808181246de54c01246deb28270002</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-20 00:49:38.0]]></value>
+      <value>1</value>
+      <value><![CDATA[2009-10-20 00:49:38.0]]></value>
+      <value>General</value>
+      <value>General</value>
+      <null/>
+      <value>ff808181246de54c01246dea6c850001</value>
+    </row>
+    <row>
+      <value>ff808181246de54c01246deb763a0003</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-20 00:49:58.0]]></value>
+      <value>1</value>
+      <value><![CDATA[2009-10-20 00:49:58.0]]></value>
+      <value>Culture</value>
+      <value>Culture</value>
+      <null/>
+      <value>ff808181246de54c01246dea6c850001</value>
+    </row>
+    <row>
+      <value>ff808181246de54c01246dec33690004</value>
+      <value>1</value>
+      <value>1</value>
+      <value><![CDATA[2009-10-20 00:50:46.0]]></value>
+      <value>1</value>
+      <value><![CDATA[2009-10-20 00:50:46.0]]></value>
+      <value>Interest</value>
+      <value>Interest</value>
+      <null/>
+      <value>ff808181246de54c01246dea6c850001</value>
     </row>
   </table>
   <table name="gx_form_field">

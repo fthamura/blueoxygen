@@ -50,7 +50,7 @@ public class SearchSite extends SiteForm
 	}
 	
 	public String execute() {
-
+		setCurrDescriptor(getCurrDescriptorUrl());
 		try {
 			sess = hsf.createSession();
 			Criteria crit = sess.createCriteria(Site.class);

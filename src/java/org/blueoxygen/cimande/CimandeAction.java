@@ -13,6 +13,8 @@ package org.blueoxygen.cimande;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.util.URLBean;
 import org.blueoxygen.cimande.persistence.PersistenceAware;
 import org.blueoxygen.cimande.persistence.PersistenceManager;
 import org.blueoxygen.cimande.role.Role;
@@ -30,6 +32,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CimandeAction extends ActionSupport implements PersistenceAware, SessionCredentialsAware {
 	protected PersistenceManager manager;
 	protected SessionCredentials sessionCredentials;
+	protected String currDescriptor;
 	
 	private static Properties properties = new Properties();
 	static {
@@ -42,7 +45,16 @@ public class CimandeAction extends ActionSupport implements PersistenceAware, Se
 			npe.printStackTrace();
 		}
 	}
-
+	public static String getCurrDescriptorUrl(){
+		URLBean bean = new URLBean();
+		bean.setRequest(ServletActionContext.getRequest());
+		bean.setResponse(ServletActionContext.getResponse());
+		String target = ServletActionContext.getResponse().encodeRedirectURL(bean.toString());
+		
+		String descriptorCandidate[] = target.split("/");
+		String descriptorName = descriptorCandidate[3];
+		return descriptorName;
+	}
 	public static String get(String propertyName){
 		return properties.getProperty(propertyName);
 	}
@@ -59,5 +71,11 @@ public class CimandeAction extends ActionSupport implements PersistenceAware, Se
 	}
 	public Role getCurrentRole(){
 		return getCurrentUser().getRole();
+	}
+	public String getCurrDescriptor() {
+		return currDescriptor;
+	}
+	public void setCurrDescriptor(String currDescriptor) {
+		this.currDescriptor = currDescriptor;
 	}
 }

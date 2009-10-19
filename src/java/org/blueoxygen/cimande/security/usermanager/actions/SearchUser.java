@@ -38,6 +38,7 @@ public class SearchUser extends UserForm implements HibernateSessionFactoryAware
 	}
 
 	public String execute() {
+		setCurrDescriptor(getCurrDescriptorUrl());
 		try {
 			sess = hsf.createSession();
 			Criteria crit = sess.createCriteria(User.class);

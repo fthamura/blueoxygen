@@ -20,6 +20,8 @@ import org.hibernate.classic.Session;
 import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Order;
 
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.util.URLBean;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactory;
 import org.blueoxygen.cimande.persistence.hibernate.HibernateSessionFactoryAware;
 import org.blueoxygen.cimande.role.Role;
@@ -44,7 +46,9 @@ public class SearchRole extends RoleForm
 	}
 
 	public String execute() {
-
+		
+		setCurrDescriptor(getCurrDescriptorUrl());
+		System.out.println("URL "+getCurrDescriptorUrl());
 		try {
 			sess = hsf.createSession();
 			Criteria crit = sess.createCriteria(Role.class);

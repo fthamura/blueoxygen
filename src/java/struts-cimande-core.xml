@@ -1386,4 +1386,19 @@
 		</action>
 		
 	</package>
+	
+	<!-- Comment Manager -->
+	<package name="comment" extends="default"
+		namespace="/module/comment">
+		<action name="create" class="org.blueoxygen.cimande.comment.FormComment">
+			<result name="success" type="velocity">
+				/view/module/comment/form_comment.vm
+			</result>
+		</action>
+		<action name="savecomment" class="org.blueoxygen.cimande.comment.SaveComment">
+			<result name="success" type="redirect">
+				create.action?idContent=${idContent}&amp;currDescriptor=${currDescriptor}
+			</result>
+		</action>
+	</package>
 </struts>

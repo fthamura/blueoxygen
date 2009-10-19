@@ -38,6 +38,7 @@
 	<td align="center">
 		<a href="edit.action?id=$moduleRole.Id" title="Edit"><img src="../../images/silk/page_edit.png" border="0"></a>&nbsp;
 		<a href="confirmDelete.action?id=$moduleRole.Id" title="Delete"><img src="../../images/silk/delete.png" border="0"></a>
+		<a href="../comment/create.action?idContent=$moduleRole.Id&currDescriptor=$!currDescriptor" title="Add Comment"><img src="../../images/silk/comment.png" border="0"></a></div>
 	</td>
 	</tr>
 #end
