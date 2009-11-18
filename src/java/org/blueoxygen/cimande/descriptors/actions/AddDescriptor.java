@@ -20,6 +20,8 @@ import org.blueoxygen.cimande.gx.entity.GxWindow;
 import org.blueoxygen.cimande.security.SessionCredentials;
 import org.blueoxygen.cimande.security.SessionCredentialsAware;
 
+import sun.security.krb5.internal.crypto.Des;
+
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.opensymphony.xwork2.validator.annotations.Validation;
 import com.opensymphony.xwork2.validator.annotations.Validations;
@@ -40,6 +42,12 @@ public class AddDescriptor extends DescriptorForm implements SessionCredentialsA
 		Descriptor descr = new Descriptor();
 		DescriptorModule descriptorModule;
 		LogInformation logInfo;
+		if(getDescr().getId()==null || "".equalsIgnoreCase(getDescr().getId())){
+			setDescrs(pm.getList("SELECT d FROM "+Descriptor.class.getName()+" d WHERE d.name= '"+getName()+"'", null, null));
+			addActionError("Name already exist !!");
+		}
+			
+			
 /*		if (getName().equalsIgnoreCase("")) {
 			addActionError("Name can't be empty");
 		}

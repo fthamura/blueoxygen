@@ -108,22 +108,6 @@ public class FlatChildGenerator {
 
 				FlatJS = FlatJS  + "<li><a href=\""+sUrlAction+"create.action\" target=\"main\">"+mf.getDescription() + "</a></li>"; //dbTreeChild.getDescription();
 
-				// new action <a href="output/hello.html">New</a> 
-/*				if (sActionFlag.equals("2")) {
-					// - new_formula   	/{uri}/{new}.action
-					FlatJS = FlatJS + "<a href=\""+sUrlAction+"create.action\">New</a>";
-				} else {
-					FlatJS = FlatJS + "<a href=\""+sUrlAction+"action=new\">New</a>";
-				}
-
-				// search action
-				if (sActionFlag.equals("2")) {
-					// - search_formula   	/{uri}/{new}.action
-					FlatJS = FlatJS + "<a href=\""+sUrlAction+"filter.action\">Search</a>";
-				} else {
-					FlatJS = FlatJS + "<a href=\""+sUrlAction+"action=search\">Search</a>";
-				}
-				FlatJS = FlatJS + "</div></div>";*/
 			}
 			i++;
 		}

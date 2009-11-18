@@ -26,6 +26,7 @@ public class SaveSiteDescriptorACL extends SiteDescriptorACLForm {
 		manager.save(getSiteDescriptor());
 		GxDroplistValue acl = new GxDroplistValue();
 		for (String aclId : getAccesses()) {
+			if(!aclId.equals("password")){		
 			acl = (GxDroplistValue) manager.getById(GxDroplistValue.class,
 					aclId);
 			setSiteDescriptorAccess(new SiteDescriptorACLAccess());
@@ -34,6 +35,7 @@ public class SaveSiteDescriptorACL extends SiteDescriptorACLForm {
 					new LogInformation(getCurrentUser().getId(), 1));
 			getSiteDescriptorAccess().setAcl(acl);
 			manager.save(getSiteDescriptorAccess());
+			}
 		}
 		return SUCCESS;
 	}

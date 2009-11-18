@@ -49,7 +49,7 @@ public class FlatGenerator extends CimandeAction {
 				mySQL = "FROM tmp in " + RoleSitePrivilage.class + " WHERE tmp.roleSite.site.id = '" + this.siteId + "' AND tmp.roleSite.role.id = '" + this.roleId + "' ORDER BY (tmp.moduleFunction.description)";
 				List<RoleSitePrivilage> rsp = new ArrayList<RoleSitePrivilage>();
 				rsp = (List<RoleSitePrivilage>) manager.getList(mySQL, null,null);
-				
+				System.out.println("RSP");
 				for (RoleSitePrivilage tmp : rsp) {
 					FlatChild = new FlatChildGenerator(tmp.getModuleFunction().getId(), variableNode, iFirstNode, manager);
 					FlatJS = FlatJS + "<li><a class=\"head\" href=\"#\">"+tmp.getModuleFunction().getDescription()+"</a><ul>";
@@ -60,6 +60,7 @@ public class FlatGenerator extends CimandeAction {
 					//iFirstNode++;
 				}
 			}else{
+				System.out.println("RP");
 				mySQL = "FROM tmp in " + RolePrivilage.class + " WHERE tmp.role.id='" + this.roleId + "' ORDER BY (tmp.moduleFunction.description)";
 				List<RolePrivilage> rp = new ArrayList<RolePrivilage>();
 				rp = (List<RolePrivilage>) manager.getList(mySQL, null, null);

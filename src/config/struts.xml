@@ -17,7 +17,7 @@
 				<interceptor-ref name="logger"/>
 				<interceptor-ref name="static-params" />
 				<interceptor-ref name="params" />
-				<!-- <interceptor-ref name="cimande"/>  -->  
+				<!-- <interceptor-ref name="cimande"/> -->
 				<interceptor-ref name="validation"/>
 				<!-- <interceptor-ref name="hibernate"/>-->
 				 <interceptor-ref name="RoleDescriptorACL"/>

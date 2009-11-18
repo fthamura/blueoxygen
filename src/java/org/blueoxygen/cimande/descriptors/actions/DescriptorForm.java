@@ -43,6 +43,7 @@ public class DescriptorForm extends CimandeAction implements PersistenceAware {
 	private String windowId = "";
 	private int activeFlag = -1;
 	protected Descriptor descr = new Descriptor();
+	protected List<Descriptor> descrs = new ArrayList<Descriptor>();
 	private String workType="";
 	private DescriptorModule descriptorModule = new DescriptorModule();
 	private List<DescriptorModule> descriptorModules = new ArrayList<DescriptorModule>();
@@ -65,6 +66,16 @@ public class DescriptorForm extends CimandeAction implements PersistenceAware {
 	}
 	
 	
+	public List<Descriptor> getDescrs() {
+		return descrs;
+	}
+
+
+	public void setDescrs(List<Descriptor> descrs) {
+		this.descrs = descrs;
+	}
+
+
 	public List<DescriptorModule> getDescriptorModules() {
 		return descriptorModules;
 	}

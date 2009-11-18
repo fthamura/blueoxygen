@@ -36,15 +36,20 @@ public class SaveRoleDescriptorACL extends RoleDescriptorACLForm {
 
 		pm.save(getRoleDescriptor());
 		GxDroplistValue acl = new GxDroplistValue();
-		for (String aclId : getAccesses()) {
-			acl = (GxDroplistValue) pm.getById(GxDroplistValue.class,
-					aclId);
-			setRoleDescriptorAccess(new RoleDescriptorACLAccess());
-			getRoleDescriptorAccess().setRoleDescriptor(getRoleDescriptor());
-			getRoleDescriptorAccess().setLogInformation(
-					new LogInformation(getCurrentUser().getId(), 1));
-			getRoleDescriptorAccess().setAcl(acl);
-			pm.save(getRoleDescriptorAccess());
+		System.out.println("panjang "+getAccesses().size());
+		
+			for (String aclId : getAccesses()) {
+				if(!aclId.equals("password")){		
+				acl = (GxDroplistValue) pm.getById(GxDroplistValue.class,
+						aclId);
+				setRoleDescriptorAccess(new RoleDescriptorACLAccess());
+				getRoleDescriptorAccess().setRoleDescriptor(getRoleDescriptor());
+				getRoleDescriptorAccess().setLogInformation(
+						new LogInformation(getCurrentUser().getId(), 1));
+				getRoleDescriptorAccess().setAcl(acl);
+				pm.save(getRoleDescriptorAccess());
+				
+			}
 		}
 		return SUCCESS;
 	}

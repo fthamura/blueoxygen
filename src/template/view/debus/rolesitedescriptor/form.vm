@@ -26,6 +26,7 @@
 		<td>Site</td>
 		<td>
 			<select name="roleSite.id">
+				<option value=""></option>
 				#foreach($rs in $roleSites)
 				<option value="$!rs.id">$!rs.site.name</option>
 				#end

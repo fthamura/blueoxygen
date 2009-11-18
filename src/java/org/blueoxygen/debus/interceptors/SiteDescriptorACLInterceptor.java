@@ -28,8 +28,10 @@ public class SiteDescriptorACLInterceptor implements Interceptor,
 	}
 
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
+		System.out.println("AAA");
 		String namespace = actionInvocation.getProxy().getNamespace();
 		String actionName = actionInvocation.getProxy().getActionName();
+		System.out.println(actionName);
 		String descriptorCandidate[] = namespace.split("/");
 		String siteId = (String) ActionContext.getContext().getSession().get(
 				LoginFilter.LOGIN_CIMANDE_SITE);
@@ -43,11 +45,12 @@ public class SiteDescriptorACLInterceptor implements Interceptor,
 					+ "' AND sda.siteDescriptor.descriptor.name='"
 					+ descriptorName + "'", null, null);
 			if (!sdAccesses.isEmpty()) {
-				for (SiteDescriptorACLAccess sda : sdAccesses) {
-					if (actionName.equalsIgnoreCase(sda.getAcl().getValue())) {
-						return actionInvocation.invoke();
-					}
-				}
+//				for (SiteDescriptorACLAccess sda : sdAccesses) {
+//					if (actionName.equalsIgnoreCase(sda.getAcl().getValue())) {
+//						
+//						return actionInvocation.invoke();
+//					}
+//				}
 				return "notallowed";
 			}
 		}

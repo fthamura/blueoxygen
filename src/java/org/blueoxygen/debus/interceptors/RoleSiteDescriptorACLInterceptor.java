@@ -33,6 +33,7 @@ public class RoleSiteDescriptorACLInterceptor implements Interceptor,
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
 		String namespace = actionInvocation.getProxy().getNamespace();
 		String actionName = actionInvocation.getProxy().getActionName();
+		System.out.println(actionName);
 		String descriptorCandidate[] = namespace.split("/");
 		if(descriptorCandidate.length != 0){
 		if ("module".equalsIgnoreCase(descriptorCandidate[1])) {
@@ -48,11 +49,12 @@ public class RoleSiteDescriptorACLInterceptor implements Interceptor,
 					+ "' AND rsda.rsDescriptor.descriptor.name='"
 					+ descriptorName + "'", null, null);
 			if (!rdAccesses.isEmpty()) {
-				for (RoleSiteDescriptorACLAccess rda : rdAccesses) {
-					if (actionName.equalsIgnoreCase(rda.getAcl().getValue())) {
-						return actionInvocation.invoke();
-					}
-				}
+//				for (RoleSiteDescriptorACLAccess rda : rdAccesses) {
+//					if (actionName.equalsIgnoreCase(rda.getAcl().getValue())) {
+//						
+//						return actionInvocation.invoke();
+//					}
+//				}
 				return "notallowed";
 			}
 		}

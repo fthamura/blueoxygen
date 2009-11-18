@@ -41,11 +41,11 @@ PersistenceAware, SessionCredentialsAware {
 					+ "' AND wr.windowRole.window.name='"
 					+ descriptorName + "'", null, null);
 			if (!rdAccesses.isEmpty()) {
-				for (GxWindowRoleAccess rda : rdAccesses) {
-					if (actionName.equalsIgnoreCase(rda.getAccessName().getValue())) {
-						return actionInvocation.invoke();
-					}
-				}
+//				for (GxWindowRoleAccess rda : rdAccesses) {
+//					if (actionName.equalsIgnoreCase(rda.getAccessName().getValue())) {
+//						return actionInvocation.invoke();
+//					}
+//				}
 				return "notallowed";
 			}
 		}
